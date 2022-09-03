@@ -1,0 +1,160 @@
+/*global variable*/
+:root {
+  --main-color: #3164f4;
+  --main-margin-top: 40px;
+  --main-padding-top: 60px;
+  --main-margin-bottom: 40px;
+  --main-padding-bottom: 60px;
+  --second-color: rgb(15 116 143 / 70%);
+}
+/* global rules*/
+ul {
+  list-style: none;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.special {
+  font-size: 250%;
+  font-weight: 500;
+  letter-spacing: -2px;
+  text-align: center;
+}
+.special + p {
+  color: #777;
+  position: absolute;
+  left: 50%;
+  padding-top: 90px;
+  transform: translate(-50%, -50%);
+  line-height: 1.8;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 40%;
+}
+
+
+/*small*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/*medium*/
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/*large*/
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/*start Landing*/
+.landing {
+  background-color: rgb(0 0 0 /60%);
+  background-size: cover;
+  height: 100vh;
+  width: 390;
+}
+.landing2 {
+  background-image: url(../images/back2.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+.landing .container {
+  position: relative;
+}
+.landing .links a {
+  padding-bottom: 30px !important;
+  transition: 0.3s;
+}
+.landing .links a:hover {
+  color: var(--main-color);
+}
+.logo h4 {
+  color: white;
+}
+.form button,
+.par button {
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.par .start {
+  position: relative;
+  left: 16.5%;
+  background-color: var(--main-color);
+}
+.form button:hover,
+.par .start:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+.signup {
+  background-color: var(--main-color);
+}
+.signin {
+  background-color: transparent;
+}
+.tab {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #777;
+}
+.par {
+  padding: 20px;
+  position: absolute;
+  top: calc(100vh - 476px);
+  left: -100px;
+  width: 676px;
+  height: 328px;
+  background-color: rgb(0 0 0 / 40%);
+  color: white;
+  width: 100vh;
+}
+.par h2 {
+  font-size: 30px;
+  font-weight: 400;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  line-height: 1.5;
+  margin-left: 105px;
+}
+.par p {
+  font-size: 14px;
+  font-weight: 300;
+  padding-bottom: 20px;
+  padding-right: 25px;
+  line-height: 1.8;
+  margin-left: 105px;
+}
+.links i {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding-right: 20px;
+}
+/*end Landing*/

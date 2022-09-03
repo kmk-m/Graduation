@@ -1,0 +1,58 @@
+openapi: "3.0.0"
+info:
+  title: "Accept API Documentation"
+  version: "1.0.0"
+  contact:
+    name: "jokerf6"
+    email: "fhakem75@gmail.com"
+servers:
+  - url: http://localhost:3000/
+    description: "Local development server"
+paths:
+ /signin:
+    post:
+      tags:
+        - login
+      summary: signin user
+      operationId: signin user
+      responses:
+        '200':
+          description: signin success
+          content:
+           application/json:
+            schema:
+               $ref: '#/components/schemas/signin'
+      requestBody:
+          content:
+           application/json:
+             schema:
+               $ref: '#/components/schemas/signin'
+          required: true
+    put:
+      tags:
+        - login
+      summary: Update an existing pet
+      operationId: updatePet
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+components:
+   schemas:
+    signin:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      xml:
+        name: signin
+    
