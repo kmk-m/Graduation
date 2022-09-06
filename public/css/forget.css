@@ -7,7 +7,11 @@
 }
 
 body {
-  background-color: #0062c4;
+  background-image : url("https://swall.teahub.io/photos/small/63-634455_4k-blue-and-orange.jpg");
+  height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 a {
@@ -59,8 +63,8 @@ input[type="email"] {
 }
 
 button {
-  border: 1px solid #3b5998;
-  background-color: #3b5998;
+  border: 1px solid hsl(24, 100%, 59%);
+  background-color: hsl(24, 100%, 59%);
   color: white;
   font-size: 16px;
   font-weight: 600;
