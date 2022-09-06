@@ -1,6 +1,7 @@
 import Responses from "../../util/response";
 async function dahsboard(req, res) {
   const { user, motivation_videos, Hackathons, userHackthons } = req.models;
+  console.log(req.userRole);
   const User = await user.findOne({
     where: {
       userId: req.userId,
