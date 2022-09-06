@@ -4,7 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node",
+    "dev": "node swagger.js && nodemon --experimental-modules --es-module-specifier-resolution=node",
     "start": "node server.js",
     "dev2": "node swagger.js"
   },

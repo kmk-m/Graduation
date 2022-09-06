@@ -1,10 +1,14 @@
 const outputFile = "./swagger_output.json";
-const endpointsFile = ["./routes/dashboard/*.js", "./routes/auth/*.js"];
+const endpointsFile = [
+  "./routes/dashboard/*.js",
+  "./routes/auth/*.js",
+  "./routes/APIRouter.js",
+];
 const doc = {
   info: {
-    version: "", // by default: '1.0.0'
-    title: "", // by default: 'REST API'
-    description: "", // by default: ''
+    version: "1.0.0", // by default: '1.0.0'
+    title: "Accept Api", // by default: 'REST API'
+    description: "Documentation", // by default: ''
   },
   host: "", // by default: 'localhost:3000'
   basePath: "", // by default: '/'

@@ -53,13 +53,14 @@ function data(json) {
     element.appendChild(box);
   }
   for (let i = 0; i < json.data.videos.length; i += 1) {
+    console.log(json.data.videos[i]);
     var video = document.createElement("div");
     video.classList.add("video");
     video.innerHTML =
       "<p>" +
       json.data.videos[i].comment +
       "</p><video width=95% height=100% controls>  <source src=" +
-      json.data.videos[i].video.slice(47) +
+      json.data.videos[i] +
       "#t=0.6" +
       " type=video/mp4></video>";
     var element = document.getElementById("all");

@@ -116,6 +116,7 @@ async function register(req, res, next) {
         "User already Exists"
       );
     }
+    console.log(password);
     const hashPassword = await bcrypt.hash(password, 10);
 
     const newuser = await user.create({

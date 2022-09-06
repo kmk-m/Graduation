@@ -1,6 +1,3 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
 .container {
   padding-left: 80px;
   padding-right: 80px;
@@ -145,7 +142,7 @@
 
 .box {
   background-color: white;
-  width: 230px;
+  width: fit-content;
   padding: 10px 20px;
   border-radius: 20px;
   text-align: center;
@@ -158,8 +155,7 @@
 }
 
 .box h4 {
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 300;
   color: rgb(109, 107, 107);
 }
 
@@ -167,24 +163,468 @@
   color: rgb(0, 45, 128);
 }
 
-.video {
-  padding: 20px;
-  margin-top: 20px;
-  margin-left: 50px;
-  width: 70%;
-  background-color: white;
-  border-radius: 20px;
+@media only screen and (min-width: 1090px) and (max-width: 1600px) {
+  .nav1 {
+    width: 100%;
+    position: relative;
+    padding-bottom: 0;
+    background-color: white;
+  }
+
+  .search {
+    font-size: large;
+    width: 40%;
+    height: 10px;
+    border: 1px solid black;
+  }
+
+  .nav2 {
+    position: relative;
+    padding: 0;
+    gap: 50px;
+  }
+
+  .text {
+    padding-top: 5px;
+  }
+
+  .icons img {
+    width: 35px;
+    height: 35px;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
-.video p {
-  line-height: 1.8;
-  letter-spacing: 1.2px;
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 2.5%;
-  margin-right: 2.2%;
-  color: rgba(0, 0, 0, 0.9);
+
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: inline;
+  }
+
+  .text h1 {
+    display: inline;
+    font-size: large;
+    padding-right: 0;
+  }
+
+  .text {
+    padding: 0;
+  }
+
+  .body {
+    display: inline-block;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px;
+    width: 40%;
+    border: 1px solid black;
+    position: relative;
+    left: 10px;
+  }
+
+  .icons img {
+    width: 15px;
+    height: 15px;
+    padding-top: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    bottom: 10px;
+    right: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: inline;
+    flex-direction: row;
+    padding-left: 0;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: x-small;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: x-small;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
-.video video {
-  margin-left: 2.2%;
-  margin-right: 2%;
+
+@media only screen and (min-width: 321px) and (max-width: 583px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: inline;
+  }
+
+  .text h1 {
+    display: inline;
+    font-size: large;
+    padding-right: 0;
+  }
+
+  .text {
+    padding: 0;
+  }
+
+  .body {
+    display: inline-block;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px;
+    width: 40%;
+    border: 1px solid black;
+    position: relative;
+    left: 10px;
+  }
+
+  .icons img {
+    width: 15px;
+    height: 15px;
+    padding-top: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    bottom: 10px;
+    right: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: inline;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: x-small;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: x-small;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 538px) and (max-width: 582px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: inline;
+  }
+
+  .text h1 {
+    display: inline;
+    font-size: large;
+    padding-right: 0;
+  }
+
+  .text {
+    padding: 0;
+  }
+
+  .body {
+    display: inline-block;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px;
+    width: 40%;
+    border: 1px solid black;
+    position: relative;
+    left: 70px;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding-top: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    bottom: 15px;
+    right: 30px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: inline;
+    flex-direction: row;
+    padding-left: 15px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
+}
+
+@media only screen and (min-width: 583px) and (max-width: 700px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text h1 {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px 25px;
+    width: 30%;
+    border: 1px solid black;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding: 0 20px;
+    float: right;
+    position: relative;
+    bottom: 8px;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: inline;
+    flex-direction: row;
+    padding-left: 0;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text {
+    padding-top: 0px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1089px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text h1 {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px 25px;
+    width: 30%;
+    border: 1px solid black;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding: 0 20px;
+    float: right;
+    position: relative;
+    bottom: 8px;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+    justify-content: center;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text {
+    padding-top: 0px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
 }
