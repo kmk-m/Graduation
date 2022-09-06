@@ -18,6 +18,11 @@ function init(connection) {
         type: dataType.UUID,
         allowNull: false,
       },
+      show: {
+        type: dataType.STRING,
+        allowNull: false,
+        defaultValue: false,
+      },
     },
     {
       createdAt: false,

@@ -22,6 +22,10 @@ function init(connection) {
         type: dataType.STRING,
         allowNull: false,
       },
+      courseId: {
+        type: dataType.STRING,
+        allowNull: false,
+      },
     },
     {
       createdAt: false,
@@ -29,4 +33,15 @@ function init(connection) {
     }
   );
 }
-export { init };
+function associate(models) {
+  const { Courses, Tracks } = models;
+  Tracks.hasOne(Courses, {
+    foreignKey: "courseId",
+    as: "firstCourse",
+  });
+  Courses.belongsTo(Tracks, {
+    foreignKey: "courseId",
+    as: "firstCourse",
+  });
+}
+export { init, associate };
