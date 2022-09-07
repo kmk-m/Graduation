@@ -20,7 +20,6 @@ router.get("/:trackId", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
-  res.send("hello");
   res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
 });
 router.get("/data/:trackId", Tracks, (req, res) => {
