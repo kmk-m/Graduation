@@ -5,20 +5,32 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: url("../../assets/images/ff.jpg");
+/* .landing {
+  background-image: url("https://codoid.com/wp-content/uploads/2022/04/priscilla-du-preez-zZYchexti_0-unsplash.jpg");
+  background-size: cover;
+  height: 100vh;
+} */
 
-  overflow: hidden;
+.landing2 {
+  background-color: rgb(0 0 0 /70%);
+  background-size: cover;
+  height: 100vh;
 }
-
+.landing {
+  background-image: url("https://codoid.com/wp-content/uploads/2022/04/priscilla-du-preez-zZYchexti_0-unsplash.jpg");
+  background-size: cover;
+  height: 100vh;
+}
 .par {
   position: absolute;
   color: white;
   text-align: left;
   margin-left: 160px;
-  margin-top: 146px;
+  margin-top: 120px;
+}
+.cont {
+  position: absolute;
+  margin-top: -40px;
 }
 
 .par h1 {
@@ -49,7 +61,7 @@ body {
 .center h1 {
   text-align: center;
   padding: 20px 0;
-  color: rgb(2, 2, 99);
+  color: gray;
 }
 
 .center form {
@@ -72,7 +84,7 @@ form .txt_field {
   height: 40px;
   font-size: 16px;
   border: none;
-  background: none;
+  background: transparent;
   outline: none;
 }
 
@@ -113,7 +125,6 @@ button {
   width: 40%;
   height: 45px;
   border: 1px solid;
-  background-color: rgb(2, 2, 99);
   border-radius: 2px;
   font-size: 25px;
   color: white;
@@ -122,15 +133,16 @@ button {
   margin-top: 10px;
   cursor: pointer;
 }
+button {
+  background-color: rgb(2, 2, 99);
+}
 
 .field {
   text-align: left;
   color: #030303;
   cursor: auto;
-}
-
-input::placeholder {
-  padding: 15px;
+  margin: 5px 15px;
+  color: gray;
 }
 
 input:hover {
@@ -154,23 +166,22 @@ input:hover {
   text-decoration: underline;
 }
 
-.links input,
 .btn {
   width: 100%;
   padding: 12px;
   border: none;
-  border-radius: 2px;
-  margin: 5px 50px;
+  border-radius: 10px;
   opacity: 0.85;
-  font-size: 17px;
+  font-size: 21px;
+  margin-top: -20px;
+  margin-bottom: 10px;
 
   text-decoration: none;
   /* remove underline from anchors */
 }
 
-input:hover,
 .btn:hover {
-  opacity: 1;
+  background-color: rgb(25, 25, 151);
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
@@ -189,10 +200,6 @@ input:hover,
 }
 
 /* style the submit button */
-input {
-  color: white;
-  text-align: center;
-}
 
 /* Two-column layout */
 .col {
@@ -268,7 +275,10 @@ input {
     text-align: center;
   }
 }
-
+.links {
+  padding-top: 35px;
+  padding-left: 25px;
+}
 .signup_link a {
   cursor: pointer;
   color: #3164f4;
@@ -278,4 +288,14 @@ input {
   color: gray;
   font-weight: 500;
   cursor: pointer;
+}
+.pass:hover {
+  color: rgb(2, 2, 99);
+}
+.fa-facebook {
+  color: #30529c;
+}
+.col {
+  font-size: 21px;
+  margin-left: 45px;
 }
