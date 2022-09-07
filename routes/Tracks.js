@@ -6,7 +6,7 @@ import Tracks from "../controllers/Tracks.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-router.get("/:{trackId}", (req, res) => {
+router.get("/:trackId", (req, res) => {
   // #swagger.tags = ['Tracks']
   // #swagger.description = "to get Tracks page"
   // #swagger.request = "http://127.0.0.1:3000/Tracks"
@@ -20,7 +20,8 @@ router.get("/:{trackId}", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
-  //res.sendFile(path.join(__dirname + "../../views/html/Tracks.html"));
+  res.send("hello");
+  //  res.sendFile(path.join(__dirname + "../../views/html/Tracks.html"));
 });
 router.get("/data/:trackId", Tracks, (req, res) => {
   // #swagger.tags = ['Tracks']
