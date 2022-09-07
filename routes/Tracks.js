@@ -21,7 +21,7 @@ router.get("/:trackId", (req, res) => {
             }
     } */
   res.send("hello");
-  //  res.sendFile(path.join(__dirname + "../../views/html/Tracks.html"));
+  res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
 });
 router.get("/data/:trackId", Tracks, (req, res) => {
   // #swagger.tags = ['Tracks']
