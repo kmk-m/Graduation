@@ -123,7 +123,7 @@
   margin: 0;
   background-color: #f3f2ef;
   width: 100%;
-  min-height: calc(100% - 200px);
+  height: 1120px;
 }
 
 .notdrp {
@@ -161,6 +161,14 @@
 
 .box a:hover {
   color: rgb(0, 45, 128);
+}
+
+.video {
+  width: 800px;
+  height: 400px;
+  padding: 50px;
+  position: relative;
+  left: 200px
 }
 
 @media only screen and (min-width: 1090px) and (max-width: 1600px) {
