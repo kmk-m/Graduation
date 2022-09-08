@@ -57,7 +57,7 @@ function data(json) {
     var video = document.createElement("div");
     video.classList.add("video");
     video.innerHTML =
-      "<p> Hello to our Site </p>" + "<video width=95% height=100% controls>  <source src=" +
+      "<p> Welcome to our Site </p>" + "<video width=95% height=100% controls>  <source src=" +
       json.data.videos[i] +
       "#t=0.6" +
       " type=video/mp4></video>";

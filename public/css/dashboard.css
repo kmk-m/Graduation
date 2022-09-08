@@ -167,11 +167,16 @@
   width: 800px;
   height: 400px;
   padding: 50px;
-  position: relative;
-  left: 200px
+  position: absolute;
+  left: 150px;
 }
 
-@media only screen and (min-width: 1090px) and (max-width: 1600px) {
+p {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+@media only screen and (min-width: 1640px) and (max-width: 1800px) {
   .nav1 {
     width: 100%;
     position: relative;
@@ -202,6 +207,14 @@
     padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .video {
+    width: 1200px;
+    height: 600px;
+    padding: 50px;
+    position: absolute;
+    left: 100px;
   }
 }
 
@@ -380,7 +393,34 @@
     text-align: center;
     margin-bottom: 20px;
   }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: 0;
+    top: 300px;
+  }
+
+  .video {
+    width: 350px;
+    height: 200px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+  }
+
+  .all {
+    position: absolute;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #f3f2ef;
+    width: 100%;
+    height: 1420px;
+  }
+
 }
+
 
 @media only screen and (min-width: 538px) and (max-width: 582px) {
   .container {
@@ -472,7 +512,7 @@
   }
 }
 
-@media only screen and (min-width: 583px) and (max-width: 700px) {
+@media only screen and (min-width: 584px) and (max-width: 700px) {
   .container {
     padding-left: 10px;
     padding-right: 10px;
@@ -551,9 +591,26 @@
     position: relative;
     right: 150px;
   }
+
+  .video {
+    width: 420px;
+    height: 220px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 50px;
+  }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: 0;
+    top: 300px;
+  }
+
 }
 
-@media only screen and (min-width: 701px) and (max-width: 1089px) {
+@media only screen and (min-width: 701px) and (max-width: 800px) {
   .container {
     padding-left: 10px;
     padding-right: 10px;
@@ -634,5 +691,218 @@
     margin-bottom: 20px;
     position: relative;
     right: 150px;
+  }
+
+  .video {
+    width: 350px;
+    height: 220px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 50px;
+  }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: -200px;
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 900px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text h1 {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px 25px;
+    width: 30%;
+    border: 1px solid black;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding: 0 20px;
+    float: right;
+    position: relative;
+    bottom: 8px;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+    justify-content: center;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text {
+    padding-top: 0px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
+
+  .video {
+    width: 400px;
+    height: 220px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 50px;
+  }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: -200px;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1300px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text h1 {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  .search {
+    font-size: small;
+    padding: 5px 25px;
+    width: 30%;
+    border: 1px solid black;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding: 0 20px;
+    float: right;
+    position: relative;
+    bottom: 8px;
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+    justify-content: center;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text {
+    padding-top: 0px;
+  }
+
+  .box {
+    background-color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
+
+  .video {
+    width: 550px;
+    height: 220px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 50px;
+  }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: -200px;
   }
 }
