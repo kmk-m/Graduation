@@ -10,6 +10,14 @@ async function getdata(req, res, next) {
     },
     attributes: ["firstName", "lastName", "image"],
   });
+  const valid = await TrackEvent.findOne({
+    where: {
+      trackId: trackId,
+    },
+  });
+  if (!valid) {
+    return Response.badRequest(res, "track not found", " track not found");
+  }
   const cretificate = await userTracks.findOne({
     where: {
       userId: req.userId,

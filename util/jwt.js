@@ -37,6 +37,7 @@ function authadmin(req, res, next) {
     return res.sendStatus(403);
   }
 }
+
 export default {
   authadmin,
   authenticateWithJWT,
