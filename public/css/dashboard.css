@@ -123,7 +123,7 @@
   margin: 0;
   background-color: #f3f2ef;
   width: 100%;
-  height: 1120px;
+  height: 1200px;
 }
 
 .notdrp {
@@ -142,7 +142,7 @@
 
 .box {
   background-color: white;
-  width: fit-content;
+  width: 235px;
   padding: 10px 20px;
   border-radius: 20px;
   text-align: center;
@@ -164,7 +164,7 @@
 }
 
 .video {
-  width: 800px;
+  width: 800 px;
   height: 400px;
   padding: 50px;
   position: absolute;
@@ -215,6 +215,11 @@ p {
     padding: 50px;
     position: absolute;
     left: 100px;
+  }
+
+  .hr {
+    position: relative;
+    top: 10px;
   }
 }
 
@@ -387,7 +392,6 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -398,7 +402,7 @@ p {
     padding: 20px 20px;
     position: absolute;
     right: 0;
-    top: 300px;
+    top: 350px;
   }
 
   .video {
@@ -502,7 +506,7 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
+
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -583,7 +587,7 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
+
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -605,7 +609,7 @@ p {
     padding: 20px 20px;
     position: absolute;
     right: 0;
-    top: 300px;
+    top: 360px;
   }
 
 }
@@ -684,7 +688,7 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
+
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -705,7 +709,9 @@ p {
   .boxes {
     padding: 20px 20px;
     position: absolute;
-    right: -200px;
+    width: 600px;
+    right: -470px;
+
   }
 }
 
@@ -783,7 +789,7 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
+
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -804,7 +810,8 @@ p {
   .boxes {
     padding: 20px 20px;
     position: absolute;
-    right: -200px;
+    width: 600px;
+    right: -470px;
   }
 }
 
@@ -882,7 +889,7 @@ p {
 
   .box {
     background-color: white;
-    width: fit-content;
+
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
@@ -903,6 +910,123 @@ p {
   .boxes {
     padding: 20px 20px;
     position: absolute;
-    right: -200px;
+    width: 600px;
+    right: -470px;
+  }
+}
+
+@media only screen and (min-width: 1301px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text h1 {
+    display: inline;
+    padding-right: 20px;
+    position: relative;
+    top: 15px;
+  }
+
+  .search {
+    font-size: 20px;
+    padding: 5px 25px;
+    width: 30%;
+    height: 30px;
+    border: 1px solid black;
+    position: relative;
+    left: 250px;
+    top: 10px;
+  }
+
+  .icons img {
+    width: 25px;
+    height: 25px;
+    padding: 0 20px;
+    float: right;
+    position: relative;
+
+  }
+
+  .hr {
+    padding: 1px;
+    background-color: black;
+    position: relative;
+
+  }
+
+  .nav2 {
+    padding-bottom: 20px;
+    top: 2px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    gap: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 20px;
+    justify-content: center;
+  }
+
+  .notdrp {
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .dropbtn {
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 5px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text {
+    padding-top: 0px;
+  }
+
+  .box {
+    background-color: white;
+    width: 220px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    right: 150px;
+  }
+
+  .video {
+    width: 950px;
+    height: 400px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 50px;
+  }
+
+  .boxes {
+    padding: 20px 20px;
+    position: absolute;
+    right: -100px;
+  }
+
+  .all {
+    position: absolute;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #f3f2ef;
+    width: 100%;
+    height: 1200px;
   }
 }
