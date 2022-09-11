@@ -17,7 +17,21 @@ fetch("http://127.0.0.1:3000/dashboard", {
   .then((response) => response.json())
   .then((json) => data(json));
 function data(json) {
-  console.log(json);
+  let tracks = json.data.tracks;
+  tracks.forEach((x) => {
+    let link = document.createElement("a");
+    link.innerText = x.name;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    let parent = document.getElementById("myDropdown");
+    parent.appendChild(link);
+  });
+  tracks.forEach((x) => {
+    let link = document.createElement("a");
+    link.innerText = x.name;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    let parent1 = document.getElementById("myDropdown1");
+    parent1.appendChild(link);
+  });
   var img = document.createElement("img");
   img.src = json.data.User.image;
   var element = document.getElementById("icons");

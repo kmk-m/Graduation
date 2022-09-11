@@ -14,13 +14,13 @@ async function login(req, res, next) {
       return Responses.badRequest(res, "400", " password cannt be empty ");
     }
     const newuser = await user.findOne({ where: { email } });
-
+    console.log(newuser);
     if (newuser === null) {
       return Responses.badRequest(res, "400", " user not found ");
     }
 
     const checkpassword = await bcrypt.compare(password, newuser.password);
-
+    console.log(password, checkpassword);
     if (!checkpassword) {
       return Responses.badRequest(
         res,

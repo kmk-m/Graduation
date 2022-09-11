@@ -2,6 +2,12 @@ import passport from "passport";
 import GoogleStrategy from "passport-google-oauth2";
 import Responses from "../../util/response";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 async function signingoogle(req, res, next) {
   try {
@@ -12,7 +18,14 @@ async function signingoogle(req, res, next) {
     });
     // if user exists return the user
     if (existingUser) {
-      return Responses.success(res, "sign in", existingUser);
+      const token = jwt.sign(
+        { userId: existingUser.userId, role: existingUser.role },
+        process.env.ACCESS_TOKEN_SECRET
+      );
+      res.cookie("access_token", token); //Sets name = express
+      return res.sendFile(
+        path.join(__dirname + "../../../views/html/dashboard.html")
+      );
     }
     const hashPassword = await bcrypt.hash("google", 10);
     const User = await user.create({
@@ -22,7 +35,14 @@ async function signingoogle(req, res, next) {
       password: hashPassword,
       emailVerified: true,
     });
-    return Responses.success(res, "Signup Succesfully", User);
+    const token = jwt.sign(
+      { userId: existingUser.userId, role: existingUser.role },
+      process.env.ACCESS_TOKEN_SECRET
+    );
+    res.cookie("access_token", token); //Sets name = express
+    return res.sendFile(
+      path.join(__dirname + "../../../views/html/dashboard.html")
+    );
   } catch (error) {
     return next(error);
   }

@@ -565,43 +565,79 @@
                         }
                       }
                     },
-                    "videos": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "video": {
-                            "type": "string",
-                            "example": "string"
-                          },
-                          "comment": {
-                            "type": "string",
-                            "example": "string"
-                          }
+                    "track": {
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "introVideo": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "string"
                         }
                       }
                     },
-                    "hackathons": {
+                    "courses": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "name": {
+                          "image": {
                             "type": "string",
                             "example": "string"
                           },
-                          "type": {
+                          "introVideo": {
                             "type": "string",
                             "example": "string"
                           },
-                          "date": {
+                          "description": {
                             "type": "string",
                             "example": "date"
+                          },
+                          "duration": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "instructor": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "language": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "allow": {
+                            "type": "string",
+                            "example": "boolen"
                           }
                         }
                       }
                     }
                   }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Track not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "400"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Track not found"
                 }
               },
               "xml": {

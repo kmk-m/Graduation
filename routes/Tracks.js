@@ -35,20 +35,32 @@ router.get("/data/:trackId", Tracks, (req, res) => {
                   "lastName": "string",
                   "image": "string",
                 },
-                "videos":[
+                "track":
                   {
-                    "video": "string",
-                    "comment": "string"
+                    "image": "string",
+                    "introVideo": "string",
+                    "name": "string"
                   }
-                ],
-                "hackathons":[
+                ,
+                "courses":[
                   {
-                    "name": "string",
-                    "type": "string",
-                    "date": "date"
+                    "image": "string",
+                    "introVideo": "string",
+                    "description": "date",
+                    "duration": "string",
+                    "instructor": "string",
+                    "language": "string",
+                     "allow": "boolen",
                   }
                 ],
               }
+            }
+    } */
+  /* #swagger.responses[400] = {
+            description: 'Track  not found',
+            schema: {
+                "code": "400",
+                "message": "Track not found",
             }
     } */
 });
