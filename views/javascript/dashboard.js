@@ -59,7 +59,8 @@ function data(json) {
     video.innerHTML =
       "<p>" +
       json.data.videos[i].comment +
-      "</p><video width=95% height=100% controls>  <source src=" +
+      "  </p>" +
+      "<video width=95% height=100% controls>  <source src=" +
       json.data.videos[i] +
       "#t=0.6" +
       " type=video/mp4></video>";

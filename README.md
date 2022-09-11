@@ -9,7 +9,7 @@
 * npm run dev
 
 # To add updates 
-* Git add *
+* git add *
 * git commit -m myedit
-* Git pull
+* git pull
 * git push origin edit
