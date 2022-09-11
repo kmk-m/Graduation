@@ -6,6 +6,7 @@ async function login(req, res, next) {
     const { user } = req.models;
 
     const { email, password } = req.body;
+    console.log(req.body)
     if (!email) {
       return Responses.badRequest(res, "400", " email cannt be empty ");
     }
