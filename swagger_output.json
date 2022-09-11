@@ -474,7 +474,7 @@
         }
       }
     },
-    "/Tracks/{{trackId}}": {
+    "/Tracks/{trackId}": {
       "get": {
         "tags": [
           "Tracks"
@@ -482,7 +482,7 @@
         "description": "to get Tracks page",
         "parameters": [
           {
-            "name": "{trackId}",
+            "name": "trackId",
             "in": "path",
             "required": true,
             "type": "string"
