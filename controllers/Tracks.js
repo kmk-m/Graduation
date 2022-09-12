@@ -10,7 +10,7 @@ async function getdata(req, res, next) {
     },
     attributes: ["firstName", "lastName", "image"],
   });
-  const valid = await TrackEvent.findOne({
+  const valid = await Tracks.findOne({
     where: {
       trackId: trackId,
     },
