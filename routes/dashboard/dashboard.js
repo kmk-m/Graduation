@@ -54,4 +54,19 @@ router.get("/dashboard", dashboard, (req, res) => {
             }
     } */
 });
+
+router.get('/search',(_ , res)=>{
+  let pythondata;
+  const py = spawn('python' , ['search.py'])
+  py.stdout.on('data', (data)=>{
+      pythondata = data.toString();
+  })
+  
+  py.on('close' , (code)=>{
+      res.send(pythondata)
+      console.log(pythondata);
+      console.log(`child process exited with code ${code}`);
+  })
+});
+
 export default router;
