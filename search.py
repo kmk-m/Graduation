@@ -1,20 +1,34 @@
 #from mysql import connector
 import requests
-import psycopg2
+import pymysql
+mydb = pymysql.connect(host="localhost",user="root",passwd="",database="lms" )
 
-mydb = psycopg2.connect(
-    host = 'localhost',
-    database = 'waseet',
-    user = 'postgres',
-    port = 5432,
-    password = 'Wolfteam_12'
-)
 
-# url = 'http://127.0.0.1:3000/dashboard'
-# json_data = requests.get(url).json()
-# code = json_data['code']
-# message = json_data['message']
-# print(code , '\n' , message)
+# mydb = sequelize({
+#     host : 'localhost',
+#     database : 'waseet',
+#     user : 'postgres',
+#     port : 5432,
+#     password : 'Wolfteam_12'
+# });
+
+  
+# get cookie
+firstUrl = 'http://127.0.0.1:3000/signin';
+payload={'email': "fhakem75@gmail.com",'password': "Fahdhakem123"}
+resp1 = requests.post(firstUrl, data=payload).json();
+cookie = resp1['data']
+# manually pass previously returned cookies into following request
+  
+# print the response dictionary
+
+url = 'http://127.0.0.1:3000/dashboard'
+cookies = {'access_token': cookie}
+
+json_data = requests.get(url, cookies=cookies).json()
+code = json_data['code']
+message = json_data['message']
+print(json_data , '\n' , message)
 cat = None
 sub = []
 search_input = 'python'

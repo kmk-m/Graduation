@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import Responses from "../../util/response";
 async function login(req, res, next) {
   try {
+    console.log(req.body);
     const { user } = req.models;
 
     const { email, password } = req.body;
@@ -41,9 +42,7 @@ async function login(req, res, next) {
     );
     res.cookie("access_token", token); //Sets name = express
 
-    return Responses.success(res, "logged in Successfully", {
-      role: user.role,
-    });
+    return Responses.success(res, "logged in Successfully", token);
   } catch (err) {
     return next(err);
   }
