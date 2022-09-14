@@ -1,0 +1,53 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.practice {
+    position: fixed;
+    height: 100%;
+    width: 210px;
+    background: #0e1b3e;
+}
+
+img {
+    position: relative;
+    left: 55px;
+    top: 250px;
+}
+
+.all_practice {
+    position: relative;
+    left: 60px;
+    top: 245px;
+    color: white;
+    text-decoration-line: none;
+    vertical-align: middle;
+}
+
+.op {
+    font-size: large;
+    position: relative;
+    left: 45px;
+    top: -20px;
+    color: white;
+}
+
+.image1 {
+    top: -165px;
+    left: 60px;
+    width: 80px;
+    height: 70px;
+}
+
+button {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    left: 70px;
+    top: 375px;
+    color: white;
+    background-color: #0e1b3e;
+    border-color: white;
+}
