@@ -104,7 +104,7 @@ async function register(req, res, next) {
     }
     const { firstName, lastName, email, password, confirmpassword } =
       validateError.value;
-      console.log(req.body)
+    console.log(req.body);
     const check = await user.findOne({
       where: {
         email,
@@ -125,6 +125,7 @@ async function register(req, res, next) {
       lastName,
       email,
       password: hashPassword,
+      interest: "frontend",
       emailVerified: 1,
     });
     const accessToken = jwt.sign(

@@ -16,6 +16,10 @@ function init(connection) {
       type: dataType.STRING,
       allowNull: false,
     },
+    interest: {
+      type: dataType.TEXT,
+      allowNull: false,
+    },
     email: {
       type: dataType.STRING,
       allowNull: false,
