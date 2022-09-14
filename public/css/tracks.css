@@ -7,21 +7,22 @@ body {
 .practice {
     position: fixed;
     height: 100%;
-    width: 210px;
+    width: 299px;
     background: #0e1b3e;
 }
 
 img {
     position: relative;
-    left: 55px;
-    top: 250px;
+    left: 87px;
+    top: 275px;
 }
 
 .all_practice {
     position: relative;
-    left: 60px;
-    top: 245px;
+    left: 90px;
+    top: 270px;
     color: white;
+    font-size:x-large;
     text-decoration-line: none;
     vertical-align: middle;
 }
@@ -29,25 +30,32 @@ img {
 .op {
     font-size: large;
     position: relative;
-    left: 45px;
-    top: -20px;
+    left: 80px;
+    top: 10px;
+    font-size: x-large;
     color: white;
 }
 
 .image1 {
-    top: -165px;
-    left: 60px;
+    top: -135px;
+    left: 110px;
     width: 80px;
     height: 70px;
 }
 
 button {
     position: relative;
-    width: 100px;
+    width: 110px;
     height: 40px;
-    left: 70px;
-    top: 375px;
-    color: white;
+    left: -45px;
+    top: 470px;
     background-color: #0e1b3e;
     border-color: white;
+}
+.textbutton
+{
+    position: relative;
+    left: 3px;
+    top:-13px;
+    color: white;
 }
