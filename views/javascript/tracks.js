@@ -1,4 +1,6 @@
-let id = "2e0cd456-33de-11ed-a1c3-0a33a65a227b";
+let id = window.location.href;
+id = id.slice(id.lastIndexOf("/") + 1);
+console.log(id);
 fetch("http://127.0.0.1:3000/Tracks/data/" + id, {
   method: "GET",
   headers: {
