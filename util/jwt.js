@@ -1,11 +1,16 @@
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import Responses from "./response";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 function authenticateWithJWT(req, res, next) {
   const token = req.cookies.access_token;
 
   if (!token) {
-    return Responses.forbidden(res, "you canot access this page before login");
+    return res.sendFile(path.join(__dirname + "/../views/html/login.html"));
   }
   try {
     const data = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -13,7 +18,7 @@ function authenticateWithJWT(req, res, next) {
     req.userRole = data.role;
     return next();
   } catch {
-    return Responses.forbidden(res, "you canot access this page before login");
+    return res.sendFile(path.join(__dirname + "/../views/html/login.html"));
   }
 }
 function authadmin(req, res, next) {
@@ -37,6 +42,7 @@ function authadmin(req, res, next) {
     return res.sendStatus(403);
   }
 }
+
 export default {
   authadmin,
   authenticateWithJWT,

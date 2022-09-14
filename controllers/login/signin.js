@@ -6,6 +6,7 @@ async function login(req, res, next) {
     const { user } = req.models;
 
     const { email, password } = req.body;
+    console.log(req.body)
     if (!email) {
       return Responses.badRequest(res, "400", " email cannt be empty ");
     }
@@ -13,13 +14,13 @@ async function login(req, res, next) {
       return Responses.badRequest(res, "400", " password cannt be empty ");
     }
     const newuser = await user.findOne({ where: { email } });
-
+    console.log(newuser);
     if (newuser === null) {
       return Responses.badRequest(res, "400", " user not found ");
     }
 
     const checkpassword = await bcrypt.compare(password, newuser.password);
-
+    console.log(password, checkpassword);
     if (!checkpassword) {
       return Responses.badRequest(
         res,

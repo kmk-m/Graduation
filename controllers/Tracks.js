@@ -10,6 +10,14 @@ async function getdata(req, res, next) {
     },
     attributes: ["firstName", "lastName", "image"],
   });
+  const valid = await Tracks.findOne({
+    where: {
+      trackId: trackId,
+    },
+  });
+  if (!valid) {
+    return Response.badRequest(res, "track not found", " track not found");
+  }
   const cretificate = await userTracks.findOne({
     where: {
       userId: req.userId,
@@ -52,13 +60,17 @@ async function getdata(req, res, next) {
           "instructor",
           "language",
           "allow",
+          "courseId",
         ],
       })
     );
     if (UserCourses && UserCourses.dataValues.status === "Done") {
       courses[i].allow = true;
     }
-    if (UserCourses && courses[i].courseId === track.courseId) {
+    console.log(courses[i].courseId);
+    console.log(track.courseId);
+    if (courses[i].courseId === track.courseId) {
+      console.log("ok");
       courses[i].allow = true;
     }
   }

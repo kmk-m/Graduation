@@ -6,7 +6,7 @@ import Tracks from "../controllers/Tracks.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-router.get("/:{trackId}", (req, res) => {
+router.get("/:trackId", (req, res) => {
   // #swagger.tags = ['Tracks']
   // #swagger.description = "to get Tracks page"
   // #swagger.request = "http://127.0.0.1:3000/Tracks"
@@ -20,7 +20,7 @@ router.get("/:{trackId}", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
-  //res.sendFile(path.join(__dirname + "../../views/html/Tracks.html"));
+  res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
 });
 router.get("/data/:trackId", Tracks, (req, res) => {
   // #swagger.tags = ['Tracks']
@@ -35,20 +35,32 @@ router.get("/data/:trackId", Tracks, (req, res) => {
                   "lastName": "string",
                   "image": "string",
                 },
-                "videos":[
+                "track":
                   {
-                    "video": "string",
-                    "comment": "string"
+                    "image": "string",
+                    "introVideo": "string",
+                    "name": "string"
                   }
-                ],
-                "hackathons":[
+                ,
+                "courses":[
                   {
-                    "name": "string",
-                    "type": "string",
-                    "date": "date"
+                    "image": "string",
+                    "introVideo": "string",
+                    "description": "date",
+                    "duration": "string",
+                    "instructor": "string",
+                    "language": "string",
+                     "allow": "boolen",
                   }
                 ],
               }
+            }
+    } */
+  /* #swagger.responses[400] = {
+            description: 'Track  not found',
+            schema: {
+                "code": "400",
+                "message": "Track not found",
             }
     } */
 });
