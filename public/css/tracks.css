@@ -1,61 +1,61 @@
 html,
 body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .practice {
-    position: fixed;
-    height: 100%;
-    width: 299px;
-    background: #0e1b3e;
+  position: fixed;
+  height: 100%;
+  width: 299px;
+  background: #0e1b3e;
 }
 
 img {
-    position: relative;
-    left: 87px;
-    top: 275px;
+  position: relative;
+  left: 87px;
+  top: 275px;
 }
 
 .all_practice {
-    position: relative;
-    left: 90px;
-    top: 270px;
-    color: white;
-    font-size:x-large;
-    text-decoration-line: none;
-    vertical-align: middle;
+  position: relative;
+  left: 90px;
+  top: 270px;
+  color: white;
+  font-size: x-large;
+  text-decoration-line: none;
+  vertical-align: middle;
 }
 
 .op {
-    font-size: large;
-    position: relative;
-    left: 80px;
-    top: 10px;
-    font-size: x-large;
-    color: white;
+  font-size: large;
+  position: relative;
+  left: 80px;
+  top: 10px;
+  font-size: x-large;
+  color: white;
 }
 
 .image1 {
-    top: -135px;
-    left: 110px;
-    width: 80px;
-    height: 70px;
+  top: -135px;
+  left: 110px;
+  width: 80px;
+  height: 70px;
 }
 
 button {
-    position: relative;
-    width: 110px;
-    height: 40px;
-    left: -45px;
-    top: 470px;
-    background-color: #0e1b3e;
-    border-color: white;
+  position: relative;
+  width: 110px;
+  height: 40px;
+  left: -45px;
+  top: 470px;
+  background-color: #0e1b3e;
+  border-color: white;
 }
-.textbutton
-{
-    position: relative;
-    left: 3px;
-    top:-13px;
-    color: white;
+.textbutton {
+  position: relative;
+  left: 3px;
+  top: -13px;
+  color: white;
 }
