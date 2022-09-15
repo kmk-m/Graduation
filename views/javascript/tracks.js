@@ -24,6 +24,10 @@ function data(json) {
   let elementimg = document.getElementById("practice");
   elementimg.appendChild(img);
   img.classList.add("image1");
+  img.alt = "profile";
+  img.title = "profile";
+  img.setAttribute("id", "image1");
+  console.log(img);
   /* return text button */
   console.log(json.data.User.cretificate);
   let butt = json.data.User.cretificate;
@@ -36,4 +40,12 @@ function data(json) {
   let elementbutton = document.getElementById("buton");
   elementbutton.appendChild(para2);
   para2.classList.add("textbutton");
+  let but = document.getElementById("image1");
+  console.log("helllo ", but);
+
+  but.addEventListener("click", gotoprofile);
+
+  function gotoprofile() {
+    window.location.href = "https:127.0.0.1:3000/profile";
+  }
 }
