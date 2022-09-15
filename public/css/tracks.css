@@ -1,0 +1,91 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.practice {
+  position: fixed;
+  height: 100%;
+  width: 299px;
+  background: #0e1b3e;
+}
+.bb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bb a {
+  transition: 0.3s;
+}
+.bb a:hover {
+  color: orange;
+}
+.bb img {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: -2px;
+}
+.jj {
+  margin-bottom: 13px;
+}
+
+.all_practice {
+  display: inline-block;
+  color: white;
+  font-size: large;
+  text-decoration-line: none;
+}
+
+.op {
+  font-size: large;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: x-large;
+  color: white;
+}
+
+.image1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+}
+.image1:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.practice button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 40px;
+  background-color: #0e1b3e;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.3s;
+}
+.practice button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+.practice button:hover .textbutton {
+  color: #0e1b3e;
+}
+.textbutton {
+  position: relative;
+  left: 3px;
+  top: -13px;
+  color: white;
+}
