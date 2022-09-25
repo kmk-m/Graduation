@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 async function dahsboard(req, res) {
   const { user, motivation_videos, Hackathons, userHackthons, Tracks } =
     req.models;

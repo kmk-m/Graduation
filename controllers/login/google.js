@@ -1,6 +1,6 @@
 import passport from "passport";
 import GoogleStrategy from "passport-google-oauth2";
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import path from "path";

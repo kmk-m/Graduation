@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 import nodemailer from "nodemailer";
 import path from "path";
 import { fileURLToPath } from "url";

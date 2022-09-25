@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 
 async function addvideos(req, res, next) {
   try {

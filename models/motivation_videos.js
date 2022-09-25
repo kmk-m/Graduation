@@ -1,5 +1,4 @@
 import dataType from "sequelize";
-import connection from "../util/connection";
 
 async function init(connection) {
   connection.define("motivation_videos", {

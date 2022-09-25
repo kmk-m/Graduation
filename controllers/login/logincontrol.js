@@ -4,7 +4,7 @@ import forgetpassword from "./forgetpassword.js";
 import changepassword from "./changepassword.js";
 import verifychangepassword from "./verifychangepassword.js";
 import verifyemail from "./verifyemail.js";
-import google from "./google";
+import google from "./google.js";
 import facebook from "./facebook.js";
 const logincontrol = {
   signup,
