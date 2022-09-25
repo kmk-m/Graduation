@@ -12,7 +12,7 @@ import Cors from "cors";
 import passport from "passport";
 import FacebookStrategy from "passport-facebook";
 import GoogleStrategy from "passport-google-oauth2";
-import jwt from "../util/jwt.js";
+import jwt from "./util/jwt";
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
@@ -45,6 +45,8 @@ app.use(express.static(__dirname + "/views/html"));
 app.use(express.static(__dirname + "/views/javascript"));
 app.use(express.static(__dirname + "/videos"));
 app.use(express.static(__dirname + "/audios"));
+app.use(express.static(__dirname + "/app"));
+
 app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "100mb" }));
