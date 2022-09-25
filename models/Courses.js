@@ -10,8 +10,12 @@ async function init(connection) {
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      image: {
+      name: {
         type: dataType.STRING,
+        allowNull: false,
+      },
+      image: {
+        type: dataType.TEXT,
         allowNull: false,
       },
       rating: {

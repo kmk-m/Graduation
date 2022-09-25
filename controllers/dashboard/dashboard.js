@@ -1,6 +1,8 @@
 import Responses from "../../util/response";
 async function dahsboard(req, res) {
-  const { user, motivation_videos, Hackathons, userHackthons } = req.models;
+  const { user, motivation_videos, Hackathons, userHackthons, Tracks } =
+    req.models;
+  console.log(req.userRole);
   const User = await user.findOne({
     where: {
       userId: req.userId,
@@ -21,11 +23,15 @@ async function dahsboard(req, res) {
   const userhackthons = await userHackthons.findAll({
     attributes: ["hackthonId"],
   });
+  const tracks = await Tracks.findAll({
+    attributes: ["name", "trackId"],
+  });
   return Responses.success(res, "data", {
     User,
     videos,
     hackathons,
     userhackthons,
+    tracks,
   });
 }
 

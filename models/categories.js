@@ -3,9 +3,9 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "Tracks",
+    "categories",
     {
-      trackId: {
+      id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
@@ -18,14 +18,6 @@ function init(connection) {
         type: dataType.TEXT,
         allowNull: false,
       },
-      introVideo: {
-        type: dataType.STRING,
-        allowNull: false,
-      },
-      courseId: {
-        type: dataType.STRING,
-        allowNull: false,
-      },
     },
     {
       createdAt: false,
@@ -33,4 +25,5 @@ function init(connection) {
     }
   );
 }
+
 export { init };

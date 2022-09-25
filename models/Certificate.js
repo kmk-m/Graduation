@@ -17,7 +17,7 @@ function init(connection) {
         type: dataType.UUID,
       },
       image: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
     },

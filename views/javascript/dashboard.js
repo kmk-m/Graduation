@@ -17,7 +17,21 @@ fetch("http://127.0.0.1:3000/dashboard", {
   .then((response) => response.json())
   .then((json) => data(json));
 function data(json) {
-  console.log(json);
+  let tracks = json.data.tracks;
+  tracks.forEach((x) => {
+    let link = document.createElement("a");
+    link.innerText = x.name;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    let parent = document.getElementById("myDropdown");
+    parent.appendChild(link);
+  });
+  tracks.forEach((x) => {
+    let link = document.createElement("a");
+    link.innerText = x.name;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    let parent1 = document.getElementById("myDropdown1");
+    parent1.appendChild(link);
+  });
   var img = document.createElement("img");
   img.src = json.data.User.image;
   var element = document.getElementById("icons");
@@ -53,13 +67,15 @@ function data(json) {
     element.appendChild(box);
   }
   for (let i = 0; i < json.data.videos.length; i += 1) {
+    console.log(json.data.videos[i]);
     var video = document.createElement("div");
     video.classList.add("video");
     video.innerHTML =
       "<p>" +
       json.data.videos[i].comment +
-      "</p><video width=95% height=100% controls>  <source src=" +
-      json.data.videos[i].video.slice(47) +
+      "  </p>" +
+      "<video width=95% height=100% controls>  <source src=" +
+      json.data.videos[i] +
       "#t=0.6" +
       " type=video/mp4></video>";
     var element = document.getElementById("all");

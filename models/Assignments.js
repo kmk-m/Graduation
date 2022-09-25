@@ -19,7 +19,7 @@ function init(connection) {
         allowNull: false,
       },
       details: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
     },

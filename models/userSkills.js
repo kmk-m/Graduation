@@ -3,7 +3,7 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "userTracks",
+    "userSkills",
     {
       id: {
         type: dataType.UUID,
@@ -13,35 +13,25 @@ function init(connection) {
       userId: {
         type: dataType.UUID,
       },
-      trackId: {
+      categoryId: {
         type: dataType.UUID,
-      },
-      status: {
-        type: dataType.ENUM("Pending", "Done"),
       },
     },
     {
-      timeStamp: true,
+      createdAt: false,
+      updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { Tracks, user, userTracks } = models;
-  user.hasMany(userTracks, {
+  const { userSkills, user } = models;
+  user.hasMany(userSkills, {
     foreignKey: "userId",
-    as: "userTracks",
+    as: "userSkills",
   });
-  userTracks.belongsTo(user, {
+  userSkills.belongsTo(user, {
     foreignKey: "userId",
-    as: "userTracks",
-  });
-  Tracks.hasMany(userTracks, {
-    foreignKey: "trackId",
-    as: "tracks",
-  });
-  userTracks.belongsTo(Tracks, {
-    foreignKey: "trackId",
-    as: "tracks",
+    as: "userSkills",
   });
 }
 export { init, associate };
