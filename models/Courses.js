@@ -15,7 +15,7 @@ async function init(connection) {
         allowNull: false,
       },
       image: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
       rating: {

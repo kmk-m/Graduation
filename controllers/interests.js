@@ -14,36 +14,48 @@ async function getAllInterests(req, res, next) {
   }
 }
 async function addInterestsUser(req, res, next) {
-  const { userId } = req.userId;
-  const { user } = req.models;
-  const { interests } = req.body;
-  const response = await this.user.update({
-    where: {
+  try {
+    const userId = req.userId;
+    const { userInterests } = req.models;
+    const { interest } = req.body;
+    console.log(interest);
+    console.log(userId);
+    const response = await userInterests.create({
+      interestId: interest,
       userId: userId,
-    },
-    data: {
-      interests: interests,
-    },
-  });
-  return Responses.success(
-    res,
-    "add interests to users successfully",
-    response
-  );
+    });
+    console.log(response);
+    return Responses.success(
+      res,
+      "add interests to users successfully",
+      response
+    );
+  } catch (err) {
+    next(err);
+  }
 }
 async function addInterests(req, res, next) {
-  const { interests } = req.models;
-  const { interest } = req.body;
-  console.log(interest);
-  const response = await this.interests.create({
-    data: {
-      interests: interest,
-    },
-  });
-  return Responses.success(
-    res,
-    "add interests to users successfully",
-    response
-  );
+  try {
+    const { interests } = req.models;
+    const { interest } = req.body;
+    const existInterest = await interests.find({
+      where: {
+        name: interest,
+      },
+    });
+    if (existInterest) {
+      return Responses.badRequest(res, "this interest already Exist", null);
+    }
+    const response = await interests.create({
+      name: interest,
+    });
+    return Responses.success(
+      res,
+      "add interests to users successfully",
+      response
+    );
+  } catch (err) {
+    next(err);
+  }
 }
 export default { getAllInterests, addInterestsUser, addInterests };

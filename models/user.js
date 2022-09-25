@@ -16,10 +16,6 @@ function init(connection) {
       type: dataType.STRING,
       allowNull: false,
     },
-    interest: {
-      type: dataType.TEXT,
-      allowNull: false,
-    },
     email: {
       type: dataType.STRING,
       allowNull: false,
@@ -44,7 +40,7 @@ function init(connection) {
       defaultValue: 0,
     },
     image: {
-      type: dataType.STRING,
+      type: dataType.TEXT,
       allowNull: false,
       defaultValue:
         "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg",
