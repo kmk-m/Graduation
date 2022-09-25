@@ -2,7 +2,7 @@ const outputFile = "./swagger_output.json";
 const endpointsFile = [
   "./routes/dashboard/*.js",
   "./routes/auth/*.js",
-  "./routes/APIRouter.js",
+  "./routes/*.js",
 ];
 const doc = {
   info: {
