@@ -1,7 +1,7 @@
 let id = window.location.href;
 id = id.slice(id.lastIndexOf("/") + 1);
 console.log(id);
-fetch(`${process.env.URL}/Tracks/data/` + id, {
+fetch(`https://sleepy-bastion-99766.herokuapp.com/Tracks/data/` + id, {
   method: "GET",
   headers: {
     "Content-type": "application/json; charset=UTF-8",

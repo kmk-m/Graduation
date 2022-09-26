@@ -62,7 +62,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/callback",
+      callbackURL:
+        "https://sleepy-bastion-99766.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
     },
     function (request, accessToken, refreshToken, profile, done) {
@@ -76,7 +77,8 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      callbackURL:
+        "https://sleepy-bastion-99766.herokuapp.com/auth/facebook/callback",
       profileFields: ["id", "emails", "name", "displayName", "photos"],
     },
     function (accessToken, refreshToken, profile, cb) {

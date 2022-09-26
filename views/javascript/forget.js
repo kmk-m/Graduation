@@ -3,7 +3,7 @@ async function handleSubmit(e) {
 
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  fetch(`${process.env.URL}/signin/forgetpassword`, {
+  fetch(`https://sleepy-bastion-99766.herokuapp.com/signin/forgetpassword`, {
     method: "POST",
     body: JSON.stringify({
       email: formProps.email,

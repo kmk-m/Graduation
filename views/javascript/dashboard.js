@@ -1,4 +1,4 @@
-fetch(`${process.env.URL}/dashboard`, {
+fetch(`https://sleepy-bastion-99766.herokuapp.com/dashboard`, {
   method: "GET",
 
   headers: {
@@ -7,7 +7,7 @@ fetch(`${process.env.URL}/dashboard`, {
 })
   .then((response) => response.json())
   .then((json) => console.log(json));
-fetch(`${process.env.URL}/dashboard`, {
+fetch(`https://sleepy-bastion-99766.herokuapp.com/dashboard`, {
   method: "GET",
 
   headers: {
@@ -21,14 +21,16 @@ function data(json) {
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href = `${process.env.URL}/Tracks/` + x.trackId;
+    link.href =
+      `https://sleepy-bastion-99766.herokuapp.com/Tracks/` + x.trackId;
     let parent = document.getElementById("myDropdown");
     parent.appendChild(link);
   });
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href = `${process.env.URL}/Tracks/` + x.trackId;
+    link.href =
+      `https://sleepy-bastion-99766.herokuapp.com/Tracks/` + x.trackId;
     let parent1 = document.getElementById("myDropdown1");
     parent1.appendChild(link);
   });

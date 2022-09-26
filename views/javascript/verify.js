@@ -6,16 +6,19 @@ async function handleSubmit(e) {
   console.log(url);
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  await fetch(`${process.env.URL}/signin/verifycode/:` + url, {
-    method: "POST",
-    body: JSON.stringify({
-      code: formProps.code,
-    }),
+  await fetch(
+    `https://sleepy-bastion-99766.herokuapp.com/signin/verifycode/:` + url,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        code: formProps.code,
+      }),
 
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }
+  )
     .then((response) => response.json())
     .then((json) => data(json));
 }
@@ -40,6 +43,8 @@ function data(json) {
     var element = document.getElementById("test");
     element.appendChild(tag);
   } else {
-    window.location.href = `${process.env.URL}/signin/changepassword/:` + url;
+    window.location.href =
+      `https://sleepy-bastion-99766.herokuapp.com/signin/changepassword/:` +
+      url;
   }
 }

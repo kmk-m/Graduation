@@ -1,10 +1,10 @@
 const signin = document.getElementById("signin");
 const signup = document.getElementById("signup");
 signin.addEventListener("click", () => {
-  window.location.href = `${process.env.URL}/signin`;
+  window.location.href = `https://sleepy-bastion-99766.herokuapp.com/signin`;
 });
 signup.addEventListener("click", () => {
-  window.location.href = `${process.env.URL}/signup`;
+  window.location.href = `https://sleepy-bastion-99766.herokuapp.com/signup`;
 });
 //********** Speack****** */
 const speak = (msg) => {
@@ -65,12 +65,12 @@ function read() {
       vis = true;
       break;
     } else if (word[i] == "signin" || word[i] == "sign in") {
-      window.location.href = `${process.env.URL}/signin`;
+      window.location.href = `https://sleepy-bastion-99766.herokuapp.com/signin`;
       vis = true;
       speak("Sign in page is opened ");
       break;
     } else if (word[i] == "signup" || word[i] == "sign up") {
-      window.location.href = `${process.env.URL}/signup`;
+      window.location.href = `https://sleepy-bastion-99766.herokuapp.com/signup`;
       vis = true;
       speak("Sign up page is opened ");
 
