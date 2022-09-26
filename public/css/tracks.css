@@ -3,18 +3,23 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'inter';
 }
 
 .practice {
   position: fixed;
   height: 100%;
-  width: 299px;
+  width: 21%;
   background: #0e1b3e;
+}
+.logo{
+  position: absolute;
+  top: 0%;
+  left: 35%; 
 }
 .bb {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -36,17 +41,15 @@ body {
 .all_practice {
   display: inline-block;
   color: white;
-  font-size: large;
+  font-size: 20px;
   text-decoration-line: none;
 }
 
 .op {
-  font-size: large;
+  font-size: 25px;
   position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: x-large;
+  top:24%;
+  left:23%;
   color: white;
 }
 
@@ -69,8 +72,8 @@ body {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 110px;
-  height: 40px;
+  width: 100px;
+  height: 35px;
   background-color: #0e1b3e;
   border: 1px solid white;
   outline: none;
@@ -84,8 +87,8 @@ body {
   color: #0e1b3e;
 }
 .textbutton {
-  position: relative;
-  left: 3px;
-  top: -13px;
+  position: absolute;
+  left: 25%;
+  top: -35%;
   color: white;
 }
