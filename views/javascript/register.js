@@ -2,7 +2,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  fetch("http://127.0.0.1:3000/signup", {
+  fetch(`${process.env.URL}/signup`, {
     method: "POST",
     body: JSON.stringify({
       firstName: formProps.firstname,

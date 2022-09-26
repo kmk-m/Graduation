@@ -1,7 +1,7 @@
 let id = window.location.href;
 id = id.slice(id.lastIndexOf("/") + 1);
 console.log(id);
-fetch("http://127.0.0.1:3000/Tracks/data/" + id, {
+fetch(`${process.env.URL}/Tracks/data/` + id, {
   method: "GET",
   headers: {
     "Content-type": "application/json; charset=UTF-8",
