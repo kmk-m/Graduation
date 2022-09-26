@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'inter';
+  font-family: "inter";
 }
 
 .practice {
@@ -12,10 +12,10 @@ body {
   width: 21%;
   background: #0e1b3e;
 }
-.logo{
+.logo {
   position: absolute;
   top: 0%;
-  left: 35%; 
+  left: 35%;
 }
 .bb {
   position: absolute;
@@ -41,15 +41,16 @@ body {
 .all_practice {
   display: inline-block;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   text-decoration-line: none;
 }
 
 .op {
   font-size: 25px;
   position: absolute;
-  top:24%;
-  left:23%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
 }
 
@@ -71,6 +72,9 @@ body {
   position: absolute;
   top: 80%;
   left: 50%;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
   transform: translate(-50%, -50%);
   width: 100px;
   height: 35px;
@@ -89,6 +93,6 @@ body {
 .textbutton {
   position: absolute;
   left: 25%;
-  top: -35%;
+  top: -20%;
   color: white;
 }
