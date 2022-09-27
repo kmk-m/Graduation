@@ -16,6 +16,5 @@ function data(json) {
     div.innerHTML = `<h5>${name}</h5>`;
     container.appendChild(div);
     div.classList.add("s");
-
   }
 }
