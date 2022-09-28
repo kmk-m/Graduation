@@ -32,16 +32,31 @@ div {
   height: 500px;
   width: 700px;
   border-radius: 6px;
-  box-shadow: 0 4px 28px rgba(123, 151, 158, 0.25);
-  border: 1px solid #d6dee1;
+
   padding: 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
   left: 320px;
-  top: 20px;
+  top: 15px;
 }
-
+.cont {
+  background-color: transparent;
+  position: relative;
+}
+.container2 {
+  background-color: transparent;
+  height: 500px;
+  width: 700px;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-wrap: wrap;
+}
 h1 {
   margin: 0;
   text-align: center;
@@ -122,15 +137,18 @@ input:hover {
 .addborder {
   border: 1px solid black;
 }
+
 .s {
   position: relative;
 }
+
 .correct {
   position: absolute;
   top: 0;
   right: 0;
   width: 50px;
 }
+
 .remove {
   width: 0px;
 }
