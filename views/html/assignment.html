@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Main css-->
+    <link rel="stylesheet" href="/css/assignment.css" />
+    <!--Normalize css-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Assignments</title>
+  </head>
+
+  <body>
+    <!--The left part of the page -->
+    <div class="practice" id="practice">
+      <div class="logo"> <h1><span style="color:#ffffff">JOB</span><span style="color:#FCB500" >Q</span></h1></div>
+      <div class="bb">
+        <a class="all_practice" href="http://127.0.0.1:3000/"> Home page </a><br/><br />
+        <a class="all_practice" href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b">My track</a><br/><br />
+        <a class="all_practice" href="http://127.0.0.1:3000/assignment/"> <span style="  color: orange">Assignments</span></a><br/><br />
+        <a class="all_practice jj" href="">Quizzes </a><br />
+        <a class="all_practice" href=""> Final Project </a>
+      </div>
+      <button type="button" id="buton"></button>
+    </div>
+    <div class="center">
+      <div class="top">
+        <p class="sp">Assignment</p>
+        <p class="sp2"> Frontend Development</p>
+        <hr>
+      </div>
+      <div class="lists">
+        <div class ="list">
+          <p class="name">TO DO</p>
+          <button class="list-item"  onclick="openForm()" draggable="true">List item 1</button>
+          <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Login</h1>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </div>
+          <button class="list-item"  onclick="openForm()" draggable="true">List item 2</button>
+          <button class="list-item"  onclick="openForm()" draggable="true">List item 3</button>
+        </div>
+        <div class="list">  <p class="name">PENDING</p> </div>
+        <div class="list">  <p class="name">DONE</p></div>
+      </div>
+    </div>
+    <script src="/assignment.js"></script>
+  </body>
+</html>

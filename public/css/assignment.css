@@ -1,0 +1,192 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "inter";
+}
+
+.practice {
+    position: fixed;
+    height: 100%;
+    width: 21%;
+    background: #0e1b3e;
+}
+
+.logo {
+    position: absolute;
+    top: 0%;
+    left: 35%;
+}
+
+.bb {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bb a {
+    transition: 0.3s;
+}
+
+.bb a:hover {
+    color: orange;
+}
+
+.bb img {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: -2px;
+}
+
+.jj {
+    margin-bottom: 13px;
+}
+
+.all_practice {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    text-decoration-line: none;
+}
+
+.op {
+    font-size: 25px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.image1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.image1:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.practice button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 35px;
+    background-color: #0e1b3e;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.practice button:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.practice button:hover .textbutton {
+    color: #0e1b3e;
+}
+
+.textbutton {
+    position: absolute;
+    left: 25%;
+    top: -20%;
+    color: white;
+}
+.center{
+    position: fixed;
+    right: 0%;
+    height: 100%;
+    width: 79%;
+    background: #F7F8FA;
+}
+hr{
+    Stroke: Solid ;
+    color:#D8D8D8;
+    text-align: Center;
+    Width: 90%;
+}
+.sp{
+    position:relative;
+    color: #DCDCDC ;
+    Font-family: 'Inter';
+    font-weight: bold;
+    Font-size: 45px;
+    line-height: 25px;
+    left:5%;
+}
+.sp2{
+    position:relative;
+    color: #DCDCDC ;
+    Font-family: 'Inter';
+    font-weight: bold;
+    Font-size: 45px;
+    line-height: 0px;
+    left:30%;
+}
+.lists {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.lists .list {
+    position: relative;
+    flex-flow: column;
+    border-radius: 25px;
+    width:290px;
+    height: 450px;
+    left:35px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 15px;
+    padding: 8px;
+    transition: all 0.2s linear;
+}
+
+.lists .list .list-item {
+    position:relative;
+    background-color: #F3F3F3;
+    border-color:#F3F3F3;
+    text-align: center;
+    width: 280px;
+    border-radius: 4px;
+    padding: 15px 5px;
+    top: 20px;
+    margin: 4px 0px;
+}
+.lists .list .name {
+    position: relative;
+    font-family: 'Inter';
+    font-style: 'Medium';
+    left: 60px;
+    top: 25px;
+    font-size: 23px;
+    line-height: 19px;
+    color: #5E6C84;
+}
+/* pop-up */
+.form-popup {
+    position: absolute;
+    top: 30%;
+    left:150%;
+    background-color: #F3F3F3;
+    transform: translate(-50%,-50%);
+    width:650px;
+    padding : 200px  100px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,.15);
+    border-radius: 10px ;
+}
+
