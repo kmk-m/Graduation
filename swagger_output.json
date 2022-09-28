@@ -916,6 +916,42 @@
           }
         }
       }
+    },
+    "/assignment/": {
+      "get": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to get Interests page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   }
 }
