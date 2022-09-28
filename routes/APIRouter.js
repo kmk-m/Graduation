@@ -12,7 +12,7 @@ import dashboard from "./dashboard/dashboard";
 import admin from "./admin/admin";
 import jwt from "../util/jwt.js";
 import Tracks from "./Tracks";
-import assignment from "./assignment.js"
+import assignment from "./assignment.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -24,6 +24,7 @@ router.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 router.use("/", homepage);
 router.use("/", login);
 router.use("/", signup);
+router.use("/", assignment);
 router.use("/signin", forgetpassword);
 router.use("/signin", changepassword);
 router.use("/signin/verifycode", verifychangepassword);
@@ -34,5 +35,4 @@ router.use("/admin", jwt.authadmin, admin);
 router.use("/", jwt.authenticateWithJWT, dashboard);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
 router.use("/interests", interests);
-router.use("/assignment" , assignment)
 export default router;
