@@ -62,5 +62,24 @@ router.get(
     } */
   }
 );
+router.post(
+  "/Assignments/:assignmentId",
+  jwt.authenticateWithJWT,
+  assignment.addAssignment,
+  (req, res) => {
+    // #swagger.tags = ['Assignment']
+    // #swagger.description = "to get Interests page"
+    /* #swagger.responses[200] = {
+            description: 'page opened',
+    } */
+    /* #swagger.responses[400] = {
+            description: 'User  not found',
+            schema: {
+                "code": "403",
+                "message": "You cannot access this page before login",
+            }
+    } */
+  }
+);
 
 export default router;

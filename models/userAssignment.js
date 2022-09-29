@@ -17,7 +17,7 @@ function init(connection) {
         type: dataType.UUID,
       },
       type: {
-        type: dataType.ENUM("Done", "Pending", "Rejected", "New"),
+        type: dataType.ENUM("Done", "Pending", "Rejected", "New", "Changes"),
       },
       solution: {
         type: dataType.STRING,

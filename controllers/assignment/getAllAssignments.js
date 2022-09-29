@@ -8,13 +8,14 @@ async function getAllAssignments(req, res, next) {
       userId: req.userId,
       trackId: id,
     },
-    include: {
-      model: Assignments,
-      attributes: ["name"],
-      model: Tracks,
-      attributes: ["name"],
+    include: [{ model: Assignments, attributes: ["name"] }],
+    attributes: ["type", "updatedAt", "id"],
+  });
+  const track = await Tracks.findOne({
+    where: {
+      trackId: id,
     },
-    attributes: ["type", "updatedAt"],
+    attributes: ["name"],
   });
   const User = await user.findOne({
     where: {
@@ -22,11 +23,6 @@ async function getAllAssignments(req, res, next) {
     },
     attributes: ["firstName", "lastName", "image"],
   });
-  let track = assignments[0].dataValues.Track.dataValues.name;
-  console.log(track);
-  for (let i = 0; i < assignments.length; i++) {
-    delete assignments[0].dataValues.Track;
-  }
 
   return Responses.success(res, "Get all Assignments Successfully", {
     User,

@@ -9,43 +9,80 @@
     <!--Normalize css-->
     <link rel="stylesheet" href="/css/normalize.css" />
     <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
     <title>Assignments</title>
   </head>
 
   <body>
     <!--The left part of the page -->
     <div class="practice" id="practice">
-      <div class="logo"> <h1><span style="color:#ffffff">JOB</span><span style="color:#FCB500" >Q</span></h1></div>
-      <div class="bb">
-        <a class="all_practice" href="http://127.0.0.1:3000/"> Home page </a><br/><br />
-        <a class="all_practice" href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b">My track</a><br/><br />
-        <a class="all_practice" href="http://127.0.0.1:3000/assignment/"> <span style="  color: orange">Assignments</span></a><br/><br />
-        <a class="all_practice jj" href="">Quizzes </a><br />
-        <a class="all_practice" href=""> Final Project </a>
+      <div class="logo">
+        <h1>
+          <span style="color: #ffffff">JOB</span
+          ><span style="color: #fcb500">Q</span>
+        </h1>
       </div>
-      <button type="button" id="buton"></button>
+      <div class="bb">
+        <div class="dropdown">
+          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
+            Home page
+          </a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1/courses">Courses</a>
+            <a href="http://127.0.0.1/Standing">Standing</a>
+            <a href="http://127.0.0.1/hackathons">Hackthons</a>
+          </div>
+        </div>
+        <div class="div2">
+          <a
+            class="all_practice"
+            href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b"
+            >My track</a
+          >
+          <a class="all_practice" href="http://127.0.0.1:3000/assignment/">
+            <span style="color: orange">Assignments</span></a
+          >
+          <a class="all_practice" href=""> Final Project </a>
+        </div>
+      </div>
+      <img src="/images/giphy.gif" alt="gif" class="gif" />
     </div>
     <div class="center">
       <div class="top">
-        <p class="sp">Assignment</p>
-        <p class="sp2"> Frontend Development</p>
-        <hr>
+        <h1 class="sp">Assignment</h1>
+        <h1 class="sp2">Frontend Development</h1>
+        <hr class="hr" />
       </div>
       <div class="lists">
-        <div class ="list">
-          <p class="name">TO DO</p>
-          <button class="list-item"  onclick="openForm()" draggable="true">List item 1</button>
-          <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-              <h1>Login</h1>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <div class="list" id="todo"><p class="name">TO DO</p></div>
+        <div class="list" id="pending"><p class="name">PENDING</p></div>
+        <div class="list" id="done"><p class="name">DONE</p></div>
+      </div>
+    </div>
+    <div id="op" class="drop">
+      <div class="form-popup" id="myform">
+        <img src="/images/close.png" alt="logo" id="close" />
+        <div class="namee"></div>
+
+        <div class="details"></div>
+        <div id="error" class="error"></div>
+        <div id="ok" class="error"></div>
+        <div class="solution" id="sol">
+          <div class="in">
+            <input
+              type="text"
+              name="solution"
+              id="solution"
+              placeholder="put your solution here..."
+            />
           </div>
-          <button class="list-item"  onclick="openForm()" draggable="true">List item 2</button>
-          <button class="list-item"  onclick="openForm()" draggable="true">List item 3</button>
+          <div class="last">
+            <button type="submit" class="sub">Submit</button>
+          </div>
         </div>
-        <div class="list">  <p class="name">PENDING</p> </div>
-        <div class="list">  <p class="name">DONE</p></div>
       </div>
     </div>
     <script src="/assignment.js"></script>

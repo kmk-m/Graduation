@@ -9,7 +9,7 @@ async function getAssignments(req, res, next) {
     },
     include: {
       model: Assignments,
-      attributes: ["name"],
+      attributes: ["name", "details"],
     },
     attributes: ["type", "updatedAt", "solution"],
   });
