@@ -394,6 +394,13 @@
         "responses": {}
       }
     },
+    "/google": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/auth/facebook": {
       "get": {
         "description": "",

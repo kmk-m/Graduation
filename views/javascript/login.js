@@ -19,6 +19,7 @@ async function handleSubmit(e) {
     .then((response) => response.json())
     .then((json) => data(json));
 }
+
 var newdiv = false;
 var token;
 const form = document

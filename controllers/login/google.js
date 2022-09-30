@@ -1,6 +1,3 @@
-import passport from "passport";
-import GoogleStrategy from "passport-google-oauth2";
-import Responses from "../../util/response";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import path from "path";
@@ -24,7 +21,7 @@ async function signingoogle(req, res, next) {
       );
       res.cookie("access_token", token); //Sets name = express
       return res.sendFile(
-        path.join(__dirname + "../../../views/html/dashboard.html")
+        path.join(__dirname + "../../../views/html/google.html")
       );
     }
     const hashPassword = await bcrypt.hash("google", 10);
@@ -33,16 +30,23 @@ async function signingoogle(req, res, next) {
       lastName: req.user.family_name,
       email: req.user.email,
       password: hashPassword,
-      emailVerified: true,
+      interest: "frontend",
+      emailVerified: 1,
     });
+
     const token = jwt.sign(
-      { userId: existingUser.userId, role: existingUser.role },
+      { userId: User.userId, role: User.role },
       process.env.ACCESS_TOKEN_SECRET
     );
     res.cookie("access_token", token); //Sets name = express
+
     return res.sendFile(
-      path.join(__dirname + "../../../views/html/dashboard.html")
+      path.join(__dirname + "../../../views/html/google.html")
     );
+
+    // return res();
+    //  .sendFile
+    //  path.join(__dirname + "../../../views/html/google.html")
   } catch (error) {
     return next(error);
   }
