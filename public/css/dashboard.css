@@ -1,103 +1,113 @@
-.container {
-  padding-left: 80px;
-  padding-right: 80px;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.nav1 {
-  width: 100%;
-  position: relative;
-  padding-bottom: 20px;
-  background-color: white;
+.practice {
+  position: fixed;
+  height: 100%;
+  width: 15%;
+  background: #0e1b3e;
 }
 
-.nav1::after {
-  content: "";
-  width: 100%;
-  height: 10px;
-  background-color: black;
-  font-family: bold;
-}
-
-.text {
-  padding-top: 20px;
-}
-
-.hr {
-  padding: 1px;
-  background-color: black;
-}
-
-.text h1 {
-  display: inline;
-  padding-right: 80px;
-}
-
-.icons {
+.logo {
   position: absolute;
-  right: 0;
-  top: 35%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.search {
-  font-size: large;
-  padding: 15px 25px;
-  width: 40%;
-  border: 1px solid black;
+.bb {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.icons img {
-  width: 35px;
-  height: 35px;
-  padding: 0 20px;
-  float: right;
+.bb a {
+  transition: 0.3s;
 }
 
-.icons img:hover {
+.bb a:hover {
+  color: orange;
+}
+
+.bb img {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: -2px;
+}
+
+.jj {
+  margin-bottom: 13px;
+}
+
+.all_practice {
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  text-decoration-line: none;
+}
+
+.op {
+  font-size: 25px;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 100%;
+}
+.image1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.image1:hover {
   cursor: pointer;
+  opacity: 0.5;
 }
-
-/* Dropdown Button */
-.dropbtn {
-  margin-right: 40px;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-weight: 600;
-  padding: 16px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 20px;
-  border: none;
-}
-
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
+  position: absolute;
+  top: -35%;
   display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+  position: relative;
+  left: 60%;
+  margin-top: 50px;
   display: none;
-  position: absolute;
-  background-color: #f1f1f1;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: white;
   text-decoration: none;
   display: block;
+  margin-top: 10px;
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+  color: #fcb500;
 }
 
 /* Show the dropdown menu on hover */
@@ -106,1240 +116,69 @@
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-
-.nav2 {
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  padding-left: 190px;
-  gap: 100px;
-  background-color: white;
+.dropdown:hover .dropbtn {
+  color: #fcb500;
 }
 
-.all {
+.dropdown:hover+.div2 {
+  margin-top: 60%;
+}
+
+.gif {
   position: absolute;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  background-color: #f3f2ef;
-  width: 100%;
-  height: 1200px;
-}
+  bottom: -15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-.notdrp {
-  margin-top: 15px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.9);
+  height: 200px;
+  width: 200px;
 }
-
-.boxes {
-  padding: 20px 20px;
+/* right */
+.right{
   position: absolute;
-  right: 0;
+  height: 100%;
+  width: 15%;
+  right:0%;
+  background:#F7F8FA;
+}
+.search {
+  position: absolute;
+  top: 5%;
+  padding: 6%;
+  width:74%;
+  left:6%;
+  border: 1px solid white;
+  background-color: white;
+  Font-family: 'Inter';
+  Font-style: Medium ;
+}
+.hac{
+  position:absolute;
+  top:20%;
+  padding:5%;
+  width:75%;
+  left:6%;
+  background-color: white;
+  Font-family: 'Inter';
+  Font-style: 'Light' ;
+  color:#FCB500;
 }
 
-.box {
+.hac2{
+  position:absolute;
+  top:50%;
+  padding:5%;
+  width:75%;
+  left:6%;
   background-color: white;
-  width: 235px;
-  padding: 10px 20px;
-  border-radius: 20px;
+  Font-family: 'Inter';
+  Font-style: 'Light' ;
+  color:#FCB500;
+}
+.namehack{
+  font-family: 'Inter';
+  font-style: 'semi bold';
+  color:block;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.box a {
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 20px;
-}
-
-.box h4 {
-  font-weight: 300;
-  color: rgb(109, 107, 107);
-}
-
-.box a:hover {
-  color: rgb(0, 45, 128);
-}
-
-.video {
-  width: 800 px;
-  height: 400px;
-  padding: 50px;
-  position: absolute;
-  left: 150px;
-}
-
-p {
-  font-weight: bold;
-}
-
-@media only screen and (min-width: 1801px) {
-  .nav1 {
-    width: 100%;
-    position: relative;
-    padding-bottom: 0;
-    background-color: white;
-  }
-
-  .search {
-    font-size: large;
-    width: 40%;
-    height: 10px;
-    position: relative;
-    left: 200px;
-    border: 1px solid black;
-  }
-
-  .nav2 {
-    position: relative;
-    padding-left: 250px;
-    gap: 65px;
-  }
-
-  .text {
-    padding-top: 5px;
-  }
-
-  .icons img {
-    width: 35px;
-    height: 35px;
-    padding-top: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  video {
-    width: 1150px;
-    height: 550px;
-  }
-
-  .video {
-    width: 1150 px;
-    height: 600px;
-    padding: 50px;
-    position: absolute;
-    left: 100px;
-    background-color: white;
-    margin-top: 50px;
-  }
-
-  .hr {
-    position: relative;
-    top: 10px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    margin-left: 1%;
-    background-color: #f3f2ef;
-    width: 98%;
-    height: 1200px;
-  }
-
-  .dropbtn {
-    background-color: #ffffff;
-    color: rgba(0, 0, 0, 0.9);
-    font-size: 25px;
-    border: none;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-  }
-}
-
-@media only screen and (min-width: 1640px) and (max-width: 1800px) {
-  .nav1 {
-    width: 100%;
-    position: relative;
-    padding-bottom: 0;
-    background-color: white;
-  }
-
-  .search {
-    font-size: large;
-    width: 40%;
-    height: 10px;
-    position: relative;
-    left: 150px;
-    border: 1px solid black;
-  }
-
-  .nav2 {
-    position: relative;
-    padding-left: 150px;
-    gap: 65px;
-  }
-
-  .text {
-    padding-top: 5px;
-  }
-
-  .icons img {
-    width: 35px;
-    height: 35px;
-    padding-top: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  video {
-    width: 1050px;
-    height: 550px;
-  }
-
-  .video {
-    width: 1050px;
-    height: 600px;
-    padding: 50px;
-    position: absolute;
-    left: 100px;
-    background-color: white;
-    margin-top: 50px;
-  }
-
-  .hr {
-    position: relative;
-    top: 10px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 1.5%;
-    background-color: #f3f2ef;
-    width: 97%;
-    height: 1200px;
-  }
-
-  .dropbtn {
-    background-color: #ffffff;
-    color: rgba(0, 0, 0, 0.9);
-    font-size: 25px;
-    border: none;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-  }
-}
-
-@media only screen and (min-width: 0px) and (max-width: 320px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-    display: inline;
-  }
-
-  .text h1 {
-    display: inline;
-    font-size: large;
-    padding-right: 0;
-  }
-
-  .text {
-    padding: 0;
-  }
-
-  .body {
-    display: inline-block;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px;
-    width: 40%;
-    border: 1px solid black;
-    position: relative;
-    left: 10px;
-  }
-
-  .icons img {
-    width: 15px;
-    height: 15px;
-    padding-top: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: relative;
-    bottom: 10px;
-    right: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: inline;
-    flex-direction: row;
-    padding-left: 0;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: x-small;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: x-small;
-    border: none;
-    cursor: pointer;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .box {
-    background-color: white;
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}
-
-@media only screen and (min-width: 321px) and (max-width: 583px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-    display: inline;
-  }
-
-  .text h1 {
-    display: inline;
-    font-size: large;
-    padding-right: 0;
-  }
-
-  .text {
-    padding: 0;
-  }
-
-  .body {
-    display: inline-block;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px;
-    width: 40%;
-    border: 1px solid black;
-    position: relative;
-    left: 10px;
-  }
-
-  .icons img {
-    width: 15px;
-    height: 15px;
-    padding-top: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: relative;
-    bottom: 10px;
-    right: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: inline;
-    flex-direction: row;
-    padding-left: 10px;
-    padding-right: 10px;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: x-small;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: x-small;
-    border: none;
-    cursor: pointer;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .box {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    right: 0;
-    top: 350px;
-  }
-
-  video {
-    width: 250px;
-    height: 150px;
-  }
-
-  .video {
-    width: 250px;
-    height: 200px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    background-color: white;
-    margin-top: 50px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    background-color: #f3f2ef;
-    width: 100%;
-    height: 1420px;
-  }
-}
-
-@media only screen and (min-width: 538px) and (max-width: 582px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-    display: inline;
-  }
-
-  .text h1 {
-    display: inline;
-    font-size: large;
-    padding-right: 0;
-  }
-
-  .text {
-    padding: 0;
-  }
-
-  .body {
-    display: inline-block;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px;
-    width: 40%;
-    border: 1px solid black;
-    position: relative;
-    left: 70px;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding-top: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: relative;
-    bottom: 15px;
-    right: 30px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: inline;
-    flex-direction: row;
-    padding-left: 15px;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .box {
-    background-color: white;
-
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: 150px;
-  }
-}
-
-@media only screen and (min-width: 584px) and (max-width: 700px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px 25px;
-    width: 30%;
-    border: 1px solid black;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-    bottom: 8px;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: inline;
-    flex-direction: row;
-    padding-left: 0;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: 150px;
-  }
-
-  video {
-    width: 400px;
-    height: 200px;
-    margin-left: 10px;
-  }
-
-  .video {
-    width: 420px;
-    height: 280px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 50px;
-    margin-top: 50px;
-    background-color: white;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    right: 0;
-    top: 360px;
-  }
-}
-
-@media only screen and (min-width: 701px) and (max-width: 800px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px 25px;
-    width: 30%;
-    border: 1px solid black;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-    bottom: 8px;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-    justify-content: center;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    position: relative;
-    bottom: 15px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: 0px;
-  }
-
-  video {
-    width: 300px;
-    height: 200px;
-    margin-left: 20px;
-  }
-
-  .video {
-    width: 350px;
-    height: 260px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 10px;
-    margin-top: 50px;
-    background-color: white;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    width: 280px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 1.25%;
-    background-color: #f3f2ef;
-    width: 98%;
-    height: 1200px;
-  }
-}
-
-@media only screen and (min-width: 801px) and (max-width: 900px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px 25px;
-    width: 30%;
-    border: 1px solid black;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-    bottom: 8px;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-    justify-content: center;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    position: relative;
-    bottom: 15px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: 7px;
-  }
-
-  video {
-    width: 350px;
-    height: 200px;
-    margin-left: 25px;
-  }
-
-  .video {
-    width: 400px;
-    height: 260px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 50px;
-    margin-top: 50px;
-    background-color: white;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    width: 260px;
-    right: 10px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 1.25%;
-    background-color: #f3f2ef;
-    width: 98%;
-    height: 1200px;
-  }
-}
-
-@media only screen and (min-width: 901px) and (max-width: 1060px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px 25px;
-    width: 30%;
-    border: 1px solid black;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-    bottom: 8px;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    gap: 5px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-    justify-content: center;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    position: relative;
-    bottom: 15px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: 7px;
-  }
-
-  video {
-    width: 350px;
-    height: 200px;
-    margin-left: 25px;
-  }
-
-  .video {
-    width: 400px;
-    height: 260px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 50px;
-    margin-top: 50px;
-    background-color: white;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    width: 260px;
-    right: 10px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 1.25%;
-    background-color: #f3f2ef;
-    width: 98%;
-    height: 1200px;
-  }
-}
-
-@media only screen and (min-width: 1061px) and (max-width: 1300px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-  }
-
-  .search {
-    font-size: small;
-    padding: 5px 25px;
-    width: 30%;
-    border: 1px solid black;
-    position: relative;
-    left: 150px;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-    bottom: 8px;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-    bottom: 20px;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    gap: 60px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-    justify-content: center;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: large;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    position: relative;
-    bottom: 15px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: large;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: -100px;
-  }
-
-  video {
-    width: 400px;
-    height: 200px;
-    margin-left: 25px;
-  }
-
-  .video {
-    width: 450px;
-    height: 260px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 50px;
-    margin-top: 50px;
-    background-color: white;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    width: 300px;
-    right: 100px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin: 0 20px;
-    background-color: #f3f2ef;
-    width: 97%;
-    height: 1200px;
-  }
-}
-.video {
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 100;
-}
-@media only screen and (min-width: 1301px) and (max-width: 1639px) {
-  .container {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  .text h1 {
-    display: inline;
-    padding-right: 20px;
-    position: relative;
-    top: 15px;
-  }
-
-  .search {
-    font-size: 20px;
-    padding: 5px 25px;
-    width: 30%;
-    height: 30px;
-    border: 1px solid black;
-    position: relative;
-    left: 250px;
-    top: 10px;
-  }
-
-  .icons img {
-    width: 25px;
-    height: 25px;
-    padding: 0 20px;
-    float: right;
-    position: relative;
-  }
-
-  .hr {
-    padding: 1px;
-    background-color: black;
-    position: relative;
-  }
-
-  .nav2 {
-    padding-bottom: 20px;
-    top: 2px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    gap: 80px;
-    background-color: white;
-    position: relative;
-    bottom: 20px;
-    justify-content: center;
-  }
-
-  .notdrp {
-    margin-top: 15px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    position: relative;
-    bottom: 15px;
-  }
-
-  .dropbtn {
-    margin-right: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    padding: 5px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .text {
-    padding-top: 0px;
-  }
-
-  .box {
-    background-color: white;
-    width: 220px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    right: -15px;
-  }
-
-  video {
-    width: 900px;
-    height: 400px;
-  }
-
-  .video {
-    width: 900px;
-    height: 460px;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    margin-left: 50px;
-    background-color: white;
-    margin-top: 50px;
-  }
-
-  .boxes {
-    padding: 20px 20px;
-    position: absolute;
-    right: 20px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 25px;
-    margin-right: 10px;
-    background-color: #f3f2ef;
-    width: 1300px;
-    height: 1200px;
-  }
-
-  .all {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    margin-left: 25px;
-    background-color: #f3f2ef;
-    width: 97%;
-    height: 1200px;
-  }
-}
