@@ -153,11 +153,33 @@ function playTrackVideo() {
   // video.src = trackData.introVideo;
   // video.play();
 }
-$(document).ready(function () {
-  // Gets the span width of the filled-ratings span
-  // this will be the same for each rating
-  var star_rating_width = $(".fill-ratings span").width();
-  // Sets the container of the ratings to span width
-  // thus the percentages in mobile will never be wrong
-  $(".star-ratings").width(star_rating_width);
-});
+let userLight = "#0e1b3e";
+let userBlack = "#323232";
+let aLight = "orange";
+let ablack = "#ff1e56";
+let rateLight = "#b44b00";
+let rateBlack = "#a00d32";
+let backgroundLight = "#f7f8fa";
+let backgroundDark = "#000000";
+let nameLight = "black";
+let nameDark = "#f3f3f3";
+let them = localStorage.getItem("data-theme");
+if (them == "dark") {
+  let colors = document.querySelector(":root");
+  colors.style.setProperty("--userLight", userBlack);
+  colors.style.setProperty("--aLight", ablack);
+  colors.style.setProperty("--rateLight", rateBlack);
+  colors.style.setProperty("--backgroundLight", backgroundDark);
+  colors.style.setProperty("--nameLight", nameDark);
+} else {
+  colors.style.setProperty("--userBlack", userLight);
+  colors.style.setProperty("--ablack", aLight);
+  colors.style.setProperty("--rateBlack", rateBlack);
+  colors.style.setProperty("--backgroundDark", backgroundLight);
+  colors.style.setProperty("--nameBlack", nameLight);
+}
+console.log(
+  getComputedStyle(document.querySelector(":root")).getPropertyValue(
+    "--userLight"
+  )
+);
