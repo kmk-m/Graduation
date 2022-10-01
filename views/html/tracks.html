@@ -26,27 +26,51 @@
         </h1>
       </div>
       <div class="bb">
-        <a class="all_practice" href="http://127.0.0.1:3000/"> Home page </a
-        ><br /><br />
-        <a
-          class="all_practice"
-          href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b"
-        >
-          <span style="color: orange">My track</span></a
-        ><br /><br />
-        <a
-          class="all_practice"
-          href="http://127.0.0.1:3000/assignment/"
-          id="ass"
-        >
-          Assignments </a
-        ><br /><br />
-        <a class="all_practice jj" href="">Quizzes </a><br />
-        <a class="all_practice" href=""> Final Project </a>
+        <div class="dropdown">
+          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
+            Home page
+          </a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1/courses">Courses</a>
+            <a href="http://127.0.0.1/Standing">Standing</a>
+            <a href="http://127.0.0.1/hackathons">Hackthons</a>
+          </div>
+        </div>
+        <div class="div2">
+          <a
+            style="color: orange"
+            class="all_practice"
+            href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b"
+            >My track</a
+          >
+          <a class="all_practice" href="http://127.0.0.1:3000/assignment/">
+            <span>Assignments</span></a
+          >
+          <a class="all_practice" href=""> Final Project </a>
+        </div>
       </div>
       <button type="button" id="buton"></button>
-      <a href="http://127.0.0.1:3000" class="link">Exam</a>
+      <a href="http://127.0.0.1:3000" class="link">Take Exam</a>
     </div>
+    <header id="header">
+      <div class="over" id="header">
+        <h1 id="track_name">Backend Development</h1>
+        <img
+          src="/images/play.png"
+          alt="play icon"
+          onclick="playTrackVideo()"
+        />
+      </div>
+    </header>
+    <div class="grid-container" id="gridContainer">
+      <!--
+		    <div class="grid-item" onclick="displayCourseDetails()">
+                <img src="html_logo.png">
+                <h1> HTML5 </h1>
+            </div>			
+        -->
+    </div>
+
     <script src="/tracks.js"></script>
   </body>
 </html>
