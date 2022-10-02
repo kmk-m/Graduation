@@ -1,59 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Main css-->
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <!--Normalize css-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+    <title>homePage</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/dashboard.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>Accept</title>
-
-</head>
-
-<body>
-
-  <div class="container">
-    <div class="nav1">
-      <div class="text">
-        <h1>Accept</h1>
-        <input id="search" type="text" class="search" placeholder="Search for anything..." />
+  <body>
+    <!--The left part of the page -->
+    <div class="practice" id="practice">
+      <div class="logo">
+        <h1>
+          <span style="color: #ffffff">JOB</span
+          ><span style="color: #fcb500">Q</span>
+        </h1>
       </div>
-      <div class="icons" id="icons">
-        <img src="images/message1.png" />
-        <img src="images/notfication.png" />
-      </div>
-    </div>
-    <hr class="hr" />
-    <div class="nav2" id="nav2">
-      <!-- Drop1 -->
-      <div class="dropdown">
-        <button class="dropbtn">Rooms</button>
-        <div id="myDropdown" class="dropdown-content">
-
+      <div class="bb">
+        <div class="dropdown">
+          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
+            <span style="color: orange">Home page</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1/courses">Courses</a>
+            <a href="http://127.0.0.1/Standing">Standing</a>
+            <a href="http://127.0.0.1/hackathons">Hackthons</a>
+          </div>
+        </div>
+        <div class="div2">
+          <a
+            class="all_practice"
+            href="http://127.0.0.1:3000/Tracks/9b0ba3a1-3fc0-11ed-93a3-0a33a65a227b"
+            >My track</a
+          >
+          <a
+            class="all_practice"
+            href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b/Assignments"
+            >Assignments</a
+          >
+          <a class="all_practice" href=""> Final Project </a>
         </div>
       </div>
-
-      <a href="#" class="notdrp">Teach on Accept</a>
-      <a href="#" class="notdrp">Courses</a>
-      <a href="#" class="notdrp">Standing</a>
-      <a href="#" class="notdrp">Hackathons</a>
-
-      <div class="dropdown">
-        <button class="dropbtn dropbtn2">Tracks</button>
-        <div id="myDropdown1" class="dropdown-content">
-
-        </div>
+    </div>
+    <!-- The Right part of the page-->
+    <div class="right">
+      <input id="search" type="text" class="search" placeholder="Search.. " />
+      <div class="hac">
+        <p><span class="days"></span><span class="day"></span></p>
+        <p>
+          <span class="hours"></span>
+          <span class="minutes"></span>
+          <span class="seconds"></span>
+        </p>
+      </div>
+      <div class="hac2">
+        <p><span class="days2"></span><span class="day2"></span></p>
+        <p>
+          <span class="hours2"></span>
+          <span class="minutes2"></span>
+          <span class="seconds2"></span>
+        </p>
       </div>
     </div>
-    <div class="all" id="all">
-      <div class="boxes" id="boxes">
 
-      </div>
-
-    </div>
     <script src="/dashboard.js"></script>
-
-</body>
-
+  </body>
 </html>

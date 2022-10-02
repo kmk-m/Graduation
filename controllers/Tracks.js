@@ -25,61 +25,27 @@ async function getdata(req, res, next) {
     },
     attributes: ["status"],
   });
-  let TrackCourses = await trackCourses.findAll({
+  const TrackCourses = await trackCourses.findAll({
     where: {
       trackId: trackId,
     },
-    attributes: ["courseId"],
+    include: [
+      { model: Courses, attributes: ["name", "rating", "instructor", "image"] },
+    ],
+    attributes: ["id", "show"],
   });
-  let courses = [];
-
+  console.log(trackCourses);
   const track = await Tracks.findOne({
     where: {
       trackId: trackId,
     },
-    attributes: ["image", "introVideo", "name", "courseId"],
+    attributes: ["name", "image"],
   });
-  for (let i = 0; i < TrackCourses.length; i += 1) {
-    let UserCourses = await userCourses.findOne({
-      where: {
-        courseId: TrackCourses[i].courseId,
-        userId: req.userId,
-      },
-    });
-    courses.push(
-      await Courses.findOne({
-        where: {
-          courseId: TrackCourses[i].courseId,
-        },
-        attributes: [
-          "image",
-          "coursePlan",
-          "introVideo",
-          "description",
-          "duration",
-          "instructor",
-          "language",
-          "allow",
-          "courseId",
-        ],
-      })
-    );
-    if (UserCourses && UserCourses.dataValues.status === "Done") {
-      courses[i].allow = true;
-    }
-    console.log(courses[i].courseId);
-    console.log(track.courseId);
-    if (courses[i].courseId === track.courseId) {
-      console.log("ok");
-      courses[i].allow = true;
-    }
-  }
-
   return Response.success(res, "Get data successfully", {
     User,
     cretificate,
     track,
-    courses,
+    TrackCourses,
   });
 }
 export default getdata;

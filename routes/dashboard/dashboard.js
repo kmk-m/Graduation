@@ -7,7 +7,6 @@ import dashboard from "../../controllers/dashboard/dashboard.js";
 import passport from "passport";
 import { userInfo } from "os";
 const __filename = fileURLToPath(import.meta.url);
-
 const __dirname = path.dirname(__filename);
 
 router.get("/", (req, res) => {
