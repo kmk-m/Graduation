@@ -9,10 +9,7 @@ async function dahsboard(req, res) {
     },
     attributes: ["firstName", "lastName", "image"],
   });
-  const videos = await motivation_videos.findAll({
-    attributes: ["video", "comment"],
-  });
-
+  const videos = [];
   const hackathons = await Hackathons.findAll({
     where: {
       finished: 0,
