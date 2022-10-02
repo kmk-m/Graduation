@@ -10,6 +10,7 @@ body {
   height: 650px;
   background: #f7f8fa;
   margin: 0;
+  overflow: hidden;
 }
 
 div {
@@ -62,18 +63,21 @@ div {
   position: relative;
 }
 
+
 .container2 {
   background-color: transparent;
-  height: 500px;
+  height: 380px;
   width: 700px;
   border-radius: 6px;
   padding: 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
-  top: 20%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  left: 350px;
+  top:2.5%;
 }
 
 h1 {
@@ -104,7 +108,7 @@ span {
   font-size: 30px;
 }
 
-h2 {
+.topics {
   margin: -10px;
   text-align: center;
   font-family: "Poppins";
@@ -125,8 +129,8 @@ input {
   letter-spacing: 1px;
   background: #090846;
   position: relative;
-  left: -150px;
-  bottom: -100px;
+  left: 570px;
+  bottom: -50px;
 }
 
 input:hover {
@@ -179,4 +183,12 @@ input:hover {
 }
 .show {
   visibility: visible;
+}
+
+.job {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 100px;
+  left: 100px;
 }
