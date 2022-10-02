@@ -29,7 +29,7 @@ div {
 }
 
 .s:hover {
-  border: 2px solid black;
+  border: 2px solid orange;
 }
 
 .s:hover {
@@ -38,7 +38,8 @@ div {
 .clicked-div {
   border: 2px solid orange;
 }
-.addborder{
+
+.addborder {
   border: 2px solid black;
 }
 
@@ -170,7 +171,12 @@ input:hover {
 .remove {
   width: 0px;
 }
-
-.borderClk {
-  border: 2px solid black;
+.light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
 }

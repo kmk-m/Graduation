@@ -935,7 +935,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "interest": {
+                "interests": {
                   "example": "any"
                 }
               }
