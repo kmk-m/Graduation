@@ -21,10 +21,25 @@ div {
   border-radius: 30px;
   display: inline-block;
   text-align: center;
+  position: relative;
 }
 
 .s {
   line-height: 80px;
+}
+
+.s:hover {
+  border: 2px solid black;
+}
+
+.s:hover {
+  cursor: pointer;
+}
+.clicked-div {
+  border: 2px solid orange;
+}
+.addborder{
+  border: 2px solid black;
 }
 
 .container {
@@ -40,10 +55,12 @@ div {
   left: 320px;
   top: 15px;
 }
+
 .cont {
   background-color: transparent;
   position: relative;
 }
+
 .container2 {
   background-color: transparent;
   height: 500px;
@@ -57,6 +74,7 @@ div {
   display: flex;
   flex-wrap: wrap;
 }
+
 h1 {
   margin: 0;
   text-align: center;
@@ -151,4 +169,8 @@ input:hover {
 
 .remove {
   width: 0px;
+}
+
+.borderClk {
+  border: 2px solid black;
 }
