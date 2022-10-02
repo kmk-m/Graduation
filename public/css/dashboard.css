@@ -27,12 +27,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.bb a {
-  transition: 0.3s;
-}
-
 .bb a:hover {
   color: orange;
+  transition: 0.3s;
 }
 
 .bb img {
@@ -63,6 +60,9 @@ body {
   color: white;
   width: 100%;
 }
+.op h5 {
+  text-transform: capitalize;
+}
 .image1 {
   position: absolute;
   top: 20%;
@@ -77,23 +77,81 @@ body {
   cursor: pointer;
   opacity: 0.5;
 }
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+
+.practice button {
   position: absolute;
-  top: -35%;
-  display: inline-block;
+  top: 80%;
+  left: 50%;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 35px;
+  background-color: #0e1b3e;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.3s;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+.practice button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.practice button:hover .textbutton {
+  color: #0e1b3e;
+}
+
+.hr {
+  margin-bottom: 3%;
+  border: 1px solid #dcdcdc;
+}
+.textbutton {
+  position: absolute;
+  left: 25%;
+  top: -20%;
+  color: white;
+}
+.center {
+  position: absolute;
+  right: 0%;
+  height: 100%;
+  width: 5%;
+  background: #f7f8fa;
+}
+hr {
+  stroke: Solid;
+  color: #d8d8d8;
+  text-align: Center;
+  width: 90%;
+}
+.sp {
   position: relative;
-  left: 60%;
-  margin-top: 50px;
+  color: #dcdcdc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 45px;
+  line-height: 15px;
+  left: 5%;
+}
+.sp2 {
+  margin-bottom: 3%;
+  position: relative;
+  color: #dcdcdc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 0px;
+  left: 30%;
+}
+/* The container <div> - needed to position the dropdown content */
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
   display: none;
-  transform: translate(-50%, -50%);
   background-color: transparent;
-  min-width: 160px;
-  z-index: 1;
 }
 
 /* Links inside the dropdown */
@@ -109,21 +167,23 @@ body {
 .dropdown-content a:hover {
   color: #fcb500;
 }
-
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  position: absolute;
+  top: 30%;
+  left: 15%;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   color: #fcb500;
 }
-
-.dropdown:hover+.div2 {
-  margin-top: 60%;
+.div2 {
+  transition: 0.1s;
 }
-
+.dropdown:hover + .div2 {
+  visibility: hidden;
+}
 .gif {
   position: absolute;
   bottom: -15%;
@@ -133,52 +193,137 @@ body {
   height: 200px;
   width: 200px;
 }
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 /* right */
-.right{
+.right {
   position: absolute;
   height: 100%;
-  width: 15%;
-  right:0%;
-  background:#F7F8FA;
+  width: 100%;
+  position: absolute;
+  left: 570%;
+  /* right: 0%; */
+  background: #f7f8fa;
 }
 .search {
   position: absolute;
   top: 5%;
   padding: 6%;
-  width:74%;
-  left:6%;
+  width: 74%;
+  left: 6%;
   border: 1px solid white;
   background-color: white;
-  Font-family: 'Inter';
-  Font-style: Medium ;
+  font-family: "Inter";
+  font-style: Medium;
 }
-.hac{
-  position:absolute;
-  top:20%;
-  padding:5%;
-  width:75%;
-  left:6%;
+.allHackathons {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hac {
+  padding: 5%;
+  width: 75%;
   background-color: white;
-  Font-family: 'Inter';
-  Font-style: 'Light' ;
-  color:#FCB500;
+  font-family: "Inter";
+  font-style: "Light";
+  color: #fcb500;
+  margin-bottom: 20px;
+
+  border-radius: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.5s;
 }
 
-.hac2{
-  position:absolute;
-  top:50%;
-  padding:5%;
-  width:75%;
-  left:6%;
-  background-color: white;
-  Font-family: 'Inter';
-  Font-style: 'Light' ;
-  color:#FCB500;
-}
-.namehack{
-  font-family: 'Inter';
-  font-style: 'semi bold';
-  color:block;
+.namehack {
+  font-family: "Inter";
+  font-style: "semi bold";
+  color: block;
   text-align: center;
 }
+.hac p {
+  position: absolute;
+  bottom: 0;
+  font-size: small;
+}
+.hac h5 {
+  padding-top: 5px;
+  margin-top: auto;
+  color: #000000;
+}
+.hac:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border: 1px solid #fcb500;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+body.dark {
+  background-color: #292c35;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
 
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #ff1e56;
+}
+
+.fa-sun {
+  color: yellow;
+}
+.dar {
+  position: absolute;
+  bottom: -40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}

@@ -13,11 +13,16 @@
       href="https://fonts.googleapis.com/css?family=Inter"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/87f7416207.js" crossorigin="anonymous"></script>
+
     <title>homePage</title>
   </head>
 
   <body>
     <!--The left part of the page -->
+    <div class="container">
     <div class="practice" id="practice">
       <div class="logo">
         <h1>
@@ -26,9 +31,15 @@
         </h1>
       </div>
       <div class="bb">
+         <div class="home">
+          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
+            <span style="color: orange">HomePage</span>
+         </a>  
+         </div>
+
         <div class="dropdown">
           <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
-             <span style="color: orange">Home page</span>
+             <span>Tracks</span>
           </a>
           <div class="dropdown-content">
             <a href="http://127.0.0.1/courses">Courses</a>
@@ -40,32 +51,36 @@
           <a
             class="all_practice"
             href="http://127.0.0.1:3000/Tracks/9b0ba3a1-3fc0-11ed-93a3-0a33a65a227b"
-            >My track</a
+            >Hackathons</a
           >
           <a class="all_practice" href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b/Assignments">Assignments</a>
-          <a class="all_practice" href=""> Final Project </a>
+          <a class="all_practice" href=""> Standing</a>
+          <a class="all_practice" href=""> Courses</a>
+          <a class="all_practice" href=""> Rooms</a> 
+
         </div>
+        <div class="dar">
+          <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"></i>
+          <i class='fas fa-sun'></i>
+          <div class='ball'>
+        </label>
       </div>
+      </div>
+  
     </div>
     <!-- The Right part of the page-->
+
     <div class="right">
       <input id="search" type="text" class="search" placeholder="Search.. " />
-      <div class="hac">
-        <p><span class="days"></span><span class="day"></span></p>
-        <p>
-        <span class="hours"></span> 
-        <span class="minutes"></span>
-        <span class="seconds"></span> 
-        </p>
-      </div>
-       <div class="hac2">
-        <p><span class="days2"></span><span class="day2"></span></p>
-        <p>
-        <span class="hours2"></span> 
-        <span class="minutes2"></span>
-        <span class="seconds2"></span> 
-        </p>
-      </div>
+        <div class="allHackathons">
+          
+    
+        </div>
+    </div>
+   </div>
+
     <script src="/dashboard.js"></script>
   </body>
 </html>
