@@ -1,3 +1,14 @@
+// if (document.referrer !== "http://127.0.0.1:3000") {
+//   window.location.href = "http://127.0.0.1:3000";
+// }
+let access_token = document.cookie;
+console.log(access_token);
+access_token.slice(access_token.indexOf("="));
+
+if (document.URL.includes("auth")) {
+  console.log("yes");
+  window.location.href = "http://127.0.0.1:3000/go/" + access_token;
+}
 fetch("http://127.0.0.1:3000/dashboard", {
   method: "GET",
 
