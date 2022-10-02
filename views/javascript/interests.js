@@ -13,13 +13,17 @@ function data(json) {
   for (let i = 0; i < arr.length; i++) {
     let name = arr[i].name;
     let div = document.createElement("div");
+    let img = document.createElement("img");
+    img.src = "/images/correct.png";
+    img.alt = "image";
     div.innerHTML = `<h5>${name}</h5>`;
+    div.appendChild(img);
+
     container.appendChild(div);
     div.classList.add("s");
 
-    div.addEventListener('click', () => {
-      div.classList.toggle("clicked-div");;
+    div.addEventListener("click", () => {
+      div.classList.toggle("clicked-div");
     });
   }
-
 }

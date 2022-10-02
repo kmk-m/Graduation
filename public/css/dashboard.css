@@ -120,7 +120,7 @@ body {
   color: #fcb500;
 }
 
-.dropdown:hover+.div2 {
+.dropdown:hover + .div2 {
   margin-top: 60%;
 }
 
@@ -134,51 +134,50 @@ body {
   width: 200px;
 }
 /* right */
-.right{
+.right {
   position: absolute;
   height: 100%;
   width: 15%;
-  right:0%;
-  background:#F7F8FA;
+  right: 0%;
+  background: #f7f8fa;
 }
 .search {
   position: absolute;
   top: 5%;
   padding: 6%;
-  width:74%;
-  left:6%;
+  width: 74%;
+  left: 6%;
   border: 1px solid white;
   background-color: white;
-  Font-family: 'Inter';
-  Font-style: Medium ;
+  font-family: "Inter";
+  font-style: Medium;
 }
-.hac{
-  position:absolute;
-  top:20%;
-  padding:5%;
-  width:75%;
-  left:6%;
+.hac {
+  position: absolute;
+  top: 20%;
+  padding: 5%;
+  width: 75%;
+  left: 6%;
   background-color: white;
-  Font-family: 'Inter';
-  Font-style: 'Light' ;
-  color:#FCB500;
+  font-family: "Inter";
+  font-style: "Light";
+  color: #fcb500;
 }
 
-.hac2{
-  position:absolute;
-  top:50%;
-  padding:5%;
-  width:75%;
-  left:6%;
+.hac2 {
+  position: absolute;
+  top: 50%;
+  padding: 5%;
+  width: 75%;
+  left: 6%;
   background-color: white;
-  Font-family: 'Inter';
-  Font-style: 'Light' ;
-  color:#FCB500;
+  font-family: "Inter";
+  font-style: "Light";
+  color: #fcb500;
 }
-.namehack{
-  font-family: 'Inter';
-  font-style: 'semi bold';
-  color:block;
+.namehack {
+  font-family: "Inter";
+  font-style: "semi bold";
+  color: block;
   text-align: center;
 }
-
