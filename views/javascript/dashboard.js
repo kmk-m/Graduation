@@ -154,4 +154,51 @@ checkbox.addEventListener("change", () => {
   } else {
     localStorage.setItem("theme", "dark");
   }
+  window.location.href = window.location.href;
 });
+
+let userLight = "#0e1b3e";
+let userBlack = "#323232";
+let aLight = "orange";
+let ablack = "#ff1e56";
+let rateLight = "#b44b00";
+let rateBlack = "#a00d32";
+let backgroundLight = "#f7f8fa";
+let backgroundDark = "#000000";
+let nameLight = "black";
+let nameDark = "#f3f3f3";
+
+let fontLight = "#ffffff";
+let fontDark = "#000000";
+let hackLight = "#f7f8fa";
+let hackDark = "#000000";
+let fontLight2 = "#000000";
+let fontDark2 = "#ffffff";
+let hack2Light = "#ffffff";
+let hack2Dark = "#323232";
+let them = localStorage.getItem("theme");
+if (them == "dark") {
+  let colors = document.querySelector(":root");
+  colors.style.setProperty("--userLight", userBlack);
+  colors.style.setProperty("--aLight", ablack);
+  colors.style.setProperty("--rateLight", rateBlack);
+  colors.style.setProperty("--backgroundLight", backgroundDark);
+  colors.style.setProperty("--nameLight", nameDark);
+  colors.style.setProperty("--fontLight", fontDark);
+  colors.style.setProperty("--hackLight", hackDark);
+  colors.style.setProperty("--hack2Light", hack2Dark);
+
+  colors.style.setProperty("--fontLight2", fontDark2);
+  //window.location.href = window.location.href;
+} else {
+  colors.style.setProperty("--userBlack", userLight);
+  colors.style.setProperty("--ablack", aLight);
+  colors.style.setProperty("--rateBlack", rateBlack);
+  colors.style.setProperty("--backgroundDark", backgroundLight);
+  colors.style.setProperty("--nameBlack", nameLight);
+  colors.style.setProperty("--fontBlack", fontLight);
+  colors.style.setProperty("--hackBlack", hackLight);
+  colors.style.setProperty("--fontBlack2", fontLight2);
+  colors.style.setProperty("--hack2Black2", hack2Light2);
+  // window.location.href = window.location.href;
+}

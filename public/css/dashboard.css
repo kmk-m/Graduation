@@ -1,16 +1,39 @@
+:root {
+  --userLight: #0e1b3e;
+  --userBlack: #323232;
+  --aLight: orange;
+  --ablack: #ff1e56;
+  --rateLight: #b44b00;
+  --rateBlack: #a00d32;
+  --backgroundLight: #f7f8fa;
+  --backgroundDark: #000000;
+  --nameLight: black;
+  --nameDark: #f3f3f3;
+
+  --fontLight: #ffffff;
+  --fontDark: #000000;
+  --hackLight: #f7f8fa;
+  --hackDark: #000000;
+  --fontLight2: #000000;
+  --fontDark2: #ffffff;
+  --hack2Light: #ffffff;
+  --hack2Dark: #323232;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--backgroundLight);
 }
 
 .practice {
   position: fixed;
   height: 100%;
   width: 15%;
-  background: #0e1b3e;
+  background: var(--userLight);
 }
 
 .logo {
@@ -26,9 +49,11 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.io {
+  color: var(--aLight);
+}
 .bb a:hover {
-  color: orange;
+  color: var(--aLight);
   transition: 0.3s;
 }
 
@@ -44,7 +69,7 @@ body {
 
 .all_practice {
   display: inline-block;
-  color: white;
+  color: var(--fontLight);
   font-size: 16px;
   margin-top: 20px;
   text-decoration-line: none;
@@ -104,8 +129,7 @@ body {
 }
 
 .hr {
-  margin-bottom: 3%;
-  border: 1px solid #dcdcdc;
+  height: 100%;
 }
 .textbutton {
   position: absolute;
@@ -120,12 +144,7 @@ body {
   width: 5%;
   background: #f7f8fa;
 }
-hr {
-  stroke: Solid;
-  color: #d8d8d8;
-  text-align: Center;
-  width: 90%;
-}
+
 .sp {
   position: relative;
   color: #dcdcdc;
@@ -156,7 +175,7 @@ hr {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: white;
+  color: var(--fontLight);
   text-decoration: none;
   display: block;
   margin-top: 10px;
@@ -165,7 +184,7 @@ hr {
 /* Change color of dropdown links on hover */
 
 .dropdown-content a:hover {
-  color: #fcb500;
+  color: var(--aLight);
 }
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -176,7 +195,7 @@ hr {
 }
 
 .dropdown:hover .dropbtn {
-  color: #fcb500;
+  color: var(--aLight);
 }
 .div2 {
   transition: 0.1s;
@@ -206,18 +225,21 @@ hr {
   position: absolute;
   left: 570%;
   /* right: 0%; */
-  background: #f7f8fa;
+  background: var(--hackLight);
 }
 .search {
   position: absolute;
   top: 5%;
   padding: 6%;
   width: 74%;
-  left: 6%;
-  border: 1px solid white;
-  background-color: white;
+  left: 12%;
+  border: 1px solid var(--hack2Light);
+  background-color: var(--hack2Light);
   font-family: "Inter";
   font-style: Medium;
+}
+.search::placeholder {
+  color: var(--nameLight);
 }
 .allHackathons {
   position: absolute;
@@ -231,13 +253,13 @@ hr {
 .hac {
   padding: 5%;
   width: 75%;
-  background-color: white;
+  background-color: var(--hack2Light);
   font-family: "Inter";
   font-style: "Light";
-  color: #fcb500;
+  color: var(--aLight);
   margin-bottom: 20px;
 
-  border-radius: 21px;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,12 +281,12 @@ hr {
 .hac h5 {
   padding-top: 5px;
   margin-top: auto;
-  color: #000000;
+  color: var(--fontLight2);
 }
 .hac:hover {
-  background-color: #f1f1f1;
+  background-color: var(--hackLight);
   cursor: pointer;
-  border: 1px solid #fcb500;
+  border: 1px solid var(--aLight);
 }
 * {
   box-sizing: border-box;
@@ -319,11 +341,14 @@ body.dark {
 }
 
 .fa-sun {
-  color: yellow;
+  color: orange;
 }
 .dar {
   position: absolute;
   bottom: -40%;
   left: 40%;
   transform: translate(-50%, -50%);
+}
+.practice a {
+  color: white;
 }
