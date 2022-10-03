@@ -352,3 +352,68 @@ body.dark {
 .practice a {
   color: white;
 }
+/* Center */
+.content{
+  position:absolute;
+  left:17%;
+  right :14%;
+  height: 100%;
+}
+#namewel{
+  color: #FCB500 ;
+}
+.word{
+  position: absolute;
+  font-weight: bold; 
+  font-style:'Inter';
+  line-height: 8pt;
+}
+.imageCenter{
+  position: absolute;
+  margin-left: 130px;
+  right:0%;
+  top:5%;
+}
+.videoCenter{
+  position: absolute;
+  top:20%;
+  background:white;
+  border-radius: 15px;
+}
+.disc{
+  font-family: 'Inter';
+  text-align: center;
+
+}
+.video{
+  width:100%;
+  text-align: center;
+}
+.support{
+ display: flex;
+}
+.subscribe{
+display: flex;
+padding :2px;
+}
+.post-bottom{
+    box-shadow: 1px solid #ddd;
+    display:flex;
+    justify-content: space-between;
+    padding:5px 5px 0px 5px;
+}
+
+ .post-bottom .action{
+    padding:10px;
+    border-radius:10px;
+    transition: .3s ease-in;
+    font-size: 30px;
+    cursor: pointer;
+   user-select: none;
+}
+.fa:hover {
+  color: darkblue;
+}
+.post-bottom .action:hover{
+    background:#eee;
+}
