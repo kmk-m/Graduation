@@ -17,11 +17,10 @@ async function addInterestsUser(req, res, next) {
   try {
     const userId = req.userId;
     const { userInterests } = req.models;
-    const { interest } = req.body;
-    console.log(interest);
-    console.log(userId);
+    const { interests } = req.body;
+    console.log(interests);
     const response = await userInterests.create({
-      interestId: interest,
+      interestId: interests,
       userId: userId,
     });
     console.log(response);

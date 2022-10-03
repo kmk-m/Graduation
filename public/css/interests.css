@@ -10,6 +10,7 @@ body {
   height: 650px;
   background: #f7f8fa;
   margin: 0;
+  overflow: hidden;
 }
 
 div {
@@ -21,10 +22,26 @@ div {
   border-radius: 30px;
   display: inline-block;
   text-align: center;
+  position: relative;
 }
 
 .s {
   line-height: 80px;
+}
+
+.s:hover {
+  border: 2px solid orange;
+}
+
+.s:hover {
+  cursor: pointer;
+}
+.clicked-div {
+  border: 2px solid orange;
+}
+
+.addborder {
+  border: 2px solid black;
 }
 
 .container {
@@ -40,23 +57,28 @@ div {
   left: 320px;
   top: 15px;
 }
+
 .cont {
   background-color: transparent;
   position: relative;
 }
+
 .container2 {
   background-color: transparent;
-  height: 500px;
+  height: 380px;
   width: 700px;
   border-radius: 6px;
   padding: 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
-  top: 20%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  left: 350px;
+  top: 2.5%;
 }
+
 h1 {
   margin: 0;
   text-align: center;
@@ -85,7 +107,7 @@ span {
   font-size: 30px;
 }
 
-h2 {
+.topics {
   margin: -10px;
   text-align: center;
   font-family: "Poppins";
@@ -104,14 +126,16 @@ input {
   font-weight: 500;
   border-radius: 5px;
   letter-spacing: 1px;
-  background: #090846;
+  background: #201e88;
   position: relative;
-  left: -150px;
-  bottom: -100px;
+  left: 570px;
+  bottom: -50px;
+  transition: 0.5s;
 }
 
 input:hover {
   cursor: pointer;
+  background: #090846;
 }
 
 /* custom scrollbar */
@@ -151,4 +175,24 @@ input:hover {
 
 .remove {
   width: 0px;
+}
+.light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
+
+.jobb {
+  position: absolute;
+  background-color: transparent;
+  left: 5%;
+}
+.inter {
+  width: 100%;
+  background-color: transparent;
+  margin-top: 20px;
 }

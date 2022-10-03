@@ -3,18 +3,18 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "companies",
+    "post",
     {
       id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      name: {
-        type: dataType.STRING,
+      content: {
+        type: dataType.TEXT,
         allowNull: false,
       },
-      image: {
+      link: {
         type: dataType.TEXT,
         allowNull: false,
       },

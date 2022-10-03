@@ -8,7 +8,7 @@ import verifychangepassword from "./auth/verifychangepassword";
 import verifyemail from "./auth/verifyemail";
 import google from "./auth/google";
 import facebook from "./auth/facebook";
-import dashboard from "./dashboard/dashboard";
+import dashboard from "./dashboard.js";
 import admin from "./admin/admin";
 import jwt from "../util/jwt.js";
 import Tracks from "./Tracks";
