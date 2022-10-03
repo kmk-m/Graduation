@@ -39,6 +39,14 @@ function init(connection) {
       allowNull: false,
       defaultValue: 0,
     },
+    bio: {
+      type: dataType.STRING,
+      allowNull: false,
+      defaultValue: "newbie",
+    },
+    about: {
+      type: dataType.TEXT,
+    },
     image: {
       type: dataType.TEXT,
       allowNull: false,
