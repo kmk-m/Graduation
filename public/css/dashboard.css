@@ -380,17 +380,18 @@ body.dark {
 .imageCenter img:hover {
   cursor: pointer;
 }
-
-.videoCenter {
+.videos {
   position: absolute;
   top: 20%;
+}
+.videoCenter {
   background: white;
   border-radius: 15px;
 
   width: 85%;
 }
 .disc {
-  padding: 5px 10px;
+  padding: 20px;
   color: #00000083;
   line-height: 1.4;
 }
@@ -439,7 +440,7 @@ body.dark {
   padding: 10px;
   border-radius: 10px;
   transition: 0.3s ease-in;
-  font-size: 25px;
+  font-size: 20px;
   color: #00000099;
   cursor: pointer;
   user-select: none;
@@ -452,7 +453,7 @@ body.dark {
 }
 .comment {
   position: absolute;
-  right: 5%;
+  right: 20%;
   color: #949494;
 }
 hr {
