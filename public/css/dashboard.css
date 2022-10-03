@@ -387,8 +387,9 @@ body.dark {
 .videoCenter {
   background: white;
   border-radius: 15px;
-
+  padding: 10px;
   width: 85%;
+  margin-bottom: 5%;
 }
 .disc {
   padding: 20px;
@@ -430,7 +431,7 @@ body.dark {
   align-items: center;
   width: 80%;
   gap: 20%;
-  margin-left: 7%;
+  margin-left: 9%;
 }
 
 .post-bottom .action {
