@@ -576,3 +576,61 @@ hr {
 .com img:hover {
   cursor: pointer;
 }
+/* emoji */
+.container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.emoji {
+  width: 400px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transform: translateY(100px);
+  transition: all 0.4s;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+.emoji img {
+  display: block;
+  width: 100px;
+  transition: all 0.4s;
+
+}
+.hello p {
+  position: relative;
+  top: -120px;
+  font-family: 'Inter';
+  background-color: rgb(0, 0, 0.9);
+  color: white;
+  width: 50px;
+  padding: 10px 5px;
+  border-radius: 25px;
+  margin-left: 10px;
+  transition: all .2s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hello:hover p {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container2:hover .emoji {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
