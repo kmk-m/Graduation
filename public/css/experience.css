@@ -5,9 +5,12 @@
 * {
     font-family: "poppins" , sans-serif;
     box-sizing: border-box;
-    background-color: #f7f8fa;
     width: 600px;
    
+}
+
+body{
+    background-color: #f7f8fa;
 }
 
 .job {
@@ -25,9 +28,16 @@
    left: 400px;
 }
 
-span {
+span:not(.pl) {
     color: var(--main-color);
 }
+
+.pl {
+    font-size: 30px;
+    position: relative;
+    top: 2px;
+}
+
 
 .work {
     width: 100px;
@@ -37,16 +47,15 @@ span {
     position: relative;
     top: 100px;
     left: 320px;
-    line-height: 35px;
+    line-height: 30px;
     text-align: center;
     border-radius: 35px;
     margin-bottom: 20px;
     display: inline-block;
+    cursor:pointer;
+    
 }
 
-.work:hover{
-    cursor: pointer;
-}
 
 input {
     height: 50px;
@@ -60,9 +69,8 @@ input {
     letter-spacing: 1px;
     background:     #090846;
     position: relative;
-    left: 200px;
+    left: 500px;
     top: 300px;
     transition: 0.5s;
     cursor: pointer;
   }
-
