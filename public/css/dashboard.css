@@ -45,7 +45,7 @@ body {
 
 .bb {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -330,7 +330,16 @@ body.dark {
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
-
+.ball2 {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
 /*  target the elemenent after the label*/
 .checkbox:checked + .label .ball {
   transform: translateX(24px);
@@ -345,12 +354,21 @@ body.dark {
 }
 .dar {
   position: absolute;
-  bottom: -40%;
+  bottom: -30%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
 .practice a {
   color: white;
+}
+.ui {
+  width: 90%;
+}
+.ui p {
+  text-transform: capitalize;
+  font-size: 12px;
+  margin-top: -16%;
+  color: #dcdcdc;
 }
 /* Center */
 .content {
@@ -391,9 +409,12 @@ body.dark {
   width: 85%;
   margin-bottom: 5%;
 }
+.bom {
+  text-transform: capitalize;
+}
 .disc {
   padding: 20px;
-  color: #00000083;
+  color: #000000cc;
   line-height: 1.4;
 }
 .video {
@@ -418,7 +439,7 @@ body.dark {
   text-decoration: underline;
 }
 .rec {
-  margin-left: -15px;
+  margin-left: -5px;
 }
 .subscribe {
   display: flex;
@@ -449,6 +470,9 @@ body.dark {
 .fa:hover {
   color: darkblue;
 }
+.blue {
+  color: darkblue;
+}
 .post-bottom .action:hover {
   background: #eee;
 }
@@ -462,4 +486,93 @@ hr {
   border-color: #dcdcdc;
   color: #dcdcdc;
   border: 1px solid;
+}
+.imo {
+  width: 25px;
+  height: 25px;
+}
+.contantComment {
+  border-radius: 25px;
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 25px;
+  margin-top: 1%;
+  padding: 1px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  margin-left: 12%;
+  width: 85%;
+}
+.comms {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  display: none;
+}
+.vos {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  visibility: visible;
+}
+.ph {
+  position: absolute;
+  margin-left: 5%;
+}
+.ph img {
+  width: 50px;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.vis {
+  border-radius: 25px;
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 25px;
+  width: 80%;
+  margin-left: 12%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addcoment {
+  font-family: "Inter";
+  font-style: "Regular";
+  color: #bebebe;
+  vertical-align: Top;
+  width: 85%;
+  border: none;
+  outline: 1px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: 3%;
+  position: relative;
+  margin-right: auto;
+}
+.vis textarea {
+  color: #000000;
+  overflow: hidden;
+  height: fit-content;
+  resize: none;
+  width: 80%;
+  padding-left: -50px;
+}
+.com {
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 20px;
+}
+.com img:hover {
+  cursor: pointer;
 }

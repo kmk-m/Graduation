@@ -1,6 +1,3 @@
-// if (document.referrer !== "http://127.0.0.1:3000") {
-//   window.location.href = "http://127.0.0.1:3000";
-// }
 let access_token = document.cookie;
 console.log(access_token);
 access_token.slice(access_token.indexOf("="));
@@ -80,10 +77,12 @@ function hackathons(allHackathons) {
 
 function data(json) {
   /* return name */
-  console.log(json.data.User.firstName + " " + json.data.User.lastName);
+
   let name = json.data.User.firstName + " " + json.data.User.lastName;
+  document.getElementById("namewel").innerHTML = `${json.data.User.firstName}`;
   const para = document.createElement("div");
-  para.innerHTML = "<h5>" + name + "</h5>";
+  para.innerHTML = `<h5>${name}</h5> <p>${json.data.User.bio}</p>`;
+  para.className = "ui";
   let element = document.getElementById("practice");
   element.appendChild(para);
   para.classList.add("op");
@@ -99,53 +98,8 @@ function data(json) {
   console.log(img);
 
   hackathons(json.data.hackathons);
+  posts(json.data.posts, json.data.User.image);
 }
-
-/* name of hack 
-function data(json) {
-  console.log(json.data.hackathons.name );
-  let namehac = json.data.hackathons.name ;
-  const parahac = document.createElement("div");
-  para.innerHTML = "<h5>" + namehac + "</h5>";
-  let elementhac = document.getElementById("hac");
-  elementhac.appendChild(parahac);
-  parahac.classList.add("namehack");
-  
-}
-*/
-/* Hakthon countdown */
-
-/* countdown */
-// let countDownDate2 = new Date("date").getTime();
-// let counter2 = setInterval(() => {
-//   // Get Date Now
-//   let dateNow2 = new Date().getTime();
-//   // Find The Date Difference Between Now And Countdown Date
-//   let dateDiff2 = countDownDate2 - dateNow2;
-//   // Get Time Units
-//   let days2 = Math.floor(dateDiff2 / (1000 * 60 * 60 * 24));
-//   let hours2 = Math.floor(
-//     (dateDiff2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-//   );
-//   let minutes2 = Math.floor((dateDiff2 % (1000 * 60 * 60)) / (1000 * 60));
-//   let seconds2 = Math.floor((dateDiff2 % (1000 * 60)) / 1000);
-//   let str2 = "  Days";
-//   if (days2 > 0) {
-//     document.querySelector(".days2").innerHTML =
-//       days2 < 10 ? `0${days2}` : days2;
-//     document.querySelector(".day2").innerHTML = str2;
-//   } else {
-//     document.querySelector(".hours2").innerHTML =
-//       hours2 < 10 ? `0${hours2} :` : `${hours2} :`;
-//     document.querySelector(".minutes2").innerHTML =
-//       minutes2 < 10 ? `0${minutes2} :` : `${minutes2} :`;
-//     document.querySelector(".seconds2").innerHTML =
-//       seconds2 < 10 ? `0${seconds2}` : seconds2;
-//   }
-//   if (dateDiff2 < 0) {
-//     clearInterval(counter2);
-//   }
-// }, 1000);
 const checkbox = document.getElementById("checkbox");
 
 checkbox.addEventListener("change", () => {
@@ -156,6 +110,209 @@ checkbox.addEventListener("change", () => {
   }
   window.location.href = window.location.href;
 });
+let yes = false;
+function posts(posts, img) {
+  posts.forEach((x) => {
+    let videoCenter = document.createElement("div");
+    videoCenter.className = "videoCenter";
+    videoCenter.setAttribute("id", x.id);
+    let parent = document.querySelector(".videos");
+    parent.appendChild(videoCenter);
+    let disc = document.createElement("p");
+    disc.className = "disc";
+    disc.innerHTML = `${x.content}`;
+    videoCenter.appendChild(disc);
+    let video = document.createElement("video");
+    video.className = "video";
+    video.src = `${x.link}`;
+    video.controls = true;
+    videoCenter.appendChild(video);
+    let support = document.createElement("div");
+    support.className = "support";
+    videoCenter.appendChild(support);
+    let a1 = document.createElement("div");
+    support.appendChild(a1);
+    console.log(x);
+    let likes = JSON.stringify(x.like).toString();
+    let like = likes.slice(8, likes.indexOf("love") - 2);
+    let love = likes.slice(likes.indexOf("love") + 6, likes.indexOf("sad") - 2);
+    let sad = likes.slice(likes.indexOf("sad") + 5, likes.indexOf("angry") - 2);
+    let angry = likes.slice(likes.indexOf("angry") + 7, likes.indexOf("}"));
+    let imgs = [];
+    let li = like.like;
+    console.log(li);
+    if (like > 0) {
+      let like1 = document.createElement("img");
+      like1.className = "imo";
+      a1.appendChild(like1);
+      like1.src = "/images/likeblue.png";
+      imgs.push(like1);
+    }
+    if (love > 0) {
+      let love1 = document.createElement("img");
+      love1.className = "imo";
+      a1.appendChild(love1);
+      love1.src = "/images/love.png";
+      imgs.push(love1);
+    }
+    if (sad > 0) {
+      let sad1 = document.createElement("img");
+      sad1.className = "imo";
+      a1.appendChild(sad1);
+      sad1.src = "/images/sad.png";
+      imgs.push(sad1);
+    }
+    if (angry > 0) {
+      let angry1 = document.createElement("img");
+      angry1.className = "imo";
+      angry1.src = "/images/angry.png";
+      a1.appendChild(angry1);
+      imgs.push(angry1);
+    }
+    if (imgs.length > 1) {
+      for (let i = 1; i < imgs.length; i++) {
+        imgs[i].className += " rec";
+      }
+    }
+    let Likes = document.createElement("p");
+    Likes.setAttribute("id", "like" + x.id);
+    support.appendChild(Likes);
+
+    if (parseInt(like) + parseInt(love) + parseInt(sad) + parseInt(angry) > 0) {
+      Likes.innerHTML = `${
+        parseInt(like) + parseInt(love) + parseInt(sad) + parseInt(angry)
+      } Users`;
+    }
+    let comment = document.createElement("div");
+    comment.className = "comment";
+    support.appendChild(comment);
+    if (x.postComments.length) {
+      let a2 = document.createElement("p");
+      a2.innerHTML = `${x.postComments.length} Comments`;
+      comment.appendChild(a2);
+    }
+    if (
+      parseInt(like) + parseInt(love) + parseInt(sad) + parseInt(angry) > 0 ||
+      x.postComments.length > 0
+    ) {
+      let hr = document.createElement("hr");
+      videoCenter.appendChild(hr);
+    }
+    let postBottom = document.createElement("div");
+    postBottom.className = "post-bottom";
+    videoCenter.appendChild(postBottom);
+    for (let i = 0; i < 3; i++) {
+      let action = document.createElement("action");
+      action.className = "action";
+      let span = "Like";
+      let cs = "far fa-thumbs-up";
+      action.setAttribute("id", x.id);
+
+      if (i == 0) action.className = "action action1";
+      if (i == 1) {
+        span = "Comment";
+        cs = "far fa-comment";
+        action.setAttribute("id", x.id);
+        action.className = "action action2";
+      }
+      if (i == 2) {
+        span = "Share";
+        cs = "fa fa-share";
+      }
+
+      postBottom.appendChild(action);
+      let vote = document.createElement("i");
+      vote.className = `${cs}`;
+      action.appendChild(vote);
+      let a3 = document.createElement("span");
+      a3.innerHTML = `${span}`;
+      action.appendChild(a3);
+    }
+    let comms = document.createElement("div");
+    comms.className = "comms";
+    videoCenter.appendChild(comms);
+    let ph = document.createElement("div");
+    ph.className = "ph";
+    comms.appendChild(ph);
+    ph.innerHTML = `
+    <img src=${img}>
+    `;
+    let inputCom = document.createElement("div");
+    inputCom.innerHTML = `
+    <textarea  id = ${x.id}
+    class=addcoment placeholder="Type Any Comment"></textarea>
+  <div class=com> 
+  <img  src="/images/emoticon.png" width="25" height="25">
+  <img  src="/images/image.png" width="25" height="25">
+  </div>
+    `;
+    inputCom.className = "vis";
+    comms.setAttribute("id", "comm" + x.id);
+    comms.appendChild(inputCom);
+    videoCenter.appendChild(comms);
+  });
+  let a = document.querySelectorAll(".action2");
+  for (let i = 0; i < a.length; i++) {
+    a[i].addEventListener("click", (e) => {
+      let id = e.target.id;
+      if (!id) id = e.target.parentNode.id;
+
+      // console.log(document.getElementById(id));
+      document.getElementById("comm" + id).className = "comms";
+    });
+  }
+  let commets = document.querySelectorAll(".action2");
+  commets.forEach((aa) => {
+    aa.addEventListener("click", (e) => {
+      let id = e.target.id;
+      if (!id) id = e.target.parentNode.id;
+      document.getElementById("comm" + id).className = "vos";
+    });
+  });
+
+  let arr = document.querySelectorAll(".addcoment");
+  arr.forEach((xx) => {
+    xx.addEventListener("input", (e) => {
+      console.log(document.getElementById(e.target.id).scrollHeight);
+      document.getElementById(e.target.id).style.height =
+        document.getElementById(e.target.id).scrollHeight + "px";
+    });
+  });
+  let arr2 = document.querySelectorAll(".action1");
+  arr2.forEach((xx) => {
+    xx.addEventListener("click", (e) => {
+      let id = e.target.id;
+      if (!id) id = e.target.parentNode.id;
+      console.log(id);
+      let x = document.getElementById("like" + id);
+      let y = x;
+      x = x.innerHTML;
+      x = x.slice(0, x.indexOf(" "));
+      //  x = x.slice(indexOf("l"));
+      x = parseInt(x);
+      for (let ii = 0; ii < posts.length; ii++) {
+        let vs = false;
+        if (posts[ii].id === id) {
+          xx.firstChild.classList.toggle("blue");
+          xx.lastChild.classList.toggle("blue");
+          if (posts[ii].postFriends.length !== 0) {
+            if (x == 0 || x == 1) y.innerHTML = "";
+            else {
+              posts[ii].postFriends.pop();
+              x -= 1;
+              y.innerHTML = `${x} Users`;
+            }
+          } else {
+            if (isNaN(x)) x = 0;
+            x += 1;
+            y.innerHTML = `${x} Users`;
+            posts[ii].postFriends.push(1);
+          }
+        }
+      }
+    });
+  });
+}
 
 let userLight = "#0e1b3e";
 let userBlack = "#323232";
@@ -178,6 +335,7 @@ let hack2Light = "#ffffff";
 let hack2Dark = "#323232";
 let them = localStorage.getItem("theme");
 if (them == "dark") {
+  document.querySelector(".ball").className = "ball2";
   let colors = document.querySelector(":root");
   colors.style.setProperty("--userLight", userBlack);
   colors.style.setProperty("--aLight", ablack);
@@ -191,6 +349,8 @@ if (them == "dark") {
   colors.style.setProperty("--fontLight2", fontDark2);
   //window.location.href = window.location.href;
 } else {
+  document.querySelector(".ball2").className = "ball";
+
   colors.style.setProperty("--userBlack", userLight);
   colors.style.setProperty("--ablack", aLight);
   colors.style.setProperty("--rateBlack", rateBlack);

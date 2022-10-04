@@ -17,6 +17,10 @@ async function dahsboard(req, res, next) {
           attributes: ["like", "love", "sad", "angry"],
         },
         {
+          model: postFriends,
+          attributes: ["id"],
+        },
+        {
           model: postComments,
           attributes: [
             "id",
@@ -62,6 +66,8 @@ async function dahsboard(req, res, next) {
       ],
     });
     for (let j = 0; j < posts.length; j++) {
+      // delete posts[j].postFriends;
+
       for (let i = 0; i < posts[j].dataValues.postComments.length; i++) {
         if (posts[j].dataValues.postComments[i].dataValues.type !== "comment")
           delete posts[j].postComments[i];
@@ -76,6 +82,7 @@ async function dahsboard(req, res, next) {
     const tracks = await Tracks.findAll({
       attributes: ["name", "trackId"],
     });
+
     return Responses.success(res, "data", {
       User,
       hackathons,
