@@ -196,3 +196,31 @@ input:hover {
   background-color: transparent;
   margin-top: 20px;
 }
+.err {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  display: none;
+}
+.show2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  visibility: visible;
+}
+.container2 {
+  text-align: center;
+}
+.topics2 {
+  margin-top: 15px;
+}

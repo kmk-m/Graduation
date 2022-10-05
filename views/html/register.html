@@ -1,64 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="1tr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>Login Form</title>
   <link rel="stylesheet" href="/css/register.css" />
   <link href="/fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet" />
-
-  <title>Accept Registration Form</title>
 </head>
 
 <body>
-  <div class="lading">
-  <div class="landing2">
-  <div class="container">
-    <div class="title">Registration</div>
-    <form id="reg">
-      <div class="user-details">
-        <div class="input-box">
-          <span class="details">firstname</span>
-          <input type="text" placeholder="Enter your name" name="firstname" id="fname" required />
+  <div class="landing">
+    <div class="landing2">
+  <div class="par">
+    <h1>Join Us</h1>
+    <div class="cont">
+
+    <h3>
+      Start Your Journy with us<br />
+      To reach your dream job
+    </h3>
+    <h3>
+      Join our competitions , Start our tracks, <br />
+      Start our courses , Show us your standing<br />
+    </h3>
+  </div>
+  </div>
+  </div>
+  <div class="center">
+    <h1>Sign up</h1>
+    <form id="formSign" class="test1">
+      <div id="test" class="test">
+        <div class="txt_field">
+          <input type="text" class="field" name="firstname" id="fname" required minlength="6" 
+            placeholder="firstname" />
+          <span></span>
         </div>
-        <div class="input-box">
-          <span class="details">lastname</span>
-          <input type="text" placeholder="Enter your Username" name="lastname" id="lname" required />
+        <div class="txt_field">
+          <input type="text" class="field" name="lastname" id="lname"  
+            placeholder="Lastname" />
+          <span></span>
         </div>
-        <div class="input-box">
-          <span class="details">email</span>
-          <input type="email" placeholder="Enter your email" name="email" id="email" required />
+        <div class="txt_field">
+          <input type="email" class="field" placeholder="Email" name="email" id="email" required />
+          <span></span>
         </div>
-        <div class="input-box">
-          <span class="details">password</span>
-          <input type="password" placeholder="Enter your password" name="password" id="password" required minlength="6"
-            maxlength="12" />
+        <div class="txt_field">
+          <input type="password" class="field" name="Password" id="password" required minlength="6" 
+            placeholder="password" />
+          <span></span>
         </div>
-        <div class="input-box">
-          <span class="details">confirm password</span>
-          <input type="password" placeholder="Confirm your password" id="confirmpassword" name="confirmpassword"
-            required minlength="6" maxlength="12" />
+        <div class="txt_field">
+          <input type="password" class="field" name="confirmpassword" id="confirmpassword" required minlength="6" 
+            placeholder="confirm password" />
+          <span></span>
         </div>
-        <div id="test"></div>
-        <div class="button">
-          <input id="btn" value="Sign up" type="submit" />
-        </div>
-        <div class="links">
-          <div class="col">
-            <a href="/auth/facebook" class="fb btn">
-              <i class="fab fa-facebook"></i> Sign up with Facebook
-            </a>
-            <a href="/auth/google" class="google btn">
-              <i class="fab fa-google"></i> Sign up with Google+
-            </a>
-          </div>
+
+      </div>
+      <button id="btn" class="btn">Join Us</button>
+      <div class="links">
+        <div class="col">
+          <a href="auth/facebook" class="fa">
+            <i class="fab fa-facebook fa-2xl"></i>
+          </a>
+          <a href="auth/google" class="google">
+            <i class="fab fa-google fa-2xl"></i>
+          </a>
         </div>
       </div>
     </form>
-    </div>
-    </div>
   </div>
+</div>
+</div>
   <script src="/register.js"></script>
 </body>
 

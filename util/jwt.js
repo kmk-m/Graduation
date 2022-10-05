@@ -6,15 +6,17 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
-function authenticateWithJWT(req, res, next) {
+async function authenticateWithJWT(req, res, next) {
   const token = req.cookies.access_token;
 
   if (!token) {
     return res.sendFile(path.join(__dirname + "/../views/html/notlogin.html"));
   }
   try {
+    const { userInterests } = req.models;
     const data = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.userId = data.userId;
+    console.log(userInterests);
     req.userRole = data.role;
     return next();
   } catch {

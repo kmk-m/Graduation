@@ -139,7 +139,7 @@ async function register(req, res, next) {
       { expiresIn: 7 * 24 * 60 * 60 }
     );
     delete newuser.dataValues.password;
-
+    return response.badRequest(res, "Success", "User");
     // let transporter = nodemailer.createTransport({
     //   host: "smtp.titan.email",
     //   port: 587,

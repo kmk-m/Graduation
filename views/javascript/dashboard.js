@@ -77,7 +77,7 @@ function hackathons(allHackathons) {
 
 function data(json) {
   /* return name */
-
+  console.log(json);
   let name = json.data.User.firstName + " " + json.data.User.lastName;
   document.getElementById("namewel").innerHTML = `${json.data.User.firstName}`;
   const para = document.createElement("div");
@@ -99,6 +99,7 @@ function data(json) {
 
   hackathons(json.data.hackathons);
   posts(json.data.posts, json.data.User.image);
+  tracks(json.data.tracks);
 }
 const checkbox = document.getElementById("checkbox");
 
@@ -361,4 +362,15 @@ if (them == "dark") {
   colors.style.setProperty("--fontBlack2", fontLight2);
   colors.style.setProperty("--hack2Black2", hack2Light2);
   // window.location.href = window.location.href;
+}
+function tracks(tracks) {
+  const drop = document.querySelector(".dropdown-content");
+  console.log(drop);
+  tracks.forEach((x) => {
+    const parag = document.createElement("a");
+    parag.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
+    parag.innerHTML = `${x.name}`;
+    console.log(parag);
+    drop.appendChild(parag);
+  });
 }
