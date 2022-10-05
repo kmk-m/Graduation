@@ -9,7 +9,8 @@
   --backgroundDark: #000000;
   --nameLight: black;
   --nameDark: #f3f3f3;
-
+  --postLight: #000000cc;
+  --postDark: "#000000";
   --fontLight: #ffffff;
   --fontDark: #000000;
   --hackLight: #f7f8fa;
@@ -18,6 +19,8 @@
   --fontDark2: #ffffff;
   --hack2Light: #ffffff;
   --hack2Dark: #323232;
+  --commentLight: #949494;
+  --commentDark: #ffffff;
 }
 
 html,
@@ -409,7 +412,7 @@ body.dark {
   top: 20%;
 }
 .videoCenter {
-  background: white;
+  background: var(--hack2Light);
   border-radius: 15px;
   padding: 10px;
   width: 85%;
@@ -420,7 +423,7 @@ body.dark {
 }
 .disc {
   padding: 20px;
-  color: #000000cc;
+  color: var(--postLight);
   line-height: 1.4;
 }
 .video {
@@ -485,7 +488,9 @@ body.dark {
 .comment {
   position: absolute;
   right: 20%;
-  color: #949494;
+}
+.comment p {
+  color: var(--commentLight);
 }
 hr {
   width: 92%;

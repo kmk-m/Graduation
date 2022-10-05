@@ -380,7 +380,8 @@ let backgroundLight = "#f7f8fa";
 let backgroundDark = "#000000";
 let nameLight = "black";
 let nameDark = "#f3f3f3";
-
+let commentLight = "#949494";
+let commentDark = "#ffffff";
 let fontLight = "#ffffff";
 let fontDark = "#000000";
 let hackLight = "#f7f8fa";
@@ -389,6 +390,8 @@ let fontLight2 = "#000000";
 let fontDark2 = "#ffffff";
 let hack2Light = "#ffffff";
 let hack2Dark = "#323232";
+let postLight = "#000000cc";
+let postDark = "#ffffff";
 let them = localStorage.getItem("theme");
 if (them == "dark") {
   document.querySelector(".ball").className = "ball2";
@@ -401,8 +404,9 @@ if (them == "dark") {
   colors.style.setProperty("--fontLight", fontDark);
   colors.style.setProperty("--hackLight", hackDark);
   colors.style.setProperty("--hack2Light", hack2Dark);
-
+  colors.style.setProperty("--commentLight", commentDark);
   colors.style.setProperty("--fontLight2", fontDark2);
+  colors.style.setProperty("--postLight", postDark);
   //window.location.href = window.location.href;
 } else {
   document.querySelector(".ball2").className = "ball";
@@ -417,6 +421,8 @@ if (them == "dark") {
   colors.style.setProperty("--fontBlack2", fontLight2);
   colors.style.setProperty("--hack2Black2", hack2Light2);
   // window.location.href = window.location.href;
+  colors.style.setProperty("--commentDark", commentLight);
+  colors.style.setProperty("--postDark", postLight);
 }
 function tracks(tracks) {
   const drop = document.querySelector(".dropdown-content");
