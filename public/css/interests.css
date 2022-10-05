@@ -136,6 +136,7 @@ input {
 input:hover {
   cursor: pointer;
   background: #090846;
+  border: 3px solid orange;
 }
 
 /* custom scrollbar */
