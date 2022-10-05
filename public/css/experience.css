@@ -29,7 +29,7 @@ body {
 .add {
   position: relative;
   top: 75px;
-  left: 400px;
+  left: 480px;
 }
 
 span:not(.pl) {
@@ -49,7 +49,7 @@ span:not(.pl) {
   background-color: var(--main-color);
   position: relative;
   top: 100px;
-  left: 320px;
+  left: 400px;
   line-height: 30px;
   text-align: center;
   border-radius: 35px;
@@ -70,7 +70,7 @@ input {
   letter-spacing: 1px;
   background: #090846;
   position: relative;
-  left: 500px;
+  left: 570px;
   top: 300px;
   transition: 0.5s;
   cursor: pointer;
