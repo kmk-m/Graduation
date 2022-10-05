@@ -1,6 +1,6 @@
 const signin = document.getElementById("btn");
 const email = document.getElementById("email");
-
+let link = document.referrer;
 async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -35,7 +35,12 @@ function data(json) {
     var element = document.getElementById("test");
     element.appendChild(tag);
   } else if (json.code === "Success") {
-    window.location.href = "http://127.0.0.1:3000/";
+    if (link.includes("interests")) {
+      window.location.href = "http://127.0.0.1:3000/interests/";
+    } else {
+      window.location.href = "http://127.0.0.1:3000/";
+    }
+    // window.location.href = "http://127.0.0.1:3000/";
   }
 }
 //*************************************** */

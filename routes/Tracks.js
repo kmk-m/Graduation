@@ -22,6 +22,22 @@ router.get("/:trackId", (req, res) => {
     } */
   res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
 });
+router.get("/:trackId/introVideo", (req, res) => {
+  // #swagger.tags = ['Tracks']
+  // #swagger.description = "to get Tracks page"
+  // #swagger.request = "http://127.0.0.1:3000/Tracks"
+  /* #swagger.responses[200] = {
+            description: 'page opened',
+    } */
+  /* #swagger.responses[400] = {
+            description: 'User  not found',
+            schema: {
+                "code": "403",
+                "message": "You cannot access this page before login",
+            }
+    } */
+  res.sendFile(path.join(__dirname + "../../views/html/introVideo.html"));
+});
 router.get("/data/:trackId", Tracks, (req, res) => {
   // #swagger.tags = ['Tracks']
   // #swagger.description = "to get Tracks data"

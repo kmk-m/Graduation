@@ -497,7 +497,7 @@ header:hover .over {
   flex-direction: row;
   width: 81%;
   flex-wrap: wrap;
-  gap: 1%;
+  justify-content: space-between;
   margin-left: 17%;
   border-radius: 21px;
 }
@@ -505,7 +505,7 @@ header:hover .over {
   text-align: left;
   position: relative;
   height: 190px;
-  width: 22%;
+  width: 24%;
   background-color: transparent;
   color: var(--nameLight);
 }
