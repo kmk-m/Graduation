@@ -59,7 +59,12 @@ body {
   color: var(--aLight);
   transition: 0.3s;
 }
-
+.support p {
+  color: var(--postLight);
+}
+.word p {
+  color: var(--postLight);
+}
 .bb img {
   display: inline-block;
   margin-top: 10px;
@@ -387,7 +392,7 @@ body.dark {
   height: 100%;
 }
 #namewel {
-  color: #fcb500;
+  color: var(--aLight);
 }
 .word {
   position: absolute;
@@ -420,6 +425,7 @@ body.dark {
 }
 .bom {
   text-transform: capitalize;
+  color: var(--aLight);
 }
 .disc {
   padding: 20px;

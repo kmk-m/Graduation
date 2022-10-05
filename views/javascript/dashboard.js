@@ -366,10 +366,14 @@ function posts(posts, img) {
       }
     });
   });
-
-  let reaact = document.get;
+  let xy = document.getElementById("06a85b72-4266-11ed-ab26-0045e21c18f1");
+  console.log("hfdjkhfjdkhfkjdhfjkhdfjk", xy);
+  xy.disMojiPicker();
+  twemoji.parse(document.body);
+  // $('#06a85b72-4266-11ed-ab26-0045e21c18f1').emojioneArea({
+  //     pickerPosition:'bottom'
+  // });}
 }
-
 let userLight = "#0e1b3e";
 let userBlack = "#323232";
 let aLight = "orange";
