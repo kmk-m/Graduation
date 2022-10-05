@@ -144,6 +144,9 @@ function createOverlayDiv(course) {
   par.appendChild(det);
   return det;
 }
+document.getElementById("header").addEventListener("click", () => {
+  window.location.href = `http://127.0.0.1:3000/Tracks/${id}/introVideo`;
+});
 function playTrackVideo() {
   window.alert("play track video");
 
