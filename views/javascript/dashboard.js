@@ -350,7 +350,6 @@ if (them == "dark") {
   //window.location.href = window.location.href;
 } else {
   document.querySelector(".ball2").className = "ball";
-
   colors.style.setProperty("--userBlack", userLight);
   colors.style.setProperty("--ablack", aLight);
   colors.style.setProperty("--rateBlack", rateBlack);
