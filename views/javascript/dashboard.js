@@ -201,23 +201,48 @@ function posts(posts, img) {
     }
     let postBottom = document.createElement("div");
     postBottom.className = "post-bottom";
+    let contentt2 = document.createElement("div");
+    contentt2.innerHTML = `
+    <div class="emoji">
+          <div class="hello emoClick">
+            <img class="emoClick" src="/images/likeg.gif" id="likee.${x.id}" alt="">
+            <p> Like</p>
+          </div>
+          <div class="hello emoClick">
+            <img class="emoClick" src="/images/love2.gif" id="lovee.${x.id}" alt="">
+            <p> Love</p>
+          </div>
+          <div class="hello emoClick">
+            <img class="emoClick" src="/images/sad.gif" id="sade.${x.id}" alt="">
+            <p> Sad</p>
+          </div>
+          <div class="hello emoClick">
+            <img class="emoClick" src="/images/angry.gif" id="angrye.${x.id}" alt="">
+            <p>Angry</p>
+          </div>
+        </div>
+    `;
+    contentt2.className = "contentt2";
     videoCenter.appendChild(postBottom);
+    postBottom.appendChild(contentt2);
     for (let i = 0; i < 3; i++) {
       let action = document.createElement("action");
       action.className = "action";
       let span = "Like";
       let cs = "far fa-thumbs-up";
-      action.setAttribute("id", x.id);
+      action.setAttribute("id", `click.${x.id}`);
 
-      if (i == 0) action.className = "action action1";
+      if (i == 0) {
+        action.className = "action action1";
+      }
       if (i == 1) {
         span = "Comment";
         cs = "far fa-comment";
-        action.setAttribute("id", x.id);
         action.className = "action action2";
       }
       if (i == 2) {
         span = "Share";
+
         cs = "fa fa-share";
       }
 
@@ -228,6 +253,7 @@ function posts(posts, img) {
       let a3 = document.createElement("span");
       a3.innerHTML = `${span}`;
       action.appendChild(a3);
+      console.log(action);
     }
     let comms = document.createElement("div");
     comms.className = "comms";
@@ -256,7 +282,9 @@ function posts(posts, img) {
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("click", (e) => {
       let id = e.target.id;
+      id = id.split(".")[1];
       if (!id) id = e.target.parentNode.id;
+      id = id.split(".")[1];
 
       // console.log(document.getElementById(id));
       document.getElementById("comm" + id).className = "comms";
@@ -266,7 +294,11 @@ function posts(posts, img) {
   commets.forEach((aa) => {
     aa.addEventListener("click", (e) => {
       let id = e.target.id;
+      id = id.split(".")[1];
       if (!id) id = e.target.parentNode.id;
+      id = id.split(".")[1];
+      console.log("jkfj", id);
+      console.log(document.getElementById("comm" + id));
       document.getElementById("comm" + id).className = "vos";
     });
   });
@@ -279,23 +311,44 @@ function posts(posts, img) {
         document.getElementById(e.target.id).scrollHeight + "px";
     });
   });
-  let arr2 = document.querySelectorAll(".action1");
+  let arr2 = document.querySelectorAll(".emoClick");
   arr2.forEach((xx) => {
     xx.addEventListener("click", (e) => {
       let id = e.target.id;
       if (!id) id = e.target.parentNode.id;
-      console.log(id);
+      let addemo = id.split(".")[0];
+      id = id.split(".")[1];
       let x = document.getElementById("like" + id);
       let y = x;
+      console.log("y", y);
       x = x.innerHTML;
       x = x.slice(0, x.indexOf(" "));
       //  x = x.slice(indexOf("l"));
       x = parseInt(x);
+      console.log(x);
       for (let ii = 0; ii < posts.length; ii++) {
         let vs = false;
         if (posts[ii].id === id) {
-          xx.firstChild.classList.toggle("blue");
-          xx.lastChild.classList.toggle("blue");
+          let yy = document.getElementById("click." + id);
+          console.log(yy);
+          if (addemo == "likee") {
+            yy.innerHTML = `
+            <img class="ht" src="/images/likeg.gif" id="like" alt="">
+            <span class ="col1"> Like</span>            `;
+          } else if (addemo == "lovee") {
+            yy.innerHTML = `
+            <img class ="ht" src="/images/love2.gif" id="love" alt="">
+            <span class="col2"> Love</span>  `;
+          } else if (addemo == "sade") {
+            yy.innerHTML = `
+            <img class="ht" src="/images/sad.gif" id="sad" alt="">
+            <span class ="col3"> Sad</span>  `;
+          } else if (addemo == "angrye") {
+            yy.innerHTML = `
+            <img class="ht" src="/images/angry.gif" id="angry" alt="">
+            <span class= "col4"> Angry</span>  `;
+          }
+          yy.className = "action2";
           if (posts[ii].postFriends.length !== 0) {
             if (x == 0 || x == 1) y.innerHTML = "";
             else {
@@ -313,6 +366,8 @@ function posts(posts, img) {
       }
     });
   });
+
+  let reaact = document.get;
 }
 
 let userLight = "#0e1b3e";
