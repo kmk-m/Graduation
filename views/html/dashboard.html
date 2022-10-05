@@ -15,10 +15,12 @@
     />
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--css emojionearea -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" />
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/87f7416207.js" crossorigin="anonymous"></script>
-
+    
     <title>homePage</title>
   </head>
 
@@ -112,12 +114,34 @@
         <p>50 comment</p>
       </div>  
     </div>
-     <hr>
+     <hr><div class="container2">
+      <div class="content2">
+        <div class="emoji">
+          <div class="hello">
+            <img src="/images/likeg.gif" alt="">
+            <p> Like</p>
+          </div>
+          <div class="hello">
+            <img src="/images/love2.gif" alt="">
+            <p> Love</p>
+          </div>
+          <div class="hello">
+            <img src="/images/sad.gif" alt="">
+            <p> Sad</p>
+          </div>
+          <div class="hello">
+            <img src="/images/angry.gif" alt="">
+            <p>Angry</p>
+          </div>
+        </div>
+      </div>
       <div class="post-bottom">
         <div class="action">
           <i class="far fa-thumbs-up"></i>
           <span>Like</span>
         </div>
+      </div>
+    </div>
         <div class="action" id="com">
           <i class="far fa-comment"></i>
           <span>Comment</span>
@@ -138,6 +162,13 @@
     <!-- </div> -->
    </div>
   </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+    <script type="text/javascript">
+        $('#idboxCommend').emojioneArea({
+            pickerPosition:'bottom'
+        });
+    </script>
     <script src="/dashboard.js"></script>
   </body>
 </html>
