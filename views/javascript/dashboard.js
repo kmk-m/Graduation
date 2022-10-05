@@ -59,13 +59,13 @@ function hackathons(allHackathons) {
                 <p>
                 <span class="hours">${
                   hours < 10 ? "0" + hours + ":" : hours + ":"
-                }</span> 
+                }</span>
                 <span class="minutes">${
                   minutes < 10 ? "0" + minutes + ":" : minutes + ":"
                 }</span>
                 <span class="seconds">${
                   seconds < 10 ? "0" + seconds + ":" : seconds
-                }</span> 
+                }</span>
                 </p> `;
       }
       if (dateDiff < 0) {
@@ -100,6 +100,7 @@ function data(json) {
   hackathons(json.data.hackathons);
   posts(json.data.posts, json.data.User.image);
   tracks(json.data.tracks);
+  func2();
 }
 const checkbox = document.getElementById("checkbox");
 
@@ -266,9 +267,9 @@ function posts(posts, img) {
     `;
     let inputCom = document.createElement("div");
     inputCom.innerHTML = `
-    <textarea  id = ${x.id}
+    <textarea  id = text.${x.id}
     class=addcoment placeholder="Type Any Comment"></textarea>
-  <div class=com> 
+  <div class=com>
   <img  src="/images/emoticon.png" width="25" height="25">
   <img  src="/images/image.png" width="25" height="25">
   </div>
@@ -366,13 +367,28 @@ function posts(posts, img) {
       }
     });
   });
-  let xy = document.getElementById("06a85b72-4266-11ed-ab26-0045e21c18f1");
-  console.log("hfdjkhfjdkhfkjdhfjkhdfjk", xy);
-  xy.disMojiPicker();
-  twemoji.parse(document.body);
-  // $('#06a85b72-4266-11ed-ab26-0045e21c18f1').emojioneArea({
-  //     pickerPosition:'bottom'
-  // });}
+  let xy = document.getElementById("text.06a85b72-4266-11ed-ab26-0045e21c18f1");
+  console.log("kkkkkkkkkkkkkkkkkk");
+  console.log(xy);
+
+  // arr = document.querySelectorAll(".addcoment");
+  // arr.forEach((xx) => {
+  //   console.log("hrllo");
+
+  //   console.log("e.target.id");
+  //   console.log(xx);
+  //   $(`#text.06a85b72-4266-11ed-ab26-0045e21c18f1`).emojioneArea({
+  //     pickerPosition: "bottom",
+  //   });
+  // });
+}
+function func2() {
+  console.log(
+    "dfksl;kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+  );
+  $("textarea").emojioneArea({
+    pickerPosition: "bottom",
+  });
 }
 let userLight = "#0e1b3e";
 let userBlack = "#323232";

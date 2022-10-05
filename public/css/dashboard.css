@@ -59,9 +59,7 @@ body {
   color: var(--aLight);
   transition: 0.3s;
 }
-.support p {
-  color: var(--postLight);
-}
+
 .word p {
   color: var(--postLight);
 }
@@ -551,7 +549,7 @@ hr {
   transform: translate(-50%, -50%);
 }
 .vis {
-  border-radius: 25px;
+  /* border-radius: 25px; */
   border: 1px solid rgb(85, 81, 81);
   border-radius: 25px;
   width: 80%;
@@ -679,4 +677,36 @@ hr {
 }
 .col4 {
   color: orange;
+}
+.support p {
+  color: var(--postLight);
+}
+.action span {
+  color: var(--postLight);
+}
+.action i {
+  color: var(--postLight);
+}
+textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.emojionearea-editor {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.emojionearea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.emojionearea,
+.emojionearea.form-control {
+  border: 1px solid red;
+}
+textarea {
+  border: none;
+  outline: none;
 }

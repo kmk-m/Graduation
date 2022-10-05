@@ -72,7 +72,7 @@ input {
   font-weight: 500;
   border-radius: 5px;
   letter-spacing: 1px;
-  background: #090846;
+  background: #201e88;
   position: relative;
   left: 570px;
   top: 300px;
@@ -81,7 +81,7 @@ input {
 }
 
 input:hover {
-  border: 3px solid var(--main-color);
+  background-color: #090846;
 }
 .container {
   position: absolute;
