@@ -1,15 +1,26 @@
+var newdiv = "d";
+var tag;
+var element;
+const form = document
+  .getElementById("btn")
+  .addEventListener("click", handleSubmit);
 async function handleSubmit(e) {
   e.preventDefault();
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
-  fetch("http://127.0.0.1:3000/signup", {
+
+  let firstName = document.getElementById("fname").value;
+  let lastName = document.getElementById("lname").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let confirmpassword = document.getElementById("confirmpassword").value;
+
+  await fetch("http://127.0.0.1:3000/signup", {
     method: "POST",
     body: JSON.stringify({
-      firstName: formProps.firstname,
-      lastName: formProps.lastname,
-      email: formProps.email,
-      password: formProps.password,
-      confirmpassword: formProps.confirmpassword,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      confirmpassword: confirmpassword,
     }),
 
     headers: {
@@ -19,14 +30,12 @@ async function handleSubmit(e) {
     .then((response) => response.json())
     .then((json) => data(json));
 }
-var newdiv = "d";
-var tag;
-var element;
-const form = document
-  .getElementById("reg")
-  .addEventListener("submit", handleSubmit);
+
 function data(json) {
+  console.log(json);
+
   if (newdiv !== "d" && newdiv !== json.message) {
+    console.log("1");
     var te = document.querySelector(".error");
     element.removeChild(te);
   }
@@ -34,6 +43,7 @@ function data(json) {
     newdiv = json.message;
     tag = document.createElement("p");
     tag.classList.add("error");
+    console.log("2");
 
     var text = document.createTextNode(json.message);
     tag.appendChild(text);
@@ -41,7 +51,7 @@ function data(json) {
 
     element.appendChild(tag);
     newdiv = json.message;
-  } else if (json.code === "Success") {
-    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "http://127.0.0.1:3000/interests";
   }
 }

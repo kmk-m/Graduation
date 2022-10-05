@@ -129,7 +129,7 @@ input {
   background: #201e88;
   position: relative;
   left: 570px;
-  bottom: -50px;
+  bottom: 0px;
   transition: 0.5s;
 }
 
@@ -195,4 +195,32 @@ input:hover {
   width: 100%;
   background-color: transparent;
   margin-top: 20px;
+}
+.err {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  display: none;
+}
+.show2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  visibility: visible;
+}
+.container2 {
+  text-align: center;
+}
+.topics2 {
+  margin-top: 15px;
 }

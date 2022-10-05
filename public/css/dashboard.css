@@ -45,7 +45,7 @@ body {
 
 .bb {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -73,8 +73,11 @@ body {
   font-size: 16px;
   margin-top: 20px;
   text-decoration-line: none;
+  width: 100%;
 }
-
+.all_practice span {
+  padding-bottom: 100px;
+}
 .op {
   font-size: 25px;
   position: absolute;
@@ -171,6 +174,7 @@ body {
 .dropdown-content {
   display: none;
   background-color: transparent;
+  width: 100%;
 }
 
 /* Links inside the dropdown */
@@ -179,6 +183,7 @@ body {
   text-decoration: none;
   display: block;
   margin-top: 10px;
+  width: 100%;
 }
 
 /* Change color of dropdown links on hover */
@@ -190,8 +195,9 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
   position: absolute;
-  top: 30%;
-  left: 15%;
+  top: 25%;
+  left: 5%;
+  width: 100%;
 }
 
 .dropdown:hover .dropbtn {
@@ -215,15 +221,15 @@ body {
 .container {
   width: 100%;
   height: 100%;
-  position: relative;
+  display: flex;
 }
 /* right */
 .right {
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 150%;
   position: absolute;
-  left: 570%;
+  left: 520%;
   /* right: 0%; */
   background: var(--hackLight);
 }
@@ -330,7 +336,16 @@ body.dark {
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
-
+.ball2 {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
 /*  target the elemenent after the label*/
 .checkbox:checked + .label .ball {
   transform: translateX(24px);
@@ -345,10 +360,312 @@ body.dark {
 }
 .dar {
   position: absolute;
-  bottom: -40%;
+  bottom: -30%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
 .practice a {
   color: white;
+}
+.ui {
+  width: 90%;
+}
+.ui p {
+  text-transform: capitalize;
+  font-size: 12px;
+  margin-top: -16%;
+  color: #dcdcdc;
+}
+/* Center */
+.content {
+  position: absolute;
+  left: 17%;
+  right: 14%;
+  height: 100%;
+}
+#namewel {
+  color: #fcb500;
+}
+.word {
+  position: absolute;
+  font-weight: bold;
+  font-style: "Inter";
+  line-height: 8pt;
+}
+.imageCenter {
+  position: absolute;
+  right: 12%;
+  top: 8%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.imageCenter img:hover {
+  cursor: pointer;
+}
+.videos {
+  position: absolute;
+  top: 20%;
+}
+.videoCenter {
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  width: 85%;
+  margin-bottom: 5%;
+}
+.bom {
+  text-transform: capitalize;
+}
+.disc {
+  padding: 20px;
+  color: #000000cc;
+  line-height: 1.4;
+}
+.video {
+  width: 100%;
+  text-align: center;
+}
+.support {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+  margin-left: 30px;
+}
+.support p {
+  color: #949494;
+  transition: 0.5s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.support p:hover {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.rec {
+  margin-left: -5px;
+}
+.subscribe {
+  display: flex;
+  padding: 2px;
+}
+.post-bottom {
+  box-shadow: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  gap: 20%;
+  margin-left: 9%;
+}
+
+.post-bottom .action {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  font-size: 20px;
+  color: #00000099;
+  cursor: pointer;
+  user-select: none;
+}
+.fa:hover {
+  color: darkblue;
+}
+.blue {
+  color: darkblue;
+}
+.post-bottom .action:hover {
+  background: #eee;
+}
+.comment {
+  position: absolute;
+  right: 20%;
+  color: #949494;
+}
+hr {
+  width: 92%;
+  border-color: #dcdcdc;
+  color: #dcdcdc;
+  border: 1px solid;
+}
+.tracks {
+  background-color: red;
+}
+.imo {
+  width: 25px;
+  height: 25px;
+}
+.contantComment {
+  border-radius: 25px;
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 25px;
+  margin-top: 1%;
+  padding: 1px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  margin-left: 12%;
+  width: 85%;
+}
+.comms {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  display: none;
+}
+.vos {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  visibility: visible;
+}
+.ph {
+  position: absolute;
+  margin-left: 5%;
+}
+.ph img {
+  width: 50px;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.vis {
+  border-radius: 25px;
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 25px;
+  width: 80%;
+  margin-left: 12%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addcoment {
+  font-family: "Inter";
+  font-style: "Regular";
+  color: #bebebe;
+  vertical-align: Top;
+  width: 85%;
+  border: none;
+  outline: 1px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: 3%;
+  position: relative;
+  margin-right: auto;
+}
+.vis textarea {
+  color: #000000;
+  overflow: hidden;
+  height: fit-content;
+  resize: none;
+  width: 80%;
+  padding-left: -50px;
+}
+.com {
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 20px;
+}
+.com img:hover {
+  cursor: pointer;
+}
+.dropdown-content a {
+  text-align: center;
+}
+
+/****/
+.contentt2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: transparent;
+  left: 5%;
+  margin-bottom: 35px;
+}
+.emoji {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transform: translateY(100px);
+  transition: all 0.4s;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+.emoji img {
+  display: block;
+  width: 100px;
+  transition: all 0.4s;
+  width: 60px;
+}
+.hello p {
+  position: absolute;
+  font-family: "Inter";
+  color: white;
+  width: 50px;
+  padding: 10px 5px;
+  border-radius: 25px;
+  margin-left: 10px;
+  transition: all 0.2s;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.hello:hover p {
+  visibility: visible;
+  opacity: 1;
+  background-color: #d0d0d0;
+}
+
+.contentt2:hover .emoji {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+.ht {
+  width: 50px;
+  height: 50px;
+}
+.action2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.col1 {
+  color: blue;
+}
+.col2 {
+  color: rgb(255, 0, 0);
+}
+.col3 {
+  color: yellow;
+}
+.col4 {
+  color: orange;
 }
