@@ -710,3 +710,217 @@ textarea {
   border: none;
   outline: none;
 }
+/*  comment */
+.voscomment {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  visibility: visible;
+  position: relative;
+  width: 200px;
+  height: 20px;
+  background-color: #323232;
+}
+
+.phcomment {
+  position: absolute;
+  margin-left: 5%;
+}
+
+.phcomment img {
+  width: 50px;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+/*  comment */
+.voscomment {
+  position: relative;
+  text-align: center;
+  top: 20px;
+  left: 190px;
+  width: 900px;
+  height: 550px;
+  background-color: white;
+}
+
+.phcomment {
+  position: absolute;
+  top: 15%;
+  margin-left: 5%;
+}
+
+.phcomment img {
+  width: 50px;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+}
+
+.viscomment {
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 5px;
+  width: 60%;
+  margin-left: 9%;
+  margin-top: 1%;
+  position: absolute;
+  top: 10%;
+  margin-bottom: 1%;
+  padding: 60px;
+  background-color: #F7F8FA;
+  display: flex;
+  align-items: center;
+}
+
+.namecomment {
+  position: absolute;
+  font-family: 'Inter';
+  font-size: larger;
+  top: -10%;
+  left: 5%;
+}
+
+.setting {
+  position: absolute;
+  top: 10%;
+  right: 2%;
+  font-family: 'Inter';
+  font-size: small;
+  color: #6C6A6A;
+}
+
+.edit {
+  position: absolute;
+  right: 140%;
+}
+
+.department {
+  position: absolute;
+  font-family: 'Inter';
+  color: #6C6A6A;
+  font-size: 12px;
+  top: 12%;
+  left: 5%;
+}
+
+.textcomment {
+  position: absolute;
+  text-align: center;
+  font-family: 'Inter';
+  top: 36%;
+  font-size: 20px;
+  left: 10%;
+}
+
+.timecomment {
+  font-family: 'Inter';
+  position: absolute;
+  color: #6C6A6A;
+  text-align: end;
+  top: 80%;
+  right: 5%;
+}
+
+.undercomment {
+  display: flex;
+  position: absolute;
+  top: 31%;
+  left: 15%;
+}
+
+.counterlik {
+  position: absolute;
+  left: 40%;
+}
+
+.visreply {
+  border: 1px solid rgb(85, 81, 81);
+  border-radius: 5px;
+  width: 35%;
+  margin-left: 24%;
+  margin-top: 22%;
+  margin-bottom: 1%;
+  position: absolute;
+  top: 5%;
+  padding: 50px;
+  background-color: #F7F8FA;
+  display: flex;
+  align-items: center;
+}
+
+.phreply {
+  position: absolute;
+  top: 43%;
+  margin-left: 21%;
+}
+
+.phreply img {
+  width: 35px;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+}
+
+.namereply {
+  position: absolute;
+  font-family: 'Inter';
+  font-size: medium;
+  top: -10%;
+  left: 5%;
+}
+
+.settingreply {
+  position: absolute;
+  top: 10%;
+  right: 2%;
+  font-family: 'Inter';
+  font-size: x-small;
+  color: #6C6A6A;
+}
+
+.editreply {
+  position: absolute;
+  right: 140%;
+}
+
+.departmentreply {
+  position: absolute;
+  font-family: 'Inter';
+  color: #6C6A6A;
+  font-size: 10px;
+  top: 12%;
+  left: 5%;
+
+}
+
+.textreply {
+  position: absolute;
+  text-align: center;
+  font-family: 'Inter';
+  top: 39%;
+  font-size: 15px;
+  left: 10%;
+}
+
+.timereply {
+  font-family: 'Inter';
+  position: absolute;
+  font-size: 12px;
+  color: #6C6A6A;
+  text-align: end;
+  top: 80%;
+  right: 5%;
+}
+
+.underreply {
+  display: flex;
+  position: absolute;
+  top: 58%;
+  left: 29%;
+}
