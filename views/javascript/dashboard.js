@@ -59,13 +59,13 @@ function hackathons(allHackathons) {
                 <p>
                 <span class="hours">${
                   hours < 10 ? "0" + hours + ":" : hours + ":"
-                }</span> 
+                }</span>
                 <span class="minutes">${
                   minutes < 10 ? "0" + minutes + ":" : minutes + ":"
                 }</span>
                 <span class="seconds">${
                   seconds < 10 ? "0" + seconds + ":" : seconds
-                }</span> 
+                }</span>
                 </p> `;
       }
       if (dateDiff < 0) {
@@ -100,6 +100,7 @@ function data(json) {
   hackathons(json.data.hackathons);
   posts(json.data.posts, json.data.User.image);
   tracks(json.data.tracks);
+  func2();
 }
 const checkbox = document.getElementById("checkbox");
 
@@ -266,9 +267,9 @@ function posts(posts, img) {
     `;
     let inputCom = document.createElement("div");
     inputCom.innerHTML = `
-    <textarea  id = ${x.id}
+    <textarea  id = text.${x.id}
     class=addcoment placeholder="Type Any Comment"></textarea>
-  <div class=com> 
+  <div class=com>
   <img  src="/images/emoticon.png" width="25" height="25">
   <img  src="/images/image.png" width="25" height="25">
   </div>
@@ -366,10 +367,29 @@ function posts(posts, img) {
       }
     });
   });
+  let xy = document.getElementById("text.06a85b72-4266-11ed-ab26-0045e21c18f1");
+  console.log("kkkkkkkkkkkkkkkkkk");
+  console.log(xy);
 
-  let reaact = document.get;
+  // arr = document.querySelectorAll(".addcoment");
+  // arr.forEach((xx) => {
+  //   console.log("hrllo");
+
+  //   console.log("e.target.id");
+  //   console.log(xx);
+  //   $(`#text.06a85b72-4266-11ed-ab26-0045e21c18f1`).emojioneArea({
+  //     pickerPosition: "bottom",
+  //   });
+  // });
 }
-
+function func2() {
+  console.log(
+    "dfksl;kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+  );
+  $("textarea").emojioneArea({
+    pickerPosition: "bottom",
+  });
+}
 let userLight = "#0e1b3e";
 let userBlack = "#323232";
 let aLight = "orange";
@@ -380,7 +400,8 @@ let backgroundLight = "#f7f8fa";
 let backgroundDark = "#000000";
 let nameLight = "black";
 let nameDark = "#f3f3f3";
-
+let commentLight = "#949494";
+let commentDark = "#ffffff";
 let fontLight = "#ffffff";
 let fontDark = "#000000";
 let hackLight = "#f7f8fa";
@@ -389,6 +410,8 @@ let fontLight2 = "#000000";
 let fontDark2 = "#ffffff";
 let hack2Light = "#ffffff";
 let hack2Dark = "#323232";
+let postLight = "#000000cc";
+let postDark = "#ffffff";
 let them = localStorage.getItem("theme");
 if (them == "dark") {
   document.querySelector(".ball").className = "ball2";
@@ -401,8 +424,9 @@ if (them == "dark") {
   colors.style.setProperty("--fontLight", fontDark);
   colors.style.setProperty("--hackLight", hackDark);
   colors.style.setProperty("--hack2Light", hack2Dark);
-
+  colors.style.setProperty("--commentLight", commentDark);
   colors.style.setProperty("--fontLight2", fontDark2);
+  colors.style.setProperty("--postLight", postDark);
   //window.location.href = window.location.href;
 } else {
   document.querySelector(".ball2").className = "ball";
@@ -416,6 +440,8 @@ if (them == "dark") {
   colors.style.setProperty("--fontBlack2", fontLight2);
   colors.style.setProperty("--hack2Black2", hack2Light2);
   // window.location.href = window.location.href;
+  colors.style.setProperty("--commentDark", commentLight);
+  colors.style.setProperty("--postDark", postLight);
 }
 function tracks(tracks) {
   const drop = document.querySelector(".dropdown-content");

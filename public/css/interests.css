@@ -3,6 +3,7 @@
   line-height: 1.5;
   box-sizing: border-box;
   color: #44585d;
+  box-sizing: border-box;
 }
 
 body {
@@ -128,7 +129,7 @@ input {
   background: #201e88;
   position: relative;
   left: 570px;
-  bottom: -50px;
+  bottom: 0px;
   transition: 0.5s;
 }
 

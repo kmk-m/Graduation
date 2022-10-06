@@ -50,6 +50,8 @@ document.getElementById("clickedd").addEventListener("click", () => {
       },
     })
       .then((response) => response.json())
-      .then((json) => (window.location.href = "http://127.0.0.1:3000"));
+      .then(
+        (json) => (window.location.href = "http://127.0.0.1:3000/experience")
+      );
   }
 });

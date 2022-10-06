@@ -9,7 +9,8 @@
   --backgroundDark: #000000;
   --nameLight: black;
   --nameDark: #f3f3f3;
-
+  --postLight: #000000cc;
+  --postDark: "#000000";
   --fontLight: #ffffff;
   --fontDark: #000000;
   --hackLight: #f7f8fa;
@@ -18,6 +19,8 @@
   --fontDark2: #ffffff;
   --hack2Light: #ffffff;
   --hack2Dark: #323232;
+  --commentLight: #949494;
+  --commentDark: #ffffff;
 }
 
 html,
@@ -57,6 +60,9 @@ body {
   transition: 0.3s;
 }
 
+.word p {
+  color: var(--postLight);
+}
 .bb img {
   display: inline-block;
   margin-top: 10px;
@@ -384,7 +390,7 @@ body.dark {
   height: 100%;
 }
 #namewel {
-  color: #fcb500;
+  color: var(--aLight);
 }
 .word {
   position: absolute;
@@ -409,7 +415,7 @@ body.dark {
   top: 20%;
 }
 .videoCenter {
-  background: white;
+  background: var(--hack2Light);
   border-radius: 15px;
   padding: 10px;
   width: 85%;
@@ -417,10 +423,11 @@ body.dark {
 }
 .bom {
   text-transform: capitalize;
+  color: var(--aLight);
 }
 .disc {
   padding: 20px;
-  color: #000000cc;
+  color: var(--postLight);
   line-height: 1.4;
 }
 .video {
@@ -485,7 +492,9 @@ body.dark {
 .comment {
   position: absolute;
   right: 20%;
-  color: #949494;
+}
+.comment p {
+  color: var(--commentLight);
 }
 hr {
   width: 92%;
@@ -540,7 +549,7 @@ hr {
   transform: translate(-50%, -50%);
 }
 .vis {
-  border-radius: 25px;
+  /* border-radius: 25px; */
   border: 1px solid rgb(85, 81, 81);
   border-radius: 25px;
   width: 80%;
@@ -668,4 +677,36 @@ hr {
 }
 .col4 {
   color: orange;
+}
+.support p {
+  color: var(--postLight);
+}
+.action span {
+  color: var(--postLight);
+}
+.action i {
+  color: var(--postLight);
+}
+textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.emojionearea-editor {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.emojionearea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.emojionearea,
+.emojionearea.form-control {
+  border: 1px solid red;
+}
+textarea {
+  border: none;
+  outline: none;
 }
