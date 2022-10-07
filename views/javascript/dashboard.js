@@ -243,10 +243,15 @@ function posts(posts, img) {
       }
       if (i == 2) {
         span = "Share";
-
         cs = "fa fa-share";
+        
       }
-
+      /*  share javascript 
+      const shareBtn = document.querySelector('.share-btn');
+      const shareOptions = document.querySelector('.share-options');
+      shareBtn.addEventListener('click', () => {
+    shareOptions.classList.toggle('active');
+      })*/
       postBottom.appendChild(action);
       let vote = document.createElement("i");
       vote.className = `${cs}`;
@@ -268,10 +273,9 @@ function posts(posts, img) {
     let inputCom = document.createElement("div");
     inputCom.innerHTML = `
     <textarea  id = text.${x.id}
-    class=addcoment placeholder="Type Any Comment"></textarea>
+    class=addcoment placeholder="Type Comment"></textarea>
   <div class=com>
-  <img  src="/images/emoticon.png" width="25" height="25">
-  <img  src="/images/image.png" width="25" height="25">
+  <img  src="/images/image.png" width="15" height="15">
   </div>
     `;
     inputCom.className = "vis";
