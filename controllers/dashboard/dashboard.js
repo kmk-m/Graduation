@@ -8,7 +8,7 @@ async function dahsboard(req, res, next) {
       where: {
         userId: req.userId,
       },
-      attributes: ["firstName", "lastName", "image", "bio"],
+      attributes: ["userId", "firstName", "lastName", "image", "bio"],
     });
     const posts = await post.findAll({
       include: [
