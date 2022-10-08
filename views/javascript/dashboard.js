@@ -103,7 +103,17 @@ function data(json) {
   func2();
 }
 const checkbox = document.getElementById("checkbox");
-
+document.getElementById("drop").addEventListener("click", () => {
+  document.getElementById("vsc").className = "vsc";
+  document.getElementById("jj").className = "jj";
+  document.getElementById("vsc").addEventListener("mouseleave", () => {
+    //document.getElementById("vsc").classList.add("vsc");
+    document.getElementById("vsc").className = "drop";
+    document.getElementById("jj").className = "treat";
+  });
+  // document.getElementById("vsc").classList.remove("vsc");
+  // document.getElementById("vsc").classList.remove("vsc");
+});
 checkbox.addEventListener("change", () => {
   if (localStorage.getItem("theme") === "dark") {
     localStorage.setItem("theme", "light");
@@ -391,13 +401,12 @@ function func2() {
   });
 }
 let userLight = "#0e1b3e";
-let userBlack = "#323232";
-let aLight = "orange";
-let ablack = "#ff1e56";
+let userBlack = "rgb(24, 26, 27)";
+
 let rateLight = "#b44b00";
 let rateBlack = "#a00d32";
 let backgroundLight = "#f7f8fa";
-let backgroundDark = "#000000";
+let backgroundDark = "rgb(28, 30, 31)";
 let nameLight = "black";
 let nameDark = "#f3f3f3";
 let commentLight = "#949494";
@@ -417,7 +426,6 @@ if (them == "dark") {
   document.querySelector(".ball").className = "ball2";
   let colors = document.querySelector(":root");
   colors.style.setProperty("--userLight", userBlack);
-  colors.style.setProperty("--aLight", ablack);
   colors.style.setProperty("--rateLight", rateBlack);
   colors.style.setProperty("--backgroundLight", backgroundDark);
   colors.style.setProperty("--nameLight", nameDark);
@@ -431,7 +439,6 @@ if (them == "dark") {
 } else {
   document.querySelector(".ball2").className = "ball";
   colors.style.setProperty("--userBlack", userLight);
-  colors.style.setProperty("--ablack", aLight);
   colors.style.setProperty("--rateBlack", rateBlack);
   colors.style.setProperty("--backgroundDark", backgroundLight);
   colors.style.setProperty("--nameBlack", nameLight);
@@ -444,14 +451,16 @@ if (them == "dark") {
   colors.style.setProperty("--postDark", postLight);
 }
 function tracks(tracks) {
-  const drop = document.querySelector(".dropdown-content");
+  const drop = document.getElementById("vsc2");
   console.log(drop);
   tracks.forEach((x) => {
-    const parag = document.createElement("a");
-    parag.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
+    const parag = document.createElement("h1");
+    parag.onclick = () => {
+      window.location.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
+    };
+    // parag.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
     parag.innerHTML = `${x.name}`;
     console.log(parag);
     drop.appendChild(parag);
   });
 }
-

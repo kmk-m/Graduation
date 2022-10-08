@@ -1,12 +1,12 @@
 :root {
   --userLight: #0e1b3e;
-  --userBlack: #323232;
+  --userBlack: rgb(24, 26, 27);
+  --userBlack2: rgb(20, 20, 20);
   --aLight: orange;
-  --ablack: #ff1e56;
   --rateLight: #b44b00;
   --rateBlack: #a00d32;
   --backgroundLight: #f7f8fa;
-  --backgroundDark: #000000;
+  --backgroundDark: rgb(28, 30, 31);
   --nameLight: black;
   --nameDark: #f3f3f3;
   --postLight: #000000cc;
@@ -41,7 +41,7 @@ body {
 
 .logo {
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -153,7 +153,14 @@ body {
   width: 5%;
   background: #f7f8fa;
 }
-
+.pp {
+  color: white;
+  margin-bottom: 0;
+}
+.pp:hover {
+  cursor: pointer;
+  color: orange;
+}
 .sp {
   position: relative;
   color: #dcdcdc;
@@ -228,6 +235,7 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
 }
 /* right */
 .right {
@@ -237,7 +245,54 @@ body {
   position: absolute;
   left: 520%;
   /* right: 0%; */
-  background: var(--hackLight);
+}
+.jj {
+  margin-left: 200px;
+  transition: 0.5s;
+}
+.treat {
+  margin-left: 0;
+  transition: 0.5s;
+}
+.drop {
+  height: 100%;
+  background-color: var(--hack2Light);
+  width: 20%;
+  margin-left: 0;
+  position: absolute;
+  left: -3%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -22%;
+  z-index: -10;
+  transition: 0.5s;
+}
+.vsc {
+  height: 100%;
+  background-color: var(--hack2Light);
+  width: 20%;
+  margin-left: 0;
+  position: absolute;
+  left: -3%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vsc h1 {
+  color: var(--fontLight2);
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding-top: 15px;
+}
+.vsc h1:hover {
+  color: orange;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .search {
   position: absolute;
@@ -296,7 +351,7 @@ body {
   color: var(--fontLight2);
 }
 .hac:hover {
-  background-color: var(--hackLight);
+  background-color: var(--backgroundDark);
   cursor: pointer;
   border: 1px solid var(--aLight);
 }
@@ -358,7 +413,7 @@ body.dark {
 }
 
 .fa-moon {
-  color: #ff1e56;
+  color: black;
 }
 
 .fa-sun {
@@ -693,12 +748,13 @@ textarea {
   width: 100%;
 }
 .emojionearea-editor {
-  background-color: transparent;
+  background-color: red;
+  z-index: 1000;
   border: none;
   outline: none;
 }
 .emojionearea {
-  background-color: transparent;
+  background-color: red;
   border: none;
   outline: none;
 }
@@ -706,10 +762,7 @@ textarea {
 .emojionearea.form-control {
   border: 1px solid red;
 }
-textarea {
-  border: none;
-  outline: none;
-}
+
 /*  comment */
 .voscomment {
   display: flex;
@@ -771,14 +824,14 @@ textarea {
   top: 10%;
   margin-bottom: 1%;
   padding: 60px;
-  background-color: #F7F8FA;
+  background-color: #f7f8fa;
   display: flex;
   align-items: center;
 }
 
 .namecomment {
   position: absolute;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: larger;
   top: -10%;
   left: 5%;
@@ -788,9 +841,9 @@ textarea {
   position: absolute;
   top: 10%;
   right: 2%;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: small;
-  color: #6C6A6A;
+  color: #6c6a6a;
 }
 
 .edit {
@@ -800,8 +853,8 @@ textarea {
 
 .department {
   position: absolute;
-  font-family: 'Inter';
-  color: #6C6A6A;
+  font-family: "Inter";
+  color: #6c6a6a;
   font-size: 12px;
   top: 12%;
   left: 5%;
@@ -810,16 +863,16 @@ textarea {
 .textcomment {
   position: absolute;
   text-align: center;
-  font-family: 'Inter';
+  font-family: "Inter";
   top: 36%;
   font-size: 20px;
   left: 10%;
 }
 
 .timecomment {
-  font-family: 'Inter';
+  font-family: "Inter";
   position: absolute;
-  color: #6C6A6A;
+  color: #6c6a6a;
   text-align: end;
   top: 80%;
   right: 5%;
@@ -847,7 +900,7 @@ textarea {
   position: absolute;
   top: 5%;
   padding: 50px;
-  background-color: #F7F8FA;
+  background-color: #f7f8fa;
   display: flex;
   align-items: center;
 }
@@ -869,7 +922,7 @@ textarea {
 
 .namereply {
   position: absolute;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: medium;
   top: -10%;
   left: 5%;
@@ -879,9 +932,9 @@ textarea {
   position: absolute;
   top: 10%;
   right: 2%;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: x-small;
-  color: #6C6A6A;
+  color: #6c6a6a;
 }
 
 .editreply {
@@ -891,28 +944,27 @@ textarea {
 
 .departmentreply {
   position: absolute;
-  font-family: 'Inter';
-  color: #6C6A6A;
+  font-family: "Inter";
+  color: #6c6a6a;
   font-size: 10px;
   top: 12%;
   left: 5%;
-
 }
 
 .textreply {
   position: absolute;
   text-align: center;
-  font-family: 'Inter';
+  font-family: "Inter";
   top: 39%;
   font-size: 15px;
   left: 10%;
 }
 
 .timereply {
-  font-family: 'Inter';
+  font-family: "Inter";
   position: absolute;
   font-size: 12px;
-  color: #6C6A6A;
+  color: #6c6a6a;
   text-align: end;
   top: 80%;
   right: 5%;
@@ -924,5 +976,13 @@ textarea {
   top: 58%;
   left: 29%;
 }
-
-
+.gh {
+  height: 100%;
+  width: 15%;
+  margin-left: 20px;
+}
+textarea {
+  border: none;
+  outline: none;
+  background-color: #a00d32;
+}

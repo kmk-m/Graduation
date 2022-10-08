@@ -2,14 +2,28 @@ import { Router } from "express";
 import login from "../../controllers/login/logincontrol.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import jwt from "../../util/jwt.js";
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
 const router = Router();
 router.get("/signin", (req, res) => {
+  const token = req.cookies.access_token;
+  if (!token) {
+    return res.sendFile(path.join(__dirname + "/../../views/html/login.html"));
+  }
+  try {
+    return res.sendFile(
+      path.join(__dirname + "/../../views/html/alreadyLogin.html")
+    );
+
+    return next();
+  } catch {
+    return res.sendFile(path.join(__dirname + "/../../views/html/login.html"));
+  }
   // #swagger.tags = ['user']
-  res.sendFile(path.join(__dirname + "../../../views/html/login.html"));
+  // res.sendFile(path.join(__dirname + "../../../views/html/login.html"));
 });
 
 router.post("/signin", login.signin, (req, res) => {

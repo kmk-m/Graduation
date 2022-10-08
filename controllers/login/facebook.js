@@ -13,6 +13,7 @@ async function facebook(req, res, next) {
     const existingUser = await user.findOne({
       where: { email: req.user.emails[0].value },
     });
+    console.log(existingUser);
     // if user exists return the user
     if (existingUser) {
       const token = jwt.sign(
@@ -21,7 +22,7 @@ async function facebook(req, res, next) {
       );
       res.cookie("access_token", token); //Sets name = express
       return res.sendFile(
-        path.join(__dirname + "../../../views/html/dashboard.html")
+        path.join(__dirname + "../../../views/html/facebook.html")
       );
     }
     const hashPassword = await bcrypt.hash("google", 10);
@@ -38,7 +39,7 @@ async function facebook(req, res, next) {
     );
     res.cookie("access_token", token); //Sets name = express
     return res.sendFile(
-      path.join(__dirname + "../../../views/html/dashboard.html")
+      path.join(__dirname + "../../../views/html/facebook.html")
     );
   } catch (error) {
     return next(error);
