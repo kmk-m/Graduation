@@ -129,7 +129,8 @@ input {
   background: #201e88;
   position: relative;
   left: 570px;
-  bottom: 0px;
+  bottom: 0;
+  margin-top: 40px;
   transition: 0.5s;
 }
 

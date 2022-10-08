@@ -1,77 +1,105 @@
 <!DOCTYPE html>
 <html lang="en" dir="1tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/css/register.css" />
+    <link href="/fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Login Form</title>
-  <link rel="stylesheet" href="/css/register.css" />
-  <link href="/fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="landing">
-    <div class="landing2">
-  <div class="par">
-    <h1>Join Us</h1>
-    <div class="cont">
-
-    <h3>
-      Start Your Journy with us<br />
-      To reach your dream job
-    </h3>
-    <h3>
-      Join our competitions , Start our tracks, <br />
-      Start our courses , Show us your standing<br />
-    </h3>
-  </div>
-  </div>
-  </div>
-  <div class="center">
-    <h1>Sign up</h1>
-    <form id="formSign" class="test1">
-      <div id="test" class="test">
-        <div class="txt_field">
-          <input type="text" class="field" name="firstname" id="fname" required minlength="6" 
-            placeholder="firstname" />
-          <span></span>
-        </div>
-        <div class="txt_field">
-          <input type="text" class="field" name="lastname" id="lname"  
-            placeholder="Lastname" />
-          <span></span>
-        </div>
-        <div class="txt_field">
-          <input type="email" class="field" placeholder="Email" name="email" id="email" required />
-          <span></span>
-        </div>
-        <div class="txt_field">
-          <input type="password" class="field" name="Password" id="password" required minlength="6" 
-            placeholder="password" />
-          <span></span>
-        </div>
-        <div class="txt_field">
-          <input type="password" class="field" name="confirmpassword" id="confirmpassword" required minlength="6" 
-            placeholder="confirm password" />
-          <span></span>
-        </div>
-
-      </div>
-      <button id="btn" class="btn">Join Us</button>
-      <div class="links">
-        <div class="col">
-          <a href="auth/facebook" class="fa">
-            <i class="fab fa-facebook fa-2xl"></i>
-          </a>
-          <a href="auth/google" class="google">
-            <i class="fab fa-google fa-2xl"></i>
-          </a>
+  <body>
+    <div class="landing">
+      <div class="landing2">
+        <div class="par">
+          <h1>Join Us</h1>
+          <div class="cont">
+            <h3>
+              Start Your Journy with us<br />
+              To reach your dream job
+            </h3>
+            <h3>
+              Join our competitions , Start our tracks, <br />
+              Start our courses , Show us your standing<br />
+            </h3>
+          </div>
         </div>
       </div>
-    </form>
-  </div>
-</div>
-</div>
-  <script src="/register.js"></script>
-</body>
-
+      <div class="center">
+        <h1>Sign up</h1>
+        <form id="formSign" class="test1">
+          <div id="test" class="test">
+            <div class="txt_field">
+              <input
+                type="text"
+                class="field"
+                name="firstname"
+                id="fname"
+                required
+                minlength="6"
+                placeholder="firstname"
+              />
+              <span></span>
+            </div>
+            <div class="txt_field">
+              <input
+                type="text"
+                class="field"
+                name="lastname"
+                id="lname"
+                placeholder="Lastname"
+              />
+              <span></span>
+            </div>
+            <div class="txt_field">
+              <input
+                type="email"
+                class="field"
+                placeholder="Email"
+                name="email"
+                id="email"
+                required
+              />
+              <span></span>
+            </div>
+            <div class="txt_field">
+              <input
+                type="password"
+                class="field"
+                name="Password"
+                id="password"
+                required
+                minlength="6"
+                placeholder="password"
+              />
+              <span></span>
+            </div>
+            <div class="txt_field">
+              <input
+                type="password"
+                class="field"
+                name="confirmpassword"
+                id="confirmpassword"
+                required
+                minlength="6"
+                placeholder="confirm password"
+              />
+              <span></span>
+            </div>
+            <button id="btn" class="btn">Join Us</button>
+            <div class="links">
+              <div class="col">
+                <a href="auth/facebook" class="fa">
+                  <i class="fab fa-facebook fa-2xl"></i>
+                </a>
+                <a href="auth/google" class="google">
+                  <i class="fab fa-google fa-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="/register.js"></script>
+  </body>
 </html>

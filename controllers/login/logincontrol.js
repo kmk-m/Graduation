@@ -7,6 +7,7 @@ import verifyemail from "./verifyemail.js";
 import google from "./google";
 import facebook from "./facebook.js";
 import loginGoogle from "./loginGoogle.js";
+import loginFacebook from "./loginFacebook.js";
 const logincontrol = {
   signup,
   signin,
@@ -17,5 +18,6 @@ const logincontrol = {
   google,
   facebook,
   loginGoogle,
+  loginFacebook,
 };
 export default logincontrol;
