@@ -39,6 +39,8 @@
     "pug": "^3.0.2",
     "sequelize": "^6.19.0",
     "sharp": "^0.30.6",
+    "socket.io": "^4.5.2",
+    "socket.io-client": "^4.5.2",
     "speakeasy": "^2.0.0",
     "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.5.0",

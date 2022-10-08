@@ -14,6 +14,7 @@ import jwt from "../util/jwt.js";
 import Tracks from "./Tracks";
 import assignment from "./assignment.js";
 import experience from "./experience.js";
+import chat from "./chat.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -37,5 +38,6 @@ router.use("/", jwt.authenticateWithJWT, dashboard);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
 router.use("/interests", interests);
 router.use("/experience", experience);
+router.use("/chat", chat);
 
 export default router;

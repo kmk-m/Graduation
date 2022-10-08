@@ -13,6 +13,9 @@ import passport from "passport";
 import FacebookStrategy from "passport-facebook";
 import GoogleStrategy from "passport-google-oauth2";
 import jwt from "./util/jwt";
+import { createServer } from "http";
+import { Server } from "socket.io";
+
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
@@ -29,8 +32,7 @@ try {
   await connection.authenticate();
   await connection.sync();
   console.log("Connection has been established successfully.");
-}
- catch (error) {
+} catch (error) {
   console.error("Unable to connect to the database:", error);
 }
 app.use(async (req, res, next) => {
@@ -84,7 +86,27 @@ passport.use(
   )
 );
 
+const httpServer = createServer(app);
+const io = new Server(httpServer);
+const { messages } = "./models/messages.js";
+
 /********************* */
-app.listen(process.env.PORT || 3000, () => {
+httpServer.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT || 3000}`);
+});
+
+io.on("connection", function (socket) {
+  console.log("User connected", socket.id);
+  socket.on(`message`, (msg) => {
+    console.log(msg.user);
+    connection.models.allMessages.create({
+      usersId: msg.user,
+      contant: msg.message,
+      createdAt: Date.now(),
+      read: true,
+      sender: true,
+    });
+    console.log(msg);
+    socket.broadcast.emit("message", msg);
+  });
 });
