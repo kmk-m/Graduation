@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="allcontacts">
+        <div class="logo" id="logo">
+          <!-- <img src="/images/profile.jpg" alt="userimage" /> -->
+          <div class="myself" id="myself">
+            <!-- <h4>Fahd hakem</h4> -->
+            <!-- <p>Newbie</p> -->
+          </div>
+        </div>
+        <div class="search">
+          <input
+            id="search"
+            type="text"
+            class="searchInput"
+            placeholder="Search.. "
+          />
+        </div>
+        <div class="contacts" id="contacts">
+          <!-- <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div> -->
+          <!-- <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div>
+          <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div>
+          <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div>
+          <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div>
+          <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div>
+          <div class="user">
+            <img src="/images/profile.jpg" alt="userimage" />
+            <div class="myself2">
+              <h4>Fahd Hakem</h4>
+              <p>Hello</p>
+            </div>
+            <p class="time">15:30</p>
+          </div> -->
+        </div>
+      </div>
+      <hr class="hr" />
+      <div class="chat">
+        <div class="firstShow">
+          <img src="/images/robot.gif" alt="image" />
+          <h2><span>JOB</span>Q Messenger</h2>
+          <p>Choose Any one To Start Your Chat</p>
+        </div>
+        <div class="chatContainer show">
+          <div class="friend">
+            <div class="info">
+              <img src="/images/profile.jpg" alt="userimage" />
+              <div class="myself3">
+                <h4>Fahd hakem</h4>
+              </div>
+            </div>
+          </div>
+          <div class="messages" id="messages"></div>
+          <hr class="hr2" />
+          <div class="send">
+            <img class="mic" src="/images/mic.png" alt="mic" />
+            <div class="enter">
+              <input id="input" placeholder="Write Something" type="text" />
+            </div>
+            <div class="icons">
+              <img class="im1" src="/images/photo.png" alt="mic" />
+              <img class="im1" src="/images/camera.png" alt="mic" />
+              <img class="im1" src="/images/emoticon.png" alt="mic" />
+            </div>
+
+            <div class="sendIcon">
+              <img src="/images/send1.png" alt="mic" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/chat.js"></script>
+  </body>
+</html>
