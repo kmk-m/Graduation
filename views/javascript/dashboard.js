@@ -282,10 +282,10 @@ function posts(posts, img) {
     `;
     let inputCom = document.createElement("div");
     inputCom.innerHTML = `
-    <textarea  id = text.${x.id}
-    class=addcoment placeholder="Type Comment"></textarea>
-  <div class=com>
-  <img  src="/images/image.png" width="15" height="15">
+  <div class=com >
+  <input type="text" id="x">
+  <img src="/images/emoticon.png" width="20" height="20" class="btn1" >
+  <img  src="/images/image.png" width="20" height="20" class="btn2" >
   </div>
     `;
     inputCom.className = "vis";

@@ -646,9 +646,7 @@ hr {
   gap: 15px;
   margin-top: 20px;
 }
-.com img:hover {
-  cursor: pointer;
-}
+
 .dropdown-content a {
   text-align: center;
 }
@@ -1132,4 +1130,28 @@ textarea {
   border: none;
   outline: none;
   background-color: #a00d32;
+}
+/* emojion **/
+
+.btn1 {
+position: relative;
+left:320px
+  
+}
+.btn2{
+  position: relative;
+   left:250px
+}
+.btn1:hover {
+  background-color: #fff;
+  color: black;
+}
+#x{
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  border-radius: 25px;
+  width:570px;
+  left: 340px;
 }
