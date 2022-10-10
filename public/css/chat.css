@@ -21,6 +21,8 @@
   --hack2Dark: #323232;
   --commentLight: #949494;
   --commentDark: #ffffff;
+  --chatLight: #08122e;
+  --chatDark: rgb(28, 30, 31);
 }
 
 html,
@@ -155,7 +157,7 @@ body {
 .chat {
   width: 80%;
   height: 100%;
-  background-color: #08122e;
+  background-color: var(--chatLight);
   position: relative;
   /* background-color: ; */
 }

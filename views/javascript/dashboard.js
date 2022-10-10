@@ -392,6 +392,11 @@ function posts(posts, img) {
   //   });
   // });
 }
+let message = document.getElementById("not12").addEventListener("click", () => {
+  console.log("yes");
+  window.location.href = "http://127.0.0.1:3000/chat";
+});
+
 function func2() {
   console.log(
     "dfksl;kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
