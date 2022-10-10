@@ -233,6 +233,7 @@ function posts(posts, img) {
           </div>
         </div>
     `;
+
     contentt2.className = "contentt2";
     videoCenter.appendChild(postBottom);
     postBottom.appendChild(contentt2);
@@ -254,7 +255,6 @@ function posts(posts, img) {
       if (i == 2) {
         span = "Share";
         cs = "fa fa-share";
-        
       }
       /*  share javascript 
       const shareBtn = document.querySelector('.share-btn');
@@ -283,8 +283,8 @@ function posts(posts, img) {
     let inputCom = document.createElement("div");
     inputCom.innerHTML = `
   <div class=com >
-  <input type="text" id="x">
-  <img src="/images/emoticon.png" width="20" height="20" class="btn1" >
+  <input id=input.${x.id} class = "inpu x" placeholder ="Type any comment..">
+  <img src="/images/emoticon.png" width="20" height="20" class="btn1" id = emo.${x.id}>
   <img  src="/images/image.png" width="20" height="20" class="btn2" >
   </div>
     `;
@@ -381,6 +381,28 @@ function posts(posts, img) {
       }
     });
   });
+  let buttons = document.querySelectorAll(".btn1");
+  buttons.forEach((x) => {
+    console.log(buttons);
+    x.addEventListener("click", (e) => {
+      console.log("button", e.target.id);
+      let id = e.target.id.split(".")[1];
+      let inputId = `input.${id}`;
+      console.log(document.getElementById(`input.${id}`));
+
+      new EmojiPicker({
+        trigger: [
+          {
+            insertInto: ["#txt1", `input.6d23f126-4373-11ed-98bd-0045e21c18f1`],
+            selector: ".btn1",
+          },
+        ],
+        closeButton: true,
+        dragButton: false,
+      });
+    });
+  });
+
   let xy = document.getElementById("text.06a85b72-4266-11ed-ab26-0045e21c18f1");
   console.log("kkkkkkkkkkkkkkkkkk");
   console.log(xy);
@@ -400,9 +422,6 @@ function func2() {
   console.log(
     "dfksl;kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
   );
-  $("textarea").emojioneArea({
-    pickerPosition: "bottom",
-  });
 }
 let userLight = "#0e1b3e";
 let userBlack = "rgb(24, 26, 27)";
@@ -468,3 +487,5 @@ function tracks(tracks) {
     drop.appendChild(parag);
   });
 }
+
+//*************** */

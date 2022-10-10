@@ -146,6 +146,14 @@ body {
   top: -20%;
   color: white;
 }
+.inpu {
+  width: 100%;
+  position: absolute;
+  left: -220px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 .center {
   position: absolute;
   right: 0%;
@@ -651,7 +659,7 @@ hr {
   text-align: center;
 }
 
-/* share popup */ 
+/* share popup */
 .share-btn {
   position: relative;
   border: none;
@@ -680,10 +688,9 @@ hr {
   background: rgba(15, 15, 15, 0.5);
   color: #fff;
   padding: 20px;
-  font-family: 'roboto';
-  transition: .5s;
-  transition-delay: .5s;
-  ;
+  font-family: "roboto";
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .share-options.active {
@@ -693,7 +700,7 @@ hr {
 
 .title {
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
   transition-delay: 0s;
   font-size: 20px;
   text-transform: capitalize;
@@ -704,7 +711,7 @@ hr {
 
 .social-media {
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
   transition-delay: 0s;
   width: 250px;
   height: 120px;
@@ -729,32 +736,32 @@ hr {
 }
 
 .social-media-btn:nth-child(1) {
-  background: #FFA654;
+  background: #ffa654;
 }
 
 .social-media-btn:nth-child(2) {
-  background: #25D366;
+  background: #25d366;
 }
 
 .social-media-btn:nth-child(3) {
-  background: #E4405F;
+  background: #e4405f;
 }
 
 .social-media-btn:nth-child(4) {
-  background: #1DA1F2;
+  background: #1da1f2;
 }
 
 .social-media-btn:nth-child(5) {
-  background: #1877F2;
+  background: #1877f2;
 }
 
 .social-media-btn:nth-child(6) {
-  background: #0A66C2;
+  background: #0a66c2;
 }
 
 .link-container {
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
   transition-delay: 0s;
   width: 100%;
   position: relative;
@@ -791,12 +798,9 @@ hr {
 .share-options.active .social-media,
 .share-options.active .link-container {
   opacity: 1;
-  transition: .5s;
-  transition-delay: .5s;
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
-
-
-
 
 /****/
 .contentt2 {
@@ -1134,24 +1138,31 @@ textarea {
 /* emojion **/
 
 .btn1 {
-position: relative;
-left:320px
-  
-}
-.btn2{
   position: relative;
-   left:250px
+  left: 320px;
+}
+.btn2 {
+  position: relative;
+  left: 250px;
 }
 .btn1:hover {
   background-color: #fff;
   color: black;
 }
-#x{
+.x {
   position: relative;
   border: none;
   outline: none;
   background-color: #ffffff;
   border-radius: 25px;
-  width:570px;
-  left: 340px;
+  width: 500px;
+  left: 300px;
+}
+.fg-emoji-container {
+  position: relative;
+  background-color: red;
+}
+.btn1:hover {
+  cursor: pointer;
+  background-color: transparent;
 }
