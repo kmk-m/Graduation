@@ -1166,3 +1166,135 @@ textarea {
   cursor: pointer;
   background-color: transparent;
 }
+.comments {
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+.comment3 {
+  margin-top: 2%;
+}
+.comment2 {
+  width: 100%;
+  position: relative;
+  padding: 10px 15px;
+  background-color: #f7f8fa;
+  width: 80%;
+  margin-left: 12%;
+}
+.edits {
+  position: absolute;
+  right: 2%;
+  top: 6%;
+  font-size: small;
+  color: #6c6a6a;
+}
+.edits span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comments .brof {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  position: absolute;
+  left: 4%;
+}
+
+.time {
+  position: absolute;
+  right: 3%;
+  bottom: 6%;
+  font-size: medium;
+  color: #6c6a6a;
+}
+.comments .info {
+  margin-top: -20px;
+}
+.comment2 .info p {
+  margin-top: -21px;
+  color: #6c6a6a;
+  font-size: medium;
+}
+.contan {
+  position: relative;
+}
+.contan p {
+  line-height: 1.5;
+}
+.reply2 {
+  width: 83%;
+  margin-left: 15%;
+}
+.reply2 .brof {
+  margin-left: 9%;
+}
+.rec {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.dr {
+  color: #6c6a6a;
+}
+.dr:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.li {
+  color: #afacac;
+}
+.rec {
+  margin-left: 15%;
+}
+.reply2 .rec {
+  margin-left: 15%;
+}
+.rec img {
+  width: 25px;
+  height: 25px;
+  margin-left: -35px;
+  position: relative;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+.comments .vos {
+  width: 80%;
+  margin-left: 15%;
+}
+
+.rec img {
+  width: 20px;
+  height: 20px;
+}
+
+.im {
+  margin-left: -5px;
+}
+.adx {
+  position: absolute;
+  left: -100px;
+  width: 290%;
+}
+/* .adx2 {
+  margin-left: 0px;
+  margin-right: 40px;
+} */
+.adx5 {
+  margin-right: 80px;
+}
+.reply2 .vos {
+  margin-top: 0;
+  width: 80%;
+}
+.reply2 .im {
+  margin-left: -20px;
+}
+.reply2 .adx5 {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 110px;
+}
+.reply2 .adx {
+  left: -30px;
+  width: 180%;
+}
