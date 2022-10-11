@@ -15,6 +15,7 @@ import Tracks from "./Tracks";
 import assignment from "./assignment.js";
 import experience from "./experience.js";
 import chat from "./chat.js";
+import courses from "./courses.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -36,6 +37,7 @@ router.use("/", facebook);
 router.use("/admin", jwt.authadmin, admin);
 router.use("/", jwt.authenticateWithJWT, dashboard);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
+router.use("/courses", jwt.authenticateWithJWT, courses);
 router.use("/interests", interests);
 router.use("/experience", experience);
 router.use("/chat", chat);
