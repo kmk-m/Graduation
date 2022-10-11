@@ -11,7 +11,9 @@ const router = Router();
 router.get("/signup", (req, res) => {
   const token = req.cookies.access_token;
   if (!token) {
-    return res.sendFile(path.join(__dirname + "/../views/html/login.html"));
+    return res.sendFile(
+      path.join(__dirname + "/../../views/html/register.html")
+    );
   }
   try {
     return res.sendFile(
@@ -20,7 +22,9 @@ router.get("/signup", (req, res) => {
 
     return next();
   } catch {
-    return res.sendFile(path.join(__dirname + "/../views/html/login.html"));
+    return res.sendFile(
+      path.join(__dirname + "/../../views/html/register.html")
+    );
   }
 });
 router.post("/signup", login.signup);
