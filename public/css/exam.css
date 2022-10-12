@@ -94,10 +94,39 @@ body {
     background-color: #FCB500;
 }
 
+
 .quiz-app {
-    position: absolute;
+    position:absolute;
     width: 77%;
     height: 100%;
     right: 0%;
-    background-color: rgb(224, 180, 122);
+    background-color: #f8f8f8;
+    padding: 15px;
+}
+.count{
+    font-family: 'Inter', sans-serif;
+    color: #BCBCBC;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+.answer{
+    width: 75%;
+    line-height: 50px;
+    margin-top: 5%;
+    margin-left: 5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+input[type="radio"] {
+    text-align: center;
+    color: #FCB500;
+    accent-color: #FCB500;
+    border: 0px;
+    width: 3%;
+    height: 20px;
+}
+.wordanswer{
+    font-family: 'Inter', sans-serif;
+    font-size: medium;
+    
 }
