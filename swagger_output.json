@@ -16,6 +16,63 @@
   "schemes": [],
   "securityDefinitions": {},
   "paths": {
+    "/exam/{examId}/data": {
+      "get": {
+        "tags": [
+          "Exam"
+        ],
+        "description": "to get Exam Data",
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/exam/{examId}": {
+      "get": {
+        "tags": [
+          "Exam"
+        ],
+        "description": "to get Exam page",
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Exam"
+        ],
+        "description": "to get Exam page",
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/welcome": {
       "get": {
         "tags": [

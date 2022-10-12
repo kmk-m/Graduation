@@ -16,6 +16,7 @@ import assignment from "./assignment.js";
 import experience from "./experience.js";
 import chat from "./chat.js";
 import courses from "./courses.js";
+import exam from "./exam.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -23,6 +24,7 @@ import interests from "./interests.js";
 
 const router = Router();
 router.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+router.use("/exam", exam);
 
 router.use("/", homepage);
 router.use("/", login);
