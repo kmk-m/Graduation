@@ -514,9 +514,7 @@ body.dark {
   text-transform: capitalize;
   text-decoration: underline;
 }
-.rec {
-  margin-left: -5px;
-}
+
 .subscribe {
   display: flex;
   padding: 2px;
@@ -569,8 +567,9 @@ hr {
   background-color: red;
 }
 .imo {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
 }
 .contantComment {
   border-radius: 25px;
@@ -1268,9 +1267,7 @@ textarea {
 .li {
   color: #afacac;
 }
-.rec {
-  margin-left: 15%;
-}
+
 .reply2 .rec {
   margin-left: 15%;
 }
@@ -1337,4 +1334,12 @@ textarea {
   border-radius: 20px;
   background-color: #eee;
   cursor: pointer;
+}
+.toflex {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+.rec3 {
+  margin-left: 15%;
 }
