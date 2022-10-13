@@ -3,45 +3,46 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "Quizess",
+    "quizQuestions",
     {
-      quizeId: {
+      id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      name: {
-        type: dataType.STRING,
-        allowNull: false,
-      },
-      courseId: {
+      quizId: {
         type: dataType.UUID,
+      },
+      questionType: {
+        type: dataType.ENUM("Text", "TextAndPhoto"),
         allowNull: false,
       },
-      details: {
+      questionText: {
         type: dataType.STRING,
         allowNull: false,
       },
-      numberOfQuesstions: {
-        type: dataType.TINYINT,
+      questionImage: {
+        type: dataType.TEXT,
+      },
+      questionGrade: {
+        type: dataType.INTEGER,
         allowNull: false,
       },
     },
     {
+      timeStamp: true,
       createdAt: false,
       updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { Courses, Quizess } = models;
-  Courses.hasOne(Quizess, {
-    foreignKey: "courseId",
-    as: "Quizess",
+  const { quiz, quizQuestions } = models;
+  quiz.hasMany(quizQuestions, {
+    foreignKey: "quizId",
   });
-  Quizess.belongsTo(Courses, {
-    foreignKey: "courseId",
-    as: "Quizess",
+  quizQuestions.belongsTo(quiz, {
+    foreignKey: "quizId",
   });
 }
 export { init, associate };

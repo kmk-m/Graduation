@@ -3,42 +3,41 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "Projects",
+    "questionAnswers",
     {
-      projectId: {
+      id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-
-      name: {
-        type: dataType.STRING,
-        allowNull: false,
-      },
-      courseId: {
+      questionId: {
         type: dataType.UUID,
+      },
+      answerType: {
+        type: dataType.ENUM("Text", "Photo"),
         allowNull: false,
       },
-      requirement: {
+      answerText: {
+        type: dataType.STRING,
+      },
+      answerImage: {
         type: dataType.TEXT,
-        allowNull: false,
       },
     },
     {
+      timeStamp: true,
       createdAt: false,
       updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { Courses, Projects } = models;
-  Courses.hasOne(Projects, {
-    foreignKey: "courseId",
-    as: "Projects",
+  const { questionAnswers, quizQuestions } = models;
+  quizQuestions.hasMany(questionAnswers, {
+    foreignKey: "questionId",
   });
-  Projects.belongsTo(Courses, {
-    foreignKey: "courseId",
-    as: "Projects",
+  questionAnswers.belongsTo(quizQuestions, {
+    foreignKey: "questionId",
   });
 }
 export { init, associate };
