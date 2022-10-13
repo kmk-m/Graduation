@@ -1,9 +1,7 @@
 let access_token = document.cookie;
-console.log(access_token);
 access_token.slice(access_token.indexOf("="));
 
 if (document.URL.includes("auth")) {
-  console.log("yes");
   window.location.href = "http://127.0.0.1:3000/go/" + access_token;
 }
 fetch("http://127.0.0.1:3000/dashboard", {
@@ -14,7 +12,7 @@ fetch("http://127.0.0.1:3000/dashboard", {
   },
 })
   .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((json) => json);
 fetch("http://127.0.0.1:3000/dashboard", {
   method: "GET",
 
@@ -26,7 +24,6 @@ fetch("http://127.0.0.1:3000/dashboard", {
   .then((json) => data(json));
 
 function hackathons(allHackathons) {
-  console.log(allHackathons);
   for (let hack of allHackathons) {
     let hac = document.createElement("div");
     hac.className = "hac";
@@ -77,7 +74,6 @@ function hackathons(allHackathons) {
 
 function data(json) {
   /* return name */
-  console.log(json);
   let name = json.data.User.firstName + " " + json.data.User.lastName;
   document.getElementById("namewel").innerHTML = `${json.data.User.firstName}`;
   const para = document.createElement("div");
@@ -144,7 +140,6 @@ function posts(posts, img) {
     videoCenter.appendChild(support);
     let a1 = document.createElement("div");
     support.appendChild(a1);
-    console.log(x);
     let likes = JSON.stringify(x.like).toString();
     let like = likes.slice(8, likes.indexOf("love") - 2);
     let love = likes.slice(likes.indexOf("love") + 6, likes.indexOf("sad") - 2);
@@ -152,7 +147,6 @@ function posts(posts, img) {
     let angry = likes.slice(likes.indexOf("angry") + 7, likes.indexOf("}"));
     let imgs = [];
     let li = like.like;
-    console.log(li);
     if (like > 0) {
       let like1 = document.createElement("img");
       like1.className = "imo";
@@ -214,20 +208,20 @@ function posts(posts, img) {
     postBottom.className = "post-bottom";
     let contentt2 = document.createElement("div");
     contentt2.innerHTML = `
-    <div class="emoji">
-          <div class="hello emoClick">
+    <div class="emoji" id =emojis.${x.id}>
+          <div class="hello emoClick" id =rec.${x.id}>
             <img class="emoClick" src="/images/likeg.gif" id="likee.${x.id}" alt="">
             <p> Like</p>
           </div>
-          <div class="hello emoClick">
+          <div class="hello emoClick" id =rec.${x.id}>
             <img class="emoClick" src="/images/love2.gif" id="lovee.${x.id}" alt="">
             <p> Love</p>
           </div>
-          <div class="hello emoClick">
+          <div class="hello emoClick" id =rec.${x.id}>
             <img class="emoClick" src="/images/sad.gif" id="sade.${x.id}" alt="">
             <p> Sad</p>
           </div>
-          <div class="hello emoClick">
+          <div class="hello emoClick" id =rec.${x.id}>
             <img class="emoClick" src="/images/angry.gif" id="angrye.${x.id}" alt="">
             <p>Angry</p>
           </div>
@@ -235,6 +229,7 @@ function posts(posts, img) {
     `;
 
     contentt2.className = "contentt2";
+    contentt2.setAttribute("id", `contentt2.${x.id}`);
     videoCenter.appendChild(postBottom);
     postBottom.appendChild(contentt2);
     for (let i = 0; i < 3; i++) {
@@ -269,7 +264,6 @@ function posts(posts, img) {
       let a3 = document.createElement("span");
       a3.innerHTML = `${span}`;
       action.appendChild(a3);
-      console.log(action);
     }
     let comms = document.createElement("div");
     comms.className = "comms";
@@ -305,6 +299,42 @@ function posts(posts, img) {
       document.getElementById("comm" + id).className = "comms";
     });
   }
+  let acc = document.querySelectorAll(".action1");
+  acc.forEach((ac) => {
+    let id = ac.id.split(".")[1];
+    ac.addEventListener("mouseover", () => {
+      console.log("yes");
+      document.getElementById("emojis." + id).className = "emoji emoshow2";
+
+      document.getElementById("contentt2." + id).className =
+        "contentt2 emoshow";
+    });
+
+    ac.addEventListener("mouseleave", () => {
+      document.getElementById("emojis." + id).className = "emoji";
+
+      document.getElementById("contentt2." + id).className = "contentt2";
+    });
+  });
+
+  let emoac = document.querySelectorAll(".hello");
+  emoac.forEach((def) => {
+    let id = def.id.split(".")[1];
+
+    def.addEventListener("mouseover", () => {
+      document.getElementById("emojis." + id).className = "emoji emoshow2";
+
+      document.getElementById("contentt2." + id).className =
+        "contentt2 emoshow";
+    });
+    def.addEventListener("mouseleave", () => {
+      document.getElementById("emojis." + id).className = "emoji";
+
+      document.getElementById("contentt2." + id).className = "contentt2";
+    });
+  });
+
+  // ac.addEventListener("mouseover").className = "emoClick emoshow";
   let commets = document.querySelectorAll(".action2");
   commets.forEach((aa) => {
     aa.addEventListener("click", (e) => {
@@ -312,8 +342,6 @@ function posts(posts, img) {
       id = id.split(".")[1];
       if (!id) id = e.target.parentNode.id;
       id = id.split(".")[1];
-      console.log("jkfj", id);
-      console.log(document.getElementById("comm" + id));
       document.getElementById("comm" + id).className = "vos";
     });
   });
@@ -321,7 +349,6 @@ function posts(posts, img) {
   let arr = document.querySelectorAll(".addcoment");
   arr.forEach((xx) => {
     xx.addEventListener("input", (e) => {
-      console.log(document.getElementById(e.target.id).scrollHeight);
       document.getElementById(e.target.id).style.height =
         document.getElementById(e.target.id).scrollHeight + "px";
     });
@@ -335,17 +362,14 @@ function posts(posts, img) {
       id = id.split(".")[1];
       let x = document.getElementById("like" + id);
       let y = x;
-      console.log("y", y);
       x = x.innerHTML;
       x = x.slice(0, x.indexOf(" "));
       //  x = x.slice(indexOf("l"));
       x = parseInt(x);
-      console.log(x);
       for (let ii = 0; ii < posts.length; ii++) {
         let vs = false;
         if (posts[ii].id === id) {
           let yy = document.getElementById("click." + id);
-          console.log(yy);
           if (addemo == "likee") {
             yy.innerHTML = `
             <img class="ht" src="/images/likeg.gif" id="like" alt="">
@@ -383,12 +407,9 @@ function posts(posts, img) {
   });
   let buttons = document.querySelectorAll(".btn1");
   buttons.forEach((x) => {
-    console.log(buttons);
     x.addEventListener("click", (e) => {
-      console.log("button", e.target.id);
       let id = e.target.id.split(".")[1];
       let inputId = `input.${id}`;
-      console.log(document.getElementById(`input.${id}`));
 
       new EmojiPicker({
         trigger: [
@@ -404,7 +425,6 @@ function posts(posts, img) {
   });
 
   let xy = document.getElementById("text.06a85b72-4266-11ed-ab26-0045e21c18f1");
-  console.log("kkkkkkkkkkkkkkkkkk");
   console.log(xy);
 
   // arr = document.querySelectorAll(".addcoment");
@@ -475,7 +495,6 @@ if (them == "dark") {
 }
 function tracks(tracks) {
   const drop = document.getElementById("vsc2");
-  console.log(drop);
   tracks.forEach((x) => {
     const parag = document.createElement("h1");
     parag.onclick = () => {
@@ -483,7 +502,6 @@ function tracks(tracks) {
     };
     // parag.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
     parag.innerHTML = `${x.name}`;
-    console.log(parag);
     drop.appendChild(parag);
   });
 }
