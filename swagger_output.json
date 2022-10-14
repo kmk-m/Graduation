@@ -1096,13 +1096,20 @@
         }
       }
     },
-    "/courses/finalProject": {
+    "/courses/{courseId}/finalProject": {
       "get": {
         "tags": [
           "courses"
         ],
         "description": "to get coursess page",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "page opened"
@@ -1125,6 +1132,87 @@
                 "name": "main"
               }
             }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/courses/{courseId}/finalProject/data": {
+      "get": {
+        "tags": [
+          "courses"
+        ],
+        "description": "to get coursess page",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/courses/{projectId}": {
+      "post": {
+        "tags": [
+          "courses"
+        ],
+        "description": "to submitProject",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addproject",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "403": {
             "description": "Forbidden"
