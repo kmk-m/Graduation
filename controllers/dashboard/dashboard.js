@@ -2,7 +2,7 @@ import Responses from "../../util/response";
 import comment from "./comment";
 async function dahsboard(req, res, next) {
   try {
-    const { user, post, Hackathons, Tracks, postComments, likes, postFriends } =
+    const { user, post, Hackathons, Tracks, postComments, likes, userPosts } =
       req.models;
     const User = await user.findOne({
       where: {
@@ -15,10 +15,6 @@ async function dahsboard(req, res, next) {
         {
           model: likes,
           attributes: ["like", "love", "sad", "angry"],
-        },
-        {
-          model: postFriends,
-          attributes: ["id"],
         },
         {
           model: postComments,
@@ -65,6 +61,12 @@ async function dahsboard(req, res, next) {
         },
       ],
     });
+    const userposts = await userPosts.findAll({
+      where: {
+        userId: req.userId,
+      },
+      attributes: ["postId", "type"],
+    });
     for (let j = 0; j < posts.length; j++) {
       // delete posts[j].postFriends;
 
@@ -88,6 +90,7 @@ async function dahsboard(req, res, next) {
       hackathons,
       posts,
       tracks,
+      userposts,
     });
   } catch (err) {
     next(err);

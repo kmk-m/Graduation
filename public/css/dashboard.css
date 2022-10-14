@@ -540,6 +540,7 @@ body.dark {
   color: #00000099;
   cursor: pointer;
   user-select: none;
+  padding: 10px;
 }
 .fa:hover {
   color: darkblue;
@@ -891,17 +892,16 @@ hr {
   justify-content: space-between;
   align-items: center;
 }
-.col1 {
-  color: blue;
+.action1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.col2 {
-  color: rgb(255, 0, 0);
-}
-.col3 {
-  color: yellow;
-}
-.col4 {
-  color: orange;
+.action1 span {
+  margin-left: 10px;
+  position: absolute;
+  left: 14%;
 }
 .support p {
   color: var(--postLight);
@@ -922,6 +922,19 @@ textarea {
   z-index: 1000;
   border: none;
   outline: none;
+}
+.col1 {
+  color: blue;
+}
+.col2 {
+  color: rgb(255, 0, 0);
+}
+
+.col3 {
+  color: yellow;
+}
+.col4 {
+  color: orange;
 }
 .emojionearea {
   background-color: red;
@@ -1326,8 +1339,7 @@ textarea {
   width: 15px;
 }
 .action2 {
-  font-size: large;
-  font-weight: 700;
+  font-size: 20px;
   padding-right: 10px;
 }
 .action2:hover {
