@@ -1355,3 +1355,10 @@ textarea {
 .rec3 {
   margin-left: 15%;
 }
+
+.info {
+  text-transform: capitalize;
+}
+.head {
+  display: none;
+}

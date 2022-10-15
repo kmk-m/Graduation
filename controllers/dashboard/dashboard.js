@@ -1,15 +1,23 @@
 import Responses from "../../util/response";
-import comment from "./comment";
 async function dahsboard(req, res, next) {
   try {
-    const { user, post, Hackathons, Tracks, postComments, likes, userPosts } =
-      req.models;
+    const {
+      user,
+      post,
+      Hackathons,
+      Tracks,
+      postComments,
+      likes,
+      userPosts,
+      postReplies,
+    } = req.models;
     const User = await user.findOne({
       where: {
         userId: req.userId,
       },
       attributes: ["firstName", "lastName", "image", "bio"],
     });
+    // liverbool and manchestercity ?
     const posts = await post.findAll({
       include: [
         {
@@ -18,14 +26,7 @@ async function dahsboard(req, res, next) {
         },
         {
           model: postComments,
-          attributes: [
-            "id",
-            "postId",
-            "commentId",
-            "type",
-            "comment",
-            "updatedAt",
-          ],
+          attributes: ["id", "postId", "comment", "updatedAt"],
           include: [
             {
               model: user,
@@ -36,16 +37,9 @@ async function dahsboard(req, res, next) {
               attributes: ["like", "love", "sad", "angry"],
             },
             {
-              model: postComments,
+              model: postReplies,
 
-              attributes: [
-                "id",
-                "postId",
-                "commentId",
-                "type",
-                "comment",
-                "updatedAt",
-              ],
+              attributes: ["id", "commentId", "reply", "updatedAt"],
               include: [
                 {
                   model: user,
@@ -67,14 +61,14 @@ async function dahsboard(req, res, next) {
       },
       attributes: ["postId", "type"],
     });
-    for (let j = 0; j < posts.length; j++) {
-      // delete posts[j].postFriends;
+    // for (let j = 0; j < posts.length; j++) {
+    //   // delete posts[j].postFriends;
 
-      for (let i = 0; i < posts[j].dataValues.postComments.length; i++) {
-        if (posts[j].dataValues.postComments[i].dataValues.type !== "comment")
-          delete posts[j].postComments[i];
-      }
-    }
+    //   for (let i = 0; i < posts[j].dataValues.postComments.length; i++) {
+    //     if (posts[j].dataValues.postComments[i].dataValues.type !== "comment")
+    //       delete posts[j].postComments[i];
+    //   }
+    // }
     const hackathons = await Hackathons.findAll({
       where: {
         finished: 0,
