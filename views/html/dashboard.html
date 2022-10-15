@@ -28,6 +28,8 @@
     <script src="/css/emjs/DisMojiPicker.js"></script>    
     <link rel="stylesheet" href="file/to/path/css/emojionearea.min.css">
 <script type="text/javascript" src="file/to/path/js/emojionearea.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <title>homePage</title>
   </head>
 
@@ -419,6 +421,26 @@
 
   
   </div>
+  <script>
+        function readURL(input) {
+          console.log(input);
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+   console.log(input.id.split("imgupload")[1] )
+        reader.onload = function (e) {
+          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.className = "youim";
+          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.children[0].className = "yourImage";
+          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.children[1].className = "exit";
+
+          $(`#blah${input.id.split("imgupload")[1]}`).attr("src", e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+  <script src="jquery-3.6.0.min.js"></script>
+
   <script src="/dashboard.js"></script>
   <script src="/emoij.js"></script>
 
