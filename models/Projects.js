@@ -10,6 +10,7 @@ function init(connection) {
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
+
       name: {
         type: dataType.STRING,
         allowNull: false,
@@ -18,8 +19,8 @@ function init(connection) {
         type: dataType.UUID,
         allowNull: false,
       },
-      details: {
-        type: dataType.STRING,
+      requirement: {
+        type: dataType.TEXT,
         allowNull: false,
       },
     },

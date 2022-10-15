@@ -2,7 +2,7 @@ import Router from "express";
 const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
-import Tracks from "../controllers/Tracks.js";
+import tracksController from "../controllers/Tracks/tracksController.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -22,7 +22,12 @@ router.get("/:trackId", (req, res) => {
     } */
   res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
 });
-router.get("/data/:trackId", Tracks, (req, res) => {
+router.get("/:trackId/introVideo", (req, res) => {
+  // #swagger.tags = ['Tracks']
+  // #swagger.description = "to get introVideo page"
+  res.sendFile(path.join(__dirname + "../../views/html/introVideo.html"));
+});
+router.get("/data/:trackId", tracksController.tracks, (req, res) => {
   // #swagger.tags = ['Tracks']
   // #swagger.description = "to get Tracks data"
   /* #swagger.responses[200] = {
@@ -64,4 +69,27 @@ router.get("/data/:trackId", Tracks, (req, res) => {
             }
     } */
 });
+
+router.get(
+  "/:trackId/introVideo/getUsers",
+  tracksController.getUsers,
+  (req, res) => {
+    // #swagger.tags = ['Tracks']
+    // #swagger.description = "to get Users"
+    /*  #swagger.parameters['users'] = {
+            in: 'query',
+            description: 'numberOfUsersNow...',
+          
+    } */
+  }
+);
+
+router.get(
+  "/:trackId/introVideo/data",
+  tracksController.getIntroVideo,
+  (req, res) => {
+    // #swagger.tags = ['Tracks']
+    // #swagger.description = "to get introVideo Details"
+  }
+);
 export default router;

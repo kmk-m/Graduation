@@ -1,6 +1,6 @@
 const signin = document.getElementById("btn");
 const email = document.getElementById("email");
-
+let link = document.referrer;
 async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -19,6 +19,7 @@ async function handleSubmit(e) {
     .then((response) => response.json())
     .then((json) => data(json));
 }
+
 var newdiv = false;
 var token;
 const form = document
@@ -34,7 +35,7 @@ function data(json) {
     var element = document.getElementById("test");
     element.appendChild(tag);
   } else if (json.code === "Success") {
-    window.location.href = `https://sleepy-bastion-99766.herokuapp.com/`;
+    window.location.href = "http://127.0.0.1:3000/";
   }
 }
 //*************************************** */

@@ -1,0 +1,227 @@
+* {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: #44585d;
+  box-sizing: border-box;
+}
+
+body {
+  height: 650px;
+  background: #f7f8fa;
+  margin: 0;
+  overflow: hidden;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.s {
+  line-height: 80px;
+}
+
+.s:hover {
+  border: 2px solid orange;
+}
+
+.s:hover {
+  cursor: pointer;
+}
+.clicked-div {
+  border: 2px solid orange;
+}
+
+.addborder {
+  border: 2px solid black;
+}
+
+.container {
+  background-color: transparent;
+  height: 500px;
+  width: 700px;
+  border-radius: 6px;
+
+  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  left: 320px;
+  top: 15px;
+}
+
+.cont {
+  background-color: transparent;
+  position: relative;
+}
+
+.container2 {
+  background-color: transparent;
+  height: 380px;
+  width: 700px;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 350px;
+  top: 2.5%;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  color: #000000;
+}
+
+span {
+  color: #fcb500;
+}
+
+.title {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  left: 70px;
+  bottom: 450px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.topics {
+  margin: -10px;
+  text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  color: #000000;
+  font-weight: 500;
+}
+
+input {
+  height: 50px;
+  width: 200px;
+  outline: none;
+  color: #fafafa;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: #201e88;
+  position: relative;
+  left: 570px;
+  bottom: 0;
+  margin-top: 40px;
+  transition: 0.5s;
+}
+
+input:hover {
+  cursor: pointer;
+  background: #090846;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fcb500;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.addborder {
+  border: 1px solid black;
+}
+
+.s {
+  position: relative;
+}
+
+.correct {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+}
+
+.remove {
+  width: 0px;
+}
+.light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
+
+.jobb {
+  position: absolute;
+  background-color: transparent;
+  left: 5%;
+}
+.inter {
+  width: 100%;
+  background-color: transparent;
+  margin-top: 20px;
+}
+.err {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  display: none;
+}
+.show2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  left: 87%;
+  color: red;
+  font-size: medium;
+  font-weight: 400s;
+  width: 100%;
+  visibility: visible;
+}
+.container2 {
+  text-align: center;
+}
+.topics2 {
+  margin-top: 15px;
+}
