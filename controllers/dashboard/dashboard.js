@@ -1,15 +1,23 @@
 import Responses from "../../util/response";
-import comment from "./comment";
 async function dahsboard(req, res, next) {
   try {
-    const { user, post, Hackathons, Tracks, postComments, likes, postFriends } =
-      req.models;
+    const {
+      user,
+      post,
+      Hackathons,
+      Tracks,
+      postComments,
+      likes,
+      userPosts,
+      postReplies,
+    } = req.models;
     const User = await user.findOne({
       where: {
         userId: req.userId,
       },
       attributes: ["userId", "firstName", "lastName", "image", "bio"],
     });
+    // liverbool and manchestercity ?
     const posts = await post.findAll({
       include: [
         {
@@ -17,19 +25,8 @@ async function dahsboard(req, res, next) {
           attributes: ["like", "love", "sad", "angry"],
         },
         {
-          model: postFriends,
-          attributes: ["id"],
-        },
-        {
           model: postComments,
-          attributes: [
-            "id",
-            "postId",
-            "commentId",
-            "type",
-            "comment",
-            "updatedAt",
-          ],
+          attributes: ["id", "postId", "comment", "updatedAt"],
           include: [
             {
               model: user,
@@ -40,16 +37,9 @@ async function dahsboard(req, res, next) {
               attributes: ["like", "love", "sad", "angry"],
             },
             {
-              model: postComments,
+              model: postReplies,
 
-              attributes: [
-                "id",
-                "postId",
-                "commentId",
-                "type",
-                "comment",
-                "updatedAt",
-              ],
+              attributes: ["id", "commentId", "reply", "updatedAt"],
               include: [
                 {
                   model: user,
@@ -65,14 +55,20 @@ async function dahsboard(req, res, next) {
         },
       ],
     });
-    for (let j = 0; j < posts.length; j++) {
-      // delete posts[j].postFriends;
+    const userposts = await userPosts.findAll({
+      where: {
+        userId: req.userId,
+      },
+      attributes: ["postId", "type"],
+    });
+    // for (let j = 0; j < posts.length; j++) {
+    //   // delete posts[j].postFriends;
 
-      for (let i = 0; i < posts[j].dataValues.postComments.length; i++) {
-        if (posts[j].dataValues.postComments[i].dataValues.type !== "comment")
-          delete posts[j].postComments[i];
-      }
-    }
+    //   for (let i = 0; i < posts[j].dataValues.postComments.length; i++) {
+    //     if (posts[j].dataValues.postComments[i].dataValues.type !== "comment")
+    //       delete posts[j].postComments[i];
+    //   }
+    // }
     const hackathons = await Hackathons.findAll({
       where: {
         finished: 0,
@@ -88,6 +84,7 @@ async function dahsboard(req, res, next) {
       hackathons,
       posts,
       tracks,
+      userposts,
     });
   } catch (err) {
     next(err);
