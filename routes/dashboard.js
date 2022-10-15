@@ -7,8 +7,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import comment from "../controllers/dashboard/comment";
 import likes from "../controllers/dashboard/likes";
-
+import { PythonShell } from "python-shell";
+import { spawn } from "child_process";
 router.get("/", (req, res) => {
+  // PythonShell.run("./search.py", null, function (err) {
+  //   if (err) throw err;
+  //   console.log("finished");
+  // // });
+  // let dataTosend;
+  // const python = spawn("python3", ["./search.py"]);
+  // python.stdout.on("data", function (data) {
+  //   dataTosend = data.toString();
+  // });
+  // python.stderr.on("data", function (data) {
+  //   console.error(`stderr: ${data}`);
+  // });
+  // python.on("exit", (code) => {
+  //   console.log(`child process ${code}, ${dataTosend}`);
+  // });
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard page"
   /* #swagger.responses[200] = {
