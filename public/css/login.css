@@ -72,7 +72,7 @@ form .txt_field {
 }
 
 .txt_field input {
-  width: 100%;
+  width: 90%;
   padding: 0 5px;
   height: 40px;
   font-size: 16px;

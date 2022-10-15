@@ -43,7 +43,7 @@ async function login(req, res, next) {
     res.cookie("access_token", token); //Sets name = express
 
     return Responses.success(res, "logged in Successfully", {
-      role: user.role,
+      token,
     });
   } catch (err) {
     return next(err);

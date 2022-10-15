@@ -17,18 +17,19 @@ async function addInterestsUser(req, res, next) {
   try {
     const userId = req.userId;
     const { userInterests } = req.models;
-    const { interest } = req.body;
-    console.log(interest);
-    console.log(userId);
-    const response = await userInterests.create({
-      interestId: interest,
-      userId: userId,
-    });
-    console.log(response);
+    const { interests } = req.body;
+    console.log(interests);
+    for (let i = 0; i < interests.length; i++) {
+      console.log(interests[i]);
+      const response = await userInterests.create({
+        interestId: interests[i],
+        userId: req.userId,
+      });
+    }
     return Responses.success(
       res,
       "add interests to users successfully",
-      response
+      "response"
     );
   } catch (err) {
     next(err);
@@ -46,14 +47,13 @@ async function addInterests(req, res, next) {
     if (existInterest) {
       return Responses.badRequest(res, "this interest already Exist", null);
     }
-    const response = await interests.create({
-      name: interest,
-    });
-    return Responses.success(
-      res,
-      "add interests to users successfully",
-      response
-    );
+    for (let i = 0; i < interest.length; i++) {
+      console.log(interest[i]);
+      //    const response = await interests.create({
+      //    name: interest[i],
+      // });
+    }
+    return Responses.success(res, "add interests to users successfully", "ok");
   } catch (err) {
     next(err);
   }
