@@ -3,42 +3,61 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "Projects",
+    "quiz",
     {
-      projectId: {
+      id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-
       name: {
         type: dataType.STRING,
         allowNull: false,
       },
       courseId: {
         type: dataType.UUID,
+      },
+      trackId: {
+        type: dataType.UUID,
+      },
+      Time: {
+        type: dataType.STRING,
         allowNull: false,
       },
-      requirement: {
-        type: dataType.TEXT,
+      type: {
+        type: dataType.ENUM("Quiz", "Exam"),
+        allowNull: false,
+      },
+      numberOfQuestions: {
+        type: dataType.INTEGER,
+        defaultValue: 0,
         allowNull: false,
       },
     },
     {
+      timeStamp: true,
       createdAt: false,
       updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { Courses, Projects } = models;
-  Courses.hasOne(Projects, {
+  const { Courses, quiz, Tracks } = models;
+  Courses.hasMany(quiz, {
     foreignKey: "courseId",
-    as: "Projects",
+    as: "quiz",
   });
-  Projects.belongsTo(Courses, {
+  quiz.belongsTo(Courses, {
     foreignKey: "courseId",
-    as: "Projects",
+    as: "quiz",
+  });
+  Tracks.hasOne(quiz, {
+    foreignKey: "trackId",
+    as: "Trackss",
+  });
+  quiz.belongsTo(Tracks, {
+    foreignKey: "trackId",
+    as: "Trackss",
   });
 }
 export { init, associate };

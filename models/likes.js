@@ -16,6 +16,9 @@ function init(connection) {
       commentId: {
         type: dataType.UUID,
       },
+      replyId: {
+        type: dataType.UUID,
+      },
       like: {
         type: dataType.BIGINT,
         allowNull: false,
@@ -45,7 +48,7 @@ function init(connection) {
   );
 }
 function associate(models) {
-  const { postComments, likes, post } = models;
+  const { postComments, likes, post, postReplies } = models;
   postComments.hasOne(likes, {
     foreignKey: "commentId",
   });
@@ -57,6 +60,12 @@ function associate(models) {
   });
   likes.belongsTo(post, {
     foreignKey: "postId",
+  });
+  postReplies.hasOne(likes, {
+    foreignKey: "replyId",
+  });
+  likes.belongsTo(postReplies, {
+    foreignKey: "replyId",
   });
 }
 export { init, associate };

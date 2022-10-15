@@ -3,7 +3,7 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "postFriends",
+    "userPosts",
     {
       id: {
         type: dataType.UUID,
@@ -13,8 +13,16 @@ function init(connection) {
       postId: {
         type: dataType.UUID,
       },
+      commentId: {
+        type: dataType.UUID,
+      },
       userId: {
         type: dataType.UUID,
+        allowNull: false,
+      },
+      type: {
+        type: dataType.ENUM("like", "love", "sad", "angry"),
+        allowNull: false,
       },
     },
     {
@@ -25,18 +33,24 @@ function init(connection) {
   );
 }
 function associate(models) {
-  const { postFriends, user, post } = models;
-  post.hasMany(postFriends, {
+  const { userPosts, user, post, postComments } = models;
+  post.hasMany(userPosts, {
     foreignKey: "postId",
   });
-  postFriends.belongsTo(post, {
+  userPosts.belongsTo(post, {
     foreignKey: "postId",
   });
-  user.hasMany(postFriends, {
+  user.hasMany(userPosts, {
     foreignKey: "userId",
   });
-  postFriends.belongsTo(user, {
+  userPosts.belongsTo(user, {
     foreignKey: "userId",
+  });
+  postComments.hasMany(userPosts, {
+    foreignKey: "commentId",
+  });
+  userPosts.belongsTo(postComments, {
+    foreignKey: "commentId",
   });
 }
 export { init, associate };

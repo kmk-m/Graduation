@@ -89,6 +89,7 @@ passport.use(
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 const { messages } = "./models/messages.js";
+import { PythonShell } from "python-shell";
 
 /********************* */
 httpServer.listen(process.env.PORT || 3000, () => {
