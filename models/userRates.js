@@ -3,62 +3,61 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "userProjects",
+    "userRates",
     {
       id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
+      courseId: {
+        type: dataType.UUID,
+      },
+      trackId: {
+        type: dataType.UUID,
+      },
       userId: {
         type: dataType.UUID,
         allowNull: false,
       },
-      projectId: {
-        type: dataType.UUID,
+      rate: {
+        type: dataType.ENUM("Star1", "Star2", "Star3", "Star4", "Star5"),
+        allowNull: false,
       },
-      name: {
+      title: {
         type: dataType.STRING,
         allowNull: false,
       },
-      description: {
-        type: dataType.TEXT,
-        allowNull: false,
-      },
-      link: {
-        type: dataType.STRING,
-        allowNull: false,
-      },
-      status: {
-        type: dataType.ENUM("Accepted", "Pending", "Rejected"),
-      },
-      Comment: {
+      details: {
         type: dataType.TEXT,
       },
     },
     {
       timeStamp: true,
       createdAt: false,
+      updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { user, userProjects, Projects } = models;
-  user.hasMany(userProjects, {
+  const { Tracks, user, Courses, userRates } = models;
+  Courses.hasMany(userRates, {
+    foreignKey: "courseId",
+  });
+  userRates.belongsTo(Courses, {
+    foreignKey: "courseId",
+  });
+  user.hasMany(userRates, {
     foreignKey: "userId",
-    as: "userProjects",
   });
-  userProjects.belongsTo(user, {
+  userRates.belongsTo(user, {
     foreignKey: "userId",
-    as: "userProjects",
   });
-  Projects.hasMany(userProjects, {
-    foreignKey: "projectId",
-    as: "Project",
+  Tracks.hasMany(userRates, {
+    foreignKey: "trackId",
   });
-  userProjects.belongsTo(Projects, {
-    foreignKey: "projectId",
-    as: "Project",
+  userRates.belongsTo(Tracks, {
+    foreignKey: "trackId",
   });
 }
 export { init, associate };

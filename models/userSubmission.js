@@ -3,41 +3,45 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "postComments",
+    "userSubmission",
     {
       id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      postId: {
-        type: dataType.UUID,
-      },
       userId: {
         type: dataType.UUID,
+        allowNull: false,
       },
-      comment: {
-        type: dataType.TEXT,
+      quizId: {
+        type: dataType.UUID,
+        allowNull: false,
+      },
+      grade: {
+        type: dataType.INTEGER,
+        allowNull: false,
       },
     },
     {
       timeStamp: true,
-      createdAt: false,
+      createdAt: true,
+      updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { postComments, user, post } = models;
-  post.hasMany(postComments, {
-    foreignKey: "postId",
+  const { quiz, userSubmission, user } = models;
+  quiz.hasMany(userSubmission, {
+    foreignKey: "quizId",
   });
-  postComments.belongsTo(post, {
-    foreignKey: "postId",
+  userSubmission.belongsTo(quiz, {
+    foreignKey: "quizId",
   });
-  user.hasMany(postComments, {
+  user.hasMany(userSubmission, {
     foreignKey: "userId",
   });
-  postComments.belongsTo(user, {
+  userSubmission.belongsTo(user, {
     foreignKey: "userId",
   });
 }

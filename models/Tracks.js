@@ -26,6 +26,14 @@ function init(connection) {
         type: dataType.STRING,
         allowNull: false,
       },
+      description: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
+      plan: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
     },
     {
       createdAt: false,

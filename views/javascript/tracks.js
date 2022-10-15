@@ -1,7 +1,8 @@
 let id = window.location.href;
 id = id.slice(id.lastIndexOf("/") + 1);
 let ass = document.getElementById("ass");
-//ass.href = `http://127.0.0.1:3000/Tracks/${id}/Assignments`;
+console.log(ass);
+ass.href = `http://127.0.0.1:3000/Tracks/${id}/Assignments`;
 console.log(id);
 fetch("http://127.0.0.1:3000/Tracks/data/" + id, {
   method: "GET",
