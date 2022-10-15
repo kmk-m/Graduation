@@ -13,12 +13,12 @@ async function getIntroVideo(req, res, next) {
   if (!Requirements) {
     return Responses.badRequest(res, "course not found");
   }
-  const lastSubmission = await userProjects.findOne({
+  const lastSubmission = await userProjects.findAll({
     where: {
       userId: req.userId,
       projectId: Requirements.projectId,
     },
-    attributes: ["status", "Comment"],
+    attributes: ["status", "Comment", "link"],
   });
   return Responses.success(res, "Get data Successfully", {
     Requirements,
