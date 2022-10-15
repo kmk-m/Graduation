@@ -1,5 +1,5 @@
 import e from "express";
-import Response from "../util/response.js";
+import Response from "../../util/response.js";
 async function getdata(req, res, next) {
   const { user, userTracks, trackCourses, userCourses, Tracks, Courses } =
     req.models;
