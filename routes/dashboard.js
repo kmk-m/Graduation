@@ -5,8 +5,8 @@ import { fileURLToPath } from "url";
 import dashboard from "../controllers/dashboard/dashboard.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import comment from "../controllers/dashboard/comment";
-import likes from "../controllers/dashboard/likes";
+import comment from "../controllers/dashboard/comment.js";
+import likes from "../controllers/dashboard/likes.js";
 import { PythonShell } from "python-shell";
 import { spawn } from "child_process";
 router.get("/", (req, res) => {
