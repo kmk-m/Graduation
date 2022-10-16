@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 
 async function getAssignments(req, res, next) {
   const { Assignments, userAssignments, user, Tracks } = req.models;

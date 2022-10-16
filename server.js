@@ -20,7 +20,6 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-import { Strategy } from "passport-jwt";
 import APIRouter from "./routes/APIRouter.js";
 dotenv.config();
 const app = express();

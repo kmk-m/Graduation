@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 import Joi from "joi";
 
 const validateBody = (body) => {
