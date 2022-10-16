@@ -66,7 +66,6 @@ const EmojiPicker = function (options) {
         } else {
           this.el().forEach((item) => {
             item.addEventListener(event, (e) => {
-              console.log("q", e.target);
               if (e.target.closest(classList)) {
                 let attr = undefined;
 
@@ -7971,8 +7970,6 @@ const EmojiPicker = function (options) {
     },
 
     position: (btn) => {
-      console.log("kjgfk", btn);
-      console.log("kjgfk", document.querySelector(btn).getBoundingClientRect());
       const btnElm = document.querySelector(btn).getBoundingClientRect();
       const clickPosX = this.options.addPosX
         ? btnElm.left + this.options.addPosX
@@ -8010,6 +8007,7 @@ const EmojiPicker = function (options) {
       const index = this.options.trigger.findIndex(
         (item) => item.selector === attr
       );
+      console.log("yopush", this);
       this.insertInto = this.options.trigger[index].insertInto;
 
       const position = functions.position(attr);
@@ -8134,7 +8132,7 @@ const EmojiPicker = function (options) {
       const emoji = e.target.innerText.trim();
       const myField = document.getElementById(`${this.insertInto[1]}`);
       const myValue = emoji;
-
+      console.log(this);
       // Check if selector is an array
       if (document.selection) {
         myField.focus();
@@ -8159,7 +8157,6 @@ const EmojiPicker = function (options) {
       e.preventDefault();
 
       const link = e.target.closest("a");
-      console.log("link", link);
       if (
         link.getAttribute("id") &&
         link.getAttribute("id") === "fg-emoji-picker-close-button"

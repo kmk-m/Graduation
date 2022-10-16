@@ -178,13 +178,17 @@ function posts(posts, img, userposts, name, bio) {
     let vsangry = false;
     numRec.set(x.id, 0);
     for (let i = 0; i < 3; i++) {
+      console.log(reactions[i]);
       if (reactions[i] == 0) break;
       if (isNaN(postEmojis.get(x.id))) postEmojis.set(x.id, 0);
       postEmojis.set(x.id, parseInt(postEmojis.get(x.id)) + 1);
       if (like === reactions[i] && !vslike) {
         numRec.set(x.id, numRec.get(x.id) + 1);
-
-        ForbeddinReaction.set(x.id, "like");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "like,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "like,");
+        }
         vslike = true;
         let like1 = document.createElement("img");
         like1.className = `imo h${x.id}`;
@@ -195,9 +199,11 @@ function posts(posts, img, userposts, name, bio) {
       } else if (love === reactions[i] && !vslove) {
         vslove = true;
         numRec.set(x.id, numRec.get(x.id) + 1);
-
-        ForbeddinReaction.set(x.id, "like,love");
-
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "love,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "love,");
+        }
         let love1 = document.createElement("img");
         love1.className = `imo h${x.id}`;
         love1.setAttribute("id", "lovepost." + x.id);
@@ -207,7 +213,11 @@ function posts(posts, img, userposts, name, bio) {
 
         imgs.push(love1);
       } else if (sad === reactions[i] && !vssad) {
-        ForbeddinReaction.set(x.id, "like,love,sad");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "sad,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "sad,");
+        }
         numRec.set(x.id, numRec.get(x.id) + 1);
 
         vssad = true;
@@ -220,7 +230,11 @@ function posts(posts, img, userposts, name, bio) {
         imgs.push(sad1);
       } else if (angry === reactions[i] && !vsangry) {
         vsangry = true;
-        ForbeddinReaction.set(x.id, "like,love,sad,angry");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "angry,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "angry,");
+        }
         numRec.set(x.id, numRec.get(x.id) + 1);
 
         let angry1 = document.createElement("img");
@@ -231,7 +245,21 @@ function posts(posts, img, userposts, name, bio) {
         imgs.push(angry1);
       }
     }
+
     //ps
+    if (!ForbeddinReaction.get(x.id)) {
+      ForbeddinReaction.set(x.id, "like,");
+    } else {
+      ForbeddinReaction.set(
+        x.id,
+        ForbeddinReaction.get(x.id).substring(
+          0,
+          ForbeddinReaction.get(x.id).length - 1
+        )
+      );
+    }
+    console.log("sds", ForbeddinReaction.get(x.id));
+
     const ps = userposts.filter((e) => {
       return e.postId == x.id;
     });
@@ -273,6 +301,7 @@ function posts(posts, img, userposts, name, bio) {
     if (x.postComments.length) {
       let a2 = document.createElement("p");
       a2.innerHTML = `${x.postComments.length} Comments`;
+      a2.setAttribute("id", "allComments2." + x.id);
       comment.appendChild(a2);
     }
     if (
@@ -382,12 +411,26 @@ function posts(posts, img, userposts, name, bio) {
   <div class=com >
   <input id=input.${x.id} class = "inpu x" placeholder ="Type any comment..">
   <img src="/images/emoticon.png" width="20" height="20" class="btn1" id = emo.${x.id}>
-  <img  src="/images/image.png" width="20" height="20" class="btn2" >
+  <img  id="openImgUpload.${x.id}" src="/images/image.png" width="20" height="20" class="btn2" >
+  <input type="file" id=imgupload${x.id} style="display:none" onchange="readURL(this);" class="imgh" /> 
   </div>
     `;
+    let you = document.createElement("div");
+    // you.setAttribute("id", "blah");
+    // you.src = "http://placehold.it/180";
+    // you.className = "yourImage";
+    // you.alt = "your image";
+    you.innerHTML = `
+     <img id="blah${x.id}" src="http://placehold.it/180" class =yourImage alt="your image" />
+     <input type="button" value="X" class="exit">
+    `;
+    // <img id="blah" src="http://placehold.it/180" class =yourImage alt="your image" />
+    you.className = "hide";
     inputCom.className = "vis";
+    inputCom.appendChild(you);
     comms.setAttribute("id", "comm" + x.id);
     comms.appendChild(inputCom);
+    // comms.appendChild(you);
     videoCenter.appendChild(comms);
 
     //******************Start COmment */
@@ -445,6 +488,16 @@ function posts(posts, img, userposts, name, bio) {
       let vos = document.createElement("div");
       vos.className = "vos head";
       vos.setAttribute("id", "comm" + comment.id);
+      /*
+      let you = document.createElement("div");
+      you.innerHTML = `
+       <img id="blah${x.id}" src="http://placehold.it/180" class =yourImage alt="your image" />
+       <input type="button" value="X" class="exit">
+      `;
+      you.className = "youim";
+      inputCom.className = "vis";
+      inputCom.appendChild(you);      
+       */
       vos.innerHTML = `
        <div class="ph">
        <img src=${img} class="im">
@@ -453,15 +506,42 @@ function posts(posts, img, userposts, name, bio) {
      <div class="com">
      <input id=input.${comment.id} class="inpu x adx" placeholder="Type any comment..">
      <div class="adx5">
-     <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.6d23f126-4373-11ed-98bd-0045e21c18f1">
-     <img src="/images/image.png" width="20" height="20" class="btn2 adx4">
+     <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.${comment.id}">
+     <img  id="openImgUpload.${comment.id}" src="/images/image.png" width="20" height="20" class="btn2" >
+     <input type="file" id=imgupload${comment.id} style="display:none" onchange="readURL(this);" class="imgh" /> 
      </div>
      </div>
+    
+<div class =hide>
+<img id="blah${comment.id}" src="http://placehold.it/180" class =yourImage alt="your image" />
+<input type="button" value="X" class="exit">
+
+</div>
+      
        </div>
        
        `;
+
       comment3.appendChild(vos);
+
+      // let you = document.createElement("div");
+      // you.innerHTML = `
+      //  <img id="blah${x.id}" src="http://placehold.it/180" class =yourImage alt="your image" />
+      //  <input type="button" value="X" class="exit">
+      // `;
+      // you.className = "youim";
+      // vos.appendChild(you);
+
       commentsDiv.appendChild(comment3);
+      let num = document.getElementById("allComments2." + x.id).innerHTML;
+      if (typeof num !== "undefined") {
+        num = num.split(" ");
+        num = parseInt(num[0]);
+        num += 1;
+        document.getElementById("allComments2." + x.id).innerHTML = `
+        ${num} Comments
+        `;
+      }
       comment.postReplies.forEach((reply) => {
         const likes =
           parseInt(reply.like.like) +
@@ -503,8 +583,7 @@ function posts(posts, img, userposts, name, bio) {
       <p class="li">${likes}</p>
       <img src="/images/sad.png" alt="image">
       <p class="dr" id = reply.${reply.id}>Reply</p>
-      <p class="li">0</p>
-      <p class="li">Reply</p>
+
       `;
         comment3.appendChild(rec);
         let vos = document.createElement("div");
@@ -518,10 +597,15 @@ function posts(posts, img, userposts, name, bio) {
      <div class="com">
      <input id=input.${reply.id} class="inpu x adx" placeholder="Type any comment..">
      <div class="adx5">
-     <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.6d23f126-4373-11ed-98bd-0045e21c18f1">
-     <img src="/images/image.png" width="20" height="20" class="btn2 adx4">
+     <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.${reply.id}">
+     <img  id="openImgUpload.${reply.id}" src="/images/image.png" width="20" height="20" class="btn2" >
+     <input type="file" id=imgupload${reply.id} style="display:none" onchange="readURL(this);" class="imgh" /> 
      </div>
      </div>
+     <div class =hide>
+<img id="blah${reply.id}" src="http://placehold.it/180" class =yourImage alt="your image" />
+<input type="button" value="X" class="exit">
+</div>
        </div>
        
        `;
@@ -539,7 +623,7 @@ function posts(posts, img, userposts, name, bio) {
       if (!id) id = e.target.parentNode.id;
       id = id.split(".")[1];
       document.getElementById("allComments." + id).className = "comments";
-      // console.log(document.getElementById(id));
+      // //.log(document.getElementById(id));
       document.getElementById("comm" + id).className = "comms";
     });
   }
@@ -560,6 +644,7 @@ function posts(posts, img, userposts, name, bio) {
     let y = x;
 
     // -------------------------- Default Delete --------------------------
+
     document.getElementById("click." + id).addEventListener("click", () => {
       document.getElementById("emojis." + id).className = "emoji";
       let forAction = [];
@@ -568,19 +653,19 @@ function posts(posts, img, userposts, name, bio) {
       let clickedType = "like";
       document.getElementById("contentt2." + id).className = "contentt2";
       // if (!alreadyCliked.get(id)) {
-      //   console.log("hello");
+      //   //.log("hello");
       //   yy.innerHTML = `
       //   <img class="ht" src="/images/like.gif" id="like" alt="">
       //   <span class ="col1"> Like</span>
       //           `;
       //   alreadyCliked.set(id, true);
       // }
-      // console.log(yy);
+      // //.log(yy);
 
       // let x = postLikes.get(id);
       // if (isNaN(x)) x = 0;
       // x += 1;
-      // console.log(x);
+      // //.log(x);
       // postLikes.set(id, x);
       // document.getElementById("like" + id).innerHTML = `${x} Users`;
       // cantAdd.set(id, false);
@@ -611,30 +696,26 @@ function posts(posts, img, userposts, name, bio) {
         parseInt(postLikes.get(id)) <= parseInt(forAction.length) ||
         (postLikes.get(id) <= numRec.get(id) && numRec.get(id) !== 0)
       ) {
-        console.log("compare", parseInt(postLikes.get(id)), forAction);
         let a1 = document.getElementById("a1." + id);
-        console.log("lastAc", lastAction.get(id));
         a1.removeChild(
           document.getElementById(`${lastAction.get(id)}post.${id}`)
         );
         // delete Word from string in js ?
         let toReplace = [];
+        let toReplace2 = "";
+
         if (ForbeddinReaction.get(id))
           toReplace = ForbeddinReaction.get(id).split(",");
         for (let py = 0; py < toReplace.length; py += 1) {
-          if (toReplace[py] === lastAction.get(id)) {
-            toReplace.pop(py);
-            break;
+          if (toReplace[py] !== lastAction.get(id)) {
+            toReplace2 += toReplace[py];
+            toReplace2 += ",";
           }
         }
-        let toReplace2 = "";
-        for (let py = 0; py < toReplace.length - 1; py += 1) {
-          toReplace2 += toReplace[py];
-          toReplace2 += ",";
-        }
         if (toReplace.length > 0) {
-          toReplace2 += toReplace[toReplace.length - 1];
+          toReplace2 = toReplace2.substring(0, toReplace2.length - 1);
         }
+        console.log(toReplace2);
         ForbeddinReaction.set(id, toReplace2);
         numRec.set(id, numRec.get(id) - 1);
       }
@@ -659,7 +740,7 @@ function posts(posts, img, userposts, name, bio) {
       }
 
       if (postEmojis.get(id) < 3) {
-        console.log("clikedtype", clickedType);
+        //.log("clikedtype", clickedType);
         cantAdd.set(id, true);
         if (
           !forAction.includes(clickedType) &&
@@ -679,10 +760,12 @@ function posts(posts, img, userposts, name, bio) {
             a1.removeChild(a1.children[a1.children.length - 2]);
           }
           lastAction.set(id, clickedType);
-          console.log("hello2", lastAction.get(id));
+          //.log("hello2", lastAction.get(id));
           alreadyCliked.set(id, false);
         }
         // --------------------------Finish Default Delete --------------------------
+        console.log(lastAction.get(id));
+        console.log(ForbeddinReaction.get(id));
 
         alreadyCliked.set(id, false);
 
@@ -725,7 +808,6 @@ function posts(posts, img, userposts, name, bio) {
       document.getElementById("contentt2." + id).className = "contentt2";
     });
   });
-
   let emoac = document.querySelectorAll(".hello");
   emoac.forEach((def) => {
     let id = def.id.split(".")[1];
@@ -812,17 +894,17 @@ function posts(posts, img, userposts, name, bio) {
       yy.innerHTML = `
       <img class="ht" src="/images/${clickedType}.gif" id=${clickedType} alt="">
       <span  style=color:${color} > ${clickedType}</span>         `;
-      console.log("new image", postEmojis.get(id));
+      //.log("new image", postEmojis.get(id));
 
       if (postEmojis.get(id) < 3 || typeof postEmojis.get(id) === "undefined") {
-        console.log("new image");
+        //.log("new image");
 
         if (
           !forAction.includes(clickedType) &&
           lastAction.get(id) !== clickedType
         ) {
           numRec.set(id, numRec.get(id) + 1);
-          console.log("new image");
+          //.log("new image");
           let small = document.createElement("img");
           small.className = `imo h${id}`;
           small.setAttribute("id", `${clickedType}post.${id}`);
@@ -833,11 +915,11 @@ function posts(posts, img, userposts, name, bio) {
             typeof lastAction.get(id) !== "undefined" &&
             lastAction.get(id) !== ""
           ) {
-            console.log("deleted");
+            //.log("deleted");
             a1.removeChild(a1.children[a1.children.length - 2]);
           }
           lastAction.set(id, clickedType);
-          console.log(lastAction.get(id));
+          //.log(lastAction.get(id));
         } else if (
           forAction.includes(clickedType) &&
           lastAction.get(id) !== clickedType
@@ -870,6 +952,30 @@ function posts(posts, img, userposts, name, bio) {
       }
     });
   }
+  const todrop = document.querySelectorAll(".btn2");
+  todrop.forEach((e) => {
+    const id = e.id.split(".")[1];
+    const exit = document.getElementById(`blah${id}`).parentNode.children[1];
+    //.log("ht", exit);
+    exit.addEventListener("click", () => {
+      //.log(document.getElementById(`blah${id}`).parentNode.children[0]);
+      document.getElementById(`blah${id}`).parentNode.children[0].className =
+        "hide";
+      document.getElementById(`blah${id}`).parentNode.children[1].className =
+        "hide";
+      document.getElementById(`blah${id}`).parentNode.className = "hide";
+    });
+    e.addEventListener("click", (ty) => {
+      //.log("dropped");
+      const id = ty.target.id.split(".")[1];
+      //.log(document.getElementById(`imgupload${id}`));
+      $(`#imgupload${id}`).trigger("click");
+    });
+  });
+  // $("#OpenImgUpload").click(function () {
+  //   $("#imgupload").trigger("click");
+  // });
+
   let buttons = document.querySelectorAll(".btn1");
   buttons.forEach((x) => {
     x.addEventListener("click", (e) => {
@@ -879,7 +985,7 @@ function posts(posts, img, userposts, name, bio) {
       new EmojiPicker({
         trigger: [
           {
-            insertInto: ["#txt1", `input.6d23f126-4373-11ed-98bd-0045e21c18f1`],
+            insertInto: ["#txt1", inputId],
             selector: ".btn1",
           },
         ],
@@ -891,16 +997,24 @@ function posts(posts, img, userposts, name, bio) {
 
   // arr = document.querySelectorAll(".addcoment");
   // arr.forEach((xx) => {
-  //   console.log("hrllo");
+  //   //.log("hrllo");
 
-  //   console.log("e.target.id");
-  //   console.log(xx);
+  //   //.log("e.target.id");
+  //   //.log(xx);
   //   $(`#text.06a85b72-4266-11ed-ab26-0045e21c18f1`).emojioneArea({
   //     pickerPosition: "bottom",
   //   });
   // });
 }
-
+function func2() {
+  $("textarea").emojioneArea({
+    pickerPosition: "bottom",
+  });
+}
+let message = document.getElementById("not12").addEventListener("click", () => {
+  //.log("yes");
+  window.location.href = "http://127.0.0.1:3000/chat";
+});
 let userLight = "#0e1b3e";
 let userBlack = "rgb(24, 26, 27)";
 

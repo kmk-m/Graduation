@@ -622,8 +622,10 @@ hr {
   padding: 1px;
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .addcoment {
   font-family: "Inter";
@@ -1179,6 +1181,9 @@ textarea {
   position: relative;
   left: 250px;
 }
+.btn2:hover {
+  cursor: pointer;
+}
 .btn1:hover {
   background-color: #fff;
   color: black;
@@ -1360,5 +1365,42 @@ textarea {
   text-transform: capitalize;
 }
 .head {
+  display: none;
+}
+.yourImage {
+  width: 200px;
+  height: 120px;
+  margin: 10px;
+}
+.yourImage:hover {
+  cursor: pointer;
+}
+
+.youim {
+  position: relative;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0.08);
+  width: 100%;
+  border-top: none;
+  border-radius: 20px;
+}
+.toflex2 {
+  position: relative;
+}
+.exit {
+  border-radius: 21px;
+  background-color: blue;
+  color: white;
+  border: white;
+  position: absolute;
+  top: 0;
+  margin-left: -25px;
+  padding: 5px 10px;
+}
+.exit:hover {
+  background-color: #425892;
+  cursor: pointer;
+}
+.hide {
   display: none;
 }
