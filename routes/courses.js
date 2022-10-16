@@ -42,7 +42,7 @@ router.get(
 router.post("/:projectId", courseController.submitProject, (req, res) => {
   // #swagger.tags = ['courses']
   // #swagger.description = "to submitProject"
-  // #swagger.request = "http://127.0.0.1:3000/courses/courseId"
+  // #swagger.request = "https://sleepy-bastion-99766.herokuapp.com/courses/courseId"
   /*  #swagger.parameters['obj'] = {
                 in: 'body',
                 description: 'addproject',
