@@ -9,11 +9,10 @@ mydb = pymysql.connect(host="127.0.0.1",
                        password="", )
 mycursor = mydb.cursor()
 
-# HENAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 userId = sys.argv[1]
-print("search", userId)
-query = "select userId from users where firstName = %s and lastName = %s"
-mycursor.execute(query, (firstname, lastame))
+# print("search", userId)
+query = "select userId from users where userId = %s "
+mycursor.execute(query, userId)
 result = mycursor.fetchall()
 for row in result:
     print(row[0])
@@ -21,8 +20,8 @@ course_name = None
 sub = []
 user_interest = []
 search_input = 'javascript'
-query = "select name from interests where id = (select interestid from userinterests where userId = (select userId from users where firstName = %s and lastName = %s))"
-mycursor.execute(query, (firstname, lastame))
+query = "select name from interests where id = (select interestid from userinterests where userId = %s))"
+mycursor.execute(query, userId)
 result = mycursor.fetchall()
 for row in result:
     user_interest.append(row[0])

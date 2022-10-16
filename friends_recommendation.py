@@ -9,7 +9,7 @@ mydb = pymysql.connect(host =  "us-cdbr-east-06.cleardb.net",
 #                        database="lms",
 #                        user="root",
 #                        password="", )
-# mycursor = mydb.cursor()
+mycursor = mydb.cursor()
 
 def recommend_friends(active_user_interests , key_list, values_list):
   
