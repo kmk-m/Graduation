@@ -73,6 +73,9 @@ function hackathons(allHackathons) {
 }
 
 function data(json) {
+  if (json.code === "not has Interests") {
+    window.location.href = "http://127.0.0.1:3000/interests";
+  }
   /* return name */
   let name = json.data.User.firstName + " " + json.data.User.lastName;
   document.getElementById("namewel").innerHTML = `${json.data.User.firstName}`;
