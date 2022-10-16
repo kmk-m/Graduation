@@ -2,7 +2,7 @@ import Router from "express";
 const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
-import dashboard from "../controllers/dashboard/dashboard";
+import dashboard from "../controllers/dashboard/dashboard.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import comment from "../controllers/dashboard/comment";
