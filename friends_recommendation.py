@@ -1,15 +1,15 @@
 import pymysql
 import sys
 
-# mydb = pymysql.connect(host =  "us-cdbr-east-06.cleardb.net",
-#   database =  "heroku_e41c1baee36a515",
-#   user = "b9e60d1985c298",
-#   password =  "3e689dd2", )
-mydb = pymysql.connect(host="127.0.0.1",
-                       database="lms",
-                       user="root",
-                       password="", )
-mycursor = mydb.cursor()
+mydb = pymysql.connect(host =  "us-cdbr-east-06.cleardb.net",
+  database =  "heroku_e41c1baee36a515",
+  user = "b9e60d1985c298",
+  password =  "3e689dd2", )
+# mydb = pymysql.connect(host="127.0.0.1",
+#                        database="lms",
+#                        user="root",
+#                        password="", )
+# mycursor = mydb.cursor()
 
 def recommend_friends(active_user_interests , key_list, values_list):
   
