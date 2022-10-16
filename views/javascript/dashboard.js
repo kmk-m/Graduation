@@ -2,9 +2,10 @@ let access_token = document.cookie;
 access_token.slice(access_token.indexOf("="));
 
 if (document.URL.includes("auth")) {
-  window.location.href = "http://127.0.0.1:3000/go/" + access_token;
+  window.location.href =
+    "https://sleepy-bastion-99766.herokuapp.com/go/" + access_token;
 }
-fetch("http://127.0.0.1:3000/dashboard", {
+fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
   method: "GET",
 
   headers: {
@@ -13,7 +14,7 @@ fetch("http://127.0.0.1:3000/dashboard", {
 })
   .then((response) => response.json())
   .then((json) => json);
-fetch("http://127.0.0.1:3000/dashboard", {
+fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
   method: "GET",
 
   headers: {
@@ -985,7 +986,7 @@ function func2() {
 }
 let message = document.getElementById("not12").addEventListener("click", () => {
   //.log("yes");
-  window.location.href = "http://127.0.0.1:3000/chat";
+  window.location.href = "https://sleepy-bastion-99766.herokuapp.com/chat";
 });
 let userLight = "#0e1b3e";
 let userBlack = "rgb(24, 26, 27)";
@@ -1042,9 +1043,9 @@ function tracks(tracks) {
   tracks.forEach((x) => {
     const parag = document.createElement("h1");
     parag.onclick = () => {
-      window.location.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
+      window.location.href = `https://sleepy-bastion-99766.herokuapp.com/Tracks/${x.trackId}`;
     };
-    // parag.href = `http://127.0.0.1:3000/Tracks/${x.trackId}`;
+    // parag.href = `https://sleepy-bastion-99766.herokuapp.com/Tracks/${x.trackId}`;
     parag.innerHTML = `${x.name}`;
     drop.appendChild(parag);
   });

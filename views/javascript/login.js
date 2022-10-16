@@ -35,7 +35,7 @@ function data(json) {
     var element = document.getElementById("test");
     element.appendChild(tag);
   } else if (json.code === "Success") {
-    window.location.href = "http://127.0.0.1:3000/";
+    window.location.href = "https://sleepy-bastion-99766.herokuapp.com/";
   }
 }
 //*************************************** */

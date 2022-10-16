@@ -13,7 +13,7 @@ async function handleSubmit(e) {
   let password = document.getElementById("password").value;
   let confirmpassword = document.getElementById("confirmpassword").value;
 
-  await fetch("http://127.0.0.1:3000/signup", {
+  await fetch("https://sleepy-bastion-99766.herokuapp.com/signup", {
     method: "POST",
     body: JSON.stringify({
       firstName: firstName,
@@ -52,6 +52,7 @@ function data(json) {
     element.appendChild(tag);
     newdiv = json.message;
   } else {
-    window.location.href = "http://127.0.0.1:3000/interests";
+    window.location.href =
+      "https://sleepy-bastion-99766.herokuapp.com/interests";
   }
 }
