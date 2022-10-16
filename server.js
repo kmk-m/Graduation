@@ -12,14 +12,10 @@ import Cors from "cors";
 import passport from "passport";
 import FacebookStrategy from "passport-facebook";
 import GoogleStrategy from "passport-google-oauth2";
-<<<<<<< HEAD
 import jwt from "./util/jwt.js";
-=======
-import jwt from "./util/jwt";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
->>>>>>> 9e4322b5fcc4df3eac82bdde4dec36f53a6b4664
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);

@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 async function dahsboard(req, res, next) {
   try {
     const {
