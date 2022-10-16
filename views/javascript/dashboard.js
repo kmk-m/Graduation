@@ -178,13 +178,17 @@ function posts(posts, img, userposts, name, bio) {
     let vsangry = false;
     numRec.set(x.id, 0);
     for (let i = 0; i < 3; i++) {
+      console.log(reactions[i]);
       if (reactions[i] == 0) break;
       if (isNaN(postEmojis.get(x.id))) postEmojis.set(x.id, 0);
       postEmojis.set(x.id, parseInt(postEmojis.get(x.id)) + 1);
       if (like === reactions[i] && !vslike) {
         numRec.set(x.id, numRec.get(x.id) + 1);
-
-        ForbeddinReaction.set(x.id, "like");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "like,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "like,");
+        }
         vslike = true;
         let like1 = document.createElement("img");
         like1.className = `imo h${x.id}`;
@@ -195,9 +199,11 @@ function posts(posts, img, userposts, name, bio) {
       } else if (love === reactions[i] && !vslove) {
         vslove = true;
         numRec.set(x.id, numRec.get(x.id) + 1);
-
-        ForbeddinReaction.set(x.id, "like,love");
-
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "love,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "love,");
+        }
         let love1 = document.createElement("img");
         love1.className = `imo h${x.id}`;
         love1.setAttribute("id", "lovepost." + x.id);
@@ -207,7 +213,11 @@ function posts(posts, img, userposts, name, bio) {
 
         imgs.push(love1);
       } else if (sad === reactions[i] && !vssad) {
-        ForbeddinReaction.set(x.id, "like,love,sad");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "sad,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "sad,");
+        }
         numRec.set(x.id, numRec.get(x.id) + 1);
 
         vssad = true;
@@ -220,7 +230,11 @@ function posts(posts, img, userposts, name, bio) {
         imgs.push(sad1);
       } else if (angry === reactions[i] && !vsangry) {
         vsangry = true;
-        ForbeddinReaction.set(x.id, "like,love,sad,angry");
+        if (!ForbeddinReaction.get(x.id)) {
+          ForbeddinReaction.set(x.id, "angry,");
+        } else {
+          ForbeddinReaction.set(x.id, ForbeddinReaction.get(x.id) + "angry,");
+        }
         numRec.set(x.id, numRec.get(x.id) + 1);
 
         let angry1 = document.createElement("img");
@@ -231,7 +245,21 @@ function posts(posts, img, userposts, name, bio) {
         imgs.push(angry1);
       }
     }
+
     //ps
+    if (!ForbeddinReaction.get(x.id)) {
+      ForbeddinReaction.set(x.id, "like,");
+    } else {
+      ForbeddinReaction.set(
+        x.id,
+        ForbeddinReaction.get(x.id).substring(
+          0,
+          ForbeddinReaction.get(x.id).length - 1
+        )
+      );
+    }
+    console.log("sds", ForbeddinReaction.get(x.id));
+
     const ps = userposts.filter((e) => {
       return e.postId == x.id;
     });
@@ -616,6 +644,7 @@ function posts(posts, img, userposts, name, bio) {
     let y = x;
 
     // -------------------------- Default Delete --------------------------
+
     document.getElementById("click." + id).addEventListener("click", () => {
       document.getElementById("emojis." + id).className = "emoji";
       let forAction = [];
@@ -779,7 +808,6 @@ function posts(posts, img, userposts, name, bio) {
       document.getElementById("contentt2." + id).className = "contentt2";
     });
   });
-
   let emoac = document.querySelectorAll(".hello");
   emoac.forEach((def) => {
     let id = def.id.split(".")[1];
