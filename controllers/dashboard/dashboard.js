@@ -23,9 +23,9 @@ async function dahsboard(req, res, next) {
         userId: req.userId,
       },
     });
-    // if (!singUp) {
-    //   return Responses.badRequest(res, "not has Interests");
-    // }
+    if (!singUp) {
+      return Responses.badRequest(res, "not has Interests");
+    }
     // liverbool and manchestercity ?
     const posts = await post.findAll({
       include: [
