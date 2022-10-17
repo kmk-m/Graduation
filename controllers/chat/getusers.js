@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 async function getAllUsers(req, res, next) {
   try {
     const { user, messages, allMessages } = req.models;

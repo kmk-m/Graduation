@@ -3,7 +3,7 @@ const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
 import multer from "multer";
-import admincontrol from "../../controllers/admin/admincontroller";
+import admincontrol from "../../controllers/admin/admincontroller.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 //********** */
