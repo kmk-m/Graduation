@@ -1,6 +1,5 @@
 import dataType from "sequelize";
 import { UUIDV4 } from "sequelize";
-import connection from "../util/connection";
 function init(connection) {
   connection.define("user", {
     userId: {
