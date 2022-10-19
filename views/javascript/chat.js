@@ -1,6 +1,6 @@
 const socket = io();
 
-fetch("https://sleepy-bastion-99766.herokuapp.com/chat/users/", {
+fetch("http://127.0.0.1:3000/chat/users/", {
   method: "get",
   headers: {
     "Content-type": "application/json; charset=UTF-8",

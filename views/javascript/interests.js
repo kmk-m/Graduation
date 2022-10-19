@@ -1,4 +1,4 @@
-fetch("https://sleepy-bastion-99766.herokuapp.com/interests/data/", {
+fetch("http://127.0.0.1:3000/interests/data/", {
   method: "get",
   headers: {
     "Content-type": "application/json; charset=UTF-8",
@@ -40,7 +40,7 @@ document.getElementById("clickedd").addEventListener("click", () => {
   if (interests.length < 3) {
     document.querySelector(".err").className = "show2";
   } else {
-    fetch("https://sleepy-bastion-99766.herokuapp.com/interests/user", {
+    fetch("http://127.0.0.1:3000/interests/user", {
       method: "post",
       body: JSON.stringify({
         interests: interests,
@@ -51,9 +51,7 @@ document.getElementById("clickedd").addEventListener("click", () => {
     })
       .then((response) => response.json())
       .then(
-        (json) =>
-          (window.location.href =
-            "https://sleepy-bastion-99766.herokuapp.com/experience")
+        (json) => (window.location.href = "http://127.0.0.1:3000/experience")
       );
   }
 });

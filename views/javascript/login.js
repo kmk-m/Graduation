@@ -5,7 +5,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  fetch(`https://sleepy-bastion-99766.herokuapp.com/signin`, {
+  fetch(`http://127.0.0.1:3000/signin`, {
     method: "POST",
     body: JSON.stringify({
       email: formProps.email,
@@ -35,7 +35,7 @@ function data(json) {
     var element = document.getElementById("test");
     element.appendChild(tag);
   } else if (json.code === "Success") {
-    window.location.href = "https://sleepy-bastion-99766.herokuapp.com/";
+    window.location.href = "http://127.0.0.1:3000/";
   }
 }
 //*************************************** */
