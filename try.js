@@ -1,4 +1,4 @@
-fetch("http://127.0.0.1:3000/dashboard", {
+fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
   method: "GET",
 
   headers: {
@@ -7,7 +7,7 @@ fetch("http://127.0.0.1:3000/dashboard", {
 })
   .then((response) => response.json())
   .then((json) => console.log(json));
-fetch("http://127.0.0.1:3000/dashboard", {
+fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
   method: "GET",
 
   headers: {
@@ -21,14 +21,16 @@ function data(json) {
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    link.href =
+      "https://sleepy-bastion-99766.herokuapp.com/Tracks/" + x.trackId;
     let parent = document.getElementById("myDropdown");
     parent.appendChild(link);
   });
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
+    link.href =
+      "https://sleepy-bastion-99766.herokuapp.com/Tracks/" + x.trackId;
     let parent1 = document.getElementById("myDropdown1");
     parent1.appendChild(link);
   });
@@ -83,63 +85,62 @@ function data(json) {
   }
 }
 
-Amany Mohamed, [9/30/2022 3:55 PM]
-<!DOCTYPE html>
-<html lang="en">
+// <!DOCTYPE html>
+// <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/dashboard.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>Accept</title>
+// <head>
+//   <meta charset="UTF-8" />
+//   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+//   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//   <link rel="stylesheet" href="/css/dashboard.css" />
+//   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+//   <title>Accept</title>
 
-</head>
+// </head>
 
-<body>
+// <body>
 
-  <div class="container">
-    <div class="nav1">
-      <div class="text">
-        <h1>Accept</h1>
-        <input id="search" type="text" class="search" placeholder="Search for anything..." />
-      </div>
-      <div class="icons" id="icons">
-        <img src="images/message1.png" />
-        <img src="images/notfication.png" />
-      </div>
-    </div>
-    <hr class="hr" />
-    <div class="nav2" id="nav2">
-      <!-- Drop1 -->
-      <div class="dropdown">
-        <button class="dropbtn">Rooms</button>
-        <div id="myDropdown" class="dropdown-content">
+//   <div class="container">
+//     <div class="nav1">
+//       <div class="text">
+//         <h1>Accept</h1>
+//         <input id="search" type="text" class="search" placeholder="Search for anything..." />
+//       </div>
+//       <div class="icons" id="icons">
+//         <img src="images/message1.png" />
+//         <img src="images/notfication.png" />
+//       </div>
+//     </div>
+//     <hr class="hr" />
+//     <div class="nav2" id="nav2">
+//       <!-- Drop1 -->
+//       <div class="dropdown">
+//         <button class="dropbtn">Rooms</button>
+//         <div id="myDropdown" class="dropdown-content">
 
-        </div>
-      </div>
+//         </div>
+//       </div>
 
-      <a href="#" class="notdrp">Teach on Accept</a>
-      <a href="#" class="notdrp">Courses</a>
-      <a href="#" class="notdrp">Standing</a>
-      <a href="#" class="notdrp">Hackathons</a>
+//       <a href="#" class="notdrp">Teach on Accept</a>
+//       <a href="#" class="notdrp">Courses</a>
+//       <a href="#" class="notdrp">Standing</a>
+//       <a href="#" class="notdrp">Hackathons</a>
 
-      <div class="dropdown">
-        <button class="dropbtn dropbtn2">Tracks</button>
-        <div id="myDropdown1" class="dropdown-content">
+//       <div class="dropdown">
+//         <button class="dropbtn dropbtn2">Tracks</button>
+//         <div id="myDropdown1" class="dropdown-content">
 
-        </div>
-      </div>
-    </div>
-    <div class="all" id="all">
-      <div class="boxes" id="boxes">
+//         </div>
+//       </div>
+//     </div>
+//     <div class="all" id="all">
+//       <div class="boxes" id="boxes">
 
-      </div>
+//       </div>
 
-    </div>
-    <script src="/dashboard.js"></script>
+//     </div>
+//     <script src="/dashboard.js"></script>
 
-</body>
+// </body>
 
-</html>
+// </html>

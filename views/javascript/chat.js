@@ -150,3 +150,61 @@ function appendMessage(msg, type) {
 socket.on("message", (msg) => {
   appendMessage(msg, "in");
 });
+let userLight = "#0e1b3e";
+let userBlack = "rgb(24, 26, 27)";
+
+let rateLight = "#b44b00";
+let rateBlack = "#a00d32";
+let backgroundLight = "#f7f8fa";
+let backgroundDark = "rgb(28, 30, 31)";
+let nameLight = "black";
+let nameDark = "#f3f3f3";
+let commentLight = "#949494";
+let commentDark = "#ffffff";
+let fontLight = "#ffffff";
+let fontDark = "#000000";
+let hackLight = "#f7f8fa";
+let hackDark = "#000000";
+let fontLight2 = "#000000";
+let fontDark2 = "#ffffff";
+let hack2Light = "#ffffff";
+let hack2Dark = "#323232";
+let postLight = "#000000cc";
+let postDark = "#ffffff";
+let chatLight = "#08122e";
+let chatDark = "rgb(28, 30, 31)";
+
+let them = localStorage.getItem("theme");
+console.log(them);
+if (them == "dark") {
+  console.log("enter");
+
+  let colors = document.querySelector(":root");
+  colors.style.setProperty("--userLight", userBlack);
+  colors.style.setProperty("--rateLight", rateBlack);
+  colors.style.setProperty("--backgroundLight", backgroundDark);
+  colors.style.setProperty("--nameLight", nameDark);
+  colors.style.setProperty("--fontLight", fontDark);
+  colors.style.setProperty("--hackLight", hackDark);
+  colors.style.setProperty("--hack2Light", hack2Dark);
+  colors.style.setProperty("--commentLight", commentDark);
+  colors.style.setProperty("--fontLight2", fontDark2);
+  colors.style.setProperty("--postLight", postDark);
+  colors.style.setProperty("--chatLight", chatDark);
+
+  //window.location.href = window.location.href;
+} else {
+  document.querySelector(".ball2").className = "ball";
+  colors.style.setProperty("--userBlack", userLight);
+  colors.style.setProperty("--rateBlack", rateBlack);
+  colors.style.setProperty("--backgroundDark", backgroundLight);
+  colors.style.setProperty("--nameBlack", nameLight);
+  colors.style.setProperty("--fontBlack", fontLight);
+  colors.style.setProperty("--hackBlack", hackLight);
+  colors.style.setProperty("--fontBlack2", fontLight2);
+  colors.style.setProperty("--hack2Black2", hack2Light2);
+  // window.location.href = window.location.href;
+  colors.style.setProperty("--chatDark", chatLight);
+  colors.style.setProperty("--commentDark", commentLight);
+  colors.style.setProperty("--postDark", postLight);
+}

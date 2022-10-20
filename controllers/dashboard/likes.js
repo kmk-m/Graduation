@@ -1,5 +1,5 @@
 import sequelize from "sequelize";
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 
 async function addLikePost(req, res, next) {
   try {

@@ -1,6 +1,6 @@
 import passport from "passport";
 import jwt from "jsonwebtoken";
-import Responses from "./response";
+import Responses from "./response.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { PythonShell } from "python-shell";
@@ -15,9 +15,20 @@ async function authenticateWithJWT(req, res, next) {
     return res.sendFile(path.join(__dirname + "/../views/html/notlogin.html"));
   }
   try {
-    const { userInterests } = req.models;
     const data = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.userId = data.userId;
+    const { user } = req.models;
+    const valid = await user.findOne({
+      where: {
+        userId: req.userId,
+      },
+    });
+    if (!valid) {
+      res.clearCookie("access_token");
+      return res.sendFile(
+        path.join(__dirname + "/../views/html/notlogin.html")
+      );
+    }
     let options = {
       args: [req.userId],
     };

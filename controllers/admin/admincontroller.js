@@ -1,4 +1,4 @@
-import addvideos from "./addvideos";
+import addvideos from "./addvideos.js";
 const admincontrol = {
   addvideos,
 };

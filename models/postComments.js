@@ -13,14 +13,8 @@ function init(connection) {
       postId: {
         type: dataType.UUID,
       },
-      commentId: {
-        type: dataType.UUID,
-      },
       userId: {
         type: dataType.UUID,
-      },
-      type: {
-        type: dataType.ENUM("comment", "reply"),
       },
       comment: {
         type: dataType.TEXT,
@@ -34,12 +28,6 @@ function init(connection) {
 }
 function associate(models) {
   const { postComments, user, post } = models;
-  postComments.hasMany(postComments, {
-    foreignKey: "commentId",
-  });
-  postComments.belongsTo(postComments, {
-    foreignKey: "commentId",
-  });
   post.hasMany(postComments, {
     foreignKey: "postId",
   });

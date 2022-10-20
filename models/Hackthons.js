@@ -1,5 +1,4 @@
 import dataType from "sequelize";
-import connection from "../util/connection";
 import { UUIDV4 } from "sequelize";
 
 async function init(connection) {

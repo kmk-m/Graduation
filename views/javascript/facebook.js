@@ -17,5 +17,5 @@ if (document.location.href.includes("auth/facebook")) {
     .then((json) => login(json));
 }
 function login(json) {
-  window.location.href = "http://127.0.0.1:3000";
+  window.location.href = "http://127.0.0.1:3000/";
 }

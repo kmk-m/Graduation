@@ -1,5 +1,5 @@
 import { Router } from "express";
-import logincontrol from "../../controllers/login/logincontrol";
+import logincontrol from "../../controllers/login/logincontrol.js";
 import passport from "passport";
 import GoogleStratgy from "passport-google-oauth2";
 import jwt from "../../util/jwt.js";

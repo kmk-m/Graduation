@@ -6,7 +6,7 @@ async function handleSubmit(e) {
   console.log(url);
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  await fetch("http://127.0.0.1:3000/signin/verifycode/:" + url, {
+  await fetch(`http://127.0.0.1:3000/signin/verifycode/:` + url, {
     method: "POST",
     body: JSON.stringify({
       code: formProps.code,
@@ -41,6 +41,6 @@ function data(json) {
     element.appendChild(tag);
   } else {
     window.location.href =
-      "http://127.0.0.1:3000/signin/changepassword/:" + url;
+      `http://127.0.0.1:3000/signin/changepassword/:` + url;
   }
 }
