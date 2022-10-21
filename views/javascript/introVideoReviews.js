@@ -38,11 +38,11 @@ fetch("http://127.0.0.1:3000/Tracks/" + id + "/introVideo/getUsers?users=" + num
             //------- stars div
             var coloredStarsCount = 0;
             switch(userReview.rate){
-                case "Star1": coloredStarsCount = 1;
-                case "Star2": coloredStarsCount = 2;
-                case "Star3": coloredStarsCount = 3;
-                case "Star4": coloredStarsCount = 4;
-                case "Star5": coloredStarsCount = 5;
+                case "Star1": coloredStarsCount = 1; break;
+                case "Star2": coloredStarsCount = 2; break;
+                case "Star3": coloredStarsCount = 3; break;
+                case "Star4": coloredStarsCount = 4; break;
+                case "Star5": coloredStarsCount = 5; 
             }
 
 
@@ -54,6 +54,7 @@ fetch("http://127.0.0.1:3000/Tracks/" + id + "/introVideo/getUsers?users=" + num
                 star.classList.add("fa-star");
                 starsDiv.appendChild(star);
 
+        
                 if(i <= coloredStarsCount){
                     star.classList.add("checked");
                 }
@@ -69,15 +70,17 @@ fetch("http://127.0.0.1:3000/Tracks/" + id + "/introVideo/getUsers?users=" + num
 
             let commentTitle =  document.createElement("h3");
             commentTitle.classList.add("comment_title");
-            commentTitle.innerHTML = "";
+            commentTitle.innerHTML = "Amazing Content, Very useful!";
 
             let commentDate =  document.createElement("p");
             commentDate.classList.add("comment_date");
-            commentDate.innerHTML = "";
+            commentDate.innerHTML = "21 aug 2022";
 
             let commentDesc =  document.createElement("p");
             commentDesc.classList.add("comment_txt");
-            commentDesc.innerHTML = "";
+            commentDesc.innerHTML = "I really had an amazing and fun time with this course. I find comfort in the instructor way of teaching being light yet noteworthy."+ 
+            "He really carefully guides students even with zero knowledge in anything."+
+            "I would recommend this course to beginners who are interested in entering the world of Web Design.";
 
             rightDiv.appendChild(commentTitle);
             rightDiv.appendChild(commentDate);
