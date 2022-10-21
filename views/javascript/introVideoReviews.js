@@ -1,10 +1,15 @@
 let id = "f04517eb-3f57-11ed-b255-0045e21c18f1";
 let numberOfUsers = 0;
 
-fetch("http://127.0.0.1:3000/Tracks/" + id + "/introVideo/getUsers?users=" + numberOfUsers, {
+fetch(
+  "http://127.0.0.1:3000/Tracks/" +
+    id +
+    "/introVideo/getUsers?users=" +
+    numberOfUsers,
+  {
     method: "GET",
     headers: {
-        "Content-type": "application/json; charset=UTF-8",
+      "Content-type": "application/json; charset=UTF-8",
     },
 })
     .then((response) => response.json())
@@ -98,4 +103,3 @@ fetch("http://127.0.0.1:3000/Tracks/" + id + "/introVideo/getUsers?users=" + num
             allCommentsContainer.appendChild(commentDiv);
         }
     }
-

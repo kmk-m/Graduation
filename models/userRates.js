@@ -34,7 +34,7 @@ function init(connection) {
     },
     {
       timeStamp: true,
-      createdAt: false,
+      createdAt: true,
       updatedAt: false,
     }
   );
