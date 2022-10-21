@@ -519,7 +519,9 @@ body.dark {
   display: flex;
   padding: 2px;
 }
+
 .post-bottom {
+  position: relative;
   box-shadow: 1px solid #ddd;
   display: flex;
   flex-direction: row;
@@ -812,8 +814,8 @@ hr {
   align-items: center;
   position: absolute;
   background-color: transparent;
-  left: 5%;
-  margin-bottom: 100px;
+  left: 0;
+  margin-bottom: 20%;
   transition: all 0.7s;
   z-index: -10;
 }
@@ -900,11 +902,7 @@ hr {
   justify-content: space-between;
   align-items: center;
 }
-.action1 span {
-  margin-left: 10px;
-  position: absolute;
-  left: 14%;
-}
+
 .support p {
   color: var(--postLight);
 }
@@ -1270,13 +1268,18 @@ textarea {
 .rec {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 15px;
+  position: relative;
+  height: 100%;
 }
 .dr {
   color: #6c6a6a;
-  padding: 2px;
   background-color: transparent;
   transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  width: 5%;
 }
 .dr:hover {
   cursor: pointer;
@@ -1292,10 +1295,7 @@ textarea {
 .rec img {
   width: 25px;
   height: 25px;
-  margin-left: -35px;
   position: relative;
-  margin-right: 15px;
-  margin-top: 10px;
 }
 .comments .vos {
   width: 80%;
@@ -1305,8 +1305,6 @@ textarea {
 .rec img {
   width: 20px;
   height: 20px;
-  margin-left: 1px;
-  margin-top: 13px;
 }
 
 .im {
@@ -1359,6 +1357,7 @@ textarea {
 }
 .rec3 {
   margin-left: 15%;
+  position: relative;
 }
 
 .info {
@@ -1403,4 +1402,33 @@ textarea {
 }
 .hide {
   display: none;
+}
+.rec3 .contentt2 {
+  margin-top: 50px;
+}
+.rec3 .hello img {
+  width: 40px;
+  height: 40px;
+}
+.rec3 .dr {
+  padding: 10px;
+  padding-right: 50px;
+}
+.rec3 .action1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 15%;
+}
+.rec3 .action1 span {
+  margin-right: 30px;
+  font-size: larger;
+}
+.rec3 .action1 img {
+  width: 40px;
+  height: 40px;
+}
+.rec3 .toflex img {
+  width: 35px;
+  height: 35px;
 }
