@@ -1,4 +1,4 @@
-import Responses from "../util/response";
+import Responses from "../util/response.js";
 
 async function getAllInterests(req, res, next) {
   try {

@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 async function dahsboard(req, res, next) {
   try {
     const {
@@ -10,6 +10,7 @@ async function dahsboard(req, res, next) {
       likes,
       userPosts,
       postReplies,
+      userInterests,
     } = req.models;
     const User = await user.findOne({
       where: {
@@ -17,6 +18,14 @@ async function dahsboard(req, res, next) {
       },
       attributes: ["userId", "firstName", "lastName", "image", "bio"],
     });
+    const singUp = await userInterests.findOne({
+      where: {
+        userId: req.userId,
+      },
+    });
+    if (!singUp) {
+      return Responses.badRequest(res, "not has Interests");
+    }
     // liverbool and manchestercity ?
     const posts = await post.findAll({
       include: [

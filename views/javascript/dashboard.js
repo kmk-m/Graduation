@@ -73,6 +73,9 @@ function hackathons(allHackathons) {
 }
 
 function data(json) {
+  if (json.code === "not has Interests") {
+    window.location.href = "http://127.0.0.1:3000/interests";
+  }
   /* return name */
   let name = json.data.User.firstName + " " + json.data.User.lastName;
   document.getElementById("namewel").innerHTML = `${json.data.User.firstName}`;
@@ -477,10 +480,35 @@ function posts(posts, img, userposts, name, bio) {
       let rec = document.createElement("div");
       rec.className = "rec rec3";
       rec.innerHTML = `
-      <p class="dr">Like</p>
-      <p class="li">${likes}</p>
-      <img src="/images/sad.png" alt="image">
+      <action class="dr action action1" id="click.${comment.id}">
+      <i class="far fa-thumbs-up" aria-hidden="true"></i>
+      <span>Like</span>
+      </action>
+      <div class="contentt2 contentt3" id="contentt2.${comment.id}">
+    <div class="emoji" id="emojis.${comment.id}">
+          <div class="hello emoClick" id="rec.${comment.id}">
+            <img class="emoClick" src="/images/like.gif" id="likee.${comment.id}" alt="">
+            <p> Like</p>
+          </div>
+          <div class="hello emoClick" id="rec.${comment.id}">
+            <img class="emoClick" src="/images/love.gif" id="lovee.${comment.id}" alt="">
+            <p> Love</p>
+          </div>
+          <div class="hello emoClick" id="rec.${comment.id}">
+            <img class="emoClick" src="/images/sad.gif" id="sade.${comment.id}" alt="">
+            <p> Sad</p>
+          </div>
+          <div class="hello emoClick" id="rec.${comment.id}">
+            <img class="emoClick" src="/images/angry.gif" id="angrye.${comment.id}" alt="">
+            <p>Angry</p>
+          </div>
+        </div>
+    </div>
+      <p class="li" id = like${comment.id}>${likes}</p>
+      <div class= "toflex" id = a1.${comment.id}>
+      </div>
       <p class="dr" id = reply.${comment.id}>Reply</p>
+    
       <p class="li">${comment.postReplies.length}</p>
       <p class="li">Reply</p>
       `;
@@ -579,9 +607,30 @@ function posts(posts, img, userposts, name, bio) {
         let rec = document.createElement("div");
         rec.className = "rec rec3";
         rec.innerHTML = `
-      <p class="dr">Like</p>
-      <p class="li">${likes}</p>
-      <img src="/images/sad.png" alt="image">
+      <p class="dr action action1" id =click.${reply.id} >Like</p>
+      <div class="contentt2" id="contentt2.${reply.id}">
+    <div class="emoji" id="emojis.${reply.id}">
+          <div class="hello emoClick" id="rec.${reply.id}">
+            <img class="emoClick" src="/images/like.gif" id="likee.${reply.id}" alt="">
+            <p> Like</p>
+          </div>
+          <div class="hello emoClick" id="rec.${reply.id}">
+            <img class="emoClick" src="/images/love.gif" id="lovee.${reply.id}" alt="">
+            <p> Love</p>
+          </div>
+          <div class="hello emoClick" id="rec.${reply.id}">
+            <img class="emoClick" src="/images/sad.gif" id="sade.${reply.id}" alt="">
+            <p> Sad</p>
+          </div>
+          <div class="hello emoClick" id="rec.${reply.id}">
+            <img class="emoClick" src="/images/angry.gif" id="angrye.${reply.id}" alt="">
+            <p>Angry</p>
+          </div>
+        </div>
+    </div>
+      <p class="li" id = like${reply.id}>${likes}</p>
+      <div class= "toflex" id = a1.${comment.id}>
+      </div>
       <p class="dr" id = reply.${reply.id}>Reply</p>
 
       `;
@@ -851,12 +900,14 @@ function posts(posts, img, userposts, name, bio) {
     if (xx.className === "emoClick") continue;
     if (xx.className === "emoClick") continue;
     xx.addEventListener("click", (e) => {
+      console.log(e.target);
       let id = e.target.id;
       if (!id) id = e.target.parentNode.id;
       let addemo = id.split(".")[0];
       id = id.split(".")[1];
       let x = document.getElementById("like" + id);
       let y = x;
+
       x = x.innerHTML;
       x = x.slice(0, x.indexOf(" "));
       x = parseInt(x);

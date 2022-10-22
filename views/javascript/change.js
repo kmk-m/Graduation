@@ -6,7 +6,7 @@ async function handleSubmit(e) {
   console.log(url);
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  await fetch("http://127.0.0.1:3000/signin/changepassword/:" + url, {
+  await fetch(`http://127.0.0.1:3000/signin/changepassword/:` + url, {
     method: "POST",
     body: JSON.stringify({
       password: formProps.password,

@@ -1,6 +1,6 @@
 import Joi from "joi";
 import joipassword, { joiPassword } from "joi-password";
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 import bcrypt from "bcrypt";
 
 const validateBody = (body) => {

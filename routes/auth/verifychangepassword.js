@@ -1,5 +1,5 @@
 import { Router } from "express";
-import logincontrol from "../../controllers/login/logincontrol";
+import logincontrol from "../../controllers/login/logincontrol.js";
 const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
