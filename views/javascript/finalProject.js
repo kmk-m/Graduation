@@ -33,7 +33,7 @@ function requ(json) {
   // 1st comment
   const p3 = document.createElement("p");
 
-  p3.innerHTML += ` • ${par2[0].Comment}`;
+  p3.innerHTML += ` • ${(par2[0].Comment).slice(0, 10)} <br> <br> • ${(par2[0].Comment).slice(11)}`;
 
   const recuva2 = document.querySelector(".comments");
   recuva2.appendChild(p3);
@@ -41,7 +41,7 @@ function requ(json) {
   // 2nd link
   const p4 = document.createElement("p");
 
-  p4.innerHTML = `${par2[1].link}`;
+  p4.innerHTML = `${par2[1].link} `;
 
   const recuva3 = document.querySelector(".link2");
   recuva3.prepend(p4);
@@ -49,7 +49,7 @@ function requ(json) {
   // 2nd comment 
   const p5 = document.createElement("p");
 
-  p5.innerHTML += ` • ${par2[1].Comment}`;
+  p5.innerHTML += ` • ${par2[1].Comment} `;
 
   const recuva4 = document.querySelector(".comment2");
   recuva4.appendChild(p5);
