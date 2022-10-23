@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* api time 
 let id = window.location.href;
 id = id.slice(id.indexOf("exam") + 7, id.lastIndexOf("/"));
@@ -13,6 +14,8 @@ function user(json) {
   
 }*/
 
+=======
+>>>>>>> 85d06b4ce7092b2ef668bf59dd6847b4c08472af
 /* Countdown Timer */
 let countDownDate = new Date("Nov 15, 2022 11:08:59").getTime();
 let counter = setInterval(() => {
@@ -77,6 +80,11 @@ allAns.forEach((e) => {
   e.onclick = function () {
     const id = e.id.split(".")[1];
     document.getElementById(id).style.backgroundColor = "orange";
+<<<<<<< HEAD
+=======
+
+    // document.getElementById(id).children[0].style.color = "white";
+>>>>>>> 85d06b4ce7092b2ef668bf59dd6847b4c08472af
   };
 });
 

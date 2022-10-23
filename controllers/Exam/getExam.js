@@ -10,11 +10,11 @@ async function getExam(req, res, next) {
     attributes: ["name", "time", "numberOfQuestions"],
   });
 
-  const questions = await quizeQuestions.findAll({
+  const questions = await quizQuestions.findAll({
     where: {
       quizId: examId,
     },
-    attributes: ["quizId", "quistionType", "quistionText", "quistionImage"],
+    attributes: ["quizId", "questionType", "questionText", "questionImage"],
     include: [
       {
         model: questionAnswers,

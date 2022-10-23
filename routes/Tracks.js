@@ -2,7 +2,11 @@ import Router from "express";
 const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
+<<<<<<< HEAD
 import tracksController from "../controllers/Tracks/tracksController.js";
+=======
+import Tracks from "../controllers/Tracks/Tracks.js";
+>>>>>>> 85d06b4ce7092b2ef668bf59dd6847b4c08472af
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
