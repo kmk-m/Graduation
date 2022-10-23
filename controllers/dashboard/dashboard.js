@@ -30,46 +30,55 @@ async function dahsboard(req, res, next) {
     const posts = await post.findAll({
       include: [
         {
-          model: likes,
-          attributes: ["like", "love", "sad", "angry"],
-        },
-        {
           model: postComments,
-          attributes: ["id", "postId", "comment", "updatedAt"],
+          attributes: [
+            "id",
+            "postId",
+            "comment",
+            "updatedAt",
+            "upvote",
+            "downvote",
+          ],
           include: [
-            {
-              model: user,
-              attributes: ["firstName", "lastName", "image", "bio"],
-            },
-            {
-              model: likes,
-              attributes: ["like", "love", "sad", "angry"],
-            },
             {
               model: postReplies,
 
-              attributes: ["id", "commentId", "reply", "updatedAt"],
+              attributes: [
+                "id",
+                "commentId",
+                "reply",
+                "updatedAt",
+                "upvote",
+                "downvote",
+              ],
               include: [
                 {
-                  model: user,
-                  attributes: ["firstName", "lastName", "image", "bio"],
+                  model: userPosts,
+                  attributes: ["upVote"],
                 },
                 {
-                  model: likes,
-                  attributes: ["like", "love", "sad", "angry"],
+                  model: user,
+                  attributes: ["firstName", "lastName", "bio", "image"],
                 },
               ],
             },
+            {
+              model: user,
+              attributes: ["firstName", "lastName", "bio", "image"],
+            },
+            {
+              model: userPosts,
+              attributes: ["upVote"],
+            },
           ],
+        },
+        {
+          model: userPosts,
+          attributes: ["upVote"],
         },
       ],
     });
-    const userposts = await userPosts.findAll({
-      where: {
-        userId: req.userId,
-      },
-      attributes: ["postId", "type"],
-    });
+
     // for (let j = 0; j < posts.length; j++) {
     //   // delete posts[j].postFriends;
 
@@ -93,7 +102,6 @@ async function dahsboard(req, res, next) {
       hackathons,
       posts,
       tracks,
-      userposts,
     });
   } catch (err) {
     next(err);

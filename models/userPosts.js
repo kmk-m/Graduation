@@ -13,6 +13,9 @@ function init(connection) {
       postId: {
         type: dataType.UUID,
       },
+      replyId: {
+        type: dataType.UUID,
+      },
       commentId: {
         type: dataType.UUID,
       },
@@ -20,9 +23,10 @@ function init(connection) {
         type: dataType.UUID,
         allowNull: false,
       },
-      type: {
-        type: dataType.ENUM("like", "love", "sad", "angry"),
+      upvote: {
+        type: dataType.BOOLEAN,
         allowNull: false,
+        defaultValue: true,
       },
     },
     {
@@ -33,20 +37,26 @@ function init(connection) {
   );
 }
 function associate(models) {
-  const { userPosts, user, post, postComments } = models;
-  post.hasMany(userPosts, {
+  const { userPosts, user, post, postComments, postReplies } = models;
+  post.hasOne(userPosts, {
     foreignKey: "postId",
   });
   userPosts.belongsTo(post, {
     foreignKey: "postId",
   });
-  user.hasMany(userPosts, {
+  postReplies.hasOne(userPosts, {
+    foreignKey: "replyId",
+  });
+  userPosts.belongsTo(postReplies, {
+    foreignKey: "replyId",
+  });
+  user.hasOne(userPosts, {
     foreignKey: "userId",
   });
   userPosts.belongsTo(user, {
     foreignKey: "userId",
   });
-  postComments.hasMany(userPosts, {
+  postComments.hasOne(userPosts, {
     foreignKey: "commentId",
   });
   userPosts.belongsTo(postComments, {
