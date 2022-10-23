@@ -160,6 +160,8 @@ function addPost(post) {
   />
   <img
   id =btn.${post.id}
+  class=btn
+
   src="/images/emoticon.png"
   alt=""
   width="20"
@@ -207,16 +209,15 @@ function addPost(post) {
   button.addEventListener("click", (e) => {
     let id = e.target.id.split(".")[1];
     let inputId = `input.${id}`;
-
+    console.log("enter1");
     new EmojiPicker({
       trigger: [
         {
-          insertInto: ["#txt1", inputId],
-          selector: ".btn1",
+          selector: `.btn`,
+          insertInto: [`input.${id}`], // '.selector' can be used without array
         },
       ],
       closeButton: true,
-      dragButton: false,
     });
   });
 
