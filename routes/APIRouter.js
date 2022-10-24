@@ -17,6 +17,7 @@ import experience from "./experience.js";
 import chat from "./chat.js";
 import courses from "./courses.js";
 import exam from "./exam.js";
+import room from "./room.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -39,6 +40,7 @@ router.use("/", facebook);
 router.use("/admin", jwt.authadmin, admin);
 router.use("/", jwt.authenticateWithJWT, dashboard);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
+router.use("/room", jwt.authenticateWithJWT, room);
 router.use("/courses", jwt.authenticateWithJWT, courses);
 router.use("/interests", interests);
 router.use("/experience", experience);
