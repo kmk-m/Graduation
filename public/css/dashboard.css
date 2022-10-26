@@ -699,3 +699,6 @@ button:hover .button-text {
   align-items: center;
   justify-content: center;
 }
+.ff {
+  display: none;
+}
