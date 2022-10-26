@@ -19,6 +19,16 @@ function init(connection) {
       reply: {
         type: dataType.TEXT,
       },
+      upVote: {
+        type: dataType.BIGINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      downVote: {
+        type: dataType.BIGINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
     },
     {
       timeStamp: true,

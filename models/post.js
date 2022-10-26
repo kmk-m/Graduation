@@ -18,6 +18,16 @@ function init(connection) {
         type: dataType.TEXT,
         allowNull: false,
       },
+      upVote: {
+        type: dataType.BIGINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      downVote: {
+        type: dataType.BIGINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
     },
     {
       createdAt: false,

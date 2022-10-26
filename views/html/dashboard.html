@@ -4,445 +4,309 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Main css-->
+    <!-- <link rel="stylesheet" href="css/emojis.css" /> -->
+    <!-- <script src="/DisMojiPicker.js"></script> -->
     <link rel="stylesheet" href="/css/dashboard.css" />
-    <!--Normalize css-->
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Inter"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!--css emojionearea -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" />
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/87f7416207.js" crossorigin="anonymous"></script>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="/path/to/twemoji.min.js"></script>
-    <link rel="stylesheet" href="/css/em/css/emojis.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <script src="/css/emjs/DisMojiPicker.js"></script>    
-    <link rel="stylesheet" href="file/to/path/css/emojionearea.min.css">
-<script type="text/javascript" src="file/to/path/js/emojionearea.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <title>homePage</title>
+    <title>Document</title>
   </head>
-
   <body>
-    <!--The left part of the page -->
     <div class="container">
-    <div class="practice" id="practice">
-      <div class="logo">
-        <h1>
-          <span style="color: #ffffff">JOB</span
-          ><span class="io">Q</span>
-        </h1>
+      <!-- Navbar -->
+      <div class="left">
+        <div class="logo">
+          <h1>JOB<span style="color: orange">Q</span></h1>
+        </div>
+        <div class="profile">
+          <img
+            src="/images/profile.jpg"
+            alt="profile"
+            style="width: 60px; height: 60px; border-radius: 41px"
+          />
+          <h2>Fahd Hakem</h2>
+          <p>Backend Developer in Odc</p>
+        </div>
+        <div class="links">
+          <h5>HomePage</h5>
+          <h5>Settings</h5>
+          <h5>Tracks</h5>
+          <h5>Courses</h5>
+          <h5>Hackathons</h5>
+          <h5>Standing</h5>
+          <h5>Rooms</h5>
+        </div>
+        <div style="height: 95px"></div>
       </div>
-      <div class="bb">
-         <div class="home">
-          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
-            <span class="io">HomePage</span>
-         </a>  
-         </div>
+      <!-- finish navbar -->
 
-        <!-- <div class="dropdown">
-          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
-             <span>Tracks</span>
-          </a>
-          <div class="dropdown-content">
-            <!-- <a href="http://127.0.0.1/courses">Courses</a>
-            <a href="http://127.0.0.1/Standing">Standing</a>
-            <a href="http://127.0.0.1/hackathons">Hackthons</a> -
+      <!-- welcome and posts -->
+      <div class="center">
+        <!-- start welcome -->
+        <div class="topCenter">
+          <div class="word">
+            <p style="font-size: 28px">
+              Welcome Back, <span class="bom" id="namewel">Amany</span>
+            </p>
+            <h3 style="color: #dcdcdc">April 3, Tuesday</h3>
           </div>
-        </div> -->
-        <div class="div2">
-          <p class="all_practice pp" href="http://127.0.0.1:3000/" id="drop">
-            <span>Tracks</span>
-         </p>
-          <a
-            class="all_practice"
-            href="http://127.0.0.1:3000/Tracks/9b0ba3a1-3fc0-11ed-93a3-0a33a65a227b"
-            >Hackathons</a
-          >
-          <a class="all_practice" href=""> Test Your Self</a>
-          <a class="all_practice" href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b/Assignments">Assignments</a>
-          <a class="all_practice" href=""> Standing</a>
-          <a class="all_practice" href=""> Courses</a>
-          <a class="all_practice" href=""> Rooms</a> 
-
+          <!--image message and notification-->
+          <div class="imageCenter">
+            <img
+              id="not12"
+              src="/images/mess1.png"
+              alt=""
+              width="30"
+              height="30"
+            />
+            <img src="/images/not1.png" alt="" width="30" height="30" />
+          </div>
         </div>
-        <div class="dar">
-          <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="label">
-          <i class="fas fa-moon"></i>
-          <i class='fas fa-sun'></i>
-          <div class='ball'>
-        </label>
-      </div>
-      </div>
-  
-    </div>
-    <!-- The Right part of the page-->
-    <div class="right">
-      <input id="search" type="text" class="search" placeholder="Search.. " />
-        <div class="allHackathons">
-        </div>
-    </div>
-   </div>
-   <!--  center of page -->
-   <div class="content">
-    <div class="drop" id="vsc">
-      <div class="dropcont" id="vsc2">
-      <!-- <h1>frontend development</h1>
-      <h1>backend development</h1>
-      <h1>Machine Learning</h1>
-      <h1>Cyper Security</h1> -->
-      
-    </div>
-    </div>
-    <div id="jj">
-    <div class="topCenter">
-      <div class="word">
-      <p style="font-size:34px; ">Welcome Back, <span class="bom" id="namewel">Amany</span></p>
-      <h3 style="color: #DCDCDC;">April 3, Tuesday</h3>
-      </div>
-      <!--image message and notification-->
-      <div class="imageCenter">
-      <img id = "not12"  src="/images/mess1.png" alt="" width="30" height="30" >
-      <img  src="/images/not1.png" alt="" width="30" height="30" >
-      </div>
-    </div>
-  <div class="videos">
+        <!-- End welcome -->
+        <div class="allPosts">
+          <!-- <div class="post">
+            <p>
+              Welcome to our website mohamed have word to say to you ❤️ mohamed
+              is frontend Development and start his Journy with us now mohamed
+              works in his dream job (Facebook) whose Next ?🤔
+            </p>
+            <video src="/assets/videos/movideos1.mp4#t=1" controls=""></video>
+            <div class="reactions">
+              <div class="emojis">
 
-    <!-- <div class="videoCenter" id="06a85b72-4266-11ed-ab26-0045e21c18f1"><p class="disc">Welcome to our website mohamed have word to say to you ❤️
-      mohamed is frontend Development and start his Journy with us now mohamed works in his dream job (Facebook)
-      whose Next ?🤔</p><video class="video" src="/assets/videos/movideos1.mp4#t=1" controls=""></video><div class="support"><div><img class="imo" src="/images/likeblue.png"><img class="imo rec" src="/images/sad.png"></div><p id="like06a85b72-4266-11ed-ab26-0045e21c18f1">2 Users</p><div class="comment"><p>11 Comments</p></div></div><hr><div class="post-bottom"><div class="contentt2">
-          <div class="emoji">
-                <div class="hello emoClick">
-                  <img class="emoClick" src="/images/likeg.gif" id="likee.06a85b72-4266-11ed-ab26-0045e21c18f1" alt="">
-                  <p> Like</p>
-                </div>
-                <div class="hello emoClick">
-                  <img class="emoClick" src="/images/love2.gif" id="lovee.06a85b72-4266-11ed-ab26-0045e21c18f1" alt="">
-                  <p> Love</p>
-                </div>
-                <div class="hello emoClick">
-                  <img class="emoClick" src="/images/sad.gif" id="sade.06a85b72-4266-11ed-ab26-0045e21c18f1" alt="">
-                  <p> Sad</p>
-                </div>
-                <div class="hello emoClick">
-                  <img class="emoClick" src="/images/angry.gif" id="angrye.06a85b72-4266-11ed-ab26-0045e21c18f1" alt="">
-                  <p>Angry</p>
+                <div class="userLikes">
+                  <span>2</span>
+                  <span>Votes</span>
                 </div>
               </div>
-          </div><action class="action action1" id="click.06a85b72-4266-11ed-ab26-0045e21c18f1"><i class="far fa-thumbs-up" aria-hidden="true"></i><span>Like</span></action><action class="action action2" id="click.06a85b72-4266-11ed-ab26-0045e21c18f1"><i class="far fa-comment" aria-hidden="true"></i><span>Comment</span></action><action class="action" id="click.06a85b72-4266-11ed-ab26-0045e21c18f1"><i class="fa fa-share" aria-hidden="true"></i><span>Share</span></action></div>
-          <div class="comms" id="comm06a85b72-4266-11ed-ab26-0045e21c18f1">
-            <div class="ph">
-          <img src="https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg">
-          </div><div class="vis">
-          
-              <div class="com">
-              <img src="/images/emoticon.png" width="25" height="25">
-              <img src="/images/image.png" width="25" height="25">
+              <div class="commentsPost">
+                <span>1</span>
+                <span>Comment</span>
               </div>
-                </div>
-
-               </div>
-           -->
-               <!-- Start comment -->
-
-               <!-- <div class="comments"> -->
-                <!-- <div class="comment3"> -->
-                  <!-- <img src="/images/profile.jpg" alt="profile" class="brof"> -->
-<!-- 
-                <div class="comment2">
-                          <div class="info">
-                            <h4>Fahd hakem</h4>
-                            <p>Backend Developr and ICPC Finalist</p>
-                          </div>
-                          <div class="edits">
-                            <span>Edit</span>
-                            <span>Delete</span>
-                          </div>
-                          <div class="time">
-                            <span>1h</span>
-                          </div>
-                          <div class="contan">
-                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis magni mollitia hic enim atque nihil rerum ad veniam ipsam vitae. Optio quidem recusandae amet, ratione quo officia fugit nulla provident.</p>
-                          </div>
-                  </div> -->
-                  <!-- <div class="rec rec3">
-                    <p class="dr">Like</p>
-                    <p class="li">1</p>
-                    <img src="/images/sad.png" alt="image">
-                    <p class="dr">Reply</p>
-                    <p class="li">1</p>
-                    <p class="li">Reply</p>
-                    
-                  </div> -->
-                  <!-- <div class="vos" id="comm6d23f126-4373-11ed-98bd-0045e21c18f1">
-                    <div class="ph">
-                    <img src="https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg" class="im">
-                    </div>
-                    <div class="vis">
-                  <div class="com">
-                  <input id="input.6d23f126-4373-11ed-98bd-0045e21c18f1" class="inpu x adx" placeholder="Type any comment..">
-                  <div class="adx5">
-                  <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.6d23f126-4373-11ed-98bd-0045e21c18f1">
-                  <img src="/images/image.png" width="20" height="20" class="btn2 adx4">
-                  </div>
-                  </div>
-                    </div>
-                  </div> -->
-                <!-- </div> -->
-                <!-- <div class="comment3 reply2">
-                  <img src="/images/profile.jpg" alt="profile" class="brof">
-
-                <div class="comment2">
-                          <div class="info">
-                            <h4>Fahd hakem</h4>
-                            <p>Backend Developr and ICPC Finalist</p>
-                          </div>
-                          <div class="edits">
-                            <span>Edit</span>
-                            <span>Delete</span>
-                          </div>
-                          <div class="time">
-                            <span>1h</span>
-                          </div>
-                          <div class="contan">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eum, assumenda ab temporibus vel nisi illum, sequi autem dolorum ducimus esse tenetur possimus inventore voluptates nam eius est saepe reiciendis.
-                            </p>
-                          </div>
-                  </div>
-                  <div class="rec">
-                    <p class="dr">Like</p>
-                    <p class="li">1</p>
-                    <img src="/images/sad.png" alt="image">
-                    <p class="dr">Reply</p>
-                    <p class="li">1</p>
-                    <p class="li">Reply</p>
-                  </div>
-                  <div class="vos" id="comm6d23f126-4373-11ed-98bd-0045e21c18f1">
-                    <div class="ph">
-                    <img src="https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg" class="im">
-                    </div>
-                    <div class="vis">
-                  <div class="com">
-                  <input id="input.6d23f126-4373-11ed-98bd-0045e21c18f1" class="inpu x adx" placeholder="Type any comment..">
-                  <div class="adx5">
-                  <img src="/images/emoticon.png" width="20" height="20" class="btn1 adx2" id="emo.6d23f126-4373-11ed-98bd-0045e21c18f1">
-                  <img src="/images/image.png" width="20" height="20" class="btn2 adx4">
-                  </div>
-                  </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div> -->
-
-
-              <!-- finish comment -->
             </div>
-
-          </div>
+            <hr />
+            <div class="actions">
+              <div class="action1 action">
+                <img
+                  id="not12"
+                  src="/images/up-arrow.png"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
                 
-  <!-- <div class="videoCenter" id="06a85b72-4266-11ed-ab26-0045e21c18f1"><p class="disc">Welcome to our website mohamed have word to say to you ❤️
-      
-      whose Next ?🤔</p><video class="video" src="/assets/videos/movideos1.mp4#t=1" controls=""></video>
-      <div class="support"><div>
-        <img class="imo" src="/images/likeblue.png">
-        <img class="imo rec" src="/images/sad.png">
-      </div>
-      <p id="like06a85b72-4266-11ed-ab26-0045e21c18f1">2 Users</p>
-      <div class="comment">
-        <p>11 Comments</p>
-      </div>
-    </div>
-    <hr>
-    <div class="post-bottom">
-       <div class="contentt2"> 
-        <div class="emoji">
-          <div class="hello ">
-            <img src="/images/likeg.gif" id="like" alt="">
-            <p> Like</p>
-          </div>
-          <div class="hello">
-            <img src="/images/love2.gif" id="love" alt="">
-            <p> Love</p>
-          </div>
-          <div class="hello">
-            <img src="/images/sad.gif" id="sad" alt="">
-            <p> Sad</p>
-          </div>
-          <div class="hello">
-            <img src="/images/angry.gif" id="angry" alt="">
-            <p>Angry</p>
-          </div>
-        </div>
-      </div>
-
-      <action class="action action1" id="06a85b72-4266-11ed-ab26-0045e21c18f1">
-        <i class="far fa-thumbs-up" aria-hidden="true"></i>
-        <span>Like</span>
-      </action>
-      <action class="action action2" id="06a85b72-4266-11ed-ab26-0045e21c18f1">
-        <i class="far fa-comment" aria-hidden="true">          
-        </i><span>Comment</span></action><action class="action" id="06a85b72-4266-11ed-ab26-0045e21c18f1">
-          <i class="fa fa-share" aria-hidden="true"></i>
-
-          <span>Share</span>
-        </action>
-      </div>
-      <div class="comms" id="comm06a85b72-4266-11ed-ab26-0045e21c18f1">
-        <div class="ph">
-          <img src="https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg">
-          </div><div class="vis">
-          <textarea id="textarea" class="addcoment" placeholder="Type Any Comment"></textarea>
-        <div class="com"> 
-        <img src="/images/emoticon.png" width="25" height="25">
-        <img src="/images/image.png" width="25" height="25">
-        </div>
-          </div>
-          <div class="voscomment">
-            <div class="phcomment">
-              <img src="/image/photo.jpg" alt="">
-            </div>
-            <div class="viscomment">
-              <h4 class="namecomment">Amany Mohamed </h4>
-              <div class="setting">
-                <a class="edit">Edit</a>
-                <a class="delet">Delet</a>
+                <span>Vote</span>
               </div>
-              <h6 class="department">Frontend Develober and ICPC Finalist</h6>
-              <p class="textcomment">love this 😍Inspiring✌️
-                Keep it up alaa ,you deserve the best🤩👏</p>
-              <div class="timecomment">1 h</div>
-            </div>
-            <div class="undercomment">
-              <p style=" color: #6C6A6A;">Like</p>
-              <p class="counterlik" style=" color: #AFACAC;">1</p>
-              <p>|</p>
-              <p style=" color: #6C6A6A;">Reply</p>
-              <p class="counterreply" style="color: #AFACAC; ">1 Reply</p>
-            </div>
-            <div class="phreply">
-              <img src="/image/photo.jpg" alt="">
-            </div>
-            <div class="visreply">
-              <h4 class="namereply">Amany Mohamed </h4>
-              <div class="settingreply">
-                <a class="editreply">Edit</a>
-                <a class="deletreply">Delet</a>
+              <div class="action2 action">
+                <img
+                  id="not12"
+                  src="/images/message4.png"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <span>Comment</span>
               </div>
-              <h6 class="departmentreply">Frontend Develober and ICPC Finalist</h6>
-              <p class="textreply">love this 😍Inspiring✌️
-                Keep it up alaa ,you deserve the best🤩👏</p>
-              <div class="timereply">1 h</div>
+              <div class="action3 action">
+                <img
+                  id="not12"
+                  src="/images/share3.png"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <span>Share</span>
+              </div>
             </div>
-            <div class="underreply">
-              <p style=" color: #6C6A6A;">Like</p>
-              <p class="counterlikre" style=" color:#AFACAC; ">1</p>
-              <p>|</p>
-              <p style=" color: #6C6A6A;">Reply</p>
-              <p class="counterreplyre" style=" color:#AFACAC;">1 Reply</p>
+            <div class="commentBox">
+              <input type="text" placeholder="Type Any Thing">
+              <div class="collection">
+                <img
+                src="/images/camera.png"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+              src="/images/emoticon.png"
+              alt=""
+              width="20"
+              height="20"
+            />
+              <span>
+              </div>
             </div>
-          </div>
+            <div class="allComments">
+              <div class="comment">
+                <img
+                src="/images/profile.jpg"
+                alt=""
+                width="50"
+                height="50"
+                style="border-radius:31px;"
+              />
+              <div class="box">
+                <div class="info">
+                  <h5>Fahd Hakem</h5>
+                  <p class="p1">Backend Developer in Odc</p>
+                  <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa impedit aperiam eveniet sunt quia, quidem molestias, neque ex modi illo voluptatem quas odit exercitationem! Nulla fugiat perferendis possimus similique cupiditate!</p>
+
+                </div>
+                <div class="settingsAndDate">
+                  <div class="settings">
+                    <span>Edit</span>
+                    <span>Delete</span>
+                  </div>
+                   <div class="date">
+                    <span>1h</span>
+                   </div>
+                </div>
+              </div>
+               
+              </div>
+             <div class="feeds">
+              <div class="emojiClick">
+                <img
+                src="/images/up-arrow.png"
+                alt=""
+                width="25"
+                height="25"
+                style="border-radius:31px;"
+              />
+              </div>
+              <div class="numberOfLikes">
+              <span>1 Vote</span>
+
+              </div>
+              <div class="replayClick">
+                <img
+                src="/images/reply.png"
+                alt=""
+                width="25"
+                height="25"
+                style="border-radius:31px;"
+              />
+              </div>
+             </div>
+             <div class="commentBox commentBoxComment">
+              <input type="text" placeholder="Type Any Thing">
+              <div class="collection">
+                <img
+                src="/images/camera.png"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+              src="/images/emoticon.png"
+              alt=""
+              width="20"
+              height="20"
+            />
+              <span>
+              </div>
+            </div>
+              <div class="comment replay">
+                <img
+                src="/images/profile.jpg"
+                alt=""
+                width="50"
+                height="50"
+                style="border-radius:31px;"
+              />
+              <div class="box">
+                <div class="info">
+                  <h5>Fahd Hakem</h5>
+                  <p class="p1">Backend Developer in Odc</p>
+                  <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa impedit aperiam eveniet sunt quia, quidem molestias, neque ex modi illo voluptatem quas odit exercitationem! Nulla fugiat perferendis possimus similique cupiditate!</p>
+
+                </div>
+                <div class="settingsAndDate">
+                  <div class="settings">
+                    <span>Edit</span>
+                    <span>Delete</span>
+                  </div>
+                   <div class="date">
+                    <span>1h</span>
+                   </div>
+                </div>
+              </div>
+               
+              
+            </div>
+            <div class="feeds feedsReplay">
+              <div class="emojiClick">
+                <img
+                src="/images/up-arrow.png"
+                alt=""
+                width="25"
+                height="25"
+                style="border-radius:31px;"
+              />
+              </div>
+              <div class="numberOfLikes">
+              <span>1 Vote</span>
+
+              </div>
+              <div class="replayClick">
+                <img
+                src="/images/reply.png"
+                alt=""
+                width="25"
+                height="25"
+                style="border-radius:31px;"
+              />
+              </div>
+             </div>
+             <div class="commentBox commentBoxReplay">
+              <input type="text" placeholder="Type Any Thing">
+              <div class="collection">
+                <img
+                src="/images/camera.png"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+              src="/images/emoticon.png"
+              alt=""
+              width="20"
+              height="20"
+            />
+              <span>
+              </div>
+            </div>
+            </div>
+             showmoare 
+            <div id="showmore">
+              <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">ShowMore</span>
+              </button>
+            </div>
+             end showmoare
+          </div> -->
         </div>
-      </div>    -->
-    <!-- <div class="videoCenter">
-      <p class="disc">Mohamed is success Story Mohamed is success StoryMohamed is success StoryMohamed is success StoryMohamed is success
-      StoryMohamed is success StoryMohamed is success StoryMohamed is success StoryMohamed is success Story</p>
-      <video class="video" controls>
-        <source src="/assets/videos/movideos1.mp4" type="video/mp4">
-      </video>
-      <div class="support">
-        <div >
-      <img src="/images/likeblue.png" width="25" height="25">
-      <img class="rec" src="/images/likeblue.png" width="25" height="25">
-      <img class="rec" src="/images/likeblue.png" width="25" height="25">
+      </div>
+      <!-- end posts -->
+
+      <!-- hackathons and friends -->
+      <div class="right">
+        <div class="allRight">
+          <input
+            id="search"
+            type="text"
+            class="search"
+            placeholder="Search.. "
+          />
+          <div class="allHackathons"></div>
+        </div>
+      </div>
+      <!--Finish hackathons and friends -->
     </div>
-      <p id="like">27 user Like that </p>
-      <div class="comment">
-        <p>50 comment</p>
-      </div>  
-    </div>
-     <hr><div class="container2">
+    <script src="/dashboard.js"></script>
+    <!-- <script src="jquery.emojiarea.js"></script> -->
 
-      </div> 
-      
-      <div class="post-bottom">
-        <div class="action">
-          <i class="far fa-thumbs-up"></i>
-          <span>Like</span>
-        </div>
-       </div> 
-     </div> 
-       <div class="action" id="com">
-          <i class="far fa-comment"></i>
-          <span>Comment</span>
-        </div>
-        <div class="action">
-          <button class="share-btn">
-          <i class="fa fa-share"></i>
-          </button>
-          <span>Share</span>
-          <div class="share-options">
-            <p class="title">Share</p>
-            <div class="social-media">
-              <button class="social-media-btn"><i class="far fa-folder-open"></i></button>
-              <button class="social-media-btn"><i class="fab fa-whatsapp"></i></button>
-              <button class="social-media-btn"><i class="fab fa-instagram"></i></button>
-              <button class="social-media-btn"><i class="fab fa-twitter"></i></button>
-              <button class="social-media-btn"><i class="fab fa-facebook-f"></i></button>
-              <button class="social-media-btn"><i class="fab fa-linkedin-in"></i></button>
-            </div>
-            <div class="link-container">
-              <p class="link">https://example.com/share</p>
-              <button class="copy-btn">copy</button>
-            </div>
-          </div>
-        </div>
-      </div> 
-       <div class="contantComment">
-          <textarea  
-          class="addcoment" id ="textarea" placeholder="Type Any Comment"></textarea>
-        <div class="com"> 
-        <img  src="/images/emoticon.png" width="25" height="25">
-        <img  src="/images/image.png" width="25" height="25">
-        </div>
-      </div> 
-     </div> -->
-
-  
-  </div>
-  <script>
-        function readURL(input) {
-          console.log(input);
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-   console.log(input.id.split("imgupload")[1] )
-        reader.onload = function (e) {
-          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.className = "youim";
-          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.children[0].className = "yourImage";
-          document.getElementById("blah"+input.id.split("imgupload")[1]).parentNode.children[1].className = "exit";
-
-          $(`#blah${input.id.split("imgupload")[1]}`).attr("src", e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-  </script>
-  <script src="jquery-3.6.0.min.js"></script>
-
-  <script src="/dashboard.js"></script>
-  <script src="/emoij.js"></script>
-
-</body>
+    <script src="/vanillaEmojiPicker.js"></script>
+  </body>
 </html>
