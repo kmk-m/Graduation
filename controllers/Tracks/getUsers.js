@@ -15,7 +15,7 @@ async function introVideo(req, res, next) {
         attributes: ["firstName", "lastName", "image"],
       },
     ],
-    attributes: ["rate"],
+    attributes: ["rate", "title", "details", "createdAt"],
     // attributes: ["rate"],
   });
 

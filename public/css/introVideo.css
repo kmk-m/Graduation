@@ -147,10 +147,6 @@ body {
 
   /* =========================================== */
  /* ============ reviews & comments ================== */
-.all-comments-container{
-
-}
-
  .comment_container{
   /* background-color: #FCB500; */
   margin-top: 20px;
@@ -223,17 +219,15 @@ body {
   
 
 
+.load-more-div{
+  margin-top: 20px;  
+  padding-bottom: 20px;
+}
 
+.load-more-btn{
+  float: right;
+}
   
-
-
-
-
-
-
-
-
-
 
 
 

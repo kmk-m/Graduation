@@ -5,47 +5,29 @@
     <meta name="viewport" content="width=device-width, intial-scale=1.0" />
     <title>Intro</title>
     <link rel="stylesheet" href="/css/introVideo.css" />
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <aside></aside>
 
     <div class="container">
       <div class="video-container">
-        <video class="video-player" src="islamic_video.mp4" autoplay controls>
+        <video class="video-player" id="trackVideo" src="" autoplay controls>
           Your browser does not support the video tag.
         </video>
       </div>
 
       <div class="txt_container">
         <h2>Description</h2>
-        <p>
-          Now, we are looking for a sponsor to help our team participate in the
-          upcoming Africa and Arab Collegiate Programming Championship (ACPC).
-          Participating in the ACPC requires payment of expensive registration
-          fees, which our team can't afford, so we need a sponsor to help us so
-          that we can compete in the championship.
-        </p>
+        <p id="desc_txt"></p>
       </div>
 
       <div class="txt_container">
         <h2>Plan</h2>
-        <p>
-          This year, our team (Katakeet) of Tanta University participated in the
-          Egyptian Collegiate Programming Contest (ECPC), the biggest
-          programming competition in Egypt. We managed to get 1st place across
-          all Tanta University teams who participated. We also placed 20th
-          across Egypt and we won a bronze medal for only the second time in the
-          history of Tanta University.
-          <br />
-          <br />
-          Now, we are looking for a sponsor to help our team participate in the
-          upcoming Africa and Arab Collegiate Programming Championship (ACPC).
-          Participating in the ACPC requires payment of expensive registration
-          fees, which our team can't afford, so we need a sponsor to help us so
-          that we can compete in the championship.
-        </p>
+        <p id="plan_txt"></p>
       </div>
 
       <div class="txt_container last-container">
@@ -128,68 +110,23 @@
           </div>
         </div>
 
-        <div class="all-comments-container">
-          <div class="comment_container">
-            <div class="profile-section">
-              <div class="profile-img">
-                <img src="/images/img_profile.webp" />
-              </div>
-              <h3 class="comment-author">Alaa Elhawany</h3>
-              <div class="stars-div">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-              </div>
-            </div>
-
-            <div class="comment-section">
-              <h3 class="comment_title">Amazing Content, Very useful!</h3>
-              <p class="comment_date">21 aug 2022</p>
-
-              <p class="comment_txt">
-                I really had an amazing and fun time with this course. I find
-                comfort in the instructor way of teaching being light yet
-                noteworthy. He really carefully guides students even with zero
-                knowledge in anything. I would recommend this course to
-                beginners who are interested in entering the world of Web
-                Design.
-              </p>
-            </div>
-          </div>
-
-          <div class="comment_container">
-            <div class="profile-section">
-              <div class="profile-img">
-                <img src="/images/img_profile.webp" />
-              </div>
-              <h3 class="comment-author">Alaa Elhawany</h3>
-              <div class="stars-div">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-              </div>
-            </div>
-
-            <div class="comment-section">
-              <h3 class="comment_title">Amazing Content, Very useful!</h3>
-              <p class="comment_date">21 aug 2022</p>
-
-              <p class="comment_txt">
-                I really had an amazing and fun time with this course. I find
-                comfort in the instructor way of teaching being light yet
-                noteworthy. He really carefully guides students even with zero
-                knowledge in anything. I would recommend this course to
-                beginners who are interested in entering the world of Web
-                Design.
-              </p>
-            </div>
-          </div>
+        <div class="all-comments-container" id="allCommentsContainer">
+          <!-- <div class="load-more-div">
+            <button class="load-more-btn" onclick="loadMore()"> Load More </button>
+          </div> -->
         </div>
+
+        <div class="load-more-div">
+          <button class="load-more-btn" onclick="loadMore()"> Load More </button>
+        </div>
+
       </div>
     </div>
+
+
+
+    <script src="/introVideoReviews.js"></script>
+    <script src="/introVideoData.js"></script>
+
   </body>
 </html>
