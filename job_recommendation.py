@@ -39,6 +39,7 @@ def selected_job_qualifications(user_interest , all_skills , user_skills , compa
         final_output[company].append([user_interest , 'missing' , job_skills , len(job_skills) , 'recommended_courses' ,  recommended_courses])
     return('final_output =  ', final_output)
 
+
 mydb = pymysql.connect(host="127.0.0.1",
                        database="lms",
                        user="root",
@@ -50,29 +51,28 @@ userId = sys.argv[1]
 
 # getting active_user interests
 user_interests = []
-query = "select categoryId from userInterests where userId = %s"
+query = "select categoryId from userskills where userId = %s"
 mycursor.execute(query , [userId])
 result = mycursor.fetchall()
 for skill in result:
     user_interests.append(skill[0])
-# print(user_interests)
 
 # getting list with all skils
 all_skills = []
-query = "select name from categories"
+query = "select name from skill"
 mycursor.execute(query)
 result = mycursor.fetchall()
 for skill in result:
     all_skills.append(skill[0])
-# print(all_skills)
 
 #getting active_user skills
 user_skills = []
-query = "select name from categories where id in (select categoryId from userSkills where userId = %s)"
+query = "select name from skill where id in(select skillid from userSkills where userId = %s)"
 mycursor.execute(query , userId)
 result = mycursor.fetchall()
 for skill in result:
     user_skills.append(skill[0])
+
 final_output = {}
 query = "select id from companies"
 mycursor.execute(query)
@@ -85,7 +85,5 @@ for i in user_interests:
     result = mycursor.fetchall()
     for company , interest , describtion in result:
         selected_job_qualifications(interest , all_skills , user_skills , company , describtion)
-res = dict()
-for key in sorted(final_output):
-    res[key] = sorted(final_output[key])
-print(res)
+
+print(final_output)

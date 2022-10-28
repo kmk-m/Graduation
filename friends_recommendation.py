@@ -1,14 +1,14 @@
 import pymysql
 import sys
 
-mydb = pymysql.connect(host =  "us-cdbr-east-06.cleardb.net",
-  database =  "heroku_e41c1baee36a515",
-  user = "b9e60d1985c298",
-  password =  "3e689dd2", )
-# mydb = pymysql.connect(host="127.0.0.1",
-#                        database="lms",
-#                        user="root",
-#                        password="", )
+# mydb = pymysql.connect(host =  "us-cdbr-east-06.cleardb.net",
+#   database =  "heroku_e41c1baee36a515",
+#   user = "b9e60d1985c298",
+#   password =  "3e689dd2", )
+mydb = pymysql.connect(host="127.0.0.1",
+                       database="lms",
+                       user="root",
+                       password="", )
 mycursor = mydb.cursor()
 
 def recommend_friends(active_user_interests , key_list, values_list):
@@ -23,6 +23,7 @@ def recommend_friends(active_user_interests , key_list, values_list):
 
 #active_user Id
 userId = sys.argv[1]
+# userId = '4e994d60-4af0-11ed-bb93-b07b258218c6'
 #get ids of user friends
 user_friends = []
 query = "select friendId from userFriends where userId = %s"
