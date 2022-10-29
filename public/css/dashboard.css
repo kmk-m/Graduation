@@ -42,12 +42,14 @@ body {
   text-align: center;
   min-height: 100%;
   position: fixed;
+  z-index: 100;
 }
 .center {
   min-height: 670px;
   margin-left: 25%;
   flex: 40%;
   background-color: white;
+  z-index: 0;
 }
 .left .links {
   margin-top: 15%;
@@ -162,6 +164,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 0;
 }
 .word {
   font-weight: 600;
@@ -196,7 +199,6 @@ body {
   padding: 5%;
   margin: 5% 5%;
   background-color: #f7f8fa;
-  z-index: -100;
 }
 .post video {
   width: 100%;
@@ -289,10 +291,12 @@ body {
   flex-direction: row;
   gap: 15%;
   margin-left: -15%;
+  position: relative;
 }
 .allComments {
   margin-top: 5%;
   display: none;
+  position: relative;
 }
 .comment {
   margin-top: 5%;
@@ -310,7 +314,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   filter: drop-shadow(4px 4px 2px #dcdcdc);
-
   z-index: 100;
 }
 .settingsAndDate {
@@ -338,6 +341,9 @@ body {
 .p1 {
   color: gray;
   margin-bottom: 5%;
+}
+.replay {
+  position: relative;
 }
 .replay .box {
   width: 60%;
@@ -471,6 +477,7 @@ button:hover .button-text {
   text-align: center;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 .emojiClick,
 .replayClick {
@@ -481,7 +488,7 @@ button:hover .button-text {
   margin-top: -5%;
   padding-bottom: 4%;
   border-radius: 21px;
-  z-index: 10;
+  z-index: 1;
   transition: 0.5s;
   filter: drop-shadow(4px 4px 2px #dcdcdc);
   transition: 0.5s;
@@ -520,10 +527,14 @@ button:hover .button-text {
   margin-left: 5%;
   filter: drop-shadow(4px 4px 2px #dcdcdc);
 }
+.em {
+  position: relative;
+}
 .commentBoxComment {
   margin-top: 5%;
   width: 75%;
   margin-left: 15%;
+  position: relative;
 }
 .feedsReplay {
   margin-left: 15%;
@@ -540,7 +551,7 @@ button:hover .button-text {
 /* end post */
 
 /* end Reactions */
-.fg-emoji-container {
+/* .fg-emoji-container {
   width: 270px;
   height: 300px;
   border-radius: 5px;
@@ -619,7 +630,7 @@ button:hover .button-text {
 }
 
 .fg-emoji-picker-move {
-  /* pointer-events: none; */
+  /* pointer-events: none; 
   cursor: move;
 }
 
@@ -698,7 +709,44 @@ button:hover .button-text {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}*/
 .ff {
   display: none;
+}
+.drops {
+  background-color: #dcdcdc;
+  z-index: 10000;
+  margin: 0;
+  height: 100%;
+  width: 15%;
+  position: absolute;
+  left: 17%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  left: 0;
+  filter: drop-shadow(4px 4px 2px #dcdcdc);
+
+  z-index: -1;
+
+  transition: 0.5s;
+}
+.drops a {
+  margin-top: 15%;
+  font-size: medium;
+  text-decoration: none;
+  color: #111111;
+  filter: drop-shadow(4px 4px 2px white);
+}
+.kill {
+  margin-top: 15px;
+  filter: drop-shadow(4px 4px 2px #dcdcdc);
+}
+.center2 {
+  margin-left: 35%;
+  transition: 0.5s;
+}
+.hidden {
+  left: 17%;
+  z-index: 100;
 }

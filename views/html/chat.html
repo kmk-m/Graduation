@@ -4,124 +4,226 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/chat.css" />
-    <title>Chat</title>
+    <link rel="stylesheet" href="/css/chat.css" />
+
+    <title>Document</title>
   </head>
   <body>
     <div class="container">
-      <div class="allcontacts">
-        <div class="logo" id="logo">
-          <!-- <img src="/images/profile.jpg" alt="userimage" /> -->
-          <div class="myself" id="myself">
-            <!-- <h4>Fahd hakem</h4> -->
-            <!-- <p>Newbie</p> -->
-          </div>
-        </div>
-        <div class="search">
-          <input
-            id="search"
-            type="text"
-            class="searchInput"
-            placeholder="Search.. "
-          />
-        </div>
-        <div class="contacts" id="contacts">
-          <!-- <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div> -->
-          <!-- <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div>
-          <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div>
-          <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div>
-          <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div>
-          <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div>
-          <div class="user">
-            <img src="/images/profile.jpg" alt="userimage" />
-            <div class="myself2">
-              <h4>Fahd Hakem</h4>
-              <p>Hello</p>
-            </div>
-            <p class="time">15:30</p>
-          </div> -->
-        </div>
-      </div>
-      <hr class="hr" />
-      <div class="chat">
-        <div class="firstShow">
-          <img src="/images/robot.gif" alt="image" />
-          <h2><span>JOB</span>Q Messenger</h2>
-          <p>Choose Any one To Start Your Chat</p>
-        </div>
-        <div class="chatContainer show">
-          <div class="friend">
-            <div class="info">
-              <img src="/images/profile.jpg" alt="userimage" />
-              <div class="myself3">
-                <h4>Fahd hakem</h4>
-              </div>
-            </div>
-          </div>
-          <div class="messages" id="messages"></div>
-          <hr class="hr2" />
-          <div class="send">
-            <img class="mic" src="/images/mic.png" alt="mic" />
-            <div class="enter">
-              <input id="input" placeholder="Write Something" type="text" />
-            </div>
-            <div class="icons">
-              <img class="im1" src="/images/photo.png" alt="mic" />
-              <img class="im1" src="/images/camera.png" alt="mic" />
-              <img class="im1" src="/images/emoticon.png" alt="mic" />
-            </div>
+      <!-- Start left -->
 
-            <div class="sendIcon">
-              <img src="/images/send1.png" alt="mic" />
+      <div class="left">
+        <div class="logo">
+          <h1>JOB<span style="color: orange">Q</span></h1>
+        </div>
+        <div class="profile">
+          <img
+            src="/images/profile.jpg"
+            alt="profile"
+            style="width: 60px; height: 60px; border-radius: 41px"
+          />
+          <h2>Fahd Hakem</h2>
+          <p>Backend Developer in Odc</p>
+        </div>
+        <div class="links">
+          <h5>HomePage</h5>
+          <h5>Settings</h5>
+          <h5>Tracks</h5>
+          <h5>Courses</h5>
+          <h5>Hackathons</h5>
+          <h5>Standing</h5>
+          <h5>Rooms</h5>
+        </div>
+        <div style="height: 95px"></div>
+      </div>
+      <!-- finish left -->
+      <div class="chats">
+        <div class="choose">
+          <div class="first">
+            <span style="font-size: 18px; font-weight: 800">Chats</span>
+            <img
+              src="/images/friends.png"
+              alt="friends"
+              style="height: 30px; width: 30px"
+            />
+          </div>
+          <input
+            type="text"
+            placeholder="search.."
+            style="
+              width: 70%;
+              margin-left: 10%;
+              margin-top: 10%;
+              padding: 5px 10px;
+              border: 1px solid #dcdcdc;
+              outline: none;
+            "
+          />
+          <div class="users">
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
             </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+            <div class="user">
+              <img
+                src="/images/profile.jpg"
+                alt="profile"
+                style="height: 40px; width: 40px; border-radius: 21px"
+              />
+              <div class="nameAndMessage">
+                <h4 style="color: #111111">Fahd Hakem</h4>
+                <p style="font-size: 12px; color: #111111">hello world</p>
+              </div>
+              <span style="font-size: 12px; color: #494949">1h</span>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="chat">
+          <!-- <img src="/images/message1.png" alt="profile" class="robot" />
+          <h4 class="lop" style="color: #dcdcdc">
+            JOB<span style="color: orange">Q</span> Messanger
+          </h4>
+          <p class="lop2" style="color: #dcdcdc">
+            Choose Any one To Start Your Chat
+          </p> -->
+          <div class="friend">
+            <img
+              src="/images/profile.jpg"
+              alt="profile"
+              style="height: 40px; width: 40px; border-radius: 21px"
+            />
+            <div class="nameAndMessage">
+              <h4 style="color: #111111">Fahd Hakem</h4>
+              <p style="font-size: 12px; color: #111111">hello world</p>
+            </div>
+          </div>
+          <div class="messages">
+            <div class="send">
+              <p>HelloFahddfsaghgfhdgfhfdhfhdfhfsfsadfaffassafasfsafa</p>
+              <span
+                style="
+                  float: right;
+                  padding-right: 5px;
+                  font-size: small;
+                  color: #111111;
+                "
+                >1h</span
+              >
+            </div>
+            <div class="rec">
+              <p>Hello Fahd</p>
+              <span
+                style="
+                  float: right;
+                  padding-right: 5px;
+                  font-size: small;
+                  color: #dcdcdc;
+                "
+                >1h</span
+              >
+            </div>
+          </div>
+          <div class="sendInput">
+            <img
+              src="/images/mic.png"
+              alt="friends"
+              style="
+                height: 25px;
+                width: 25px;
+                margin-right: -60px;
+                z-index: 100;
+              "
+            />
+            <input type="text" placeholder="Message..." />
+            <img
+              src="/images/camera.png"
+              alt="friends"
+              style="
+                height: 25px;
+                width: 25px;
+                margin-left: -80px;
+                z-index: 100;
+              "
+            />
+            <img
+              src="/images/emoticon.png"
+              alt="friends"
+              style="height: 25px; width: 25px; margin-left: 10px"
+            />
           </div>
         </div>
       </div>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
 
-    <script src="/chat.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
   </body>
 </html>

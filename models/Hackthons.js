@@ -32,13 +32,12 @@ async function init(connection) {
         allowNull: false,
       },
       round: {
-        type: dataType.BIGINT,
+        type: dataType.SMALLINT,
         allowNull: false,
       },
-      finished: {
-        type: dataType.BOOLEAN,
+      length: {
+        type: dataType.BIGINT,
         allowNull: false,
-        defaultValue: 0,
       },
     },
     {

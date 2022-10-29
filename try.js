@@ -1,4 +1,4 @@
-fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
+fetch("http://127.0.0.1:3000/dashboard", {
   method: "GET",
 
   headers: {
@@ -7,7 +7,7 @@ fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
 })
   .then((response) => response.json())
   .then((json) => console.log(json));
-fetch("https://sleepy-bastion-99766.herokuapp.com/dashboard", {
+fetch("http://127.0.0.1:3000/dashboard", {
   method: "GET",
 
   headers: {
@@ -21,16 +21,14 @@ function data(json) {
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href =
-      "https://sleepy-bastion-99766.herokuapp.com/Tracks/" + x.trackId;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
     let parent = document.getElementById("myDropdown");
     parent.appendChild(link);
   });
   tracks.forEach((x) => {
     let link = document.createElement("a");
     link.innerText = x.name;
-    link.href =
-      "https://sleepy-bastion-99766.herokuapp.com/Tracks/" + x.trackId;
+    link.href = "http://127.0.0.1:3000/Tracks/" + x.trackId;
     let parent1 = document.getElementById("myDropdown1");
     parent1.appendChild(link);
   });

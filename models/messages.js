@@ -18,11 +18,20 @@ function init(connection) {
         type: dataType.UUID,
         allowNull: false,
       },
+      message: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
+      read: {
+        type: dataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     },
     {
       timestamps: true,
       updatedAt: false,
-      createdAt: false,
+      createdAt: true,
     }
   );
 }

@@ -10,7 +10,7 @@ fetch("http://127.0.0.1:3000/chat/users/", {
   .then((json) => data(json.data));
 function data(json) {
   user(json.User);
-  friends(json.Friends);
+  friends(json);
 }
 
 function user(data) {
@@ -18,37 +18,29 @@ function user(data) {
   let img = document.createElement("img");
   img.src = data.image;
   img.alt = "userImage";
+  img.className = "logoImage";
   logo.appendChild(img);
 
   //  ---------------------
   let h4 = document.createElement("h4");
   let p = document.createElement("p");
+  let icon = document.createElement("img");
+  let text = document.createElement("div");
+  text.className = "tex";
   h4.innerHTML = `${data.firstName + " " + data.lastName}`;
   p.innerHTML = `${data.bio}`;
-
+  icon.src = "/images/friends.png";
+  icon.alt = "friends";
   let myself = document.createElement("div");
   myself.classList.add("myself");
   logo.appendChild(myself);
-  myself.appendChild(h4);
-  myself.appendChild(p);
+  text.appendChild(h4);
+  text.appendChild(p);
+  myself.appendChild(text);
+  myself.appendChild(icon);
 }
 function friends(data) {
   data.forEach((x) => {
-    let user = document.createElement("div");
-    user.classList.add("user");
-    console.log(x);
-    user.setAttribute("id", `${x.id}`);
-    let img = document.createElement("img");
-    img.src = x.user.image;
-    img.alt = "userImage";
-    let myself2 = document.createElement("div");
-    myself2.classList.add("myself2");
-    let h4 = document.createElement("h4");
-    let p = document.createElement("p");
-    h4.innerHTML = `${x.user.firstName + " " + x.user.lastName}`;
-    p.innerHTML = `${x.allMessages[0].contant}`;
-    let time = document.createElement("p");
-    time.classList.add("time");
     let now = new Date();
     let date = new Date(x.allMessages[0].createdAt);
     console.log(now.getTime(), date.getTime());
@@ -70,51 +62,23 @@ function friends(data) {
     }
     // // time.innerHTML = `${hours}`;
     // -----------------------------
-    let contacts = document.getElementById("contacts");
-    contacts.appendChild(user);
-    user.appendChild(img);
-    user.appendChild(myself2);
-    myself2.appendChild(h4);
-    myself2.appendChild(p);
-    user.appendChild(time);
-  });
-  let boxes = document.querySelectorAll(".user");
-  boxes.forEach((x) => {
-    x.addEventListener("click", (e) => {
-      document.querySelector(".firstShow").className = "hide";
-      document.querySelector(".chatContainer").className = "chatContainer";
-      console.log(e.target.attribute);
-      let dev = e.target.parentNode;
+    const user = document.createElement("div");
+    user.className = "user";
+    user.innerHTML = `
+    <img
+    src=${data.friend.image}
+    alt="profile"
+    style="height: 40px; width: 40px; border-radius: 21px"
+  />
+  <div class="nameAndMessage">
+    <h4 style="color: #111111">${
+      data.friend.firstName + data.friend.lastName
+    }</h4>
+    <p style="font-size: 12px; color: #111111">hello world</p>
+  </div>
+  <span style="font-size: 12px; color: #494949">1h</span>
 
-      if (
-        e.target.className !== "info" &&
-        e.target.parentNode.className !== "user"
-      )
-        dev = e.target.parentNode.parentNode;
-      else dev = e.target;
-
-      if (dev.className === "user") dev = dev.firstChild;
-
-      if (dev.className === "myself2" || dev.className === "time")
-        console.log(dev);
-
-      if (dev.className !== "user") dev = dev.parentNode;
-
-      let img = dev.children[0];
-      console.log(dev);
-      let name = dev.children[1].children[0];
-      let info = document.querySelector(".info");
-      info.setAttribute("id", `${dev.id}`);
-
-      console.log(info.children[1].children[0]);
-      info.children[0].src = `
-       ${img.src}
-      `;
-      info.children[1].children[0].innerHTML = `
-       ${name.innerHTML}
-       `;
-      //   console.log(dev.children[1]);
-    });
+    `;
   });
   document.getElementById("input").addEventListener("keyup", (e) => {
     if (e.key === "Enter") {

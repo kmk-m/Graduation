@@ -1,35 +1,30 @@
+import sequelize from "sequelize";
+const Op = sequelize.Op;
 import Responses from "../../util/response.js";
 async function getAllUsers(req, res, next) {
-  try {
-    const { user, messages, allMessages } = req.models;
-    const User = await user.findOne({
+  const { user, messages } = req.models;
+  const message = await messages.findAll({
+    where: {
+      [Op.or]: [{ receiverId: req.userId }, { senderId: req.userId }],
+    },
+    order: [["createdAt", "DESC"]],
+
+    attributes: ["id", "message", "senderId", "receiverId"],
+  });
+  console.log(message[0].dataValues);
+  const users = [];
+  for (let i = 0; i < message.length; i++) {
+    const friend = await user.findOne({
       where: {
-        userId: req.userId,
+        userId:
+          req.userId !== message[i].dataValues.senderId
+            ? message[i].dataValues.senderId
+            : message[i].dataValues.receiverId,
       },
-      attributes: ["userId", "firstName", "lastName", "image", "bio"],
+      attributes: ["userId", "firstName", "lastName", "image"],
     });
-    const Friends = await messages.findAll({
-      where: {
-        senderId: req.userId,
-      },
-      include: [
-        {
-          model: user,
-          attributes: ["userId", "firstName", "lastName", "image"],
-        },
-        {
-          model: allMessages,
-          attributes: ["contant", "createdAt"],
-        },
-      ],
-      attributes: ["id"],
-    });
-    return Responses.success(res, "Get data Successfully ", {
-      User,
-      Friends,
-    });
-  } catch (err) {
-    return next(err);
+    users.push({ message, friend });
   }
+  return Responses.success(res, "Get data Successfully ", users);
 }
 export default getAllUsers;

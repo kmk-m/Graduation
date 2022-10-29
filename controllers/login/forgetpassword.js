@@ -52,9 +52,7 @@ async function forgetpassword(req, res, next) {
       template: "resetpassword",
       context: {
         name: valid.firstName + valid.lastName, // replace {{name}} with Adebola
-        URL:
-          "https://sleepy-bastion-99766.herokuapp.com/signin/verifycode/:" +
-          valid.userId,
+        URL: "http://127.0.0.1:3000/signin/verifycode/:" + valid.userId,
         message: otp, // replace {{company}} with My Company
       },
     });

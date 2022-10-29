@@ -16,6 +16,10 @@ function init(connection) {
       hackthonId: {
         type: dataType.UUID,
       },
+      standing: {
+        type: dataType.BIGINT,
+        allowNull: false,
+      },
     },
     {
       createdAt: false,
@@ -27,19 +31,15 @@ function associate(models) {
   const { Hackathons, user, userHackthons } = models;
   user.hasMany(userHackthons, {
     foreignKey: "userId",
-    as: "userhackthons",
   });
   userHackthons.belongsTo(user, {
     foreignKey: "userId",
-    as: "userhackthons",
   });
   Hackathons.hasMany(userHackthons, {
     foreignKey: "hackthonId",
-    as: "Hackthon",
   });
   userHackthons.belongsTo(Hackathons, {
     foreignKey: "hackthonId",
-    as: "Hackthon",
   });
 }
 export { init, associate };

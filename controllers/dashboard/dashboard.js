@@ -88,9 +88,6 @@ async function dahsboard(req, res, next) {
     //   }
     // }
     const hackathons = await Hackathons.findAll({
-      where: {
-        finished: 0,
-      },
       attributes: ["name", "date", "round", "hackthonId"],
     });
     const tracks = await Tracks.findAll({

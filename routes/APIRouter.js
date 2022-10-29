@@ -18,6 +18,7 @@ import chat from "./chat.js";
 import courses from "./courses.js";
 import exam from "./exam.js";
 import room from "./room.js";
+import hackathons from "./hackathon.js";
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -45,5 +46,6 @@ router.use("/courses", jwt.authenticateWithJWT, courses);
 router.use("/interests", interests);
 router.use("/experience", experience);
 router.use("/chat", chat);
+router.use("/hackathons", hackathons);
 
 export default router;

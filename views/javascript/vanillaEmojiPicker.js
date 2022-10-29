@@ -1,13 +1,17 @@
 const EmojiPicker = function (options) {
+  console.log("ty");
+  let topp = -7;
+
   this.options = options;
   this.trigger = this.options.trigger.map((item) => item.selector);
+
   this.insertInto = undefined;
   let emojiesHTML = "";
   let categoriesHTML = "";
   let emojiList = undefined;
   let moseMove = false;
-  const pickerWidth = this.options.closeButton ? 370 : 350;
-  const pickerHeight = 400;
+  const pickerWidth = 250;
+  const pickerHeight = 300;
 
   this.lib = function (el = undefined) {
     const isNodeList = (nodes) => {
@@ -7517,21 +7521,23 @@ const EmojiPicker = function (options) {
     move: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.006 512.006" xml:space="preserve"> <g> <g> <path d="M508.247,246.756l-72.457-72.465c-5.009-5.009-13.107-5.009-18.116,0c-5.009,5.009-5.009,13.107,0,18.116l50.594,50.594 H268.811V43.748l50.594,50.594c5.009,5.009,13.107,5.009,18.116,0c5.009-5.009,5.009-13.107,0-18.116L265.056,3.761 c-5.001-5.009-13.107-5.009-18.116,0l-72.457,72.457c-5.009,5.009-5.009,13.107,0,18.116c5.001,5.009,13.107,5.009,18.116,0 l50.594-50.594v199.27H43.744l50.594-50.594c5.009-5.009,5.009-13.107,0-18.116c-5.009-5.009-13.107-5.009-18.116,0L3.757,246.756 c-5.009,5.001-5.009,13.107,0,18.116l72.465,72.457c5.009,5.009,13.107,5.009,18.116,0c5.009-5.001,5.009-13.107,0-18.116 l-50.594-50.594h199.458v199.646l-50.594-50.594c-5.009-5.001-13.107-5.001-18.116,0c-5.009,5.009-5.009,13.107,0,18.116 l72.457,72.465c5,5,13.107,5,18.116,0l72.465-72.457c5.009-5.009,5.009-13.107,0-18.116c-5.009-5-13.107-5-18.116,0 l-50.594,50.594V268.627h199.458l-50.594,50.594c-5.009,5.009-5.009,13.107,0,18.116s13.107,5.009,18.116,0l72.465-72.457 C513.257,259.872,513.257,251.765,508.247,246.756z"/> </g> </g> <g> </g> </svg>',
   };
 
+  let id;
   const functions = {
     styles: () => {
       const styles = `
               <style>
                   .fg-emoji-container {
-                      position: fixed;
-                      top: 0;
-                      left: 0;
+
                       width: ${pickerWidth}px;
                       height: ${pickerHeight}px;
                       border-radius: 5px;
                       box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.62);
                       background-color: white;
                       overflow: hidden;
-                      z-index: 9999;
+                      z-index: 1000;
+                      position:absolute;
+                      top:${topp}%;
+                      right:-45%;
                   }
 
                   .fg-emoji-container svg {
@@ -7706,21 +7712,22 @@ const EmojiPicker = function (options) {
       return obj;
     },
 
-    rePositioning: (picker) => {
-      picker.getBoundingClientRect().right > window.screen.availWidth
-        ? (picker.style.left =
-            window.screen.availWidth - picker.offsetWidth + "px")
-        : false;
+    // rePositioning: (picker) => {
+    //   picker.getBoundingClientRect().right > window.screen.availWidth
+    //     ? (picker.style.left =
+    //         window.screen.availWidth - picker.offsetWidth + "px")
+    //     : false;
 
-      if (window.innerHeight > pickerHeight) {
-        picker.getBoundingClientRect().bottom > window.innerHeight
-          ? (picker.style.top = window.innerHeight - picker.offsetHeight + "px")
-          : false;
-      }
-    },
+    //   if (window.innerHeight > pickerHeight) {
+    //     picker.getBoundingClientRect().bottom > window.innerHeight
+    //       ? (picker.style.top = window.innerHeight - picker.offsetHeight + "px")
+    //       : false;
+    //   }
+    // },
 
     render: (e, attr) => {
       emojiList = undefined;
+      id = attr.split("btn")[1];
 
       const index = this.options.trigger.findIndex(
         (item) => item.selector === attr
@@ -7757,9 +7764,7 @@ const EmojiPicker = function (options) {
       }
 
       const picker = `
-              <div class="fg-emoji-container" style="left: ${
-                position.left
-              }px; top: ${position.top}px;">
+              <div class="fg-emoji-container" >
                   <nav class="fg-emoji-nav">
                       <ul>
                           ${categoriesHTML}
@@ -7800,10 +7805,17 @@ const EmojiPicker = function (options) {
                   </div>
               </div>
           `;
-
-      document.body.insertAdjacentHTML("beforeend", picker);
-
-      functions.rePositioning(document.querySelector(".fg-emoji-container"));
+      if (!document.getElementById("post." + id)) {
+        console.log(id);
+        document
+          .getElementById("em." + id)
+          .insertAdjacentHTML("afterbegin", picker);
+      } else {
+        document
+          .getElementById("post." + id)
+          .insertAdjacentHTML("afterbegin", picker);
+      }
+      // functions.rePositioning(document.querySelector(".fg-emoji-container"));
 
       setTimeout(() => {
         document.querySelector(".fg-emoji-picker-search input").focus();
@@ -7850,29 +7862,27 @@ const EmojiPicker = function (options) {
       e.preventDefault();
 
       const emoji = e.target.innerText.trim();
-      const myField = document.querySelectorAll(this.insertInto);
+      const myField = document.getElementById(this.insertInto);
       const myValue = emoji;
 
       // Check if selector is an array
-      myField.forEach((myField) => {
-        if (document.selection) {
-          myField.focus();
-          sel = document.selection.createRange();
-          sel.text = myValue;
-        } else if (myField.selectionStart || myField.selectionStart == "0") {
-          const startPos = myField.selectionStart;
-          const endPos = myField.selectionEnd;
-          myField.value =
-            myField.value.substring(0, startPos) +
-            myValue +
-            myField.value.substring(endPos, myField.value.length);
+      if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+      } else if (myField.selectionStart || myField.selectionStart == "0") {
+        const startPos = myField.selectionStart;
+        const endPos = myField.selectionEnd;
+        myField.value =
+          myField.value.substring(0, startPos) +
+          myValue +
+          myField.value.substring(endPos, myField.value.length);
 
-          functions.setCaretPosition(myField, startPos + 2);
-        } else {
-          myField.value += myValue;
-          myField.focus();
-        }
-      });
+        functions.setCaretPosition(myField, startPos + 2);
+      } else {
+        myField.value += myValue;
+        myField.focus();
+      }
     },
 
     categoryNav: (e) => {
