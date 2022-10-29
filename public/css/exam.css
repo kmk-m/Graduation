@@ -9,51 +9,67 @@ body {
   background-color: #f7f8fa;
 }
 .control {
-  position: absolute;
-  position: fixed;
-  width: 20%;
+  position: fixed; 
+  width: 25%;
   height: 100%;
-  left: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hrr{
+      border: 1px solid #dcdcdc;
+        width: 70%;
+        margin-top: -3%;
+        margin-right: 50%;
 }
 .define {
-  position: absolute;
-  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+  margin-left:15%;
+  margin-top: 25%;
+
+  /* 
+ text-align: left;
   top: 5%;
   left: 10%;
-  line-height: 1%;
+  line-height: 1%;*/
 }
 .quizn {
   font-family: "Inter", sans-serif;
   color: #fcb500;
   font-size: small;
 }
-.track {
+.namedy {
   font-family: "Inter", sans-serif;
   font-size: medium;
   width: 100%;
+  margin-top: -10%;
 }
 .time-quiz {
+  text-align: center;
+  width: 100%;
   font-family: "Poppins";
   font-size: 22px;
-  margin-left: 35%;
-  margin-top: 60%;
-}
-#bar {
-  margin-left: 9%;
-  margin-top: 5%;
-  width: 80%;
+  }
+.progress {
+  width: 100%;
+  background: #BCBCBC;
+  margin-bottom: 50px;
+  position: relative;
   border-radius: 25px;
-  background-color: #bcbcbc;
+  margin-left: 30px;
+  margin-top: 25px;
 }
-#progress {
-  width: 0%;
-  height: 5px;
+.progress-inner {
+  background-color: #FCB500;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   border-radius: 25px;
-}
-.delet {
-  display: block;
-  margin: auto;
-  margin-top: 10px;
 }
 .boxQuestion {
   position: absolute;
@@ -61,9 +77,13 @@ body {
   top: 37%;
   left: 8%;
   width: 100%;
-  height: 40%;
   border-radius: 5px;
   background-color: #f2f2f2;
+    display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      overflow-wrap: break-word;
+
 }
 .noquest {
   font-family: "Poppins";

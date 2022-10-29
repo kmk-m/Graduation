@@ -981,7 +981,7 @@
         "tags": [
           "Tracks"
         ],
-        "description": "to get introVideo page",
+        "description": "to get Tracks page",
         "parameters": [
           {
             "name": "trackId",
@@ -992,7 +992,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "403": {
             "description": "Forbidden"
@@ -1127,60 +1146,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/Tracks/{trackId}/introVideo/getUsers": {
-      "get": {
-        "tags": [
-          "Tracks"
-        ],
-        "description": "to get Users",
-        "parameters": [
-          {
-            "name": "trackId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "users",
-            "in": "query",
-            "description": "numberOfUsersNow...",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/Tracks/{trackId}/introVideo/data": {
-      "get": {
-        "tags": [
-          "Tracks"
-        ],
-        "description": "to get introVideo Details",
-        "parameters": [
-          {
-            "name": "trackId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
           },
           "403": {
             "description": "Forbidden"
