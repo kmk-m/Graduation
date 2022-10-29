@@ -8,19 +8,25 @@ body {
   font-family: "Inter";
   background-color: #f7f8fa;
 }
-.control {
-  position: fixed; 
-  width: 25%;
+.allExam {
+  width: 100%;
   height: 100%;
+}
+.control {
+  position: fixed;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.hrr{
-      border: 1px solid #dcdcdc;
-        width: 70%;
-        margin-top: -3%;
-        margin-right: 50%;
+.hrr {
+  border: 1px solid #dcdcdc;
+  width: 70%;
+  margin-top: -3%;
+  margin-right: 50%;
 }
 .define {
   width: 100%;
@@ -29,8 +35,8 @@ body {
   margin: 0px;
   padding: 0px;
   height: auto;
-  margin-left:15%;
-  margin-top: 25%;
+  margin-left: 15%;
+  margin-top: 5%;
 
   /* 
  text-align: left;
@@ -43,52 +49,56 @@ body {
   color: #fcb500;
   font-size: small;
 }
+
 .namedy {
   font-family: "Inter", sans-serif;
   font-size: medium;
   width: 100%;
   margin-top: -10%;
 }
+.time {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .time-quiz {
   text-align: center;
   width: 100%;
   font-family: "Poppins";
   font-size: 22px;
-  }
+  margin-right: 15%;
+  margin-top: 5%;
+}
 .progress {
-  width: 100%;
-  background: #BCBCBC;
+  width: 70%;
+  height: 5px;
+  background: #bcbcbc;
   margin-bottom: 50px;
   position: relative;
   border-radius: 25px;
-  margin-left: 30px;
-  margin-top: 25px;
+  margin-right: 15%;
 }
 .progress-inner {
-  background-color: #FCB500;
-  position: absolute;
+  background-color: #fcb500;
   width: 100%;
   height: 100%;
   border-radius: 25px;
 }
 .boxQuestion {
-  position: absolute;
-  box-sizing: border-box;
-  top: 37%;
-  left: 8%;
-  width: 100%;
+  width: 80%;
+  padding: 25px;
   border-radius: 5px;
   background-color: #f2f2f2;
-    display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      overflow-wrap: break-word;
-
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
 }
 .noquest {
   font-family: "Poppins";
   font-size: 20px;
   line-height: 65px;
+  width: calc(100% / 3 -15);
   padding: 15px 15px 15px 15px;
   background-color: #ffffff;
   border-radius: 5px;
