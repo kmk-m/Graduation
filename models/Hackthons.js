@@ -35,8 +35,22 @@ async function init(connection) {
         type: dataType.SMALLINT,
         allowNull: false,
       },
-      length: {
+      duoDate: {
+        type: dataType.DATE,
+        allowNull: false,
+      },
+
+      users: {
         type: dataType.BIGINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      link: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
+      type: {
+        type: dataType.ENUM("photo", "video"),
         allowNull: false,
       },
     },

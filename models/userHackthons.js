@@ -17,8 +17,27 @@ function init(connection) {
         type: dataType.UUID,
       },
       standing: {
-        type: dataType.BIGINT,
+        type: dataType.INTEGER,
         allowNull: false,
+        defaultValue: 0,
+      },
+      points: {
+        type: dataType.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      time: {
+        type: dataType.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      solution: {
+        type: dataType.STRING,
+      },
+      status: {
+        type: dataType.ENUM("NOTSUBMIT", "PENDING", "SUBMITED"),
+        allowNull: false,
+        defaultValue: "NOTSUBMIT",
       },
     },
     {

@@ -178,12 +178,23 @@ function addPost(post) {
 <div class="commentBox" id=commentShow.${post.id}>
   <input id=input.${post.id} type="text" placeholder="Type Any Thing">
   <div class="collection" id=collection.${post.id}>
+  <div class="image-upload">
+    <label id=choose.${post.id} for="file-input" 
+    >
     <img
     src="/images/camera.png"
+    id=pre.${post.id}
     alt=""
     width="20"
     height="20"
-  />
+  
+  />    
+  chooseFile
+  </label>
+
+    <input id="file-input" name="file-input" type="file"/>
+</div>
+
   <img
   id =btn.${post.id}
   class="btn btn${post.id}"
@@ -196,7 +207,8 @@ function addPost(post) {
   <span>
   </div>
 </div>
-
+<div class="images" id=imr.${post.id}>
+</div>
 <div class="allComments" id = post.${post.id}>
 
 </div>
@@ -233,6 +245,22 @@ function addPost(post) {
     document.getElementById("commentShow." + post.id).style.display = "flex";
     document.getElementById("post." + post.id).style.display = "block";
   });
+  console.log(document.getElementById(`choose.${post.id}`));
+
+  document.getElementById(`pre.${post.id}`).addEventListener("click", () => {
+    console.log(document.getElementById(`choose.${post.id}`));
+
+    // const files = document.getElementById(`choose.${post.id}`).files[0];
+    // if (files) {
+    //   const fileReader = new FileReader();
+    //   fileReader.readAsDataURL(files);
+    //   fileReader.addEventListener("load", function () {
+    //     document.getElementById("imr." + post.id).display = "block";
+    //     document.getElementById("imr." + post.id).innerHTML =
+    //       '<img src="' + this.result + '" />';
+    //   });
+    // }
+  });
 
   //og("enter1");
 
@@ -242,6 +270,7 @@ function addPost(post) {
     addComment(x);
   });
 }
+
 function addComment(comment) {
   //og("hello", comment.upvote + comment.downvote);
   //og(comment.updatedAt);
@@ -347,13 +376,18 @@ function addComment(comment) {
   commentBox.innerHTML = `
 <input type="text" placeholder="Type Any Thing" id=input.${comment.id} >
 <div class="collection">
-  <img
-  src="/images/camera.png"
-  alt=""
-  width="20"
-  height="20"
+<div class="image-upload">
+<label for="file-input">
+<img
+src="/images/camera.png"
+alt=""
+width="20"
+height="20"
+/>    </label>
 
-/>
+<input id="file-input" type="file"/>
+</div>
+
 <img
 src="/images/emoticon.png"
 alt=""
@@ -502,12 +536,18 @@ function addReplay(replay) {
   commentBox.innerHTML = `
   <input type="text" placeholder="Type Any Thing" id=input.${replay.id} >
   <div class="collection">
+  <div class="image-upload">
+  <label for="file-input">
   <img
   src="/images/camera.png"
   alt=""
   width="20"
   height="20"
-/>
+/>    </label>
+
+  <input id="file-input" type="file"/>
+</div>
+
 <img
 src="/images/emoticon.png"
 alt=""

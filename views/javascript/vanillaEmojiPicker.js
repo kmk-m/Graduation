@@ -7537,7 +7537,7 @@ const EmojiPicker = function (options) {
                       z-index: 1000;
                       position:absolute;
                       top:${topp}%;
-                      right:-45%;
+                      right:-35%;
                   }
 
                   .fg-emoji-container svg {

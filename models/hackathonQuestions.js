@@ -3,7 +3,7 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "userFriends",
+    "hackathonQuestions",
     {
       id: {
         type: dataType.UUID,
@@ -13,8 +13,16 @@ function init(connection) {
       userId: {
         type: dataType.UUID,
       },
-      friendId: {
+      hackthonId: {
         type: dataType.UUID,
+      },
+      question: {
+        type: dataType.STRING,
+        allowNull: false,
+      },
+      answer: {
+        type: dataType.STRING,
+        allowNull: false,
       },
     },
     {
@@ -24,18 +32,18 @@ function init(connection) {
   );
 }
 function associate(models) {
-  const { user, userFriends } = models;
-  user.hasMany(userFriends, {
+  const { Hackathons, user, hackathonQuestions } = models;
+  user.hasMany(hackathonQuestions, {
     foreignKey: "userId",
   });
-  userFriends.belongsTo(user, {
+  hackathonQuestions.belongsTo(user, {
     foreignKey: "userId",
   });
-  user.hasMany(userFriends, {
-    foreignKey: "friendId",
+  Hackathons.hasMany(hackathonQuestions, {
+    foreignKey: "hackthonId",
   });
-  userFriends.belongsTo(user, {
-    foreignKey: "friendId",
+  hackathonQuestions.belongsTo(Hackathons, {
+    foreignKey: "hackthonId",
   });
 }
 export { init, associate };

@@ -113,6 +113,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+}
+.image-upload > input {
+  display: none;
+}
+.images {
+  display: none;
+  width: 87%;
+  background-color: #f0f0f0;
+  position: relative;
+  margin-left: 7.3%;
+  margin-top: -2%;
+  padding-top: 2%;
+  padding-left: 2%;
+  z-index: 1;
+  border: 1px solid #dcdcdc;
 }
 .hac {
   padding: 5%;
@@ -129,6 +145,7 @@ body {
   position: relative;
   transition: 0.5s;
   filter: drop-shadow(4px 4px 2px #dcdcdc);
+  z-index: -10;
 }
 
 .namehack {
@@ -270,6 +287,7 @@ body {
   filter: drop-shadow(4px 4px 2px #dcdcdc);
   display: none;
   position: relative;
+  z-index: 1000;
 }
 .commentBox input {
   width: 100%;

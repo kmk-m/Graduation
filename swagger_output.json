@@ -1663,7 +1663,190 @@
           "Hackathons"
         ],
         "description": "to get Hackathons data",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "hachathons",
+            "in": "query",
+            "description": "numberOfhachathonsNow...",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackathonId}/standing": {
+      "get": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to get Hackathons data",
+        "parameters": [
+          {
+            "name": "hackathonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "users",
+            "in": "query",
+            "description": "numberOfusersNow...",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackthonId}/users": {
+      "get": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to get Hackathons users",
+        "parameters": [
+          {
+            "name": "hackthonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "users",
+            "in": "query",
+            "description": "numberOfusersNow...",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackthonId}/friends": {
+      "get": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to get Hackathons friends",
+        "parameters": [
+          {
+            "name": "hackthonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "users",
+            "in": "query",
+            "description": "numberOfusersNow...",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackthonId}/register": {
+      "post": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to registert to Hackathons",
+        "parameters": [
+          {
+            "name": "hackthonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackathonId}": {
+      "get": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to get data from Hackathon",
+        "parameters": [
+          {
+            "name": "hackathonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/hackathons/{hackthonId}/submit": {
+      "patch": {
+        "tags": [
+          "Hackathons"
+        ],
+        "description": "to submit",
+        "parameters": [
+          {
+            "name": "hackthonId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "submit",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "solution": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
