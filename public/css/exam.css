@@ -56,7 +56,8 @@ body {
   font-size: 22px;
   }
 .progress {
-  width: 100%;
+  width: 250px;
+  height: 5px;
   background: #BCBCBC;
   margin-bottom: 50px;
   position: relative;
