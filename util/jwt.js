@@ -36,7 +36,7 @@ async function authenticateWithJWT(req, res, next) {
       return search(results);
     });
     function search(results) {
-      console.log(results);
+      // console.log(results);
     }
 
     PythonShell.run(

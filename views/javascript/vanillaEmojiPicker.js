@@ -1,9 +1,16 @@
+import emojis from "emoji-picker-react/dist/data/emojis";
+
 const EmojiPicker = function (options) {
   console.log("ty");
+  if (document.querySelector(".fg-emoji-container")) {
+    document.querySelector(".fg-emoji-container").remove();
+  }
+  console.log(document.querySelector(".fg-emoji-container"));
   let topp = -7;
 
   this.options = options;
   this.trigger = this.options.trigger.map((item) => item.selector);
+  console.log(this.trigger);
 
   this.insertInto = undefined;
   let emojiesHTML = "";
@@ -48,6 +55,7 @@ const EmojiPicker = function (options) {
             item.addEventListener(event, callback.bind(item));
           });
         } else {
+          console.log("items", this.el());
           this.el().forEach((item) => {
             item.addEventListener(event, (e) => {
               if (e.target.closest(classList)) {
@@ -59,7 +67,6 @@ const EmojiPicker = function (options) {
                   const index = classList.findIndex((attr) =>
                     stringifiedElem.includes(attr.slice(1))
                   );
-
                   attr = classList[index];
                 }
 
@@ -7726,12 +7733,15 @@ const EmojiPicker = function (options) {
     // },
 
     render: (e, attr) => {
+      console.log("render");
+      // if(!document.querySelector(".fg-emoji-container")){
       emojiList = undefined;
       id = attr.split("btn")[1];
 
-      const index = this.options.trigger.findIndex(
-        (item) => item.selector === attr
-      );
+      const index = this.options.trigger.findIndex((item) => {
+        console.log(item.selector === attr);
+        return item.selector === attr;
+      });
       this.insertInto = this.options.trigger[index].insertInto;
 
       const position = functions.position();
@@ -7758,13 +7768,12 @@ const EmojiPicker = function (options) {
           }
         }
       }
-
       if (document.querySelector(".fg-emoji-container")) {
         this.lib(".fg-emoji-container").remove();
       }
 
       const picker = `
-              <div class="fg-emoji-container" >
+              <div class="fg-emoji-container" id =fg-emoji-container.${id} >
                   <nav class="fg-emoji-nav">
                       <ul>
                           ${categoriesHTML}
@@ -7805,21 +7814,25 @@ const EmojiPicker = function (options) {
                   </div>
               </div>
           `;
+      document.getElementById("post." + id);
       if (!document.getElementById("post." + id)) {
         console.log(id);
-        document
-          .getElementById("em." + id)
-          .insertAdjacentHTML("afterbegin", picker);
+        console.log("k", document.getElementById("em." + id));
+        console.log("re", document.querySelector(".fg-emoji-container"));
+
+        document.getElementById("em." + id).innerHTML = picker;
+        //   .insertAdjacentHTML("afterbegin", picker);
+        console.log("k", document.getElementById("em." + id));
       } else {
         document
           .getElementById("post." + id)
           .insertAdjacentHTML("afterbegin", picker);
       }
       // functions.rePositioning(document.querySelector(".fg-emoji-container"));
-
-      setTimeout(() => {
-        document.querySelector(".fg-emoji-picker-search input").focus();
-      }, 500);
+      console.log(document.querySelector(".fg-emoji-picker-search input"));
+      // setTimeout(() => {
+      //   document.querySelector(".fg-emoji-picker-search input").focus();
+      // }, 500);
     },
 
     closePicker: (e) => {
@@ -7832,10 +7845,11 @@ const EmojiPicker = function (options) {
 
     checkPickerExist(e) {
       if (
-        document.querySelector(".fg-emoji-container") &&
+        document.getElementById("fg-emoji-container." + id) &&
         !e.target.closest(".fg-emoji-container") &&
         !moseMove
       ) {
+        console.log("pop");
         functions.closePicker.call(this, e);
       }
     },
@@ -7864,7 +7878,7 @@ const EmojiPicker = function (options) {
       const emoji = e.target.innerText.trim();
       const myField = document.getElementById(this.insertInto);
       const myValue = emoji;
-
+      console.log("hh", this.insertInto);
       // Check if selector is an array
       if (document.selection) {
         myField.focus();

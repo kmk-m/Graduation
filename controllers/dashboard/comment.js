@@ -7,25 +7,37 @@ async function addcomment(req, res, next) {
     if (!comment || !postId) {
       return Responses.badRequest(res, "comment canoy be empty", null);
     }
-
+    let dateNow = new Date();
+    dateNow.setHours(dateNow.getHours() + 2);
     const add = await postComments.create({
       userId: req.userId,
       comment: comment,
       postId: postId,
-      updatedAt: Date.now(),
       type: "comment",
     });
-    const Comment = await postComments.findOne({
+    const data = await postComments.findOne({
       where: {
         id: add.id,
       },
       include: [
         {
           model: user,
-          attributes: ["firstName", "lastName", "image", "bio"],
+          attributes: [
+            "firstName",
+            "lastName",
+            "image",
+            "bio",
+            "image",
+            "userId",
+          ],
         },
       ],
     });
+
+    const Comment = {
+      data,
+      userPost: null,
+    };
     return Responses.success(res, "comment Add Successfully", Comment);
   } catch (err) {
     next(err);

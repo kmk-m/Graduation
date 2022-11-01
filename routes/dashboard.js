@@ -6,7 +6,11 @@ import dashboard from "../controllers/dashboard/dashboard.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import comment from "../controllers/dashboard/comment.js";
+import replay from "../controllers/dashboard/replay.js";
+
 import likes from "../controllers/dashboard/likes.js";
+import getPost from "../controllers/dashboard/getPost.js";
+
 import { PythonShell } from "python-shell";
 import { spawn } from "child_process";
 router.get("/", (req, res) => {
@@ -39,6 +43,7 @@ router.get("/", (req, res) => {
     } */
   res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
 });
+
 router.get("/dashboard", dashboard, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard data"
@@ -69,7 +74,66 @@ router.get("/dashboard", dashboard, (req, res) => {
             }
     } */
 });
-router.post("/comment", comment.addcomment, (req, res) => {
+router.get("/:postId", (req, res) => {
+  // PythonShell.run("./search.py", null, function (err) {
+  //   if (err) throw err;
+  //   console.log("finished");
+  // // });
+  // let dataTosend;
+  // const python = spawn("python3", ["./search.py"]);
+  // python.stdout.on("data", function (data) {
+  //   dataTosend = data.toString();
+  // });
+  // python.stderr.on("data", function (data) {
+  //   console.error(`stderr: ${data}`);
+  // });
+  // python.on("exit", (code) => {
+  //   console.log(`child process ${code}, ${dataTosend}`);
+  // });
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to get dashboard page"
+  // /* #swagger.responses[200] = {
+  // description: 'page opened',
+  // } */
+  /* #swagger.responses[400] = {
+            description: 'User  not login',
+            schema: {
+                "code": "403",
+                "message": "You cannot access this page before login",
+            }
+    } */
+  res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
+});
+router.get("/post/:postId", getPost, (req, res) => {
+  // PythonShell.run("./search.py", null, function (err) {
+  //   if (err) throw err;
+  //   console.log("finished");
+  // // });
+  // let dataTosend;
+  // const python = spawn("python3", ["./search.py"]);
+  // python.stdout.on("data", function (data) {
+  //   dataTosend = data.toString();
+  // });
+  // python.stderr.on("data", function (data) {
+  //   console.error(`stderr: ${data}`);
+  // });
+  // python.on("exit", (code) => {
+  //   console.log(`child process ${code}, ${dataTosend}`);
+  // });
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to get dashboard page"
+  // /* #swagger.responses[200] = {
+  // description: 'page opened',
+  // } */
+  /* #swagger.responses[400] = {
+            description: 'User  not login',
+            schema: {
+                "code": "403",
+                "message": "You cannot access this page before login",
+            }
+    } */
+});
+router.post("/comment/addComment", comment.addcomment, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to add comment"
   /*  #swagger.parameters['obj'] = {
@@ -82,6 +146,29 @@ router.post("/comment", comment.addcomment, (req, res) => {
         } */
 });
 router.patch("/comment/:commentId", comment.editcomment, (req, res) => {
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to edit comment"
+  /*  #swagger.parameters['obj'] = {
+                in: 'body',
+                description: 'addcomment',
+                schema: {
+                    "comment": "string",
+                }
+        } */
+});
+router.post("/replay/addReplay", replay.addReplay, (req, res) => {
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to add comment"
+  /*  #swagger.parameters['obj'] = {
+                in: 'body',
+                description: 'addcomment',
+                schema: {
+                    "comment": "string",
+                    "postId": "string",
+                }
+        } */
+});
+router.patch("/replay/:replayId", replay.editReplay, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to edit comment"
   /*  #swagger.parameters['obj'] = {

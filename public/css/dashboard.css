@@ -8,6 +8,25 @@ body {
   margin: 0;
   padding: 0;
 }
+.no-js #loader {
+  display: none;
+}
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif)
+    center no-repeat #fff;
+}
 .container {
   display: flex;
   flex-direction: row;
@@ -118,6 +137,7 @@ body {
 .image-upload > input {
   display: none;
 }
+
 .images {
   display: none;
   width: 87%;
@@ -384,7 +404,7 @@ body {
 
 /* showmore */
 
-button {
+.button-text {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -398,11 +418,11 @@ button {
   font-family: inherit;
   margin-top: 5%;
 }
-button.learn-more {
+.button-text.learn-more {
   width: 12rem;
   height: auto;
 }
-button.learn-more .circle {
+.button-text.learn-more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
   display: block;
@@ -412,7 +432,7 @@ button.learn-more .circle {
   background: #0e1b3e;
   border-radius: 1.625rem;
 }
-button.learn-more .circle .icon {
+.button-text.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -420,14 +440,14 @@ button.learn-more .circle .icon {
   margin: auto;
   background: #fff;
 }
-button.learn-more .circle .icon.arrow {
+.button-text.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
   width: 1.125rem;
   height: 0.125rem;
   background: none;
 }
-button.learn-more .circle .icon.arrow::before {
+.button-text.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
   top: -0.25rem;
@@ -438,7 +458,7 @@ button.learn-more .circle .icon.arrow::before {
   border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
 }
-button.learn-more .button-text {
+.button-text.learn-more .button-text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -453,14 +473,14 @@ button.learn-more .button-text {
   text-align: center;
   text-transform: uppercase;
 }
-button:hover .circle {
+.button-text:hover .circle {
   width: 100%;
 }
-button:hover .circle .icon.arrow {
+.button-text:hover .circle .icon.arrow {
   background: #fff;
   transform: translate(1rem, 0);
 }
-button:hover .button-text {
+.button-text:hover .button-text {
   color: #fff;
 }
 
@@ -767,4 +787,305 @@ button:hover .button-text {
 .hidden {
   left: 17%;
   z-index: 100;
+}
+.imgUploaded {
+  width: 200px;
+  height: 100px;
+  padding: 2%;
+  border-radius: 21px;
+}
+.closed {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 90px;
+  margin-left: -8%;
+  cursor: pointer;
+  filter: drop-shadow(10px 10px 10px 10px #ff0000);
+}
+.images2 {
+  width: 75%;
+  margin-left: 15.5%;
+}
+.images3 {
+  width: 65%;
+  margin-left: 25.5%;
+}
+.edit {
+  width: 180%;
+  border: none;
+  outline: none;
+}
+.commentEdit {
+  margin-top: -8%;
+  width: 70%;
+  margin-left: 22%;
+}
+.hide {
+  display: none;
+}
+.esc {
+  margin-top: 1%;
+  margin-left: 28%;
+  font-size: small;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 100000;
+  position: fixed;
+  opacity: 0.8;
+}
+.confirmDelete {
+  position: fixed;
+  background-color: #f7f8fa;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmDelete .texts {
+  padding: 4%;
+}
+.confirmDelete .texts h5 {
+  font-size: large;
+  color: #111111;
+  margin-bottom: 2.5%;
+}
+
+.confirmDelete .texts p {
+  font-size: large;
+  color: #111111;
+
+  margin-right: auto;
+}
+.buttons {
+  margin-left: 18%;
+  margin-bottom: 5%;
+}
+.buttons button {
+  padding: 2% 5%;
+  cursor: pointer;
+}
+.bty1 {
+  background-color: orange;
+  color: white;
+  border: none;
+  outline: none;
+}
+.bty1:hover {
+  background-color: rgb(255, 187, 0);
+}
+.copy {
+  padding: 1.5% 5%;
+  padding-right: 1.5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+  background-color: #dcdcdc;
+  z-index: 1000;
+  border-radius: 15px;
+  filter: drop-shadow(4px 4px 2px #777777);
+  transition: 0.5s;
+}
+.hide2 {
+  left: -50%;
+  transition: 0.5s;
+}
+.copy a {
+  text-decoration: none;
+  width: fit-content;
+  color: orange;
+  font-weight: 500;
+  font-family: "roboto";
+}
+.copy p {
+  margin-left: 10%;
+}
+.copy a:hover {
+  text-decoration: underline;
+  font-family: "roboto";
+}
+.copy .in1 {
+  margin-left: -15%;
+}
+.copy .in2 {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/*
+404*/
+/*
+emoji*/
+.fg-emoji-container {
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.62);
+  background-color: white;
+  overflow: hidden;
+  z-index: 1000;
+  position: absolute;
+  top: -7%;
+  right: -35%;
+}
+
+.fg-emoji-container svg {
+  max-width: 100%;
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+}
+
+.fg-emoji-picker-category-title {
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 0 10px 5px 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  flex: 0 0 calc(100% - 20px);
+  border-bottom: 1px solid #ededed;
+}
+
+.fg-emoji-nav {
+  background-color: #646772;
+}
+
+.fg-emoji-nav li p svg {
+  transition: all 0.2s ease;
+  fill: white;
+}
+
+.fg-emoji-nav li:hover p svg {
+  fill: black;
+}
+
+.fg-emoji-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.fg-emoji-nav ul li {
+  flex: 1;
+}
+
+.fg-emoji-nav ul li p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.fg-emoji-nav ul li p:hover {
+  background-color: #e9ebf1;
+}
+
+.fg-emoji-nav ul li.active p {
+  background-color: #e9ebf1;
+}
+
+.fg-emoji-nav ul li.emoji-picker-nav-active p {
+  background-color: #e9ebf1;
+}
+
+.fg-emoji-nav ul li.emoji-picker-nav-active p svg {
+  fill: #646772;
+}
+
+.fg-emoji-picker-move {
+  /* pointer-events: none; */
+  cursor: move;
+}
+
+.fg-picker-special-buttons p {
+  background-color: "#ed5e28";
+}
+
+.fg-picker-special-buttons:last-child p {
+  box-shadow: inset 1px 0px 0px 0 rgba(0, 0, 0, 0.11);
+}
+
+.fg-emoji-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 323px;
+}
+
+.fg-emoji-picker-category-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.fg-emoji-list li {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 calc(100% / 6);
+  height: 50px;
+}
+
+.fg-emoji-list p {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fg-emoji-list li p:hover {
+  background-color: #ebebeb;
+}
+
+.fg-emoji-picker-search {
+  position: relative;
+}
+
+.fg-emoji-picker-search input {
+  border: none;
+  box-shadow: 0 0 0 0;
+  outline: none;
+  width: calc(100% - 30px);
+  display: block;
+  padding: 10px 15px;
+  background-color: #f3f3f3;
+}
+
+.fg-emoji-picker-search .fg-emoji-picker-search-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

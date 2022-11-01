@@ -697,7 +697,55 @@
         }
       }
     },
-    "/comment": {
+    "/{postId}": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get dashboard page",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/post/{postId}": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get dashboard page",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/comment/addComment": {
       "post": {
         "tags": [
           "HomePage"
@@ -781,6 +829,80 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/replay/addReplay": {
+      "post": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to add comment",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addcomment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "postId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/replay/{replayId}": {
+      "patch": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to edit comment",
+        "parameters": [
+          {
+            "name": "replayId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addcomment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
           }
         ],
         "responses": {

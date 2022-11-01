@@ -28,9 +28,12 @@ async function dahsboard(req, res, next) {
     }
     // liverbool and manchestercity ?
     const posts = await post.findAll({
+      order: [[{ model: postComments }, "updatedAt", "ASC"]],
+
       include: [
         {
           model: postComments,
+
           attributes: [
             "id",
             "postId",
@@ -51,6 +54,8 @@ async function dahsboard(req, res, next) {
                 "upvote",
                 "downvote",
               ],
+              order: [["updatedAt", "ASC"]],
+
               include: [
                 {
                   model: userPosts,
@@ -58,13 +63,19 @@ async function dahsboard(req, res, next) {
                 },
                 {
                   model: user,
-                  attributes: ["firstName", "lastName", "bio", "image"],
+                  attributes: [
+                    "userId",
+                    "firstName",
+                    "lastName",
+                    "bio",
+                    "image",
+                  ],
                 },
               ],
             },
             {
               model: user,
-              attributes: ["firstName", "lastName", "bio", "image"],
+              attributes: ["userId", "firstName", "lastName", "bio", "image"],
             },
             {
               model: userPosts,

@@ -6,12 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="css/emojis.css" /> -->
     <!-- <script src="/DisMojiPicker.js"></script> -->
+
     <link rel="stylesheet" href="/css/dashboard.css" />
+
     <title>Document</title>
   </head>
   <body>
+    <div class="se-pre-con"></div>
+
+    <div class="overlay hide"></div>
+    <div class="hide" id="over"></div>
     <div class="container">
       <!-- Navbar -->
+      <div class="copy hide2">
+        <!-- <img
+          class="in1"
+          src="/images/correct.png"
+          alt="profile"
+          style="width: 20px; height: 20px; border-radius: 21px"
+        />
+        <p>Link copied to clipboard.</p> -->
+        <!-- <a href="#" id = "copyLink">View</a>
+        <img
+          class="in2"
+          src="/images/close.png"
+          alt="profile"
+          style="width: 20px; height: 20px; border-radius: 21px"
+        /> -->
+      </div>
       <div class="left">
         <div class="logo">
           <h1>JOB<span style="color: orange">Q</span></h1>
@@ -80,12 +102,22 @@
       </div>
       <!--Finish hackathons and friends -->
     </div>
-    <script src="/dashboard.js"></script>
     <!-- <script src="jquery.emojiarea.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+      $(window).load(function () {
+        setTimeout(() => {}, 5000);
+        $(".se-pre-con").fadeOut("slow");
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+    <script src="/dashboard.js"></script>
+
     <script
       class="jsbin"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
     ></script>
-    <script src="/vanillaEmojiPicker.js"></script>
+    <!-- <script src="/vanillaEmojiPicker.js"></script> -->
   </body>
 </html>
