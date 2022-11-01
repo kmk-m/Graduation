@@ -834,13 +834,15 @@ function addReplay(replay, UserId, neww) {
     ? alreadyClicked.set(replay.id, true)
     : alreadyClicked.set(replay.id, false);
 
-  let countDownDate = new Date(replay.updatedAt).getTime();
-  countDownDate -= 7300000;
+  let countDownDate = new Date(replay.updatedAt);
+  countDownDate.setHours(countDownDate.getHours() + 2);
+  countDownDate = countDownDate.getTime();
   // Get Date Now
-  let dateNow = new Date().getTime();
+  let dateNow = new Date();
+  dateNow.setHours(dateNow.getHours() + 2);
+
   // Find The Date Difference Between Now And Countdown Date
   let dateDiff = dateNow - countDownDate;
-  // Get Time Units
   //og("time", dateDiff);
 
   let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
