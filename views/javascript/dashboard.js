@@ -399,7 +399,10 @@ function addPost(post, UserId) {
           },
         })
           .then((response) => response.json())
-          .then((json) => addComment(json.data.data, UserId, true));
+          .then((json) => {
+            addComment(json.data.data, UserId, true);
+            incComments(`comments.${post.id}`, 1);
+          });
       }
     });
   document.getElementById(`btn.${post.id}`).addEventListener("click", () => {
@@ -640,7 +643,10 @@ id =btn.${comment.id}
             },
           })
             .then((response) => response.json())
-            .then((json) => addReplay(json.data.data, UserId, true));
+            .then((json) => {
+              addReplay(json.data.data, UserId, true);
+              incComments(`comments.${comment.postId}`, 1);
+            });
         }
       });
   });
@@ -859,6 +865,7 @@ function addReplay(replay, UserId, neww) {
   } else if (seconds > 0) {
     date = seconds + "s";
   }
+  if (typeof date === "undefined") date = "1s";
 
   const parent = document.getElementById(
     "comment." + replay.commentId
@@ -1054,7 +1061,10 @@ id=btn.${replay.id}
             },
           })
             .then((response) => response.json())
-            .then((json) => addReplay(json.data.data, UserId, true));
+            .then((json) => {
+              addReplay(json.data.data, UserId, true);
+              incComments(`comments.${id}`, 1);
+            });
         }
       });
   });
@@ -1300,6 +1310,22 @@ function decComments(id, x) {
     document.getElementById(id).innerHTML = ``;
     document.getElementById(id).nextElementSibling.innerHTML = ``;
   } else {
+    document.getElementById(id).innerHTML = `${y}`;
+  }
+}
+function incComments(id, x) {
+  let y = parseInt(document.getElementById(id).innerHTML);
+  if (y == 0) {
+    document.getElementById(id).innerHTML = `1`;
+    document.getElementById(id).nextElementSibling.innerHTML = `Comment`;
+    y += x;
+  } else if (y == 1) {
+    document.getElementById(id).innerHTML = `2`;
+    document.getElementById(id).nextElementSibling.innerHTML = `Comments`;
+    y += x;
+  } else {
+    y += x;
+
     document.getElementById(id).innerHTML = `${y}`;
   }
 }
