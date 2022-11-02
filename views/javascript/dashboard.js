@@ -396,6 +396,7 @@ function addPost(post, UserId) {
 
         let x = document.getElementById("input." + post.id).value;
         document.getElementById("input." + post.id).value = "";
+
         if (
           files.get(post.id) &&
           files.get(post.id).type.split("/")[0] !== "image"
@@ -420,7 +421,8 @@ function addPost(post, UserId) {
             await sendData(
               `http://127.0.0.1:3000/upload/addComment/${json.data.data.id}`,
               document.getElementById(`file-input.` + post.id).files[0],
-              UserId
+              UserId,
+              "comment"
             );
             incComments(`comments.${post.id}`, 1);
             document.getElementById(`imr.${post.id}`).innerHTML = ``;
@@ -437,11 +439,11 @@ function addPost(post, UserId) {
 
   //og(document.querySelector(".fg-emoji-container"));
   post.postComments.forEach((x) => {
-    addComment(x, UserId, false);
+    addComment(x, UserId, false, null, post.id);
   });
 }
 
-function addComment(comment, UserId, neww, Image) {
+function addComment(comment, UserId, neww, Image, postId) {
   console.log("kl", comment);
   //og("hello", comment.upvote + comment.downvote);
   //og(comment.updatedAt);
@@ -581,11 +583,7 @@ height="20"
 
 </label>
 
-<form action="/" enctype="multipart/form-data" method="post">
-<div class="mb-3">
-<input id=file-input.${comment.id} name="file-input" type="file"       accept="image/*"
-multiple
-/>
+<input  id=file-input.${comment.id} type="file"  name="video" multiple />
 </div>
 
 <img
@@ -664,13 +662,18 @@ id =btn.${comment.id}
           e.preventDefault();
           let x = document.getElementById("input." + comment.id).value;
           document.getElementById("input." + comment.id).value = "";
-          beel = false;
-
+          if (
+            files.get(comment.id) &&
+            files.get(comment.id).type.split("/")[0] !== "image"
+          ) {
+            files.set(comment.id, null);
+          }
           await fetch("http://127.0.0.1:3000/replay/addReplay", {
             method: "POST",
             body: JSON.stringify({
               replay: x,
               commentId: comment.id,
+              image: files.get(comment.id) ? files.get(comment.id).name : null,
             }),
 
             headers: {
@@ -678,9 +681,19 @@ id =btn.${comment.id}
             },
           })
             .then((response) => response.json())
-            .then((json) => {
-              addReplay(json.data.data, UserId, true);
-              incComments(`comments.${comment.postId}`, 1);
+            .then(async (json) => {
+              await sendData(
+                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                document.getElementById(`file-input.` + comment.id).files[0],
+                UserId,
+                "replay"
+              );
+              incComments(`comments.${postId}`, 1);
+              document.getElementById(`imr.${comment.id}`).innerHTML = ``;
+              document.getElementById(`imr.${comment.id}`).style.display =
+                "none";
+              files.set(comment.id, null);
+              document.getElementById("file-input." + comment.id).value = "";
             });
         }
       });
@@ -899,7 +912,7 @@ id =btn.${comment.id}
   }
 }
 
-function addReplay(replay, UserId, neww) {
+function addReplay(replay, UserId, neww, Image) {
   replay.userPost
     ? alreadyClicked.set(replay.id, true)
     : alreadyClicked.set(replay.id, false);
@@ -944,13 +957,27 @@ function addReplay(replay, UserId, neww) {
   alt=""
   width="50"
   height="50"
-  style="border-radius:31px;"
+  class ="operr"
+ 
 />
 <div class="box" id =box2.${replay.id}>
   <div class="info">
   <h5>${replay.user.firstName + " " + replay.user.lastName}</h5>
   <p class="p1">${replay.user.bio}</p>
   <p class="p2" id=p2.${replay.id}>${replay.reply}</p>
+  ${
+    replay.image || Image
+      ? `<img src=
+      ${
+        replay.image
+          ? `${replay.image.split(`public`)[1]}`
+          : `images/replay/${Image}`
+      } 
+      width =100% height =auto class="upImages2 upImages3" id=upImages.${
+        replay.id
+      }>`
+      : `<p></p>`
+  }
   </div>
   <div class="settingsAndDate">
   
@@ -8895,7 +8922,7 @@ function emojis(id) {
     }
   });
 }
-async function sendData(url, data, UserId) {
+async function sendData(url, data, UserId, type) {
   const form_data = new FormData();
   form_data.append("video", data);
   await fetch(url, {
@@ -8903,7 +8930,11 @@ async function sendData(url, data, UserId) {
     body: form_data,
   })
     .then((response) => response.json())
-    .then((json) => addComment(json.data.data, UserId, true));
+    .then((json) =>
+      type === "comment"
+        ? addComment(json.data.data, UserId, true)
+        : addReplay(json.data.data, UserId, true)
+    );
 
   // ...
 }

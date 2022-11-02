@@ -35,7 +35,9 @@ body {
   width: 100%;
   position: absolute;
 }
-
+.upImages3 {
+  margin-left: 0;
+}
 .logo {
   margin-top: 0%;
   margin-bottom: 24%;
@@ -387,8 +389,11 @@ body {
   width: 60%;
 }
 .replay img {
-  margin-left: 10%;
   filter: drop-shadow(4px 4px 2px #dcdcdc);
+}
+.operr {
+  margin-left: 10%;
+  border-radius: 31px;
 }
 .arrow {
   margin-top: 5%;

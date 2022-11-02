@@ -547,25 +547,38 @@
         }
       }
     },
-    "/admin/addvideos": {
-      "get": {
+    "/upload/addComment/{commentId}": {
+      "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
-      },
+      }
+    },
+    "/upload/addReplay/{replayId}": {
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "replayId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -599,9 +612,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -690,9 +700,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -714,9 +721,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -738,9 +742,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -774,9 +775,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -812,9 +810,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       },
@@ -834,9 +829,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -870,9 +862,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -908,9 +897,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -944,9 +930,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       },
@@ -978,9 +961,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1014,9 +994,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       },
@@ -1048,9 +1025,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1091,9 +1065,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1115,9 +1086,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1249,9 +1217,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1279,9 +1244,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1303,9 +1265,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1339,9 +1298,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1382,9 +1338,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1425,9 +1378,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1463,9 +1413,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1499,9 +1446,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       },
@@ -1600,9 +1544,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1630,9 +1571,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1666,9 +1604,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1702,9 +1637,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1738,9 +1670,6 @@
                 "name": "main"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1755,9 +1684,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1772,9 +1698,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1796,9 +1719,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1826,9 +1746,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1856,9 +1773,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1886,9 +1800,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1910,9 +1821,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1934,9 +1842,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1972,9 +1877,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
