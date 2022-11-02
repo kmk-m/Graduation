@@ -18,6 +18,7 @@ function data(json) {
   para.className = "namedy";
   time(json.data.Quiz.time);
   numberTime(json.data.Quiz.numberOfQuestions);
+  questiontyp(json.Questions.questionType);
 }
 function time(timequiz) {
   /* Countdown Timer */
@@ -131,4 +132,8 @@ function changeColorans2() {
   var element = document.getElementById("2");
   element.style.background = "#FCB500";
   element.style.color = "#ffff";
+}
+/* api question */
+function questiontyp( type){
+  
 }

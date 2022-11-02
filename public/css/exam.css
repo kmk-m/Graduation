@@ -71,8 +71,10 @@ body {
   margin-top: 5%;
 }
 .progress {
-  width: 100%;
+  width: 80%;
+  height: 5px;
   background: #BCBCBC;
+  pointer-events: none;
   margin-bottom: 50px;
   position: relative;
   border-radius: 25px;
@@ -80,6 +82,7 @@ body {
 }
 .progress-inner {
   background-color: #fcb500;
+  pointer-events: all;
   width: 100%;
   height: 100%;
   border-radius: 25px;
@@ -103,13 +106,15 @@ body {
   border-radius: 5px;
   margin-left: 15px;
 }
+.all{
+  pointer-events: none;
+}
 .sub {
-  position: absolute;
-  left: 45%;
+  pointer-events: all;
   display: block;
-  margin: auto;
-  width: 35%;
-  top: 120%;
+  width: 50%;
+  margin-left: 20%;
+  margin-top: 20%;
   height: 16%;
   outline: none;
   color: #ffffff;
@@ -118,23 +123,15 @@ body {
   background-color: #fcb500;
   font-size: large;
 }
-.quiz-app {
-  position: absolute;
+.center {
+ position: absolute;
   width: 77%;
   height: 100%;
   right: 0%;
   background-color: #f8f8f8;
-  padding: 15px;
+  padding: 20px;
 }
-.quiz-app2 {
-  position: absolute;
-  width: 77%;
-  height: 100%;
-  right: 0%;
-  top: 100%;
-  background-color: #f8f8f8;
-  padding: 15px;
-}
+
 .count {
   font-family: "Inter", sans-serif;
   color: #bcbcbc;
@@ -148,18 +145,21 @@ body {
   margin-left: 5%;
   background-color: #ffffff;
   border-radius: 5px;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
-
+.ans{
+  margin-top: 15%;
+}
 .wordanswer {
-  padding: 10px;
+  padding: 15px;
   width: 80%;
-  font-family: "Inter", sans-serif;
+  color: #2E0F2E;
+  font-family: "Poppins", sans-serif;
   font-size: medium;
+  font-weight: bold;
 }
 
 input[type="radio"] {
