@@ -40,7 +40,7 @@ async function dahsboard(req, res, next) {
             "comment",
             "updatedAt",
             "upvote",
-            "downvote",
+            "image",
           ],
           include: [
             {
@@ -52,7 +52,7 @@ async function dahsboard(req, res, next) {
                 "reply",
                 "updatedAt",
                 "upvote",
-                "downvote",
+                "image",
               ],
               order: [["updatedAt", "ASC"]],
 

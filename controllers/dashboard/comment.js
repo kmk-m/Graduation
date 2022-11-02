@@ -4,6 +4,7 @@ async function addcomment(req, res, next) {
   try {
     const { postComments, user } = req.models;
     const { comment, postId } = req.body;
+
     if (!comment || !postId) {
       return Responses.badRequest(res, "comment canoy be empty", null);
     }
@@ -13,7 +14,6 @@ async function addcomment(req, res, next) {
       userId: req.userId,
       comment: comment,
       postId: postId,
-      type: "comment",
     });
     const data = await postComments.findOne({
       where: {

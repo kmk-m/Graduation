@@ -5,14 +5,36 @@ import { fileURLToPath } from "url";
 import dashboard from "../controllers/dashboard/dashboard.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import multer from "multer";
+
 import comment from "../controllers/dashboard/comment.js";
 import replay from "../controllers/dashboard/replay.js";
 
 import likes from "../controllers/dashboard/likes.js";
 import getPost from "../controllers/dashboard/getPost.js";
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    console.log("jlkjkljkljk", file);
 
-import { PythonShell } from "python-shell";
-import { spawn } from "child_process";
+    cb(null, __dirname + "../../../videos");
+  },
+  filename: (req, file, cb) => {
+    console.log("jlkjkljkljk", file);
+
+    cb(null, new Date().toISOString() + "-" + file.originalname);
+  },
+});
+const filefilter = (req, file, cb) => {
+  console.log("jlkjkljkljk", file);
+  if (file.mimetype !== "video/mp4") {
+    cb(null, false);
+  } else {
+    cb(null, true);
+  }
+};
+router.use(
+  multer({ storage: fileStorage, fileFilter: filefilter }).single("video")
+);
 router.get("/", (req, res) => {
   // PythonShell.run("./search.py", null, function (err) {
   //   if (err) throw err;

@@ -38,7 +38,7 @@ router.use("/signin/verifycode", verifychangepassword);
 router.use("/signup/verifyemail", verifyemail);
 router.use("/", google);
 router.use("/", facebook);
-router.use("/admin", jwt.authadmin, admin);
+router.use("/upload", jwt.authenticateWithJWT, admin);
 router.use("/", jwt.authenticateWithJWT, dashboard);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
 router.use("/room", jwt.authenticateWithJWT, room);

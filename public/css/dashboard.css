@@ -801,6 +801,19 @@ body {
   margin-left: -8%;
   cursor: pointer;
   filter: drop-shadow(10px 10px 10px 10px #ff0000);
+  z-index: 10000000;
+}
+.upImages2 {
+  margin-top: 5%;
+}
+.closed2 {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  filter: drop-shadow(10px 10px 10px 10px #ff0000);
+  position: absolute;
+  right: 1%;
+  top: 1%;
 }
 .images2 {
   width: 75%;
@@ -880,6 +893,18 @@ body {
 .bty1:hover {
   background-color: rgb(255, 187, 0);
 }
+
+.full {
+  width: 90%;
+  max-height: 90%;
+  border-radius: 18px;
+}
+.upImages {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 18px;
+}
 .copy {
   padding: 1.5% 5%;
   padding-right: 1.5%;
@@ -932,7 +957,7 @@ emoji*/
   box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.62);
   background-color: white;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 1000000;
   position: absolute;
   top: -7%;
   right: -35%;

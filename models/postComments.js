@@ -19,12 +19,10 @@ function init(connection) {
       comment: {
         type: dataType.TEXT,
       },
-      upVote: {
-        type: dataType.BIGINT,
-        allowNull: false,
-        defaultValue: 0,
+      image: {
+        type: dataType.STRING,
       },
-      downVote: {
+      upVote: {
         type: dataType.BIGINT,
         allowNull: false,
         defaultValue: 0,

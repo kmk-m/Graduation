@@ -55,7 +55,7 @@ app.use(bodyParser.json({ limit: "100mb" }));
 app.use(morgan("dev"));
 app.use("/", APIRouter);
 app.use("/assets", express.static("assets"));
-app.use(multer({ dest: "videos/" }).single("file"));
+app.use(multer({ dest: "public/" }).single("file"));
 
 /******Google******/
 app.post;

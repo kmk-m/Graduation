@@ -16,15 +16,13 @@ function init(connection) {
       userId: {
         type: dataType.UUID,
       },
+      image: {
+        type: dataType.STRING,
+      },
       reply: {
         type: dataType.TEXT,
       },
       upVote: {
-        type: dataType.BIGINT,
-        allowNull: false,
-        defaultValue: 0,
-      },
-      downVote: {
         type: dataType.BIGINT,
         allowNull: false,
         defaultValue: 0,

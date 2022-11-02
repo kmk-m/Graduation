@@ -251,21 +251,21 @@ function addPost(post, UserId) {
   <input id=input.${post.id} type="text" placeholder="Type Any Thing">
   <div class="collection" id=collection.${post.id}>
   <div class="image-upload">
-    <label id=choose.${post.id} for=file-input.${post.id} 
-    >
-    <img
-    src="/images/camera.png"
-    id=pre.${post.id}
-    alt=""
-    width="20"
-    height="20"
+  <label id=choose.${post.id} for=file-input.${post.id} 
+  >
+  <img
+  src="/images/camera.png"
+  id=pre.${post.id}
+  alt=""
+  width="20"
+  height="20"
   
   />    
-
+  
   </label>
-
-    <input id=file-input.${post.id} name="file-input" type="file"/>
-</div>
+  
+  <input  id=file-input.${post.id} type="file"  name="video" multiple />
+  </div>
 
   <img
   id =btn.${post.id}
@@ -322,35 +322,43 @@ function addPost(post, UserId) {
     document.getElementById("commentShow." + post.id).style.display = "flex";
     document.getElementById("post." + post.id).style.display = "block";
   });
-
   document
     .getElementById("file-input." + post.id)
     .addEventListener("change", () => {
-      files.set(
-        post.id,
-        document.getElementById(`file-input.` + post.id).files[0]
-      );
-      if (files.get(post.id)) {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(files.get(post.id));
-        fileReader.addEventListener("load", function () {
-          document.getElementById("imr." + post.id).style.display = "block";
-          console.log(document.getElementById(`imr.${post.id}`));
+      if (
+        document
+          .getElementById(`file-input.` + post.id)
+          .files[0].type.split("/")[0] === "image"
+      ) {
+        files.set(
+          post.id,
+          document.getElementById(`file-input.` + post.id).files[0]
+        );
+        if (files.get(post.id)) {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(files.get(post.id));
+          fileReader.addEventListener("load", function () {
+            document.getElementById("imr." + post.id).style.display = "block";
+            console.log(document.getElementById(`imr.${post.id}`));
 
-          document.getElementById(
-            "imr." + post.id
-          ).innerHTML = `<img class="imgUploaded" src=${this.result} />
+            document.getElementById(
+              "imr." + post.id
+            ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${post.id}  src=${this.result} />
             <img class="closed" id=closed.${post.id}  src="/images/close.png" />
             `;
-          document
-            .getElementById("closed." + post.id)
-            .addEventListener("click", () => {
-              document.getElementById(`imr.${post.id}`).innerHTML = ``;
-              document.getElementById(`imr.${post.id}`).style.display = "none";
-              files.set(post.id, null);
-              document.getElementById("file-input." + post.id).value = "";
-            });
-        });
+            open(post.id);
+
+            document
+              .getElementById("closed." + post.id)
+              .addEventListener("click", () => {
+                document.getElementById(`imr.${post.id}`).innerHTML = ``;
+                document.getElementById(`imr.${post.id}`).style.display =
+                  "none";
+                files.set(post.id, null);
+                document.getElementById("file-input." + post.id).value = "";
+              });
+          });
+        }
       }
     });
   document.getElementById(`share.${post.id}`).addEventListener("click", () => {
@@ -385,13 +393,22 @@ function addPost(post, UserId) {
     .addEventListener("keyup", async (e) => {
       if (e.keyCode === 13) {
         e.preventDefault();
+
         let x = document.getElementById("input." + post.id).value;
         document.getElementById("input." + post.id).value = "";
+        if (
+          files.get(post.id) &&
+          files.get(post.id).type.split("/")[0] !== "image"
+        ) {
+          files.set(post.id, null);
+        }
+
         await fetch("http://127.0.0.1:3000/comment/addComment", {
           method: "POST",
           body: JSON.stringify({
             comment: x,
             postId: post.id,
+            image: files.get(post.id) ? files.get(post.id).name : null,
           }),
 
           headers: {
@@ -399,9 +416,17 @@ function addPost(post, UserId) {
           },
         })
           .then((response) => response.json())
-          .then((json) => {
-            addComment(json.data.data, UserId, true);
+          .then(async (json) => {
+            await sendData(
+              `http://127.0.0.1:3000/upload/addComment/${json.data.data.id}`,
+              document.getElementById(`file-input.` + post.id).files[0],
+              UserId
+            );
             incComments(`comments.${post.id}`, 1);
+            document.getElementById(`imr.${post.id}`).innerHTML = ``;
+            document.getElementById(`imr.${post.id}`).style.display = "none";
+            files.set(post.id, null);
+            document.getElementById("file-input." + post.id).value = "";
           });
       }
     });
@@ -416,8 +441,8 @@ function addPost(post, UserId) {
   });
 }
 
-function addComment(comment, UserId, neww) {
-  console.log(UserId);
+function addComment(comment, UserId, neww, Image) {
+  console.log("kl", comment);
   //og("hello", comment.upvote + comment.downvote);
   //og(comment.updatedAt);
 
@@ -467,10 +492,22 @@ function addComment(comment, UserId, neww) {
 />
 <div class="box" id =box2.${comment.id}>
 
-<div class="info">
+<div class="info" id =info.${comment}>
 <h5>${comment.user.firstName + " " + comment.user.lastName}</h5>
 <p class="p1">${comment.user.bio}</p>
 <p class="p2" id=p2.${comment.id}>${comment.comment}</p>
+${
+  comment.image || Image
+    ? `<img src=
+    ${
+      comment.image
+        ? `${comment.image.split(`public`)[1]}`
+        : `images/comment/${Image}`
+    } 
+    width =100% height =auto class="upImages2" id=upImages.${comment.id}>`
+    : `<p></p>`
+}
+
 </div>
 
   <div class="settingsAndDate">
@@ -544,7 +581,11 @@ height="20"
 
 </label>
 
-<input id=file-input.${comment.id} name="file-input" type="file"/>
+<form action="/" enctype="multipart/form-data" method="post">
+<div class="mb-3">
+<input id=file-input.${comment.id} name="file-input" type="file"       accept="image/*"
+multiple
+/>
 </div>
 
 <img
@@ -589,13 +630,7 @@ id =btn.${comment.id}
     parent.appendChild(imr);
     parent.appendChild(esc);
   }
-  // parent.appendChild(comment2);
-  // parent.appendChild(feedss);
-  // parent.appendChild(commentBox);
-  // parent.appendChild(emo);
 
-  // parent.appendChild(imr);
-  // parent.appendChild(esc);
   //og(parent);
   triggr.push({
     selector: `.btn${comment.id}`,
@@ -666,9 +701,11 @@ id =btn.${comment.id}
 
           document.getElementById(
             "imr." + comment.id
-          ).innerHTML = `<img class="imgUploaded" src=${this.result} />
+          ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${comment.id}  src=${this.result} />
           <img class="closed" id=closed.${comment.id}  src="/images/close.png" />
           `;
+          open(comment.id);
+
           document
             .getElementById("closed." + comment.id)
             .addEventListener("click", () => {
@@ -828,6 +865,33 @@ id =btn.${comment.id}
         document.body.style.overflow = "auto";
       });
     });
+
+  if (document.getElementById(`upImages.${comment.id}`)) {
+    document
+      .getElementById(`upImages.${comment.id}`)
+      .addEventListener("click", () => {
+        document.querySelector(".overlay").className = "overlay";
+        document.getElementById("over").className = "confirmDelete full";
+        document.body.style.overflow = "hidden";
+
+        document.getElementById("over").innerHTML = `
+
+        <img src=${
+          document.getElementById(`upImages.${comment.id}`).src
+        } width =100% height =auto class="upImages" id=upImages.${comment.id}>
+        <img class="closed2" id=closed.${comment.id}  src="/images/close.png" />
+
+        `;
+        document
+          .getElementById(`closed.${comment.id}`)
+          .addEventListener("click", () => {
+            document.querySelector(".overlay").className = "overlay hide";
+            document.getElementById("over").className = "hide";
+            document.getElementById("over").innerHTML = ``;
+            document.body.style.overflow = "auto";
+          });
+      });
+  }
   if (comment.postReplies) {
     comment.postReplies.forEach((x) => {
       addReplay(x, UserId);
@@ -1082,12 +1146,13 @@ id=btn.${replay.id}
         fileReader.addEventListener("load", function () {
           document.getElementById("imr." + replay.id).style.display = "block";
           console.log(document.getElementById(`imr.${replay.id}`));
-
           document.getElementById(
             "imr." + replay.id
-          ).innerHTML = `<img class="imgUploaded" src=${this.result} />
+          ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${replay.id} src=${this.result} />
             <img class="closed" id=closed.${replay.id}  src="/images/close.png" />
             `;
+          open(replay.id);
+
           document
             .getElementById("closed." + replay.id)
             .addEventListener("click", () => {
@@ -1328,6 +1393,29 @@ function incComments(id, x) {
 
     document.getElementById(id).innerHTML = `${y}`;
   }
+}
+
+function open(id) {
+  const sr = document.getElementById(`imgUploaded.${id}`).src;
+  document.querySelector(`.imgUploaded`).addEventListener("click", () => {
+    console.log("okey");
+    document.querySelector(".overlay").className = "overlay";
+    document.getElementById("over").className = "confirmDelete full";
+    document.body.style.overflow = "hidden";
+
+    document.getElementById("over").innerHTML = `
+
+        <img src=${sr} width =90% height =auto class="upImages" id=upImages.${id}>
+        <img class="closed2" id=closed.${id}  src="/images/close.png" />
+
+        `;
+    document.getElementById(`closed.${id}`).addEventListener("click", () => {
+      document.querySelector(".overlay").className = "overlay hide";
+      document.getElementById("over").className = "hide";
+      document.getElementById("over").innerHTML = ``;
+      document.body.style.overflow = "auto";
+    });
+  });
 }
 
 function emojis(id) {
@@ -8806,4 +8894,16 @@ function emojis(id) {
       // pol.remove();
     }
   });
+}
+async function sendData(url, data, UserId) {
+  const form_data = new FormData();
+  form_data.append("video", data);
+  await fetch(url, {
+    method: "POST",
+    body: form_data,
+  })
+    .then((response) => response.json())
+    .then((json) => addComment(json.data.data, UserId, true));
+
+  // ...
 }
