@@ -6,8 +6,8 @@ async function addReplayImage(req, res, next) {
     const { reply } = req.body;
     const { replayId } = req.params;
     var image = req.file;
-
     if (image) image = image.path;
+    else image = null;
     const add = await postReplies.update(
       {
         image: image,
@@ -18,6 +18,8 @@ async function addReplayImage(req, res, next) {
         },
       }
     );
+    console.log("images", add);
+
     const data = await postReplies.findOne({
       where: {
         id: replayId,

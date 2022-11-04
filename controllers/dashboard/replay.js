@@ -45,17 +45,16 @@ async function addReplay(req, res, next) {
 
 async function editReplay(req, res, next) {
   try {
-    const { postReplies } = req.models;
+    const { postReplies, user } = req.models;
     const { replay } = req.body;
     const { replayId } = req.params;
     if (!replay || !replayId) {
       return Responses.badRequest(res, "replay canoy be empty", null);
     }
-
+    console.log(replayId);
     const add = await postReplies.update(
       {
-        replay: replay,
-        updatedAt: Date.now(),
+        reply: replay,
       },
       {
         where: {
@@ -65,7 +64,7 @@ async function editReplay(req, res, next) {
     );
     const Replay = await postReplies.findOne({
       where: {
-        id: add.id,
+        id: replayId,
       },
       include: [
         {
@@ -74,6 +73,8 @@ async function editReplay(req, res, next) {
         },
       ],
     });
+    console.log(Replay);
+
     return Responses.success(res, "replay Add Successfully", Replay);
   } catch (err) {
     next(err);

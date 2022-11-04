@@ -209,9 +209,7 @@ body {
   font-weight: 600;
   line-height: 1.5;
 }
-.word p {
-  filter: drop-shadow(2px 2px 1px #dcdcdc);
-}
+
 .bom {
   color: orange;
 }
@@ -306,7 +304,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  filter: drop-shadow(4px 4px 2px #dcdcdc);
   display: none;
   position: relative;
   z-index: 1000;
@@ -835,7 +832,11 @@ body {
 }
 .commentEdit {
   margin-top: -8%;
-  width: 70%;
+  width: 76%;
+  margin-left: 15%;
+}
+.replayEdit {
+  width: 71%;
   margin-left: 22%;
 }
 .hide {

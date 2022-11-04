@@ -46,19 +46,17 @@ async function addcomment(req, res, next) {
 
 async function editcomment(req, res, next) {
   try {
-    const { postComments } = req.models;
-    const { comment } = req.body;
+    const { postComments, user } = req.models;
+    const { comment, image } = req.body;
     const { commentId } = req.params;
     console.log(commentId);
     if (!comment || !commentId) {
       return Responses.badRequest(res, "comment canoy be empty", null);
     }
-    console.log(commentId);
 
     const add = await postComments.update(
       {
         comment: comment,
-        updatedAt: Date.now(),
       },
       {
         where: {
@@ -68,7 +66,7 @@ async function editcomment(req, res, next) {
     );
     const Comment = await postComments.findOne({
       where: {
-        id: add.id,
+        id: commentId,
       },
       include: [
         {

@@ -8,6 +8,7 @@ async function addCommentImage(req, res, next) {
     var image = req.file;
 
     if (image) image = image.path;
+    else image = null;
     console.log("ppppppppppop", image);
     const add = await postComments.update(
       {

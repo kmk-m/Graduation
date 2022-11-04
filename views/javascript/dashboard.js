@@ -654,6 +654,12 @@ id =btn.${comment.id}
   box.addEventListener("click", () => {
     let beel = true;
     document.getElementById("commentShow." + comment.id).style.display = "flex";
+    if (document.querySelector(".commentEdit")) {
+      let id = document.querySelector(".commentEdit").id.split(".")[1];
+      document.getElementById(`imr.${id}`).innerHTML = ``;
+      document.getElementById(`imr.${id}`).style.display = "none";
+      hideWhenClick(document.querySelector(".commentEdit").id.split(".")[1]);
+    }
     document
       .getElementById("input." + comment.id)
       .addEventListener("keyup", async (e) => {
@@ -686,9 +692,10 @@ id =btn.${comment.id}
                 `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + comment.id).files[0],
                 UserId,
-                "replay"
+                "replay",
+                comment.postId
               );
-              incComments(`comments.${postId}`, 1);
+              incComments(`comments.${comment.postId}`, 1);
               document.getElementById(`imr.${comment.id}`).innerHTML = ``;
               document.getElementById(`imr.${comment.id}`).style.display =
                 "none";
@@ -731,154 +738,13 @@ id =btn.${comment.id}
         });
       }
     });
-  document
-    .getElementById(`edit.${comment.id}`)
-    .addEventListener("click", () => {
-      console.log(document.getElementById(`input.${comment.id}`));
-      document.getElementById("input." + comment.id).value =
-        document.getElementById(`p2.${comment.id}`).innerHTML;
-      document.getElementById("input." + comment.id).focus();
-      document.getElementById(`box2.${comment.id}`).style.display = "none";
-      document.getElementById(`feed.${comment.id}`).style.display = "none";
-      let beel = true;
-      document.getElementById(`commentShow.${comment.id}`).style.display =
-        "flex";
-      document.getElementById(`commentShow.${comment.id}`).className =
-        "commentBox commentEdit";
-      document.getElementById(`esc.${comment.id}`).className = "esc";
-      document.getElementById("input." + comment.id).focus();
-      console.log("yes");
-      document
-        .getElementById("input." + comment.id)
-        .addEventListener("keyup", (e) => {
-          if (e.keyCode === 13 && beel) {
-            console.log("ops");
-
-            e.preventDefault();
-            document.getElementById(`date.${comment.id}`).innerHTML = "1s";
-            document.getElementById(`p2.${comment.id}`).innerHTML =
-              document.getElementById(`input.${comment.id}`).value;
-
-            document.getElementById(`box2.${comment.id}`).style.display =
-              "flex";
-            document.getElementById(`feed.${comment.id}`).style.display =
-              "flex";
-            document.getElementById(`commentShow.${comment.id}`).style.display =
-              "none";
-            document.getElementById(`commentShow.${comment.id}`).className =
-              "commentBox";
-            document.getElementById(`esc.${comment.id}`).className = "hide";
-            beel = false;
-          } else if (e.keyCode === 27 && beel) {
-            e.preventDefault();
-            document.getElementById(`box2.${comment.id}`).style.display =
-              "flex";
-            document.getElementById(`feed.${comment.id}`).style.display =
-              "flex";
-            document.getElementById(`commentShow.${comment.id}`).style.display =
-              "none";
-            document.getElementById(`commentShow.${comment.id}`).className =
-              "commentBox";
-            document.getElementById(`esc.${comment.id}`).className = "hide";
-            beel = false;
-          }
-        });
-    });
 
   // 27
   document.getElementById(`btn.${comment.id}`).addEventListener("click", () => {
     emojis(comment.id);
   });
-  document
-    .getElementById(`delete.${comment.id}`)
-    .addEventListener("click", () => {
-      document.querySelector(".overlay").className = "overlay";
-      document.getElementById("over").className = "confirmDelete";
-      document.getElementById("over").innerHTML = `
-       <div class="texts">
-       <h5>Are You want to delete this comment ?</h5>
-       <hr />
-       <div class="comment commentDelete">
-         <img
-           src=${comment.user.image}
-           alt=""
-           width="50"
-           height="50"
-           style="border-radius: 31px"
-         />
-         <div class="box">
-           <div class="info">
-             <h5>${comment.user.firstName + " " + comment.user.lastName}</h5>
-             <p class="p1">${comment.user.bio}</p>
-             <p class="p2">
-             ${comment.comment}
-             </p>
-           </div>
-  
-           <div class="settingsAndDate">
-             <div class="date">
-               <span>${date}</span>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="buttons">
-     <button id=yes class="bty1">Confirm</button>
-     <button
-       id =no
-       style="
-         color: orange;
-         background-color: transparent;
-         border: none;
-         outline: none;
-       "
-     >
-       Cancel
-     </button>
-   </div>
-       
-       `;
-      document.body.style.overflow = "hidden";
-      document.getElementById("yes").addEventListener("click", () => {
-        document.querySelector(".overlay").className = "overlay hide";
-        document.getElementById("over").className = "hide";
-        document.getElementById("over").innerHTML = ``;
-
-        document.getElementById(`box2.${comment.id}`).parentNode.remove();
-        // document.getElementById(`box2.${comment.id}`).innerHTML = ``;
-        console.log("parent", document.getElementById(`box2.${comment.id}`));
-
-        document.getElementById(`feed.${comment.id}`).innerHTML = ``;
-        document.getElementById(`feed.${comment.id}`).remove();
-
-        document.getElementById(`commentShow.${comment.id}`).innerHTML = ``;
-        document.getElementById(`commentShow.${comment.id}`).remove();
-        let num = 1;
-        comment.postReplies.forEach((e) => {
-          if (document.getElementById(`box2.${e.id}`)) {
-            document.getElementById(`box2.${e.id}`).parentNode.remove();
-            console.log("parent", document.getElementById(`box2.${e.id}`));
-
-            document.getElementById(`feed.${e.id}`).innerHTML = ``;
-            document.getElementById(`feed.${e.id}`).remove();
-
-            document.getElementById(`commentShow.${e.id}`).innerHTML = ``;
-            document.getElementById(`commentShow.${e.id}`).remove();
-            num++;
-          }
-        });
-        document.body.style.overflow = "auto";
-        decComments(`comments.${comment.postId}`, num);
-      });
-      document.getElementById("no").addEventListener("click", () => {
-        document.querySelector(".overlay").className = "overlay hide";
-        document.getElementById("over").className = "hide";
-        document.getElementById("over").innerHTML = ``;
-        document.body.style.overflow = "auto";
-      });
-    });
-
+  editClickComment(comment.id);
+  deleteClickComment(comment);
   if (document.getElementById(`upImages.${comment.id}`)) {
     document
       .getElementById(`upImages.${comment.id}`)
@@ -907,12 +773,13 @@ id =btn.${comment.id}
   }
   if (comment.postReplies) {
     comment.postReplies.forEach((x) => {
-      addReplay(x, UserId);
+      addReplay(x, UserId, false, null, comment.postId);
     });
   }
 }
 
-function addReplay(replay, UserId, neww, Image) {
+function addReplay(replay, UserId, neww, Image, postId) {
+  console.log("op", postId);
   replay.userPost
     ? alreadyClicked.set(replay.id, true)
     : alreadyClicked.set(replay.id, false);
@@ -1126,7 +993,15 @@ id=btn.${replay.id}
     document.getElementById("input." + replay.id).value = `${
       replay.user.firstName + " " + replay.user.lastName + " "
     }`;
+    console.log("klklklklklk", postId);
+
     let beel = false;
+    if (document.querySelector(".commentEdit")) {
+      let id = document.querySelector(".commentEdit").id.split(".")[1];
+      document.getElementById(`imr.${id}`).innerHTML = ``;
+      document.getElementById(`imr.${id}`).style.display = "none";
+      hideWhenClick(document.querySelector(".commentEdit").id.split(".")[1]);
+    }
     document.getElementById("commentShow." + replay.id).style.display = "flex";
     document
       .getElementById("input." + replay.id)
@@ -1152,9 +1027,25 @@ id=btn.${replay.id}
             },
           })
             .then((response) => response.json())
-            .then((json) => {
-              addReplay(json.data.data, UserId, true);
-              incComments(`comments.${id}`, 1);
+            .then(async (json) => {
+              await sendData(
+                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                document.getElementById(`file-input.` + replay.id).files[0],
+                UserId,
+                "replay",
+                postId
+              );
+              console.log(
+                "jk",
+                document.getElementById(`comments.${postId}`),
+                postId
+              ),
+                incComments(`comments.${postId}`, 1);
+              document.getElementById(`imr.${replay.id}`).innerHTML = ``;
+              document.getElementById(`imr.${replay.id}`).style.display =
+                "none";
+              files.set(replay.id, null);
+              document.getElementById("file-input." + replay.id).value = "";
             });
         }
       });
@@ -1187,137 +1078,14 @@ id=btn.${replay.id}
               document.getElementById(`imr.${replay.id}`).style.display =
                 "none";
               files.set(replay.id, null);
+              document.getElementById(`file-input.` + replay.id).files = [];
               document.getElementById("file-input." + replay.id).value = "";
             });
         });
       }
     });
-  document.getElementById(`edit.${replay.id}`).addEventListener("click", () => {
-    console.log(document.getElementById(`input.${replay.id}`));
-    document.getElementById("input." + replay.id).value =
-      document.getElementById(`p2.${replay.id}`).innerHTML;
-    document.getElementById("input." + replay.id).focus();
-    document.getElementById(`box2.${replay.id}`).style.display = "none";
-    document.getElementById(`feed.${replay.id}`).style.display = "none";
-
-    document.getElementById(`commentShow.${replay.id}`).style.display = "flex";
-    document.getElementById(`commentShow.${replay.id}`).className =
-      "commentBox commentEdit";
-    document.getElementById(`esc.${replay.id}`).className = "esc";
-    document.getElementById("input." + replay.id).focus();
-    let beel = true;
-    document
-      .getElementById("input." + replay.id)
-      .addEventListener("keyup", (e) => {
-        if (e.keyCode === 13 && beel) {
-          e.preventDefault();
-          document.getElementById(`date.${replay.id}`).innerHTML = "1s";
-          document.getElementById(`p2.${replay.id}`).innerHTML =
-            document.getElementById(`input.${replay.id}`).value;
-
-          document.getElementById(`box2.${replay.id}`).style.display = "flex";
-          document.getElementById(`feed.${replay.id}`).style.display = "flex";
-          document.getElementById(`commentShow.${replay.id}`).style.display =
-            "none";
-          document.getElementById(`commentShow.${replay.id}`).className =
-            "commentBox";
-          document.getElementById(`esc.${replay.id}`).className = "hide";
-          beel = false;
-        } else if (e.keyCode === 27 && beel) {
-          e.preventDefault();
-          document.getElementById(`box2.${replay.id}`).style.display = "flex";
-          document.getElementById(`feed.${replay.id}`).style.display = "flex";
-          document.getElementById(`commentShow.${replay.id}`).style.display =
-            "none";
-          document.getElementById(`commentShow.${replay.id}`).className =
-            "commentBox";
-          document.getElementById(`esc.${replay.id}`).className = "hide";
-          beel = false;
-        }
-      });
-  });
-  // 27
-
-  document
-    .getElementById(`delete.${replay.id}`)
-    .addEventListener("click", () => {
-      document.querySelector(".overlay").className = "overlay";
-      document.getElementById("over").className = "confirmDelete";
-      document.getElementById("over").innerHTML = `
-     <div class="texts">
-     <h5>Are You want to delete this comment ?</h5>
-     <hr />
-     <div class="comment commentDelete">
-       <img
-         src=${replay.user.image}
-         alt=""
-         width="50"
-         height="50"
-         style="border-radius: 31px"
-       />
-       <div class="box">
-         <div class="info">
-           <h5>${replay.user.firstName + " " + replay.user.lastName}</h5>
-           <p class="p1">${replay.user.bio}</p>
-           <p class="p2">
-           ${replay.reply}
-           </p>
-         </div>
-
-         <div class="settingsAndDate">
-           <div class="date">
-             <span>${date}</span>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div class="buttons">
-   <button id=yes class="bty1">Confirm</button>
-   <button
-     id =no
-     style="
-       color: orange;
-       background-color: transparent;
-       border: none;
-       outline: none;
-     "
-   >
-     Cancel
-   </button>
- </div>
-     
-     `;
-      document.body.style.overflow = "hidden";
-      document.getElementById("yes").addEventListener("click", () => {
-        let id = document
-          .getElementById(`comment.${replay.commentId}`)
-          .parentNode.id.split(".")[1];
-        console.log("id", id);
-        decComments(`comments.${id}`, 1);
-
-        document.querySelector(".overlay").className = "overlay hide";
-        document.getElementById("over").className = "hide";
-        document.getElementById("over").innerHTML = ``;
-
-        document.getElementById(`box2.${replay.id}`).parentNode.remove();
-        // document.getElementById(`box2.${replay.id}`).innerHTML = ``;
-        console.log("parent", document.getElementById(`box2.${replay.id}`));
-
-        document.getElementById(`feed.${replay.id}`).innerHTML = ``;
-        document.getElementById(`feed.${replay.id}`).remove();
-
-        document.getElementById(`commentShow.${replay.id}`).innerHTML = ``;
-        document.getElementById(`commentShow.${replay.id}`).remove();
-        document.body.style.overflow = "auto";
-      });
-      document.getElementById("no").addEventListener("click", () => {
-        document.querySelector(".overlay").className = "overlay hide";
-        document.getElementById("over").className = "hide";
-        document.getElementById("over").innerHTML = ``;
-        document.body.style.overflow = "auto";
-      });
-    });
+  editClick(replay.id);
+  deleteClick(replay);
   document.getElementById(`btn.${replay.id}`).addEventListener("click", () => {
     emojis(replay.id);
   });
@@ -1373,16 +1141,21 @@ document.getElementById("drop").addEventListener("click", () => {
   }
 });
 
-function calcDate() {
-  let now = new Date();
-  now.setHours(now.getHours() + 2);
+function calcDate(datee) {
+  let countDownDate = new Date(datee);
+  countDownDate.setHours(countDownDate.getHours() + 2);
+  countDownDate = countDownDate.getTime();
+  // Get Date Now
+  let dateNow = new Date();
+  dateNow.setHours(dateNow.getHours() + 2);
+
+  // Find The Date Difference Between Now And Countdown Date
+  let dateDiff = dateNow - countDownDate;
   // Get Time Units
-  //og("time", dateDiff);
-  console.log(now / (1000 * 24 * 60 * 60));
-  let days = Math.floor(now / (60 * 60 * 24));
-  let hours = Math.floor((now % (60 * 60 * 24)) / (60 * 60));
-  let minutes = Math.floor((now % (60 * 60)) / 60);
-  let seconds = Math.floor(now % 60);
+  let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
   let date;
   if (days > 0) {
     date = days + "d";
@@ -1393,6 +1166,7 @@ function calcDate() {
   } else if (seconds > 0) {
     date = seconds + "s";
   }
+  if (typeof date === "undefined") date = "1s";
   return date;
 }
 function decComments(id, x) {
@@ -8922,7 +8696,8 @@ function emojis(id) {
     }
   });
 }
-async function sendData(url, data, UserId, type) {
+async function sendData(url, data, UserId, type, postId) {
+  console.log("op2", postId);
   const form_data = new FormData();
   form_data.append("video", data);
   await fetch(url, {
@@ -8932,9 +8707,531 @@ async function sendData(url, data, UserId, type) {
     .then((response) => response.json())
     .then((json) =>
       type === "comment"
-        ? addComment(json.data.data, UserId, true)
-        : addReplay(json.data.data, UserId, true)
+        ? addComment(json.data.data, UserId, true, false, postId)
+        : addReplay(json.data.data, UserId, true, false, postId)
     );
 
   // ...
+}
+async function editData(url, type, data) {
+  console.log("dara", data);
+  const form_data = new FormData();
+  form_data.append("video", data);
+  await fetch(url, {
+    method: "POST",
+    body: form_data,
+  })
+    .then((response) => response.json())
+    .then((json) =>
+      type === "comment"
+        ? editCommentData(json.data.data.id, json.data.data)
+        : editReplayData(json.data.data.id, json.data.data)
+    );
+
+  // ...
+}
+function editWithPhoto(id, src) {
+  document.getElementById("imr." + id).style.display = "block";
+  console.log(document.getElementById(`imr.${id}`));
+
+  document.getElementById(
+    "imr." + id
+  ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${id}  src=${src} />
+  <img class="closed" id=closed.${id}  src="/images/close.png" />
+  `;
+  open(id);
+
+  document.getElementById("closed." + id).addEventListener("click", () => {
+    document.getElementById(`imr.${id}`).innerHTML = ``;
+    document.getElementById(`imr.${id}`).style.display = "none";
+    files.set(id, null);
+    document.getElementById("file-input." + id).value = "";
+  });
+}
+
+async function edit(id, type, x, data) {
+  console.log("kkkkkkk", x);
+  if (type === "replay") {
+    await fetch(`http://127.0.0.1:3000/${type}/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        replay: x,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then(async (json) => {
+        type === "replay"
+          ? editData(`http://127.0.0.1:3000/upload/addReplay/${id}`, type, data)
+          : editData(
+              `http://127.0.0.1:3000/upload/addComment/${id}`,
+              type,
+              data
+            );
+        hide(id);
+      });
+  } else {
+    await fetch(`http://127.0.0.1:3000/${type}/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        comment: x,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then(async (json) => {
+        type === "replay"
+          ? editData(`http://127.0.0.1:3000/upload/addReplay/${id}`, type, data)
+          : editData(
+              `http://127.0.0.1:3000/upload/addComment/${id}`,
+              type,
+              data
+            );
+        hide(id);
+      });
+  }
+}
+async function editCommentData(id, comment) {
+  const comment2 = document.getElementById(`comment.${id}`);
+  comment2.innerHTML = `
+  <img
+  src=${comment.user.image}
+  alt=""
+  width="50"
+  height="50"
+  style="border-radius:31px;"
+/>
+<div class="box" id =box2.${comment.id}>
+
+<div class="info" id =info.${comment}>
+<h5>${comment.user.firstName + " " + comment.user.lastName}</h5>
+<p class="p1">${comment.user.bio}</p>
+<p class="p2" id=p2.${comment.id}>${comment.comment}</p>
+${
+  comment.image !== null
+    ? `<img src=
+    ${
+      comment.image
+        ? `${comment.image.split(`public`)[1]}`
+        : `images/comment/${Image}`
+    } 
+    width =100% height =auto class="upImages2" id=upImages.${comment.id}>`
+    : `<p></p>`
+}
+
+</div>
+
+  <div class="settingsAndDate">
+    
+    <div class="settings">
+    <span id=edit.${comment.id}>
+    Edit</span>
+    <span id=delete.${comment.id}>
+  Delete
+  </span>
+    </div>
+  
+    <div class="date">
+     <span id=date.${comment.id}>${calcDate(comment.updatedAt)}</span>
+     </div>
+
+  </div>
+</div>
+`;
+  editClickComment(id);
+  deleteClickComment(comment);
+}
+
+async function editReplayData(id, replay) {
+  console.log("kkjklklk", id, replay.image);
+
+  //og("pare", parent.parentNode);
+  const replay2 = document.getElementById(`box2.${id}`).parentNode;
+  console.log(replay2);
+  replay2.innerHTML = `
+<img
+src=${replay.user.image}
+alt=""
+width="50"
+height="50"
+class ="operr"
+
+/>
+<div class="box" id =box2.${replay.id}>
+<div class="info">
+<h5>${replay.user.firstName + " " + replay.user.lastName}</h5>
+<p class="p1">${replay.user.bio}</p>
+<p class="p2" id=p2.${replay.id}>${replay.reply}</p>
+${
+  replay.image !== null
+    ? `<img src=
+    ${
+      replay.image
+        ? `${replay.image.split(`public`)[1]}`
+        : `images/replay/${Image}`
+    } 
+    width =100% height =auto class="upImages2 upImages3" id=upImages.${
+      replay.id
+    }>`
+    : `<p></p>`
+}
+</div>
+<div class="settingsAndDate">
+
+  <div class="settings">
+    <span id=edit.${replay.id}>Edit
+  </span>
+    <span id=delete.${replay.id}>
+    Delete
+</span>
+    </div>
+   <div class="date">
+    <span id=date.${replay.id}>${calcDate(replay.updatedAt)}</span>
+   </div>
+</div>
+</div>
+`;
+  editClick(id);
+  deleteClick(replay);
+}
+
+async function hide(id) {
+  document.getElementById(`imr.${id}`).innerHTML = ``;
+  document.getElementById(`imr.${id}`).style.display = "none";
+  files.set(id, null);
+}
+async function editClick(id) {
+  document.getElementById(`edit.${id}`).addEventListener("click", () => {
+    console.log(document.getElementById(`input.${id}`));
+    document.getElementById("input." + id).value = document.getElementById(
+      `p2.${id}`
+    ).innerHTML;
+    console.log(
+      "look",
+      document.getElementById(`p2.${id}`).nextElementSibling.className
+    );
+    if (
+      document.getElementById(`p2.${id}`).nextElementSibling.className !== ""
+    ) {
+      editWithPhoto(
+        id,
+        document.getElementById(`p2.${id}`).nextElementSibling.src
+      );
+    }
+
+    document.getElementById("input." + id).focus();
+    document.getElementById(`box2.${id}`).style.display = "none";
+    document.getElementById(`feed.${id}`).style.display = "none";
+    if (document.querySelector(".commentEdit")) {
+      let id = document.querySelector(".commentEdit").id.split(".")[1];
+      document.getElementById(`imr.${id}`).innerHTML = ``;
+      document.getElementById(`imr.${id}`).style.display = "none";
+      hideWhenClick(document.querySelector(".commentEdit").id.split(".")[1]);
+    }
+    document.getElementById(`commentShow.${id}`).style.display = "flex";
+    document.getElementById(`commentShow.${id}`).className =
+      "commentBox commentEdit replayEdit";
+    document.getElementById(`esc.${id}`).className = "esc";
+    document.getElementById("input." + id).focus();
+    let beel = true;
+
+    document.getElementById("input." + id).addEventListener("keyup", (e) => {
+      if (e.keyCode === 13 && beel) {
+        e.preventDefault();
+        document.getElementById(`date.${id}`).innerHTML = "1s";
+        document.getElementById(`p2.${id}`).innerHTML = document.getElementById(
+          `input.${id}`
+        ).value;
+        console.log(
+          "llllllllllll",
+          document.getElementById(`input.${id}`).value
+        );
+
+        edit(
+          id,
+          "replay",
+          document.getElementById(`input.${id}`).value,
+          files.get(id) !== null
+            ? document.getElementById(`file-input.` + id).files[0]
+            : null
+        );
+
+        document.getElementById(`box2.${id}`).style.display = "flex";
+        document.getElementById(`feed.${id}`).style.display = "flex";
+        document.getElementById(`commentShow.${id}`).style.display = "none";
+        document.getElementById(`commentShow.${id}`).className = "commentBox";
+        document.getElementById(`esc.${id}`).className = "hide";
+        beel = false;
+      } else if (e.keyCode === 27 && beel) {
+        e.preventDefault();
+        document.getElementById(`box2.${id}`).style.display = "flex";
+        document.getElementById(`feed.${id}`).style.display = "flex";
+        document.getElementById(`commentShow.${id}`).style.display = "none";
+        document.getElementById(`commentShow.${id}`).className = "commentBox";
+        document.getElementById(`esc.${id}`).className = "hide";
+        beel = false;
+        hide(id);
+      }
+    });
+  });
+}
+async function deleteClick(replay) {
+  document
+    .getElementById(`delete.${replay.id}`)
+    .addEventListener("click", () => {
+      document.querySelector(".overlay").className = "overlay";
+      document.getElementById("over").className = "confirmDelete";
+      document.getElementById("over").innerHTML = `
+     <div class="texts">
+     <h5>Are You want to delete this comment ?</h5>
+     <hr />
+     <div class="comment commentDelete">
+       <img
+         src=${replay.user.image}
+         alt=""
+         width="50"
+         height="50"
+         style="border-radius: 31px"
+       />
+       <div class="box">
+         <div class="info">
+           <h5>${replay.user.firstName + " " + replay.user.lastName}</h5>
+           <p class="p1">${replay.user.bio}</p>
+           <p class="p2">
+           ${replay.reply}
+           </p>
+         </div>
+
+         <div class="settingsAndDate">
+           <div class="date">
+             <span>${calcDate(replay.updatedAt)}</span>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="buttons">
+   <button id=yes class="bty1">Confirm</button>
+   <button
+     id =no
+     style="
+       color: orange;
+       background-color: transparent;
+       border: none;
+       outline: none;
+     "
+   >
+     Cancel
+   </button>
+ </div>
+     
+     `;
+      document.body.style.overflow = "hidden";
+      document.getElementById("yes").addEventListener("click", () => {
+        let id = document
+          .getElementById(`comment.${replay.commentId}`)
+          .parentNode.id.split(".")[1];
+        console.log("id", id);
+        decComments(`comments.${id}`, 1);
+
+        document.querySelector(".overlay").className = "overlay hide";
+        document.getElementById("over").className = "hide";
+        document.getElementById("over").innerHTML = ``;
+
+        document.getElementById(`box2.${replay.id}`).parentNode.remove();
+        // document.getElementById(`box2.${replay.id}`).innerHTML = ``;
+        console.log("parent", document.getElementById(`box2.${replay.id}`));
+
+        document.getElementById(`feed.${replay.id}`).innerHTML = ``;
+        document.getElementById(`feed.${replay.id}`).remove();
+
+        document.getElementById(`commentShow.${replay.id}`).innerHTML = ``;
+        document.getElementById(`commentShow.${replay.id}`).remove();
+        document.body.style.overflow = "auto";
+        fetch(`http://127.0.0.1:3000/${replay}/${replay.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then(async (json) => {});
+      });
+      document.getElementById("no").addEventListener("click", () => {
+        document.querySelector(".overlay").className = "overlay hide";
+        document.getElementById("over").className = "hide";
+        document.getElementById("over").innerHTML = ``;
+        document.body.style.overflow = "auto";
+      });
+    });
+}
+async function editClickComment(id) {
+  document.getElementById(`edit.${id}`).addEventListener("click", () => {
+    console.log(document.getElementById(`input.${id}`));
+    document.getElementById("input." + id).value = document.getElementById(
+      `p2.${id}`
+    ).innerHTML;
+
+    if (
+      document.getElementById(`p2.${id}`).nextElementSibling.className !== ""
+    ) {
+      editWithPhoto(
+        id,
+        document.getElementById(`p2.${id}`).nextElementSibling.src
+      );
+    }
+    if (document.querySelector(".commentEdit")) {
+      let id = document.querySelector(".commentEdit").id.split(".")[1];
+      document.getElementById(`imr.${id}`).innerHTML = ``;
+      document.getElementById(`imr.${id}`).style.display = "none";
+      hideWhenClick(document.querySelector(".commentEdit").id.split(".")[1]);
+    }
+    document.getElementById("input." + id).focus();
+    document.getElementById(`box2.${id}`).style.display = "none";
+    document.getElementById(`feed.${id}`).style.display = "none";
+    let beel = true;
+    document.getElementById(`commentShow.${id}`).style.display = "flex";
+    document.getElementById(`commentShow.${id}`).className =
+      "commentBox commentEdit";
+    document.getElementById(`esc.${id}`).className = "esc";
+    document.getElementById("input." + id).focus();
+    console.log("yes");
+    document.getElementById("input." + id).addEventListener("keyup", (e) => {
+      if (e.keyCode === 13 && beel) {
+        console.log("ops");
+
+        e.preventDefault();
+        document.getElementById(`date.${id}`).innerHTML = "1s";
+        document.getElementById(`p2.${id}`).innerHTML = document.getElementById(
+          `input.${id}`
+        ).value;
+        edit(
+          id,
+          "comment",
+          document.getElementById(`input.${id}`).value,
+          files.get(id) !== null
+            ? document.getElementById(`file-input.` + id).files[0]
+            : null
+        );
+
+        document.getElementById(`box2.${id}`).style.display = "flex";
+        document.getElementById(`feed.${id}`).style.display = "flex";
+        document.getElementById(`commentShow.${id}`).style.display = "none";
+        document.getElementById(`commentShow.${id}`).className = "commentBox";
+        document.getElementById(`esc.${id}`).className = "hide";
+        beel = false;
+      } else if (e.keyCode === 27 && beel) {
+        e.preventDefault();
+        document.getElementById(`box2.${id}`).style.display = "flex";
+        document.getElementById(`feed.${id}`).style.display = "flex";
+        document.getElementById(`commentShow.${id}`).style.display = "none";
+        document.getElementById(`commentShow.${id}`).className = "commentBox";
+        document.getElementById(`esc.${id}`).className = "hide";
+        beel = false;
+        hide(id);
+      }
+    });
+  });
+}
+async function deleteClickComment(comment) {
+  document
+    .getElementById(`delete.${comment.id}`)
+    .addEventListener("click", () => {
+      document.querySelector(".overlay").className = "overlay";
+      document.getElementById("over").className = "confirmDelete";
+      document.getElementById("over").innerHTML = `
+     <div class="texts">
+     <h5>Are You want to delete this comment ?</h5>
+     <hr />
+     <div class="comment commentDelete">
+       <img
+         src=${comment.user.image}
+         alt=""
+         width="50"
+         height="50"
+         style="border-radius: 31px"
+       />
+       <div class="box">
+         <div class="info">
+           <h5>${comment.user.firstName + " " + comment.user.lastName}</h5>
+           <p class="p1">${comment.user.bio}</p>
+           <p class="p2">
+           ${comment.comment}
+           </p>
+         </div>
+
+         <div class="settingsAndDate">
+           <div class="date">
+             <span>${calcDate(comment.updatedAt)}</span>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="buttons">
+   <button id=yes class="bty1">Confirm</button>
+   <button
+     id =no
+     style="
+       color: orange;
+       background-color: transparent;
+       border: none;
+       outline: none;
+     "
+   >
+     Cancel
+   </button>
+ </div>
+     
+     `;
+      document.body.style.overflow = "hidden";
+      document.getElementById("yes").addEventListener("click", () => {
+        document.querySelector(".overlay").className = "overlay hide";
+        document.getElementById("over").className = "hide";
+        document.getElementById("over").innerHTML = ``;
+
+        document.getElementById(`box2.${comment.id}`).parentNode.remove();
+        // document.getElementById(`box2.${comment.id}`).innerHTML = ``;
+        console.log("parent", document.getElementById(`box2.${comment.id}`));
+
+        document.getElementById(`feed.${comment.id}`).innerHTML = ``;
+        document.getElementById(`feed.${comment.id}`).remove();
+
+        document.getElementById(`commentShow.${comment.id}`).innerHTML = ``;
+        document.getElementById(`commentShow.${comment.id}`).remove();
+        let num = 1;
+        comment.postReplies.forEach((e) => {
+          if (document.getElementById(`box2.${e.id}`)) {
+            document.getElementById(`box2.${e.id}`).parentNode.remove();
+            console.log("parent", document.getElementById(`box2.${e.id}`));
+
+            document.getElementById(`feed.${e.id}`).innerHTML = ``;
+            document.getElementById(`feed.${e.id}`).remove();
+
+            document.getElementById(`commentShow.${e.id}`).innerHTML = ``;
+            document.getElementById(`commentShow.${e.id}`).remove();
+            num++;
+          }
+        });
+        document.body.style.overflow = "auto";
+        decComments(`comments.${comment.postId}`, num);
+      });
+      document.getElementById("no").addEventListener("click", () => {
+        document.querySelector(".overlay").className = "overlay hide";
+        document.getElementById("over").className = "hide";
+        document.getElementById("over").innerHTML = ``;
+        document.body.style.overflow = "auto";
+      });
+    });
+}
+async function hideWhenClick(id) {
+  document.getElementById(`box2.${id}`).style.display = "flex";
+  document.getElementById(`feed.${id}`).style.display = "flex";
+  document.getElementById(`commentShow.${id}`).style.display = "none";
+  document.getElementById(`commentShow.${id}`).className = "commentBox";
+  document.getElementById(`esc.${id}`).className = "hide";
 }
