@@ -8,24 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const router = Router();
-router.get("/signup", (req, res) => {
-  const token = req.cookies.access_token;
-  if (!token) {
-    return res.sendFile(
-      path.join(__dirname + "/../../views/html/register.html")
-    );
-  }
-  try {
-    return res.sendFile(
-      path.join(__dirname + "/../../views/html/alreadyLogin.html")
-    );
-
-    return next();
-  } catch {
-    return res.sendFile(
-      path.join(__dirname + "/../../views/html/register.html")
-    );
-  }
+router.get("/", (req, res) => {
+  console.log("signup");
+  res.sendFile(path.join(__dirname + "../../../views/html/signup.html"));
 });
-router.post("/signup", login.signup);
+router.post("/", login.signup);
 export default router;

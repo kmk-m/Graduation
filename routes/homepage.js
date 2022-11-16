@@ -63,10 +63,10 @@ router.get("/", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
-  res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
+  res.sendFile(path.join(__dirname + "/../views/html/homepage.html"));
 });
 
-router.get("/dashboard", dashboard, (req, res) => {
+router.get("/data", dashboard, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard data"
   /* #swagger.responses[200] = {

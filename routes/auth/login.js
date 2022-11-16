@@ -8,25 +8,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const router = Router();
-router.get("/signin", (req, res) => {
-  const token = req.cookies.access_token;
-  if (!token) {
-    return res.sendFile(path.join(__dirname + "/../../views/html/login.html"));
-  }
-  try {
-    return res.sendFile(
-      path.join(__dirname + "/../../views/html/alreadyLogin.html")
-    );
-
-    return next();
-  } catch {
-    return res.sendFile(path.join(__dirname + "/../../views/html/login.html"));
-  }
+router.get("/", (req, res) => {
   // #swagger.tags = ['user']
-  // res.sendFile(path.join(__dirname + "../../../views/html/login.html"));
+  res.sendFile(path.join(__dirname + "../../../views/html/signin.html"));
 });
 
-router.post("/signin", login.signin, (req, res) => {
+router.post("/", login.signin, (req, res) => {
   // #swagger.tags = ['user']
   /*  #swagger.parameters['obj'] = {
                 in: 'body',

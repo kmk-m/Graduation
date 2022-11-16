@@ -17,7 +17,7 @@ const connection = new Sequelize({
   host: "127.0.0.1",
   database: "lms",
   username: "root",
-  password: "",
+  password: "root",
   logging: false,
 });
 export { connection as default };
