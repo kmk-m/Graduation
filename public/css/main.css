@@ -89,19 +89,19 @@ body::-webkit-scrollbar-thumb {
 }
 /* Small */
 @media (min-width: 768px) {
-  .container {
+  .containe {
     width: 750px;
   }
 }
 /* Medium */
 @media (min-width: 992px) {
-  .container {
+  .containe {
     width: 970px;
   }
 }
 /* Large */
 @media (min-width: 1200px) {
-  .container {
+  .containe {
     width: 1170px;
   }
 }

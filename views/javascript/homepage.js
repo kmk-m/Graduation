@@ -113,51 +113,50 @@ function Tracks(tracks) {
 }
 
 async function hackathons(allHackathons) {
-  for (let hack of allHackathons) {
-    let hac = document.createElement("div");
-    hac.className = "hac";
-    let haca = document.querySelector(".allHackathons");
-    haca.appendChild(hac);
-    let countDownDate = new Date(hack.date).getTime();
-    let counter = setInterval(() => {
-      // Get Date Now
-      let dateNow = new Date().getTime();
-      // Find The Date Difference Between Now And Countdown Date
-      let dateDiff = countDownDate - dateNow;
-      // Get Time Units
-      let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
-      let hours = Math.floor(
-        (dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
-      let str = " Days";
-
-      if (days >= 2) {
-        hac.innerHTML = `
-          <h5>${hack.name} Round #${hack.round}</h5>
-          <p><span class="days">${days} days</span><span class="day"></span></p>
-          `;
-      } else {
-        hac.innerHTML = `
-          <h5>${hack.name} Round #${hack.round}</h5>
-                  <p>
-                  <span class="hours">${
-                    hours < 10 ? "0" + hours + ":" : hours + ":"
-                  }</span>
-                  <span class="minutes">${
-                    minutes < 10 ? "0" + minutes + ":" : minutes + ":"
-                  }</span>
-                  <span class="seconds">${
-                    seconds < 10 ? "0" + seconds + ":" : seconds
-                  }</span>
-                  </p> `;
-      }
-      if (dateDiff < 0) {
-        clearInterval(counter);
-      }
-    }, 1000);
-  }
+  // for (let hack of allHackathons) {
+  //   let hac = document.createElement("div");
+  //   hac.className = "hac";
+  //   let haca = document.querySelector(".allHackathons");
+  //   haca.appendChild(hac);
+  //   let countDownDate = new Date(hack.date).getTime();
+  //   let counter = setInterval(() => {
+  //     // Get Date Now
+  //     let dateNow = new Date().getTime();
+  //     // Find The Date Difference Between Now And Countdown Date
+  //     let dateDiff = countDownDate - dateNow;
+  //     // Get Time Units
+  //     let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+  //     let hours = Math.floor(
+  //       (dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //     );
+  //     let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+  //     let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+  //     let str = " Days";
+  //     if (days >= 2) {
+  //       hac.innerHTML = `
+  //         <h5>${hack.name} Round #${hack.round}</h5>
+  //         <p><span class="days">${days} days</span><span class="day"></span></p>
+  //         `;
+  //     } else {
+  //       hac.innerHTML = `
+  //         <h5>${hack.name} Round #${hack.round}</h5>
+  //                 <p>
+  //                 <span class="hours">${
+  //                   hours < 10 ? "0" + hours + ":" : hours + ":"
+  //                 }</span>
+  //                 <span class="minutes">${
+  //                   minutes < 10 ? "0" + minutes + ":" : minutes + ":"
+  //                 }</span>
+  //                 <span class="seconds">${
+  //                   seconds < 10 ? "0" + seconds + ":" : seconds
+  //                 }</span>
+  //                 </p> `;
+  //     }
+  //     if (dateDiff < 0) {
+  //       clearInterval(counter);
+  //     }
+  //   }, 1000);
+  // }
 }
 let triggr = [];
 

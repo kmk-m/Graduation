@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="css/emojis.css" /> -->
     <!-- <script src="/DisMojiPicker.js"></script> -->
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="/css/dashboard.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700&#038;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/logo.png" />
     <link rel="icon" href="images/logo.png" />
 
     <title>Homepage</title>
@@ -17,92 +27,144 @@
 
     <div class="overlay hide"></div>
     <div class="hide" id="over"></div>
-    <div class="container">
-      <!-- Navbar -->
-      <div class="copy hide2">
-        <!-- <img
+    <!-- Start Header Section -->
+
+    <!-- End Header Section -->
+
+    <header id="header">
+      <div class="containe">
+        <a href="" class="logo">
+          <img src="images/logo.png" width="70px" alt="logo" />
+        </a>
+        <input
+          id="search"
+          type="text"
+          class="search"
+          placeholder="Search for any Thing.. "
+        />
+        <ul class="main-nav">
+          <li>
+            <a href="#gallery">
+              <i
+                class="fas fa-comment-alt"
+                style="font-size: 26px; color: #2196f3"
+              ></i>
+            </a>
+          </li>
+          <li>
+            <a href="#events">
+              <i
+                class="fas fa-bell"
+                style="font-size: 28px; color: #2196f3"
+              ></i>
+            </a>
+          </li>
+          <li>
+            <a href="#services">
+              <img
+                id="not12"
+                src="/images/avatar-03.png"
+                alt=""
+                width="40"
+                height="40"
+                style="border-radius: 31px"
+                class="profileNav"
+              />
+              <span style="margin-top: 16px">&#8964;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="landing" id="landing">
+      <div class="container">
+        <!-- Navbar -->
+        <div class="copy hide2">
+          <!-- <img
           class="in1"
           src="/images/correct.png"
           alt="profile"
           style="width: 20px; height: 20px; border-radius: 21px"
         />
         <p>Link copied to clipboard.</p> -->
-        <!-- <a href="#" id = "copyLink">View</a>
+          <!-- <a href="#" id = "copyLink">View</a>
         <img
           class="in2"
           src="/images/close.png"
           alt="profile"
           style="width: 20px; height: 20px; border-radius: 21px"
         /> -->
-      </div>
-      <div class="left">
-        <div class="logo">
-          <h1>JOB<span style="color: orange">Q</span></h1>
         </div>
-        <div class="profile">
-          <img
-            src="/images/profile.jpg"
-            alt="profile"
-            style="width: 60px; height: 60px; border-radius: 41px"
-          />
-          <h2>Fahd Hakem</h2>
-          <p>Backend Developer in Odc</p>
-        </div>
-        <div class="links">
-          <h5>HomePage</h5>
-          <h5>Settings</h5>
-          <h5 id="drop">Tracks</h5>
-          <h5>Courses</h5>
-          <h5>Hackathons</h5>
-          <h5>Standing</h5>
-          <h5>Rooms</h5>
-        </div>
-        <div style="height: 95px"></div>
-      </div>
-      <!-- finish navbar -->
-      <div class="drops"></div>
-      <!-- welcome and posts -->
-
-      <div class="center">
-        <!-- start welcome -->
-        <div class="topCenter">
-          <div class="word">
-            <p style="font-size: 28px">
-              Welcome Back, <span class="bom" id="namewel">Amany</span>
-            </p>
-            <h3 style="color: #dcdcdc">April 3, Tuesday</h3>
+        <div class="left">
+          <div class="logo">
+            <h1>JOB<span style="color: orange">Q</span></h1>
           </div>
-          <!--image message and notification-->
-          <div class="imageCenter">
+          <div class="profile">
             <img
-              id="not12"
-              src="/images/mess1.png"
-              alt=""
-              width="30"
-              height="30"
+              src="/images/profile.jpg"
+              alt="profile"
+              style="width: 60px; height: 60px; border-radius: 41px"
             />
-            <img src="/images/not1.png" alt="" width="30" height="30" />
+            <h2>Fahd Hakem</h2>
+            <p>Backend Developer in Odc</p>
+          </div>
+          <div class="links">
+            <h5>HomePage</h5>
+            <h5>Settings</h5>
+            <h5 id="drop">Tracks</h5>
+            <h5>Courses</h5>
+            <h5>Hackathons</h5>
+            <h5>Standing</h5>
+            <h5>Rooms</h5>
+          </div>
+          <div style="height: 95px"></div>
+        </div>
+        <!-- finish navbar -->
+        <div class="drops"></div>
+        <!-- welcome and posts -->
+
+        <div class="center">
+          <!-- start welcome -->
+          <!-- <div class="topCenter">
+            <div class="word">
+              <p style="font-size: 28px">
+                Welcome Back, <span class="bom" id="namewel">Amany</span>
+              </p>
+              <h3 style="color: #dcdcdc">April 3, Tuesday</h3>
+            </div>
+            <div class="imageCenter">
+              <img
+                id="not12"
+                src="/images/mess1.png"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <img src="/images/not1.png" alt="" width="30" height="30" />
+            </div>
+          </div> -->
+          <!-- End welcome -->
+          <div class="allPosts"></div>
+        </div>
+        <!-- end posts -->
+        <div class="friends">
+          <h1>hrllo</h1>
+          <a href="">See More</a>
+        </div>
+        <!-- hackathons  -->
+        <div class="right">
+          <div class="allRight">
+            <div class="allHackathons">
+              <h5 style="color: #dcdcdc">Upcomming Hackathons</h5>
+
+              <h5 style="color: #dcdcdc">Last Hackathons</h5>
+            </div>
           </div>
         </div>
-        <!-- End welcome -->
-        <div class="allPosts"></div>
+        <!--Finish hackathons and friends -->
       </div>
-      <!-- end posts -->
-
-      <!-- hackathons and friends -->
-      <div class="right">
-        <div class="allRight">
-          <input
-            id="search"
-            type="text"
-            class="search"
-            placeholder="Search.. "
-          />
-          <div class="allHackathons"></div>
-        </div>
-      </div>
-      <!--Finish hackathons and friends -->
-    </div>
+    </main>
     <!-- <script src="jquery.emojiarea.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
