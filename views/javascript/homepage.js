@@ -5,16 +5,10 @@ let emojiCliced = new Map();
 let triggerEmo = new Map();
 let bol = false;
 let files = new Map();
-if (document.URL.includes("auth")) {
-  window.location.href = "http://127.0.0.1:3000/go/" + access_token;
-}
-if (document.URL.split("/")[3].length > 0) {
-  getData();
-  console.log("op");
-} else {
-  realDate();
-}
-
+document.getElementById("link2").addEventListener("click", () => {
+  console.log("jbjkjkbjkbhjvfcg", document.getElementById("link2"));
+  document.getElementById("link22").style.color = "#2196f3";
+});
 async function getData() {
   console.log("op2");
 
@@ -28,7 +22,7 @@ async function getData() {
     .then((response) => response.json())
     .then((json) => error404(json.code));
 }
-
+getData();
 function error404(json) {
   console.log(json);
   if (json === "Success") {
@@ -367,12 +361,7 @@ function addPost(post, UserId) {
     });
   document.getElementById(`share.${post.id}`).addEventListener("click", () => {
     document.querySelector(".copy").innerHTML = `
-    <img
-    class="in1"
-    src="/images/correct.png"
-    alt="profile"
-    style="width: 20px; height: 20px; border-radius: 21px"
-  />
+    <i class="fa-solid fa-square-check" style="color:#2196f3; margin-left:-20%;"></i>
   <p>Link copied to clipboard.</p>
     <a href="http://127.0.0.1:3000/${post.id}">View</a>
         <img

@@ -44,6 +44,16 @@ a {
   border: 2px solid white;
   transition-delay: 0.5s;
 }
+.loading {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
 .main-title::before {
   content: "";
   position: absolute;

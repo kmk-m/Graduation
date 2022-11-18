@@ -25,9 +25,7 @@ async function authenticateWithJWT(req, res, next) {
     });
     if (!valid) {
       res.clearCookie("access_token");
-      return res.sendFile(
-        path.join(__dirname + "/../views/html/notlogin.html")
-      );
+      return res.sendFile(path.join(__dirname + "/../views/html/welcome.html"));
     }
     let options = {
       args: [req.userId],
@@ -73,7 +71,32 @@ async function authenticateWithJWT(req, res, next) {
     req.userRole = data.role;
     return next();
   } catch {
-    return res.sendFile(path.join(__dirname + "/../views/html/notlogin.html"));
+    return res.sendFile(path.join(__dirname + "/../views/html/welcome.html"));
+  }
+}
+async function check(req, res, next) {
+  const token = req.cookies.access_token;
+
+  if (!token) {
+    return Responses.badRequest(res, "not found");
+  }
+  try {
+    const data = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    req.userId = data.userId;
+    const { user } = req.models;
+    const valid = await user.findOne({
+      where: {
+        userId: req.userId,
+      },
+    });
+    if (!valid) {
+      res.clearCookie("access_token");
+      return Responses.badRequest(res, "not found");
+    }
+    req.userRole = data.role;
+    return Responses.success(res, "yes");
+  } catch {
+    return Responses.badRequest(res, "not found");
   }
 }
 function authadmin(req, res, next) {
@@ -132,4 +155,5 @@ export default {
   authenticateWithJWT,
   authgoogle,
   authlogin,
+  check,
 };

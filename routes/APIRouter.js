@@ -19,6 +19,8 @@ import exam from "./exam.js";
 import room from "./room.js";
 import hackathons from "./hackathon.js";
 import welcome from "./welcome.js";
+import check from "./check.js";
+
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json" assert { type: "json" };
@@ -31,6 +33,8 @@ router.use("/exam", exam);
 router.use("/", welcome);
 router.use("/signin", login);
 router.use("/signup", signup);
+router.use("/check", jwt.check, check);
+
 router.use("/", assignment);
 router.use("/signin", forgetpassword);
 router.use("/signin", changepassword);
