@@ -187,6 +187,20 @@ function addPost(post, UserId) {
   const post2 = document.createElement("div");
   post2.className = "post";
   post2.innerHTML = `
+  <div class="user">
+  <img
+    src="/images/logo.png"
+    width="40px"
+    height="40px;"
+  />
+  <div class="info2" style="margin-top: -2.5%">
+    <h5 style="color: #2196f3">Learning Jobs</h5>
+    <p style="margin-top: -20px; color: #DCDCDC; font-size: small">
+      17 April at 18:07 PM
+    </p>
+  </div>
+</div>
+
   <p>
   ${post.content}
 </p>
@@ -284,16 +298,7 @@ function addPost(post, UserId) {
 <div class="allComments" id = post.${post.id}>
 
 </div>
-<!-- showmoare -->
-<div id="showmore">
-  <button class="learn-more">
-    <span class="circle" aria-hidden="true">
-      <span class="icon arrow"></span>
-    </span>
-    <span class="button-text">ShowMore</span>
-  </button>
-</div>
-<!-- end showmoare -->
+
   
   `;
 
