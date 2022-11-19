@@ -13,7 +13,7 @@ document.querySelector(".fb").addEventListener("click", () => {
 async function handleSubmit(e) {
   e.preventDefault();
   document.getElementById("butt").innerHTML = `
-  <i class="fa fa-circle-o-notch fa-spin" style="margin-right:15px"></i>Creating
+  <i class="fa fa-circle-o-notch fa-spin" style="margin-right:15px"></i>Loggining
   `;
   document.getElementById("butt").style = `margin-top: 20px;
   width: 100%;
@@ -62,7 +62,7 @@ function data(json) {
     var element = document.getElementById("formSign");
     console.log(element, tag);
     document.getElementById("butt").innerHTML = `
-    <button id="btn">Create Account</button>
+    <button id="btn">Log in</button>
     `;
     document.getElementById("butt").style = "";
     element.insertBefore(tag, document.getElementById("forget"));
