@@ -13,19 +13,19 @@ body {
   height: 100%;
 }
 .control {
-  position: fixed;
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 100%;
+  position: absolute;
   width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5%;
+  margin-left: 2.5%;
+  background-color: #f7f8fa;
 }
 .hrr {
   border: 1px solid #dcdcdc;
   width: 70%;
-  margin-top: -3%;
+  margin-top: 5%;
   margin-right: 50%;
 }
 .define {
@@ -61,6 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1%;
 }
 .time-quiz {
   text-align: center;
@@ -71,11 +72,11 @@ body {
   margin-top: 5%;
 }
 .progress {
-  width: 80%;
+  width: 68%;
   height: 5px;
-  background: #BCBCBC;
+  background: #bcbcbc;
   pointer-events: none;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
   position: relative;
   border-radius: 25px;
   margin-right: 15%;
@@ -98,45 +99,74 @@ body {
 }
 .noquest {
   font-family: "Poppins";
-  font-size: 20px;
-  line-height: 65px;
-  width: calc(100% / 3 -15);
-  padding: 15px 15px 15px 15px;
+  width: 20%;
+  padding: 7% 0%;
   background-color: #ffffff;
   border-radius: 5px;
   margin-left: 15px;
+  text-align: center;
+  filter: drop-shadow(4px 4px 2px #dcdcdc);
+  margin-top: 5%;
+  cursor: pointer;
 }
-.all{
+.noquest:hover {
+  background-color: red;
+}
+.all {
   pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .sub {
   pointer-events: all;
   display: block;
   width: 50%;
-  margin-left: 20%;
+  margin-right: 15%;
   margin-top: 20%;
-  height: 16%;
+  height: auto;
   outline: none;
   color: #ffffff;
   border-radius: 10px;
   border: 10px solid #fcb500;
   background-color: #fcb500;
   font-size: large;
+  cursor: pointer;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 63%;
+}
+.sub2 {
+  pointer-events: all;
+  display: block;
+  width: 100%;
+  padding: 10% 25%;
+  margin-right: 5%;
+  margin-top: 20%;
+  height: auto;
+  outline: none;
+  color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #fcb500;
+  background-color: #fcb500;
+  font-size: large;
+  cursor: pointer;
 }
 .center {
- position: absolute;
+  position: absolute;
   width: 77%;
   height: 100%;
   right: 0%;
-  background-color: #f8f8f8;
-  padding: 20px;
+  background-color: #f7f8fa;
 }
 
 .count {
   font-family: "Inter", sans-serif;
   color: #bcbcbc;
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 4.7%;
 }
 .answer {
   width: 77%;
@@ -149,25 +179,48 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
+  padding-bottom: 2%;
 }
-.ans{
+.ans {
   margin-top: 15%;
 }
 .wordanswer {
   padding: 15px;
   width: 80%;
-  color: #2E0F2E;
+  color: #111111;
   font-family: "Poppins", sans-serif;
-  font-size: medium;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 600;
 }
-
+.quiz-app {
+  padding: 5%;
+  padding-top: 2.5%;
+  margin-left: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.allExam {
+  display: flex;
+  flex-direction: row;
+}
+.question {
+  margin-top: -1.5%;
+  width: 90%;
+  margin-left: 5%;
+}
+.sub3 {
+  background-color: transparent;
+  border: none;
+  color: orange;
+}
 input[type="radio"] {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   margin-left: 10px;
-  margin-top: -25px;
+  margin-top: 2.5%;
   border: 2px solid #bcbcbc;
   background-color: #bcbcbc;
   border-radius: 50%;
@@ -181,4 +234,10 @@ input[type="radio"]:checked {
 }
 .ll {
   margin-top: 50px;
+}
+h2 {
+  color: #111111;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  font-weight: 800;
 }

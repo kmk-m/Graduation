@@ -6,6 +6,7 @@ fetch(`http://127.0.0.1:3000/exam/e9ea2a08-52dc-11ed-ac01-0045e21c18f1/data`, {
 })
   .then((response) => response.json())
   .then((json) => data(json));
+let questions = [];
 function data(json) {
   let name = json.data.Quiz.name;
   const para = document.createElement("div");
@@ -17,8 +18,52 @@ function data(json) {
   element.appendChild(hr);
   para.className = "namedy";
   time(json.data.Quiz.time);
+  questions = json.data.Questions;
+  question(json.data.Questions[0]);
   numberTime(json.data.Quiz.numberOfQuestions);
-  questiontyp(json.Questions.questionType);
+}
+function question(question) {
+  console.log(question);
+  document.querySelector(".quiz-area").innerHTML = `
+  <div class="question">
+  <h2>
+   ${question.questionText}
+  </h2>
+   ${
+     question.questionType !== "Text"
+       ? `<img src=${questionImage} width="50%" height="auto" />`
+       : "<p></p>"
+   }
+</div>`;
+  question.questionAnswers.forEach((e) => {
+    document.querySelector(".quiz-area").innerHTML += `
+   <div class="answer">
+  <input
+    type="radio"
+    name="gender"
+    value="M"
+    class="ans"
+    id="h.1"
+  /><label></label>
+  <label for="answer1" class="wordanswer"
+    >
+    ${e.answerText}
+  <br />
+  ${
+    e.answerType !== "Text"
+      ? `<img src=${answerImage} width="50%" height="auto" />`
+      : "<p></p>"
+  }
+  <img
+    src="/images/car.jpg"
+    width="50%"
+    height="auto"
+    style="margin-left: 5%"
+  /> 
+</div>
+
+   `;
+  });
 }
 function time(timequiz) {
   /* Countdown Timer */
@@ -40,6 +85,7 @@ function time(timequiz) {
 
     if (days >= 2) {
       hac.innerHTML = `
+
           <p><span class="days">${days} days</span><span class="day"></span></p>
           `;
     } else {
@@ -85,28 +131,20 @@ function time(timequiz) {
 /* quiz navigation block  */
 let check;
 let allBoxes = document.querySelectorAll(".noquest");
-scrollTo = (element) => {
-  window.scroll({
-    behavior: "smooth",
-    left: 0,
-    top: element.offsetTop,
-  });
-  console;
-};
 
-allBoxes.forEach((e) => {
-  e.onclick = function () {
-    console.log(check);
-    if (typeof check !== "undefined") {
-      document.getElementById(check).style.border = " 1px solid white";
-      // e.style.border =" 1px solid #FCB500";
-    }
-    e.style.border = " 1px solid #FCB500";
-    check = e.id;
-    console.log(document.getElementById(`h.${e.id}`));
-    scrollTo(document.getElementById(`toScroll.4`));
-  };
-});
+// allBoxes.forEach((e) => {
+//   e.onclick = function () {
+//     console.log(check);
+//     if (typeof check !== "undefined") {
+//       document.getElementById(check).style.border = " 1px solid white";
+//       // e.style.border =" 1px solid #FCB500";
+//     }
+//     e.style.border = " 1px solid #FCB500";
+//     check = e.id;
+//     console.log(document.getElementById(`h.${e.id}`));
+//     scrollTo(document.getElementById(`toScroll.4`));
+//   };
+// });
 let allAns = document.querySelectorAll(".ans");
 allAns.forEach((e) => {
   e.onclick = function () {
@@ -116,13 +154,27 @@ allAns.forEach((e) => {
 });
 function numberTime(numcounter) {
   for (let i = 1; i <= numcounter; i += 1) {
-    let numb = document.createElement("span");
+    let numb = document.createElement("div");
+    numb.setAttribute("id", i);
     numb.className = "noquest";
+    let sp = document.createElement("span");
+    sp.setAttribute("id", i);
+
     let number = document.querySelector(".all");
-    numb.innerHTML = ` ${i} `;
+    sp.innerHTML = ` ${i} `;
+    numb.appendChild(sp);
     number.appendChild(numb);
+    console.log(document.getElementById(i));
   }
+  document.querySelectorAll(".noquest").forEach((e) => {
+    console.log(e);
+    e.addEventListener("click", () => {
+      console.log("tesd");
+      question(e.id - 1);
+    });
+  });
 }
+
 function changeColorans() {
   var element = document.getElementById("1");
   element.style.background = "#FCB500";
@@ -134,6 +186,4 @@ function changeColorans2() {
   element.style.color = "#ffff";
 }
 /* api question */
-function questiontyp( type){
-  
-}
+function questiontyp(type) {}
