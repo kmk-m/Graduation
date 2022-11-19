@@ -199,7 +199,7 @@ function addPost(post, UserId) {
   <p>
   ${post.content}
 </p>
-<img src=${post.link}  class="image"/> 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/772852137?h=9d6a9e3f3b" width="480px" height="252" frameborder="0" allowfullscreen class="image"></iframe> 
 <div class="reactions">
   <div class="emojis">
 
