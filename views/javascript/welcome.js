@@ -19,7 +19,8 @@ fetch(`https://sleepy-bastion-99766.herokuapp.com/check`, {
 function data(code) {
   console.log(code);
   if (code == "Success") {
-    window.location.href = "http://127.0.01:3000/homepage";
+    window.location.href =
+      "https://sleepy-bastion-99766.herokuapp.com/homepage";
   } else {
     console.log(body);
     document.body.innerHTML = body;
