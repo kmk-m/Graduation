@@ -75,7 +75,6 @@ function time(timequiz) {
   let counter = setInterval(() => {
     // Get Date Now
     let dateNow = new Date().getTime();
-    console.log(dateDiff);
     // Get Time Units
     let days = Math.floor(dateDiff / (60 * 60 * 24));
     let hours = Math.floor((dateDiff % (60 * 60 * 24)) / (60 * 60));
@@ -115,7 +114,6 @@ function time(timequiz) {
   var countdown = setInterval(() => {
     interval--;
     let temp = (interval / temptime) * 100;
-    console.log(temp);
     if (temp < 25) {
       progressBar.style.background = "red";
     }
@@ -164,12 +162,9 @@ function numberTime(numcounter) {
     sp.innerHTML = ` ${i} `;
     numb.appendChild(sp);
     number.appendChild(numb);
-    console.log(document.getElementById(i));
   }
   document.querySelectorAll(".noquest").forEach((e) => {
-    console.log(e);
     e.addEventListener("click", () => {
-      console.log("tesd");
       question(e.id - 1);
     });
   });
