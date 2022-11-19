@@ -198,7 +198,7 @@ function addPost(post, UserId) {
   <p>
   ${post.content}
 </p>
-<video src=${post.link} controls=""></video> 
+<img src=${post.link}  class="image"/> 
 <div class="reactions">
   <div class="emojis">
 

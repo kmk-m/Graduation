@@ -490,7 +490,13 @@ header .mega-menu .links li a i {
   box-shadow: 0 0 10px #ddd;
 }
 .post video {
-  width: 100%;
+  width: 112%;
+  margin-left: -6%;
+  margin-top: 2%;
+}
+.post .image {
+  width: 112%;
+  margin-left: -6%;
   margin-top: 2%;
 }
 .reactions {
