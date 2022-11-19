@@ -6,7 +6,7 @@ document.body.innerHTML = `
 
 </div>
 `;
-fetch(`http://127.0.0.1:3000/check`, {
+fetch(`https://sleepy-bastion-99766.herokuapp.com/check`, {
   method: "GET",
 
   headers: {

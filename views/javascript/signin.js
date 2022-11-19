@@ -3,10 +3,12 @@ const email = document.getElementById("email");
 let link = document.referrer;
 document.getElementById("username").focus();
 document.querySelector(".go").addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:3000/auth/google";
+  window.location.href =
+    "https://sleepy-bastion-99766.herokuapp.com/auth/google";
 });
 document.querySelector(".fb").addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:3000/auth/facebook";
+  window.location.href =
+    "https://sleepy-bastion-99766.herokuapp.com/auth/facebook";
 });
 async function handleSubmit(e) {
   e.preventDefault();
@@ -26,7 +28,7 @@ async function handleSubmit(e) {
   `;
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  fetch(`http://127.0.0.1:3000/signin`, {
+  fetch(`https://sleepy-bastion-99766.herokuapp.com/signin`, {
     method: "POST",
     body: JSON.stringify({
       email: formProps.email,
@@ -65,7 +67,8 @@ function data(json) {
     document.getElementById("butt").style = "";
     element.insertBefore(tag, document.getElementById("forget"));
   } else if (json.code === "Success") {
-    window.location.href = "http://127.0.0.1:3000/homepage";
+    window.location.href =
+      "https://sleepy-bastion-99766.herokuapp.com/homepage";
   }
 }
 //*************************************** */

@@ -12,7 +12,7 @@ document.getElementById("link2").addEventListener("click", () => {
 async function getData() {
   console.log("op2");
 
-  await fetch(`http://127.0.0.1:3000/homepage/data`, {
+  await fetch(`https://sleepy-bastion-99766.herokuapp.com/homepage/data`, {
     method: "GET",
 
     headers: {
@@ -60,7 +60,7 @@ function error404(json) {
   }
   let tl = gsap.timeline({ repeat: -1, yoyo: true });
   document.getElementById("btn").addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:3000";
+    window.location.href = "https://sleepy-bastion-99766.herokuapp.com";
   });
   tl.fromTo(
     "#left-eyeboll",
@@ -74,7 +74,7 @@ function error404(json) {
   );
 }
 function realDate() {
-  fetch("http://127.0.0.1:3000/homepage/data", {
+  fetch("https://sleepy-bastion-99766.herokuapp.com/homepage/data", {
     method: "GET",
 
     headers: {
@@ -86,7 +86,8 @@ function realDate() {
 }
 async function data(json) {
   if (json.code === "not has Interests") {
-    window.location.href = "http://127.0.0.1:3000/interests";
+    window.location.href =
+      "https://sleepy-bastion-99766.herokuapp.com/interests";
   }
   await hackathons(json.data.hackathons);
   await posts(json.data.posts, json.data.User.userId);
@@ -98,7 +99,7 @@ function Tracks(tracks) {
   tracks.forEach((e) => {
     let a = document.createElement("a");
     a.innerHTML = `${e.name}`;
-    a.href = `http://127.0.0.1:3000/Tracks/${e.trackId}`;
+    a.href = `https://sleepy-bastion-99766.herokuapp.com/Tracks/${e.trackId}`;
     let hr = document.createElement("hr");
     hr.className = "kill";
     par.appendChild(a);
@@ -363,7 +364,7 @@ function addPost(post, UserId) {
     document.querySelector(".copy").innerHTML = `
     <i class="fa-solid fa-square-check" style="color:#2196f3; margin-left:-20%;"></i>
   <p>Link copied to clipboard.</p>
-    <a href="http://127.0.0.1:3000/${post.id}">View</a>
+    <a href="https://sleepy-bastion-99766.herokuapp.com/${post.id}">View</a>
         <img
           class="in2"
           src="/images/close.png"
@@ -373,7 +374,7 @@ function addPost(post, UserId) {
     `;
     document.querySelector(".copy").className = "copy";
     navigator.clipboard.writeText(
-      `http://127.0.0.1:3000/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
+      `https://sleepy-bastion-99766.herokuapp.com/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
     );
 
     document.querySelector(".in2").addEventListener("click", () => {
@@ -397,22 +398,25 @@ function addPost(post, UserId) {
           files.set(post.id, null);
         }
 
-        await fetch("http://127.0.0.1:3000/homepage/comment/addComment", {
-          method: "POST",
-          body: JSON.stringify({
-            comment: x,
-            postId: post.id,
-            image: files.get(post.id) ? files.get(post.id).name : null,
-          }),
+        await fetch(
+          "https://sleepy-bastion-99766.herokuapp.com/homepage/comment/addComment",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              comment: x,
+              postId: post.id,
+              image: files.get(post.id) ? files.get(post.id).name : null,
+            }),
 
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
           .then((response) => response.json())
           .then(async (json) => {
             await sendData(
-              `http://127.0.0.1:3000/upload/addComment/${json.data.data.id}`,
+              `https://sleepy-bastion-99766.herokuapp.com/upload/addComment/${json.data.data.id}`,
               document.getElementById(`file-input.` + post.id).files[0],
               UserId,
               "comment"
@@ -667,22 +671,27 @@ id =btn.${comment.id}
           ) {
             files.set(comment.id, null);
           }
-          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
-            method: "POST",
-            body: JSON.stringify({
-              replay: x,
-              commentId: comment.id,
-              image: files.get(comment.id) ? files.get(comment.id).name : null,
-            }),
+          await fetch(
+            "https://sleepy-bastion-99766.herokuapp.com/homepage/replay/addReplay",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                replay: x,
+                commentId: comment.id,
+                image: files.get(comment.id)
+                  ? files.get(comment.id).name
+                  : null,
+              }),
 
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          })
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          )
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                `https://sleepy-bastion-99766.herokuapp.com/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + comment.id).files[0],
                 UserId,
                 "replay",
@@ -1008,21 +1017,24 @@ id=btn.${replay.id}
           document.getElementById("input." + replay.id).value = "";
           beel = false;
 
-          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
-            method: "POST",
-            body: JSON.stringify({
-              replay: x,
-              commentId: replay.commentId,
-            }),
+          await fetch(
+            "https://sleepy-bastion-99766.herokuapp.com/homepage/replay/addReplay",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                replay: x,
+                commentId: replay.commentId,
+              }),
 
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          })
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          )
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                `https://sleepy-bastion-99766.herokuapp.com/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + replay.id).files[0],
                 UserId,
                 "replay",
@@ -1119,7 +1131,7 @@ function addVote(id) {
 /**/ /*/*/
 let bool = false;
 document.getElementById("not12").addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:3000/chat";
+  window.location.href = "https://sleepy-bastion-99766.herokuapp.com/chat";
 });
 
 document.getElementById("drop").addEventListener("click", () => {
@@ -8745,50 +8757,56 @@ function editWithPhoto(id, src) {
 async function edit(id, type, x, data) {
   console.log("kkkkkkk", x);
   if (type === "replay") {
-    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        replay: x,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
+    await fetch(
+      `https://sleepy-bastion-99766.herokuapp.com/homepage/${type}/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          replay: x,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
           ? editData(
-              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
+              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addReplay/${id}`,
               type,
               data
             )
           : editData(
-              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
+              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addComment/${id}`,
               type,
               data
             );
         hide(id);
       });
   } else {
-    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        comment: x,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
+    await fetch(
+      `https://sleepy-bastion-99766.herokuapp.com/homepage/${type}/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          comment: x,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
           ? editData(
-              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
+              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addReplay/${id}`,
               type,
               data
             )
           : editData(
-              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
+              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addComment/${id}`,
               type,
               data
             );
@@ -9053,12 +9071,15 @@ async function deleteClick(replay) {
         document.getElementById(`commentShow.${replay.id}`).innerHTML = ``;
         document.getElementById(`commentShow.${replay.id}`).remove();
         document.body.style.overflow = "auto";
-        fetch(`http://127.0.0.1:3000/homepage/${replay}/${replay.id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
+        fetch(
+          `https://sleepy-bastion-99766.herokuapp.com/homepage/${replay}/${replay.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
           .then((response) => response.json())
           .then(async (json) => {});
       });

@@ -1,11 +1,14 @@
 let id = window.location.href;
 id = id.slice(id.indexOf("Tracks") + 7, id.lastIndexOf("/"));
-fetch(`http://127.0.0.1:3000/Tracks/${id}/Assignments/data`, {
-  method: "GET",
-  headers: {
-    "Content-type": "application/json; charset=UTF-8",
-  },
-})
+fetch(
+  `https://sleepy-bastion-99766.herokuapp.com/Tracks/${id}/Assignments/data`,
+  {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  }
+)
   .then((response) => response.json())
   .then((json) => data(json));
 function user(json) {
@@ -165,12 +168,16 @@ function drag() {
           this.append(draggedItem);
           this.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
           console.log(list.id);
-          fetch(`http://127.0.0.1:3000/Assignments/changes` + item.id, {
-            method: "GET",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          })
+          fetch(
+            `https://sleepy-bastion-99766.herokuapp.com/Assignments/changes` +
+              item.id,
+            {
+              method: "GET",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          )
             .then((response) => response.json())
             .then((json) => reload());
         }
@@ -203,7 +210,7 @@ function fetc(id) {
   assid = id;
   document.getElementById("myform").style.visibility = "visible";
   let op = document.getElementById("op");
-  fetch(`http://127.0.0.1:3000/Assignments/` + id, {
+  fetch(`https://sleepy-bastion-99766.herokuapp.com/Assignments/` + id, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -255,7 +262,7 @@ function data3(json) {
 }
 let vis2 = false;
 function func() {
-  fetch(`http://127.0.0.1:3000/Assignments/` + assid, {
+  fetch(`https://sleepy-bastion-99766.herokuapp.com/Assignments/` + assid, {
     method: "POST",
     body: JSON.stringify({
       solution: document.getElementById("solution").value,
@@ -271,7 +278,7 @@ function func() {
 function data4() {}
 document.querySelector(".sub").addEventListener("click", (e) => {
   e.preventDefault();
-  fetch(`http://127.0.0.1:3000/Assignments/` + assid, {
+  fetch(`https://sleepy-bastion-99766.herokuapp.com/Assignments/` + assid, {
     method: "POST",
     body: JSON.stringify({
       solution: document.getElementById("solution").value,
