@@ -21,7 +21,7 @@ function data(json) {
   questions = json.data.Questions;
   question(json.data.Questions[0]);
   numberTime(json.data.Quiz.numberOfQuestions);
-  let en=json.data.Quiz.numberOfQuestions;
+  //let en=json.data.Quiz.numberOfQuestions;
 }
 let st=1;
 function pre(){
@@ -29,7 +29,7 @@ function pre(){
    question(json.data.Questions[st]);
    console.log("jbkj");
 }
-
+let en=json.data.Quiz.numberOfQuestions;
 function next() {
   if ( st<en) { st+=1; }
    question(json.data.Questions[st]);
