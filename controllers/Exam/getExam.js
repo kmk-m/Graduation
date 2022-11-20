@@ -14,7 +14,14 @@ async function getExam(req, res, next) {
     where: {
       quizId: examId,
     },
-    attributes: ["quizId", "questionType", "questionText", "questionImage"],
+    attributes: [
+      "id",
+
+      "quizId",
+      "questionType",
+      "questionText",
+      "questionImage",
+    ],
     include: [
       {
         model: questionAnswers,
