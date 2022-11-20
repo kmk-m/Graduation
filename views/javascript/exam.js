@@ -174,12 +174,13 @@ allAns.forEach((e) => {
 function numberTime(numcounter) {
   //log(questions);
   let numb;
+  let all = [];
+  console.log(numcounter);
   for (let i = 0; i < numcounter; i += 1) {
     numb = document.createElement("div");
-    // console.log(questions[i].id);
+    console.log(questions[i]);
     numb.setAttribute("id", questions[i].id);
     numb.className = "noquest";
-    console.log(numb);
 
     let sp = document.createElement("span");
     sp.setAttribute("id", questions[i].id);
@@ -187,10 +188,17 @@ function numberTime(numcounter) {
     sp.innerHTML = ` ${i + 1} `;
     numb.appendChild(sp);
     number.appendChild(numb);
-    numb.addEventListener("click", () => {
-      console.log(numb.innerHTML);
-      // numb.style = "border: 1px solid red";
-      // question(questions[i]);
+    all.push(numb);
+  }
+  for (let i of all) {
+    document.getElementById(i.id).addEventListener("click", () => {
+      document.getElementById(i.id).style = "border:1px solid #2196F3";
+      question(questions[i.children[0].innerHTML - 1]);
+      for (let j of all) {
+        if (j.id != i.id) {
+          document.getElementById(j.id).style = "border:none";
+        }
+      }
     });
   }
 }
