@@ -7,6 +7,7 @@ fetch(`http://127.0.0.1:3000/exam/e9ea2a08-52dc-11ed-ac01-0045e21c18f1/data`, {
   .then((response) => response.json())
   .then((json) => data(json));
 let questions = [];
+let en;
 function data(json) {
   let name = json.data.Quiz.name;
   const para = document.createElement("div");
@@ -21,24 +22,29 @@ function data(json) {
   questions = json.data.Questions;
   question(json.data.Questions[0]);
   numberTime(json.data.Quiz.numberOfQuestions);
-  //let en=json.data.Quiz.numberOfQuestions;
+  en = json.data.Quiz.numberOfQuestions;
 }
-let st=1;
-function pre(){
-  if ( st>1 ) { st-=1;}
-   question(json.data.Questions[st]);
-   console.log("jbkj");
-}
-let en=json.data.Quiz.numberOfQuestions;
-function next() {
-  if ( st<en) { st+=1; }
-   question(json.data.Questions[st]);
-  console.log("jbk526j");
+let st = 1;
+function pre() {
+  if (st > 1) {
+    st -= 1;
+  }
+  question(questions[st - 1]);
 
+  // question(json.data.Questions[st]);
+  //log("jbkj");
+}
+
+function next() {
+  if (st < en) {
+    st += 1;
+  }
+  question(questions[st - 1]);
+  //log("jbk526j");
 }
 
 function question(question) {
-  console.log(question);
+  //log(question);
   document.querySelector(".quiz-area").innerHTML = `
   <div class="question">
   <h2>
@@ -145,7 +151,7 @@ function time(timequiz) {
 let check;
 let allBoxes = document.querySelectorAll(".noquest");
 
- // allBoxes.forEach((e) => {
+// allBoxes.forEach((e) => {
 //   e.onclick = function () {
 //     console.log(check);
 //     if (typeof check !== "undefined") {
@@ -166,24 +172,27 @@ allAns.forEach((e) => {
   };
 });
 function numberTime(numcounter) {
-  for (let i = 1; i <= numcounter; i += 1) {
-    let numb = document.createElement("div");
-    numb.setAttribute("id", i);
+  //log(questions);
+  let numb;
+  for (let i = 0; i < numcounter; i += 1) {
+    numb = document.createElement("div");
+    // console.log(questions[i].id);
+    numb.setAttribute("id", questions[i].id);
     numb.className = "noquest";
+    console.log(numb);
+
     let sp = document.createElement("span");
-    sp.setAttribute("id", i);
+    sp.setAttribute("id", questions[i].id);
     let number = document.querySelector(".all");
-    sp.innerHTML = ` ${i} `;
+    sp.innerHTML = ` ${i + 1} `;
     numb.appendChild(sp);
     number.appendChild(numb);
-  }
-
-  document.querySelectorAll(".noquest").forEach((e) => {
-    e.addEventListener("click", () => {
-      
-      question(e.id - 1);
+    numb.addEventListener("click", () => {
+      console.log(numb.innerHTML);
+      // numb.style = "border: 1px solid red";
+      // question(questions[i]);
     });
-  });
+  }
 }
 
 function changeColorans() {
