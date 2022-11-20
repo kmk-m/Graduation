@@ -110,16 +110,14 @@ body {
   cursor: pointer;
 }
 .noquest:hover {
-  background-color: red;
+  background-color: #2196F3;
 }
 .all {
-  pointer-events: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .sub {
-  pointer-events: all;
   display: block;
   width: 50%;
   margin-right: 15%;
