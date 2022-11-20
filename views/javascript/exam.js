@@ -21,7 +21,22 @@ function data(json) {
   questions = json.data.Questions;
   question(json.data.Questions[0]);
   numberTime(json.data.Quiz.numberOfQuestions);
+  let en=json.data.Quiz.numberOfQuestions;
 }
+let st=1;
+function pre(){
+  if ( st>1 ) { st-=1;}
+   question(json.data.Questions[st]);
+   console.log("jbkj");
+}
+
+function next() {
+  if ( st<en) { st+=1; }
+   question(json.data.Questions[st]);
+  console.log("jbk526j");
+
+}
+
 function question(question) {
   console.log(question);
   document.querySelector(".quiz-area").innerHTML = `
@@ -130,7 +145,7 @@ function time(timequiz) {
 let check;
 let allBoxes = document.querySelectorAll(".noquest");
 
-// allBoxes.forEach((e) => {
+ // allBoxes.forEach((e) => {
 //   e.onclick = function () {
 //     console.log(check);
 //     if (typeof check !== "undefined") {
@@ -147,7 +162,7 @@ let allAns = document.querySelectorAll(".ans");
 allAns.forEach((e) => {
   e.onclick = function () {
     const id = e.id.split(".")[1];
-    document.getElementById(id).style.backgroundColor = "orange";
+    document.getElementById(id).style.backgroundColor = "#2196F3";
   };
 });
 function numberTime(numcounter) {
@@ -157,14 +172,15 @@ function numberTime(numcounter) {
     numb.className = "noquest";
     let sp = document.createElement("span");
     sp.setAttribute("id", i);
-
     let number = document.querySelector(".all");
     sp.innerHTML = ` ${i} `;
     numb.appendChild(sp);
     number.appendChild(numb);
   }
+
   document.querySelectorAll(".noquest").forEach((e) => {
     e.addEventListener("click", () => {
+      
       question(e.id - 1);
     });
   });
