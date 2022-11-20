@@ -174,7 +174,6 @@ allAns.forEach((e) => {
 function numberTime(numcounter) {
   //log(questions);
   let numb;
-  let all = [];
   for (let i = 0; i < numcounter; i += 1) {
     numb = document.createElement("div");
     // console.log(questions[i].id);
@@ -188,11 +187,10 @@ function numberTime(numcounter) {
     sp.innerHTML = ` ${i + 1} `;
     numb.appendChild(sp);
     number.appendChild(numb);
-    sp.addEventListener("click", () => {
-      console.log(numb);
-      // console.log(questions[i]  );
-      numb.style = "border: 1px solid red";
-      question(questions[i]);
+    numb.addEventListener("click", () => {
+      console.log(numb.innerHTML);
+      // numb.style = "border: 1px solid red";
+      // question(questions[i]);
     });
   }
 }

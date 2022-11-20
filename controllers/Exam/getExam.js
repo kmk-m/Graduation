@@ -31,15 +31,16 @@ async function getExam(req, res, next) {
   });
 
   const Questions = [];
-
+  const randoms = [];
   function generateUniqueRandom(maxNr) {
     //Generate random number
-    let random = (Math.random() * maxNr).toFixed();
-
+    let random = Math.floor(Math.random() * maxNr);
+    // console.log(Math.random() * maxNr, (Math.random() * maxNr).toFixed());
     //Coerce to number by boxing
     random = Number(random);
-
-    if (!Questions.includes(random)) {
+    // console.log(random);
+    if (!randoms.includes(random)) {
+      randoms.push(random);
       Questions.push(questions[random]);
       return random;
     } else {
@@ -55,7 +56,7 @@ async function getExam(req, res, next) {
   for (let i = 0; i < Quiz.numberOfQuestions; i++) {
     generateUniqueRandom(questions.length);
   }
-  console.log(Questions);
+  console.log(randoms);
   return Responses.success(res, "get Quiz Successfully", { Quiz, Questions });
 }
 export default getExam;
