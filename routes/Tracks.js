@@ -2,10 +2,10 @@ import Router from "express";
 const router = Router();
 import path from "path";
 import { fileURLToPath } from "url";
-import Tracks from "../controllers/Tracks.js";
+import Tracks from "../controllers/Tracks/Tracks.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+ 
 router.get("/:trackId", (req, res) => {
   // #swagger.tags = ['Tracks']
   // #swagger.description = "to get Tracks page"
@@ -21,6 +21,22 @@ router.get("/:trackId", (req, res) => {
             }
     } */
   res.sendFile(path.join(__dirname + "../../views/html/tracks.html"));
+});
+router.get("/:trackId/introVideo", (req, res) => {
+  // #swagger.tags = ['Tracks']
+  // #swagger.description = "to get Tracks page"
+  // #swagger.request = "http://127.0.0.1:3000/Tracks"
+  /* #swagger.responses[200] = {
+            description: 'page opened',
+    } */
+  /* #swagger.responses[400] = {
+            description: 'User  not found',
+            schema: {
+                "code": "403",
+                "message": "You cannot access this page before login",
+            }
+    } */
+  res.sendFile(path.join(__dirname + "../../views/html/introVideo.html"));
 });
 router.get("/data/:trackId", Tracks, (req, res) => {
   // #swagger.tags = ['Tracks']

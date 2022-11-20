@@ -1,0 +1,91 @@
+:root {
+  --main-color: #fcb500;
+}
+
+* {
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+  width: 600px;
+}
+
+body {
+  background-color: #f7f8fa;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.job {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  font-weight: bold;
+  width: 0;
+  height: 0;
+}
+
+.add {
+  position: relative;
+  top: 75px;
+  left: 480px;
+}
+
+span:not(.pl) {
+  color: var(--main-color);
+}
+
+.pl {
+  font-size: 30px;
+  position: relative;
+  top: 2px;
+}
+
+.work {
+  width: 100px;
+  height: 35px;
+  color: white;
+  background-color: var(--main-color);
+  position: relative;
+  top: 100px;
+  left: 400px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 35px;
+  margin-bottom: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.work:hover {
+  border: 2px solid black;
+}
+
+input {
+  height: 50px;
+  width: 160px;
+  outline: none;
+  color: #fafafa;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: #201e88;
+  position: relative;
+  left: 570px;
+  top: 300px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+input:hover {
+  background-color: #090846;
+}
+.container {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}

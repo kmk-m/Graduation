@@ -16,139 +16,32 @@
   "schemes": [],
   "securityDefinitions": {},
   "paths": {
-    "/": {
+    "/exam/{examId}/data": {
       "get": {
         "tags": [
-          "dashboard"
+          "Exam"
         ],
-        "description": "to get dashboard page",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "page opened"
-          },
-          "400": {
-            "description": "User not login",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "example": "403"
-                },
-                "message": {
-                  "type": "string",
-                  "example": "You cannot access this page before login"
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/dashboard": {
-      "get": {
-        "tags": [
-          "dashboard"
-        ],
-        "description": "to get dashboard data",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "data of dashboard",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "example": "200"
-                },
-                "message": {
-                  "type": "string",
-                  "example": "data"
-                },
-                "data": {
-                  "type": "object",
-                  "properties": {
-                    "User": {
-                      "type": "object",
-                      "properties": {
-                        "firstName": {
-                          "type": "string",
-                          "example": "string"
-                        },
-                        "lastName": {
-                          "type": "string",
-                          "example": "string"
-                        },
-                        "image": {
-                          "type": "string",
-                          "example": "string"
-                        }
-                      }
-                    },
-                    "videos": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "video": {
-                            "type": "string",
-                            "example": "string"
-                          },
-                          "comment": {
-                            "type": "string",
-                            "example": "string"
-                          }
-                        }
-                      }
-                    },
-                    "hackathons": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "example": "string"
-                          },
-                          "type": {
-                            "type": "string",
-                            "example": "string"
-                          },
-                          "date": {
-                            "type": "string",
-                            "example": "date"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/changepassword/{id}": {
-      "get": {
-        "description": "",
+        "description": "to get Exam Data",
         "parameters": [
           {
-            "name": "id",
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/exam/{examId}": {
+      "get": {
+        "tags": [
+          "Exam"
+        ],
+        "description": "to get Exam page",
+        "parameters": [
+          {
+            "name": "examId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -161,60 +54,23 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Exam"
+        ],
+        "description": "to get Exam page",
         "parameters": [
           {
-            "name": "id",
+            "name": "examId",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
-        "responses": {}
-      }
-    },
-    "/auth/facebook": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/auth/facebook/callback": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/forgetpassword": {
-      "get": {
-        "description": "",
-        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
         }
-      },
-      "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/auth/google": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/auth/google/callback": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
       }
     },
     "/welcome": {
@@ -331,9 +187,12 @@
         "responses": {}
       }
     },
-    "/{id}": {
-      "post": {
-        "description": "",
+    "/Tracks/{id}/Assignments": {
+      "get": {
+        "tags": [
+          "Assignment"
+        ],
+        "description": "to get Interests page",
         "parameters": [
           {
             "name": "id",
@@ -342,21 +201,148 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
       }
     },
-    "/{userId}": {
-      "post": {
-        "description": "",
+    "/Tracks/{id}/Assignments/data": {
+      "get": {
+        "tags": [
+          "Assignment"
+        ],
+        "description": "to get Interests page",
         "parameters": [
           {
-            "name": "userId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Assignments/{assignmentId}": {
+      "get": {
+        "tags": [
+          "Assignment"
+        ],
+        "description": "to get Interests page",
+        "parameters": [
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Assignment"
+        ],
+        "description": "to get Interests page",
+        "parameters": [
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
       }
     },
     "/signin/forgetpassword": {
@@ -451,6 +437,116 @@
         "responses": {}
       }
     },
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/go/{token}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/loginGoogle/{token}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/google2/{token}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/facebook": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/facebook/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/loginFacebook/{token}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/facebook2/{token}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/admin/addvideos": {
       "get": {
         "description": "",
@@ -474,7 +570,413 @@
         }
       }
     },
+    "/": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get dashboard page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not login",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/dashboard": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get dashboard data",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "data of dashboard",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "200"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "data"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "User": {
+                      "type": "object",
+                      "properties": {
+                        "firstName": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "image": {
+                          "type": "string",
+                          "example": "string"
+                        }
+                      }
+                    },
+                    "videos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "video": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "comment": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      }
+                    },
+                    "hackathons": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "date": {
+                            "type": "string",
+                            "example": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/comment": {
+      "post": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to add comment",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addcomment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "postId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/comment/{commentId}": {
+      "patch": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to edit comment",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addcomment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to delete comment",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/likePost/{postId}": {
+      "post": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to add like to post",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to delete like from post",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/likeComment/{commentId}": {
+      "post": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to add like to comment",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to delete like comment",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
     "/Tracks/{trackId}": {
+      "get": {
+        "tags": [
+          "Tracks"
+        ],
+        "description": "to get Tracks page",
+        "parameters": [
+          {
+            "name": "trackId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/Tracks/{trackId}/introVideo": {
       "get": {
         "tags": [
           "Tracks"
@@ -638,6 +1140,405 @@
                 "message": {
                   "type": "string",
                   "example": "Track not found"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/courses/{courseId}/finalProject": {
+      "get": {
+        "tags": [
+          "courses"
+        ],
+        "description": "to get coursess page",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/courses/{courseId}/finalProject/data": {
+      "get": {
+        "tags": [
+          "courses"
+        ],
+        "description": "to get coursess page",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/courses/{projectId}": {
+      "post": {
+        "tags": [
+          "courses"
+        ],
+        "description": "to submitProject",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "addproject",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/interests/": {
+      "get": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to get Interests page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to add Interests",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "interest": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/interests/data": {
+      "get": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to get Tracks page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Get data sucessfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "200"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "data"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "interests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "name"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/interests/user": {
+      "post": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to get Tracks page",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "interests": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/experience/": {
+      "get": {
+        "tags": [
+          "Interests"
+        ],
+        "description": "to get Interests page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/chat/": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "description": "to get Interests page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/chat/users": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "description": "to get user data",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "page opened"
+          },
+          "400": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "403"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You cannot access this page before login"
                 }
               },
               "xml": {

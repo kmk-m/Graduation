@@ -15,7 +15,7 @@ function init(connection) {
         allowNull: false,
       },
       image: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
       introVideo: {
@@ -26,6 +26,14 @@ function init(connection) {
         type: dataType.STRING,
         allowNull: false,
       },
+      description: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
+      plan: {
+        type: dataType.TEXT,
+        allowNull: false,
+      },
     },
     {
       createdAt: false,
@@ -33,15 +41,4 @@ function init(connection) {
     }
   );
 }
-function associate(models) {
-  const { Courses, Tracks } = models;
-  Tracks.hasOne(Courses, {
-    foreignKey: "courseId",
-    as: "firstCourse",
-  });
-  Courses.belongsTo(Tracks, {
-    foreignKey: "courseId",
-    as: "firstCourse",
-  });
-}
-export { init, associate };
+export { init };

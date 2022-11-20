@@ -1,4 +1,4 @@
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 
 async function verifyemail(req, res, next) {
   try {

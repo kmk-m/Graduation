@@ -1,9 +1,5 @@
 const outputFile = "./swagger_output.json";
-const endpointsFile = [
-  "./routes/dashboard/*.js",
-  "./routes/auth/*.js",
-  "./routes/APIRouter.js",
-];
+const endpointsFile = ["./routes/APIRouter.js"];
 const doc = {
   info: {
     version: "1.0.0", // by default: '1.0.0'

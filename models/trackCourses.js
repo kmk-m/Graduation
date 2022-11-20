@@ -34,19 +34,15 @@ function associate(models) {
   const { Courses, Tracks, trackCourses } = models;
   Courses.hasMany(trackCourses, {
     foreignKey: "courseId",
-    as: "Courses",
   });
   trackCourses.belongsTo(Courses, {
     foreignKey: "courseId",
-    as: "Courses",
   });
   Tracks.hasMany(trackCourses, {
     foreignKey: "trackId",
-    as: "Tracks",
   });
   trackCourses.belongsTo(Tracks, {
     foreignKey: "trackId",
-    as: "Tracks",
   });
 }
 export { init, associate };

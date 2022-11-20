@@ -1,6 +1,5 @@
 import dataType from "sequelize";
 import { UUIDV4 } from "sequelize";
-import connection from "../util/connection";
 function init(connection) {
   connection.define("user", {
     userId: {
@@ -39,8 +38,16 @@ function init(connection) {
       allowNull: false,
       defaultValue: 0,
     },
-    image: {
+    bio: {
       type: dataType.STRING,
+      allowNull: false,
+      defaultValue: "newbie",
+    },
+    about: {
+      type: dataType.TEXT,
+    },
+    image: {
+      type: dataType.TEXT,
       allowNull: false,
       defaultValue:
         "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-8.jpg",

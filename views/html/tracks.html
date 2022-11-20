@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Main css-->
+    <link rel="stylesheet" href="/css/tracks.css" />
+    <!--Normalize css-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+    <title>Course</title>
+  </head>
+
+  <body>
+    <!--The left part of the page -->
+    <div class="practice" id="practice">
+      <div class="logo">
+        <h1>
+          <span style="color: #ffffff">JOB</span><span class="log">Q</span>
+        </h1>
+      </div>
+      <div class="bb">
+        <div class="dropdown">
+          <a class="all_practice dropbtn" href="http://127.0.0.1:3000/">
+            Home page
+          </a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1/courses">Courses</a>
+            <a href="http://127.0.0.1/Standing">Standing</a>
+            <a href="http://127.0.0.1/hackathons">Hackthons</a>
+          </div>
+        </div>
+        <div class="div2">
+          <a
+            class="all_practice or"
+            href="http://127.0.0.1:3000/Tracks/2e0cd456-33de-11ed-a1c3-0a33a65a227b"
+            >My track</a
+          >
+          <a class="all_practice" id="ass"> <span>Assignments</span></a>
+          <a class="all_practice" href=""> Final Project </a>
+        </div>
+      </div>
+      <button type="button" id="buton"></button>
+      <a href="http://127.0.0.1:3000" class="link">Take Exam</a>
+    </div>
+    <header id="header">
+      <div class="over" id="header">
+        <h1 id="track_name">Backend Development</h1>
+        <img
+          src="/images/play.png"
+          alt="play icon"
+          onclick="playTrackVideo()"
+        />
+      </div>
+    </header>
+    <div class="grid-container" id="gridContainer">
+      <!--
+		    <div class="grid-item" onclick="displayCourseDetails()">
+                <img src="html_logo.png">
+                <h1> HTML5 </h1>
+            </div>			
+        -->
+    </div>
+
+    <script src="/tracks.js"></script>
+  </body>
+</html>

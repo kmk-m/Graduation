@@ -3,41 +3,42 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "userProfiles",
+    "messages",
     {
       id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      userId: {
+      senderId: {
         type: dataType.UUID,
-      },
-      name: {
-        type: dataType.STRING,
         allowNull: false,
       },
-
-      link: {
-        type: dataType.STRING,
+      receiverId: {
+        type: dataType.UUID,
         allowNull: false,
       },
     },
     {
-      timeStamp: true,
+      timestamps: true,
+      updatedAt: false,
       createdAt: false,
     }
   );
 }
 function associate(models) {
-  const { user, userProfiles } = models;
-  user.hasMany(userProfiles, {
-    foreignKey: "userId",
-    as: "userProfiles",
+  const { messages, user } = models;
+  user.hasMany(messages, {
+    foreignKey: "senderId",
   });
-  userProfiles.belongsTo(user, {
-    foreignKey: "userId",
-    as: "userProfiles",
+  messages.belongsTo(user, {
+    foreignKey: "senderId",
+  });
+  user.hasMany(messages, {
+    foreignKey: "receiverId",
+  });
+  messages.belongsTo(user, {
+    foreignKey: "receiverId",
   });
 }
 export { init, associate };

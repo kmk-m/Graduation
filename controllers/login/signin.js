@@ -1,12 +1,12 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import Responses from "../../util/response";
+import Responses from "../../util/response.js";
 async function login(req, res, next) {
   try {
     const { user } = req.models;
 
     const { email, password } = req.body;
-    console.log(req.body)
+    console.log(req.body);
     if (!email) {
       return Responses.badRequest(res, "400", " email cannt be empty ");
     }
@@ -43,7 +43,7 @@ async function login(req, res, next) {
     res.cookie("access_token", token); //Sets name = express
 
     return Responses.success(res, "logged in Successfully", {
-      role: user.role,
+      token,
     });
   } catch (err) {
     return next(err);

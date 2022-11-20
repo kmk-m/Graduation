@@ -4,8 +4,10 @@ import forgetpassword from "./forgetpassword.js";
 import changepassword from "./changepassword.js";
 import verifychangepassword from "./verifychangepassword.js";
 import verifyemail from "./verifyemail.js";
-import google from "./google";
+import google from "./google.js";
 import facebook from "./facebook.js";
+import loginGoogle from "./loginGoogle.js";
+import loginFacebook from "./loginFacebook.js";
 const logincontrol = {
   signup,
   signin,
@@ -15,5 +17,7 @@ const logincontrol = {
   verifyemail,
   google,
   facebook,
+  loginGoogle,
+  loginFacebook,
 };
 export default logincontrol;

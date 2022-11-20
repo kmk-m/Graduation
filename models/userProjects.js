@@ -12,13 +12,17 @@ function init(connection) {
       },
       userId: {
         type: dataType.UUID,
+        allowNull: false,
+      },
+      projectId: {
+        type: dataType.UUID,
       },
       name: {
         type: dataType.STRING,
         allowNull: false,
       },
       description: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
       link: {
@@ -28,6 +32,9 @@ function init(connection) {
       status: {
         type: dataType.ENUM("Accepted", "Pending", "Rejected"),
       },
+      Comment: {
+        type: dataType.TEXT,
+      },
     },
     {
       timeStamp: true,
@@ -36,7 +43,7 @@ function init(connection) {
   );
 }
 function associate(models) {
-  const { user, userProjects } = models;
+  const { user, userProjects, Projects } = models;
   user.hasMany(userProjects, {
     foreignKey: "userId",
     as: "userProjects",
@@ -44,6 +51,14 @@ function associate(models) {
   userProjects.belongsTo(user, {
     foreignKey: "userId",
     as: "userProjects",
+  });
+  Projects.hasMany(userProjects, {
+    foreignKey: "projectId",
+    as: "Project",
+  });
+  userProjects.belongsTo(Projects, {
+    foreignKey: "projectId",
+    as: "Project",
   });
 }
 export { init, associate };

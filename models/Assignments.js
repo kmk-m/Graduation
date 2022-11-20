@@ -19,7 +19,7 @@ function init(connection) {
         allowNull: false,
       },
       details: {
-        type: dataType.STRING,
+        type: dataType.TEXT,
         allowNull: false,
       },
     },
@@ -31,13 +31,13 @@ function init(connection) {
 }
 function associate(models) {
   const { Courses, Assignments } = models;
-  Courses.hasOne(Assignments, {
+  Courses.hasMany(Assignments, {
     foreignKey: "courseId",
-    as: "Assignments",
+    as: "courseAssignmments",
   });
   Assignments.belongsTo(Courses, {
     foreignKey: "courseId",
-    as: "Assignments",
+    as: "courseAssignmments",
   });
 }
 export { init, associate };

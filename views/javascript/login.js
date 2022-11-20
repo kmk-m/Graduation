@@ -1,11 +1,11 @@
 const signin = document.getElementById("btn");
 const email = document.getElementById("email");
-
+let link = document.referrer;
 async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  fetch("http://127.0.0.1:3000/signin", {
+  fetch(`http://127.0.0.1:3000/signin`, {
     method: "POST",
     body: JSON.stringify({
       email: formProps.email,
@@ -19,6 +19,7 @@ async function handleSubmit(e) {
     .then((response) => response.json())
     .then((json) => data(json));
 }
+
 var newdiv = false;
 var token;
 const form = document
