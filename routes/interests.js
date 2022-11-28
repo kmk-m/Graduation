@@ -25,15 +25,11 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../../views/html/interests.html"));
 });
 
-router.get(
-  "/data",
-  jwt.authenticateWithJWT,
-  interests.getAllInterests,
-  (req, res) => {
-    // #swagger.tags = ['Interests']
-    // #swagger.description = "to get Tracks page"
-    // #swagger.request = "http://127.0.0.1:3000/Interests/data"
-    /* #swagger.responses[200] = {
+router.get("/data", interests.getAllInterests, (req, res) => {
+  // #swagger.tags = ['Interests']
+  // #swagger.description = "to get Tracks page"
+  // #swagger.request = "http://127.0.0.1:3000/Interests/data"
+  /* #swagger.responses[200] = {
             description: 'Get data sucessfully',
             schema: {
                 "code": "200",
@@ -49,15 +45,14 @@ router.get(
             }
 
         } */
-    /* #swagger.responses[400] = {
+  /* #swagger.responses[400] = {
             description: 'User  not found',
             schema: {
                 "code": "403",
                 "message": "You cannot access this page before login",
             }
     } */
-  }
-);
+});
 router.post(
   "/user",
   //jwt.authenticateWithJWT,

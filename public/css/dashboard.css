@@ -101,6 +101,30 @@ header .main-nav > li > a {
 n header .main-nav > li > a:hover:before {
   left: 0;
 }
+.userTab {
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  width: 15%;
+  padding: 5px;
+  color: gray;
+  z-index: 100;
+  box-shadow: 0 0 10px #dcdcdc;
+}
+.userTab li {
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.userTab li:hover {
+  color: var(--main-color);
+}
+hr {
+  color: #dcdcdc;
+  background-color: #dcdcdc;
+  border: 1px solid #dcdcdc;
+}
 header .mega-menu {
   position: absolute;
   width: 100%;
@@ -215,7 +239,7 @@ header .mega-menu .links li a i {
 }
 .friends {
   background-color: white;
-  height: 400px;
+  height: fit-content;
   width: 25%;
   margin-top: 1%;
   border-radius: 5px;
@@ -230,6 +254,9 @@ header .mega-menu .links li a i {
   background-color: #f7f8fa;
   width: 100%;
   gap: 2%;
+}
+textarea {
+  resize: none;
 }
 .brr {
   border: 1px solid #f7f7f7;
@@ -497,7 +524,8 @@ header .mega-menu .links li a i {
 .post .image {
   width: 112%;
   margin-left: -6%;
-  margin-top: 2%;
+  margin-top: -10%;
+  margin-bottom: -10%;
 }
 .reactions {
   display: flex;
@@ -1269,14 +1297,27 @@ emoji*/
   align-items: center;
   gap: 15px;
   width: 90%;
-  margin-left: 8%;
   cursor: pointer;
   transition: 0.5s;
+}
+.friends .user img {
+  margin-left: 8%;
+}
+/* .friends .user {
+  margin-left: 15%;
+} */
+.friends .user i {
+  transition: 0.5s ease-in-out;
+  padding: 10px;
+  background-color: #f7f8fa;
+  border-radius: 50%;
+}
+.friends .user i:hover {
+  color: white;
 }
 .friends .user:hover {
   box-shadow: 0 0 10px #ddd;
   width: 100%;
-  margin-left: 0;
 }
 .post .user {
   margin-left: 0;
@@ -1287,6 +1328,8 @@ emoji*/
 .allUsers {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .friends .seeAll {
   width: 100%;
@@ -1296,3 +1339,39 @@ emoji*/
   background-color: #eff0f1;
 }
 /* endFriends */
+.showMore {
+  font-weight: 900;
+  color: var(--main-color);
+  margin-bottom: 50px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.5s;
+  border-radius: 18px;
+}
+.showMore:hover {
+  background-color: #f7f8fa;
+}
+.showMore2 {
+  margin-left: 65%;
+  font-weight: 400;
+  color: var(--main-color);
+  margin-bottom: 50px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.5s;
+  border-radius: 18px;
+}
+.showMore2:hover {
+  background-color: #f7f8fa;
+}
+.inside {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+}
+.i2:hover {
+  background-color: #f7f8fa;
+}

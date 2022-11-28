@@ -1,4 +1,101 @@
+import { query } from "express";
 import Responses from "../../util/response.js";
+
+async function getComments(req, res, next) {
+  const { postComments, postReplies, userPosts, user } = req.models;
+  const { postId } = req.params;
+  const { Comments } = req.query;
+  let limit = 0;
+  if (Comments == 0) limit = 1;
+  else limit = 2;
+  console.log("hhhh", req.query);
+  const Comment = await postComments.findAll({
+    where: {
+      postId: postId,
+    },
+    attributes: ["id", "postId", "comment", "updatedAt", "upvote", "image"],
+    limit: limit,
+    offset: parseInt(Comments),
+    order: [["updatedAt", "ASC"]],
+    include: [
+      {
+        model: userPosts,
+        attributes: ["upVote"],
+      },
+      {
+        model: user,
+        attributes: ["userId", "firstName", "lastName", "bio", "image"],
+      },
+      // {
+      //   model: postReplies,
+      //   // offset: 0,
+      //   attributes: [
+      //     "id",
+      //     "commentId",
+      //     "reply",
+      //     "updatedAt",
+      //     "upvote",
+      //     "image",
+      //   ],
+      //   subQuery: false,
+      //   limit: 2,
+      //   offset: 0,
+      //   order: [["updatedAt", "ASC"]],
+
+      //   include: [
+      //     {
+      //       model: userPosts,
+      //       attributes: ["upVote"],
+      //     },
+      //     {
+      //       model: user,
+      //       attributes: ["userId", "firstName", "lastName", "bio", "image"],
+      //     },
+      //   ],
+      // },
+    ],
+  });
+  let comments = [];
+  for (let comment of Comment) {
+    let numberOfReplies = await postReplies.count({
+      where: {
+        commentId: comment.dataValues.id,
+      },
+    });
+    let replay = null;
+    if (numberOfReplies > 0) {
+      replay = await postReplies.findOne({
+        where: {
+          commentId: comment.dataValues.id,
+        },
+        attributes: [
+          "id",
+          "commentId",
+          "reply",
+          "updatedAt",
+          "upvote",
+          "image",
+        ],
+        limit: 1,
+        offset: 0,
+        order: [["updatedAt", "ASC"]],
+
+        include: [
+          {
+            model: userPosts,
+            attributes: ["upVote"],
+          },
+          {
+            model: user,
+            attributes: ["userId", "firstName", "lastName", "bio", "image"],
+          },
+        ],
+      });
+    }
+    comments.push({ comment, replay, numberOfReplies });
+  }
+  return Responses.success(res, "get comments successfully", comments);
+}
 
 async function addcomment(req, res, next) {
   try {
@@ -98,4 +195,4 @@ async function deleteComment(req, res, next) {
     next(err);
   }
 }
-export default { addcomment, editcomment, deleteComment };
+export default { getComments, addcomment, editcomment, deleteComment };

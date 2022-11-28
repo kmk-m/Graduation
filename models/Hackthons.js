@@ -5,7 +5,7 @@ async function init(connection) {
   connection.define(
     "Hackathons",
     {
-      hackthonId: {
+      id: {
         type: dataType.UUID,
         primaryKey: true,
         defaultValue: UUIDV4(),
@@ -14,25 +14,30 @@ async function init(connection) {
         type: dataType.STRING,
         allowNull: false,
       },
-      type: {
-        type: dataType.ENUM(
-          "flutter",
-          "frontend",
-          "backend",
-          "fullstack",
-          "machine learning",
-          "deep Learning",
-          "data Analysis",
-          "Cyper Security"
-        ),
+      image: {
+        type: dataType.STRING,
         allowNull: false,
       },
-      date: {
+      free: {
+        type: dataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
+      online: {
+        type: dataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
+      price: {
+        type: dataType.INTEGER,
+        allowNull: true,
+        defaultValue: 0,
+      },
+      categoryId: {
+        type: dataType.UUID,
+      },
+      startDate: {
         type: dataType.DATE,
-        allowNull: false,
-      },
-      round: {
-        type: dataType.SMALLINT,
         allowNull: false,
       },
       duoDate: {
@@ -40,17 +45,12 @@ async function init(connection) {
         allowNull: false,
       },
 
-      users: {
-        type: dataType.BIGINT,
+      wanted: {
+        type: dataType.ENUM("photo", "video"),
         allowNull: false,
-        defaultValue: 0,
       },
       link: {
         type: dataType.TEXT,
-        allowNull: false,
-      },
-      type: {
-        type: dataType.ENUM("photo", "video"),
         allowNull: false,
       },
     },
@@ -60,4 +60,13 @@ async function init(connection) {
     }
   );
 }
-export { init };
+function associate(models) {
+  const { Hackathons, categories } = models;
+  categories.hasOne(Hackathons, {
+    foreignKey: "categoryId",
+  });
+  Hackathons.belongsTo(categories, {
+    foreignKey: "categoryId",
+  });
+}
+export { init, associate };

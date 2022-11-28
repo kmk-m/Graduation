@@ -27,7 +27,6 @@ function associate(models) {
   const { userInterests, interests, user } = models;
   interests.hasMany(userInterests, {
     foreignKey: "interestId",
-    as: "Interests",
   });
   userInterests.belongsTo(interests, {
     foreignKey: "interestId",
@@ -36,11 +35,9 @@ function associate(models) {
 
   user.hasMany(userInterests, {
     foreignKey: "userId",
-    as: "userInterests",
   });
   userInterests.belongsTo(user, {
     foreignKey: "userId",
-    as: "userInterest",
   });
 }
 export { init, associate };

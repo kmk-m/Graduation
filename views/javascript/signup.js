@@ -5,6 +5,8 @@ const form = document
   .getElementById("btn")
   .addEventListener("click", handleSubmit);
 async function handleSubmit(e) {
+  e.preventDefault();
+
   document.getElementById("butt").innerHTML = `
   <i class="fa fa-circle-o-notch fa-spin" style="margin-right:15px"></i>Creating
   `;
@@ -19,7 +21,6 @@ async function handleSubmit(e) {
   opacity:0.5;
   text-align: center;
   `;
-  e.preventDefault();
 
   let firstName = document.getElementById("firstName").value;
   let lastName = document.getElementById("lastName").value;
@@ -73,6 +74,7 @@ function data(json) {
       newdiv = json.message;
     }
   } else {
+    console.log("YU");
     window.location.href = "http://127.0.0.1:3000/interests";
   }
 }

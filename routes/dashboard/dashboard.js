@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
+  console.log(1);
   res.sendFile(path.join(__dirname + "../../../views/html/dashboard.html"));
 });
 router.get("/dashboard", dashboard, (req, res) => {

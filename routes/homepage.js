@@ -12,6 +12,7 @@ import replay from "../controllers/dashboard/replay.js";
 
 import likes from "../controllers/dashboard/likes.js";
 import getPost from "../controllers/dashboard/getPost.js";
+import addFriend from "../controllers/dashboard/addFriend.js";
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     console.log("jlkjkljkljk", file);
@@ -96,7 +97,39 @@ router.get("/data", dashboard, (req, res) => {
             }
     } */
 });
-router.get("/:postId", (req, res) => {
+// router.get("/:postId", (req, res) => {
+//   // PythonShell.run("./search.py", null, function (err) {
+//   //   if (err) throw err;
+//   //   console.log("finished");
+//   // // });
+//   // let dataTosend;
+//   // const python = spawn("python3", ["./search.py"]);
+//   // python.stdout.on("data", function (data) {
+//   //   dataTosend = data.toString();
+//   // });
+//   // python.stderr.on("data", function (data) {
+//   //   console.error(`stderr: ${data}`);
+//   // });
+//   // python.on("exit", (code) => {
+//   //   console.log(`child process ${code}, ${dataTosend}`);
+//   // });
+//   // #swagger.tags = ['HomePage']
+//   // #swagger.description = "to get dashboard page"
+//   // /* #swagger.responses[200] = {
+//   // description: 'page opened',
+//   // } */
+//   /* #swagger.responses[400] = {
+//             description: 'User  not login',
+//             schema: {
+//                 "code": "403",
+//                 "message": "You cannot access this page before login",
+//             }
+//     } */
+//   console.log(3);
+
+//   res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
+// });
+router.get("/post/:postId", getPost.getPost, (req, res) => {
   // PythonShell.run("./search.py", null, function (err) {
   //   if (err) throw err;
   //   console.log("finished");
@@ -124,37 +157,29 @@ router.get("/:postId", (req, res) => {
                 "message": "You cannot access this page before login",
             }
     } */
-  res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
 });
-router.get("/post/:postId", getPost, (req, res) => {
-  // PythonShell.run("./search.py", null, function (err) {
-  //   if (err) throw err;
-  //   console.log("finished");
-  // // });
-  // let dataTosend;
-  // const python = spawn("python3", ["./search.py"]);
-  // python.stdout.on("data", function (data) {
-  //   dataTosend = data.toString();
-  // });
-  // python.stderr.on("data", function (data) {
-  //   console.error(`stderr: ${data}`);
-  // });
-  // python.on("exit", (code) => {
-  //   console.log(`child process ${code}, ${dataTosend}`);
-  // });
+router.post("/addFriend/:friendId", addFriend);
+router.get("/comments/:postId", comment.getComments, (req, res) => {
   // #swagger.tags = ['HomePage']
-  // #swagger.description = "to get dashboard page"
-  // /* #swagger.responses[200] = {
-  // description: 'page opened',
-  // } */
-  /* #swagger.responses[400] = {
-            description: 'User  not login',
-            schema: {
-                "code": "403",
-                "message": "You cannot access this page before login",
-            }
+  // #swagger.description = "to get comment"
+  /*  #swagger.parameters['Comments'] = {
+            in: 'query',
+            description: 'numberOfCommentsNow...',
+          
     } */
 });
+router.get("/posts", getPost.getPosts, (req, res) => {
+  console.log(2);
+
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to get posts"
+  /*  #swagger.parameters['posts'] = {
+            in: 'query',
+            description: 'numberOfPostsNow...',
+          
+    } */
+});
+
 router.post("/comment/addComment", comment.addcomment, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to add comment"
@@ -189,6 +214,15 @@ router.post("/replay/addReplay", replay.addReplay, (req, res) => {
                     "postId": "string",
                 }
         } */
+});
+router.get("/replay/:commentId", replay.getReplay, (req, res) => {
+  // #swagger.tags = ['HomePage']
+  // #swagger.description = "to get comment"
+  /*  #swagger.parameters['replays'] = {
+            in: 'query',
+            description: 'numberOfReplaysNow...',
+          
+    } */
 });
 router.patch("/replay/:replayId", replay.editReplay, (req, res) => {
   // #swagger.tags = ['HomePage']
