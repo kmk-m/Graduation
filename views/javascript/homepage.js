@@ -9,6 +9,7 @@ let allPost = 0;
 let userId;
 let bol = false;
 let files = new Map();
+let link = "https://sleepy-bastion-99766.herokuapp.com";
 // document.getElementById("link2").addEventListener("click", () => {
 //   //.log("jbjkjkbjkbhjvfcg", document.getElementById("link2"));
 //   document.getElementById("link22").style.color = "#2196f3";
@@ -62,7 +63,7 @@ this.window.addEventListener("scroll", function () {
   if (scroll >= 80 && !vis) {
     vis = true;
     var scrollTo = -1;
-    fetch(`http://127.0.0.1:3000/homepage/posts?posts=${allPost}`, {
+    fetch(`${link}/homepage/posts?posts=${allPost}`, {
       method: "GET",
 
       headers: {
@@ -80,7 +81,7 @@ this.window.addEventListener("scroll", function () {
 realDate();
 
 async function realDate() {
-  fetch("http://127.0.0.1:3000/homepage/data", {
+  fetch(`${link}/homepage/data`, {
     method: "GET",
 
     headers: {
@@ -93,7 +94,7 @@ async function realDate() {
 async function data(json) {
   if (json.code === "not has Interests") {
     //.log("DS");
-    window.location.href = "http://127.0.0.1:3000/interests";
+    window.location.href = `${link}/interests`;
   }
   await hackathons(json.data.hackthons, json.data.numberOfHackathons);
   await nav(json.data.User);
@@ -115,12 +116,12 @@ function nav(data) {
   });
   document.getElementById("logout").addEventListener("click", () => {
     deleteCookies();
-    window.location.href = "http://127.0.0.1:3000/";
+    window.location.href = link;
   });
 }
 async function deleteCookies() {
   //.log("D");
-  await fetch("http://127.0.0.1:3000/logout", {
+  await fetch(`${link}/logout`, {
     method: "GET",
 
     headers: {
@@ -148,7 +149,7 @@ function Tracks(tracks) {
   tracks.forEach((e) => {
     let a = document.createElement("a");
     a.innerHTML = `${e.name}`;
-    a.href = `http://127.0.0.1:3000/Tracks/${e.trackId}`;
+    a.href = `${link}/Tracks/${e.trackId}`;
     let hr = document.createElement("hr");
     hr.className = "kill";
     par.appendChild(a);
@@ -405,7 +406,7 @@ function addPost(postt, UserId) {
   showMore.setAttribute("id", `showMore.${post.id}`);
   showMore.addEventListener("click", async () => {
     await fetch(
-      `http://127.0.0.1:3000/homepage/comments/${post.id}?Comments=${
+      `${link}/homepage/comments/${post.id}?Comments=${
         numberOfCommentsNow.get(post.id).now
       }`,
       {
@@ -446,7 +447,7 @@ function addPost(postt, UserId) {
     document.getElementById("post." + post.id).style.display = "block";
     document.getElementById(`showMore.${post.id}`).className = "showMore";
     await fetch(
-      `http://127.0.0.1:3000/homepage/comments/${post.id}?Comments=${
+      `${link}/homepage/comments/${post.id}?Comments=${
         numberOfCommentsNow.get(post.id).now
       }`,
       {
@@ -504,7 +505,7 @@ function addPost(postt, UserId) {
     document.querySelector(".copy").innerHTML = `
     <i class="fa-solid fa-square-check" style="color:#2196f3; margin-left:-20%;"></i>
   <p>Link copied to clipboard.</p>
-    <a href="http://127.0.0.1:3000/${post.id}">View</a>
+    <a href="${link}/${post.id}">View</a>
         <img
           class="in2"
           src="/images/close.png"
@@ -514,7 +515,7 @@ function addPost(postt, UserId) {
     `;
     document.querySelector(".copy").className = "copy";
     navigator.clipboard.writeText(
-      `http://127.0.0.1:3000/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
+      `${link}/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
     );
 
     document.querySelector(".in2").addEventListener("click", () => {
@@ -538,7 +539,7 @@ function addPost(postt, UserId) {
           files.set(post.id, null);
         }
 
-        await fetch("http://127.0.0.1:3000/homepage/comment/addComment", {
+        await fetch(`${link}/homepage/comment/addComment`, {
           method: "POST",
           body: JSON.stringify({
             comment: x,
@@ -553,7 +554,7 @@ function addPost(postt, UserId) {
           .then((response) => response.json())
           .then(async (json) => {
             await sendData(
-              `http://127.0.0.1:3000/upload/addComment/${json.data.data.id}`,
+              `${link}/upload/addComment/${json.data.data.id}`,
               document.getElementById(`file-input.` + post.id).files[0],
               UserId,
               "comment"
@@ -827,7 +828,7 @@ id =btn.${comment.id}
     .getElementById(`showMore2.${comment.id}`)
     .addEventListener("click", async () => {
       await fetch(
-        `http://127.0.0.1:3000/homepage/replay/${comment.id}?replays=${
+        `${link}/homepage/replay/${comment.id}?replays=${
           numberOfReplies.get(comment.id).now
         }`,
         {
@@ -886,7 +887,7 @@ id =btn.${comment.id}
           ) {
             files.set(comment.id, null);
           }
-          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
+          await fetch(`${link}/homepage/replay/addReplay`, {
             method: "POST",
             body: JSON.stringify({
               replay: x,
@@ -901,7 +902,7 @@ id =btn.${comment.id}
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                `${link}/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + comment.id).files[0],
                 UserId,
                 "replay",
@@ -1228,7 +1229,7 @@ id=btn.${replay.id}
           document.getElementById("input." + replay.id).value = "";
           beel = false;
 
-          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
+          await fetch(`${link}/homepage/replay/addReplay`, {
             method: "POST",
             body: JSON.stringify({
               replay: x,
@@ -1242,7 +1243,7 @@ id=btn.${replay.id}
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
+                `${link}/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + replay.id).files[0],
                 UserId,
                 "replay",
@@ -1339,7 +1340,7 @@ function addVote(id) {
 /**/ /*/*/
 let bool = false;
 document.getElementById("not12").addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:3000/chat";
+  window.location.href = `${link}/chat`;
 });
 
 document.getElementById("drop").addEventListener("click", () => {
@@ -8965,7 +8966,7 @@ function editWithPhoto(id, src) {
 async function edit(id, type, x, data) {
   //.log("kkkkkkk", x);
   if (type === "replay") {
-    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
+    await fetch(`${link}/homepage/${type}/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         replay: x,
@@ -8977,20 +8978,12 @@ async function edit(id, type, x, data) {
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
-          ? editData(
-              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
-              type,
-              data
-            )
-          : editData(
-              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
-              type,
-              data
-            );
+          ? editData(`${link}/homepage/upload/addReplay/${id}`, type, data)
+          : editData(`${link}/homepage/upload/addComment/${id}`, type, data);
         hide(id);
       });
   } else {
-    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
+    await fetch(`${link}/homepage/${type}/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         comment: x,
@@ -9002,16 +8995,8 @@ async function edit(id, type, x, data) {
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
-          ? editData(
-              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
-              type,
-              data
-            )
-          : editData(
-              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
-              type,
-              data
-            );
+          ? editData(`${link}/homepage/upload/addReplay/${id}`, type, data)
+          : editData(`${link}/homepage/upload/addComment/${id}`, type, data);
         hide(id);
       });
   }
@@ -9273,7 +9258,7 @@ async function deleteClick(replay) {
         document.getElementById(`commentShow.${replay.id}`).innerHTML = ``;
         document.getElementById(`commentShow.${replay.id}`).remove();
         document.body.style.overflow = "auto";
-        fetch(`http://127.0.0.1:3000/homepage/${replay}/${replay.id}`, {
+        fetch(`${link}/homepage/${replay}/${replay.id}`, {
           method: "DELETE",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -9494,16 +9479,13 @@ async function friends(data) {
     let x = document.getElementById("addFriend." + data[i].userId);
     x.addEventListener("click", async () => {
       if (x.id !== "no") {
-        await fetch(
-          `http://127.0.0.1:3000/homepage/addFriend/${x.parentNode.id}`,
-          {
-            method: "POST",
+        await fetch(`${link}/homepage/addFriend/${x.parentNode.id}`, {
+          method: "POST",
 
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then((response) => response.json())
           .then((json) => console.log(json));
         x.style.color = "white";
