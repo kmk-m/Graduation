@@ -5,6 +5,8 @@ const form = document
   .getElementById("btn")
   .addEventListener("click", handleSubmit);
 async function handleSubmit(e) {
+  e.preventDefault();
+
   document.getElementById("butt").innerHTML = `
   <i class="fa fa-circle-o-notch fa-spin" style="margin-right:15px"></i>Creating
   `;
@@ -19,7 +21,6 @@ async function handleSubmit(e) {
   opacity:0.5;
   text-align: center;
   `;
-  e.preventDefault();
 
   let firstName = document.getElementById("firstName").value;
   let lastName = document.getElementById("lastName").value;
@@ -27,7 +28,7 @@ async function handleSubmit(e) {
   let password = document.getElementById("password").value;
   let confirmPassword = document.getElementById("confirmPassword").value;
 
-  await fetch("https://sleepy-bastion-99766.herokuapp.com/signup", {
+  await fetch("http://127.0.0.1:3000/signup", {
     method: "POST",
     body: JSON.stringify({
       firstName: firstName,
@@ -73,7 +74,7 @@ function data(json) {
       newdiv = json.message;
     }
   } else {
-    window.location.href =
-      "https://sleepy-bastion-99766.herokuapp.com/interests";
+    console.log("YU");
+    window.location.href = "http://127.0.0.1:3000/interests";
   }
 }

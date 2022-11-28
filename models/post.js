@@ -23,16 +23,28 @@ function init(connection) {
         allowNull: false,
         defaultValue: 0,
       },
-      downVote: {
-        type: dataType.BIGINT,
-        allowNull: false,
-        defaultValue: 0,
+      userId: {
+        type: dataType.UUID,
+      },
+      video: {
+        type: dataType.STRING,
+        allowNull: true,
       },
     },
     {
-      createdAt: false,
+      createdAt: true,
       updatedAt: false,
+      timeStamp: true,
     }
   );
 }
-export { init };
+function associate(models) {
+  const { user, post } = models;
+  user.hasMany(post, {
+    foreignKey: "userId",
+  });
+  post.belongsTo(user, {
+    foreignKey: "userId",
+  });
+}
+export { init, associate };

@@ -66,18 +66,37 @@
             </a>
           </li>
           <li>
-            <a href="#services">
+            <a>
               <img
-                id="not12"
+                id="currentUserImage"
                 src="/images/avatar-03.png"
                 alt=""
                 width="40"
                 height="40"
-                style="border-radius: 31px"
+                style="border-radius: 31px; cursor: pointer"
                 class="profileNav"
               />
               <span style="margin-top: 16px">&#8964;</span>
             </a>
+            <div class="userTab hide">
+              <ul>
+                <li>
+                  <a>My Courses</a>
+                  <hr />
+                </li>
+                <li>
+                  <a>Instructor Dashboard</a>
+                  <hr />
+                </li>
+                <li>
+                  <a>Account settings</a>
+                  <hr />
+                </li>
+                <li id="logout">
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -105,12 +124,17 @@
         <div class="left">
           <div class="user">
             <img
+              id="currentUserImage2"
               src="/images/profile.jpg"
               width="40px"
               height="40px;"
               style="border-radius: 50%; margin-left: 5%"
             />
-            <div class="info2" style="margin-top: -2.5%; margin-left: 0">
+            <div
+              class="info2"
+              id="userInfo"
+              style="margin-top: -2.5%; margin-left: 0"
+            >
               <h5 style="color: #2196f3">Fahd Hakem</h5>
               <p style="margin-top: -20px; color: #111111; font-size: small">
                 Backend Developer
@@ -187,24 +211,70 @@
 
         <div class="center">
           <!-- start welcome -->
-          <!-- <div class="topCenter">
-            <div class="word">
-              <p style="font-size: 28px">
-                Welcome Back, <span class="bom" id="namewel">Amany</span>
-              </p>
-              <h3 style="color: #dcdcdc">April 3, Tuesday</h3>
-            </div>
-            <div class="imageCenter">
+          <div class="post" style="padding-bottom: 1.5%">
+            <p style="margin-top: -2%; font-size: 12px; color: #111111">
+              Post Something
+            </p>
+            <hr class="brr" style="width: 100%" />
+            <div class="inside">
               <img
-                id="not12"
-                src="/images/mess1.png"
-                alt=""
-                width="30"
-                height="30"
+                src="/images/team-08.png"
+                width="40px"
+                height="40px;"
+                style="border-radius: 50%"
               />
-              <img src="/images/not1.png" alt="" width="30" height="30" />
+              <textarea
+                rows="2"
+                cols="30"
+                placeholder="what's on your mind?"
+                style="
+                  padding: 1%;
+                  border: none;
+                  outline: none;
+                  padding-top: 5%;
+                "
+              ></textarea>
+              <div class="image-upload">
+                <label id="choose.${post.id}" for="file-input.user">
+                  <i
+                    class="fa-solid fa-video i2"
+                    style="
+                      color: #2196f3;
+                      padding: 50%;
+                      cursor: pointer;
+                      border-radius: 50%;
+                    "
+                  ></i>
+                </label>
+
+                <input
+                  id="file-input.user"
+                  type="file"
+                  name="video"
+                  multiple="multiple"
+                />
+              </div>
+              <div class="image-upload">
+                <label
+                  id="choose.${post.id}"
+                  for="file-input.user"
+                  multiple="multiple"
+                >
+                  <i
+                    class="fa-solid fa-image i2"
+                    style="
+                      color: #2196f3;
+                      padding: 50%;
+                      cursor: pointer;
+                      border-radius: 50%;
+                    "
+                  ></i>
+                </label>
+
+                <input id="file-input.user" type="file" name="video" />
+              </div>
             </div>
-          </div> -->
+          </div>
           <!-- End welcome -->
           <div class="allPosts"></div>
         </div>

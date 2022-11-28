@@ -756,7 +756,7 @@
         }
       }
     },
-    "/homepage/{postId}": {
+    "/homepage/post/{postId}": {
       "get": {
         "tags": [
           "HomePage"
@@ -777,17 +777,62 @@
         }
       }
     },
-    "/homepage/post/{postId}": {
+    "/homepage/addFriend/{friendId}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "friendId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/homepage/comments/{postId}": {
       "get": {
         "tags": [
           "HomePage"
         ],
-        "description": "to get dashboard page",
+        "description": "to get comment",
         "parameters": [
           {
             "name": "postId",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Comments",
+            "in": "query",
+            "description": "numberOfCommentsNow...",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/homepage/posts": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get posts",
+        "parameters": [
+          {
+            "name": "posts",
+            "in": "query",
+            "description": "numberOfPostsNow...",
             "type": "string"
           }
         ],
@@ -909,6 +954,33 @@
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/homepage/replay/{commentId}": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "description": "to get comment",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "replays",
+            "in": "query",
+            "description": "numberOfReplaysNow...",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1926,6 +1998,17 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/logout/": {
+      "get": {
+        "description": "",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"

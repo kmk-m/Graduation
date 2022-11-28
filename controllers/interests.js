@@ -3,6 +3,18 @@ import Responses from "../util/response.js";
 async function getAllInterests(req, res, next) {
   try {
     const { interests } = req.models;
+    const valid = await interests.findOne({
+      where: {
+        userId: req.userId,
+      },
+    });
+    if (valid) {
+      return Responses.badRequest(
+        res,
+        "User already exist",
+        "User already exist"
+      );
+    }
     const allInterests = await interests.findAll({});
     return Responses.success(
       res,

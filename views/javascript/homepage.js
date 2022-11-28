@@ -3,78 +3,84 @@ access_token.slice(access_token.indexOf("="));
 let alreadyClicked = new Map();
 let emojiCliced = new Map();
 let triggerEmo = new Map();
+let numberOfCommentsNow = new Map();
+let numberOfReplies = new Map();
+let allPost = 0;
+let userId;
 let bol = false;
 let files = new Map();
-document.getElementById("link2").addEventListener("click", () => {
-  console.log("jbjkjkbjkbhjvfcg", document.getElementById("link2"));
-  document.getElementById("link22").style.color = "#2196f3";
+// document.getElementById("link2").addEventListener("click", () => {
+//   //.log("jbjkjkbjkbhjvfcg", document.getElementById("link2"));
+//   document.getElementById("link22").style.color = "#2196f3";
+// });
+// adding scroll event
+document.getElementById("file-input.user").addEventListener("change", () => {
+  console.log(document.getElementById("file-input.user").files);
+  // if (
+  //   document
+  //     .getElementById(`file-input.user`)
+  //     .files[0].type.split("/")[0] === "image"
+  // ) {
+  //   files.set(
+  //     post.id,
+  //     document.getElementById(`file-input.` + post.id).files[0]
+  //   );
+  //   if (files.get(post.id)) {
+  //     const fileReader = new FileReader();
+  //     fileReader.readAsDataURL(files.get(post.id));
+  //     fileReader.addEventListener("load", function () {
+  //       document.getElementById("imr." + post.id).style.display = "block";
+  //       //.log(document.getElementById(`imr.${post.id}`));
+
+  //       document.getElementById(
+  //         "imr." + post.id
+  //       ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${post.id}  src=${this.result} />
+  //     <img class="closed" id=closed.${post.id}  src="/images/close.png" />
+  //     `;
+  //       open(post.id);
+
+  //       document
+  //         .getElementById("closed." + post.id)
+  //         .addEventListener("click", () => {
+  //           document.getElementById(`imr.${post.id}`).innerHTML = ``;
+  //           document.getElementById(`imr.${post.id}`).style.display = "none";
+  //           files.set(post.id, null);
+  //           document.getElementById("file-input." + post.id).value = "";
+  //         });
+  //     });
+  //   }
+  // }
 });
-async function getData() {
-  console.log("op2");
-
-  await fetch(`https://sleepy-bastion-99766.herokuapp.com/homepage/data`, {
-    method: "GET",
-
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => error404(json.code));
-}
-getData();
-function error404(json) {
-  console.log(json);
-  if (json === "Success") {
-    realDate();
-    console.log("jk");
-  } else {
-    var cssId = "myCss"; // you could encode the css path itself to generate id..
-
-    var head = document.getElementsByTagName("head")[0];
-    var link = document.createElement("link");
-    link.id = cssId;
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = "css/404.css";
-    link.media = "all";
-    head.appendChild(link);
-    document.querySelector(".container").innerHTML = `
-    <!--   <h1>404</h1> -->
-    <!--   <svg width="400px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 401"><defs><style>.cls-1,.cls-6{fill:#fffbbd;}.cls-1,.cls-7{stroke:#fffbbd;}.cls-1,.cls-12,.cls-14,.cls-15,.cls-16,.cls-2,.cls-5{stroke-miterlimit:10;}.cls-12,.cls-2,.cls-3,.cls-4,.cls-7{fill:none;}.cls-2,.cls-3,.cls-4,.cls-5,.cls-8{stroke:#000;}.cls-3,.cls-4,.cls-7,.cls-8,.cls-9{stroke-linecap:round;stroke-linejoin:round;}.cls-4,.cls-8,.cls-9{stroke-width:2px;}.cls-5{fill:#fff;}.cls-7{stroke-width:4px;}.cls-9{fill:#fcac1c;stroke:#fcac1c;}.cls-10,.cls-14{fill:#ff7f15;}.cls-11,.cls-15{fill:#431902;}.cls-12{stroke:#1caed0;}.cls-13{fill:#b4e7fb;}.cls-14{stroke:#ff7f15;}.cls-15{stroke:#431902;}.cls-16{fill:#feadbb;stroke:#feadbb;}</style></defs><ellipse id="body" class="cls-1" cx="150.76" cy="164.03" rx="103" ry="137"/><g id="mouth"><path class="cls-2" d="M481.23,281.36a13,13,0,0,0-6.19-8.9,25.16,25.16,0,0,0-10.6-3.3,12.71,12.71,0,0,0-4.48.1,11.18,11.18,0,0,0-4.18,2.25,21.86,21.86,0,0,0-7.65,12c3.13,3,6.31,6,10.18,7.88s8.57,2.58,12.46.75a19.32,19.32,0,0,0,4.88-3.66A24.45,24.45,0,0,0,481.23,281.36Z" transform="translate(-311.5 -183.5)"/><path class="cls-3" d="M449.6,283.09c3.81-1.22,7.79.89,11.72,1.67,6.45,1.29,13-1.07,19.18-3.39" transform="translate(-311.5 -183.5)"/></g><g id="left-eye"><path class="cls-4" d="M401.83,270.19c.33-3.14,1.12-7.27,2.92-9.86a13.84,13.84,0,0,1,6.11-5.2,19.73,19.73,0,0,1,7.72-1.33,13.26,13.26,0,0,1,9.35,4.39c2.43,2.67,4.49,7.43,6.13,10.65" transform="translate(-311.5 -183.5)"/><path class="cls-4" d="M401.84,270.3c1.56,3.68,6.65,7.86,10.46,9.09a14.45,14.45,0,0,0,11.58-1.29c3.08-1.81,8.39-5.67,10.18-8.76" transform="translate(-311.5 -183.5)"/></g><path class="cls-5" d="M456.62,514.88" transform="translate(-311.5 -183.5)"/><rect class="cls-6" x="130.28" y="269.38" width="17.69" height="84"/><path class="cls-7" d="M447.5,529c-3.9,5.19-7.8,10.38-11.45,15.75" transform="translate(-311.5 -183.5)"/><path class="cls-7" d="M451.27,527.16c-.54,6.47-1.07,12.94-1.29,19.43" transform="translate(-311.5 -183.5)"/><path class="cls-7" d="M455.09,528.18c2.82,5.84,5.65,11.69,8.75,17.4" transform="translate(-311.5 -183.5)"/><path class="cls-5" d="M493,515.88" transform="translate(-311.5 -183.5)"/><rect class="cls-6" x="166.67" y="270.38" width="17.69" height="84"/><path class="cls-7" d="M483.9,530c-3.9,5.19-7.8,10.38-11.45,15.75" transform="translate(-311.5 -183.5)"/><path class="cls-7" d="M487.66,528.16c-.53,6.47-1.06,12.94-1.29,19.43" transform="translate(-311.5 -183.5)"/><path class="cls-7" d="M491.49,529.18c2.82,5.84,5.64,11.69,8.75,17.4" transform="translate(-311.5 -183.5)"/>
-        <circle id="right-eyeboll" class="cls-8" cx="106.45" cy="83.42" r="3.5"/>
-        <g id="left-eye-2" data-name="left-eye"><path class="cls-4" d="M518.36,267c-.34-3.14-1.12-7.27-2.92-9.86a13.72,13.72,0,0,0-6.12-5.19,19.51,19.51,0,0,0-7.71-1.34,13.28,13.28,0,0,0-9.35,4.39c-2.43,2.67-4.49,7.43-6.14,10.65" transform="translate(-311.5 -183.5)"/><path class="cls-4" d="M518.34,267.14c-1.56,3.68-6.64,7.86-10.45,9.09a14.41,14.41,0,0,1-11.58-1.29c-3.08-1.81-8.39-5.67-10.19-8.76" transform="translate(-311.5 -183.5)"/></g><circle id="left-eyeboll" class="cls-8" cx="190.74" cy="80.26" r="3.5"/>
-        <g id="ice-cream">
-        <polygon class="cls-9" points="146.73 229.75 159.23 174 134.23 174 146.73 229.75"/>
-          <path id="top" class="cls-10" d="M442.88,319c.93-4.74,6.45-9.5,12.25-9.5s14.3,4.72,14.75,12c.42,6.91-9.2,6.5-15,6.5S439.81,334.55,442.88,319Z" transform="translate(-311.5 -183.5)"/>
-          <path id="bottom" class="cls-10" d="M444.45,348.57c1.37-4.64,7.62-8.91,13.78-8.42s14.22,7.18,14.22,14.48c0,7.88-11.56,3.4-17.26,2.81a12.86,12.86,0,0,0-5.26.6C446.61,359.13,441.22,359.5,444.45,348.57Z" transform="translate(-311.5 -183.5)"/>
-          <path id="middle" class="cls-11" d="M442.88,334.49c1.56-4.57,6.45-9.5,12.25-9.5s16.83,3.6,15.6,13.5c-.85,6.87-8.85,6.5-14.65,6.5S436.84,352.18,442.88,334.49Z" transform="translate(-311.5 -183.5)"/></g>
-        <path class="cls-12" d="M669.36,296.81c5.42,1.68,11.38,4.88,12.27,10.49,1,6-4.8,11.28-10.76,12.35s-12-.84-17.86-2.29c-22.33-5.5-46.63-4.4-67.46,5.34" transform="translate(-311.5 -183.5)"/><path class="cls-13" d="M538.2,447.45c43,2.32,91.06-.36,120.87-31.35C683,391.24,688.77,354,687.6,319.56a310.76,310.76,0,0,0-8.74-63.36c-3.69-15-10.53-31.89-25.38-36.25-11.78-3.45-24.42,2.63-33.43,11s-15.71,18.89-24.58,27.37c-11.41,10.9-26.36,18-45.62,19.71,15.08,44.79,22.59,96,.53,137.84-5.29,10-12.23,19.39-15.12,30.36C537.82,446.72,540.38,447.23,538.2,447.45Z" transform="translate(-311.5 -183.5)"/><path id="ic-top" class="cls-14" d="M382.25,507.81a24,24,0,0,0-5.37,6c-1.31,2.36-1.75,5.39-.44,7.75,1.12,2,3.43,3.48,3.71,5.78.41,3.24-3.45,5.66-3.57,8.93a8.24,8.24,0,0,0,1.18,3.87,8.94,8.94,0,0,0,1.79,2.71c2,1.79,5.05,1.48,7.55.59,7.41-2.63,13.2-9.77,13.59-17.62S395.63,510,388,508.15C386,507.65,383.19,508,382.25,507.81Z" transform="translate(-311.5 -183.5)"/><path id="ic-middle" class="cls-15" d="M397,525.94c-2.75,1.72-5.63,3.57-7.11,6.46s-.89,7.1,2.06,8.45c1.71.79,3.89.52,5.31,1.76,1.67,1.49,1.28,4.17.64,6.31s-1.31,4.69.07,6.45a5.25,5.25,0,0,0,2.63,1.61,11.61,11.61,0,0,0,11.93-3.36c2-2.29,3-5.26,3.86-8.18,1.61-5.47,2.94-11.22,2-16.85-.37-2.28-1.52-4.88-3.8-5.21-2-.28-3.67,1.29-5.22,2.56s-3.84,2.33-5.42,1.11a11.26,11.26,0,0,1-1.31-1.53A4.8,4.8,0,0,0,398,524C396.35,524.44,395,525.83,397,525.94Z" transform="translate(-311.5 -183.5)"/><ellipse id="blush-l" class="cls-16" cx="121.14" cy="103.13" rx="3.5" ry="3.52"/><ellipse id="blush-r" class="cls-16" cx="179.86" cy="101.63" rx="3.5" ry="3.52"/><path id="left-wing" class="cls-13" d="M363.94,305.39c.26,16.25,12.21,31.31,26.09,39.75s30.52,11.26,46.77,11.53c4.84.07,9.77,0,14.4,1.37,9.31,2.84,15.91,11.65,18.32,21.08s1.2,19.41-1,28.89c-6.46,28.36-22.43,55.57-47.5,70.31-7.7,4.53-16.52,7.88-25.4,6.94-12.36-1.3-22.42-10.57-29.73-20.62-18.33-25.16-25-56.87-28.56-87.79-.86-7.56-1.57-15.2-.75-22.76.84-7.81,3.27-15.34,5.68-22.81,2-6.18,4-12.4,7.15-18.1,1.86-3.4,4.34-6.77,8-8.14S364.72,305,363.94,305.39Z" transform="translate(-311.5 -183.5)"/><rect class="cls-2" x="0.5" y="0.5" width="400" height="400"/></svg> -->
-      <svg width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 283.8 142.06"><defs><style>.cls-1{fill:#b4e7fb;}.cls-11,.cls-2{fill:#010101;}.cls-10,.cls-16,.cls-3,.cls-6{fill:none;}.cls-11,.cls-12,.cls-16,.cls-3,.cls-7,.cls-8{stroke:#010101;}.cls-16,.cls-3,.cls-4,.cls-8{stroke-miterlimit:10;}.cls-3{stroke-width:10.63px;}.cls-4,.cls-9{fill:#fffbbd;}.cls-10,.cls-4{stroke:#fffbbd;}.cls-4{stroke-width:0.28px;}.cls-5{fill:#f79226;}.cls-6{stroke:#ee2d30;stroke-width:0.4px;}.cls-10,.cls-11,.cls-12,.cls-13,.cls-6,.cls-7{stroke-linecap:round;stroke-linejoin:round;}.cls-12,.cls-7,.cls-8{fill:#fff;}.cls-7{stroke-width:0.97px;}.cls-8{stroke-width:0.23px;}.cls-10{stroke-width:0.91px;}.cls-11{stroke-width:3.54px;}.cls-12{stroke-width:0.97px;}.cls-13{fill:#fbac1d;stroke:#fbac1d;stroke-width:0.56px;}.cls-14{fill:#f57e20;}.cls-15{fill:#401d0e;}.cls-16{stroke-width:0.33px;}</style></defs>
-        <path class="cls-1" d="M240.57,301.86c12.13.65,25.7-.1,34.12-8.85,6.75-7,8.38-17.52,8.05-27.25a87,87,0,0,0-2.47-17.88c-1-4.25-3-9-7.16-10.23-3.32-1-6.89.74-9.44,3.09s-4.43,5.33-6.93,7.73A20.64,20.64,0,0,1,243.86,254c4.26,12.64,6.38,27.11.15,38.91-1.49,2.83-3.45,5.47-4.27,8.57C240.47,301.65,241.19,301.8,240.57,301.86Z" transform="translate(-82.51 -207.71)"/><path class="cls-2" d="M164.67,304.56c4,9,2.65,12.18-6.82,15.11l-4.09,1.23c-9.48,2.94-12.54,1.33-15.13-8.34l-2.12-7.72L107.26,309c-5.05.76-7.58.07-11.91-3s-5-4.81-3.76-9.84l11.56-47.83c2.3-9.9,5-13,14.5-16.73l6.74-2.7c9.22-3.65,12.39-2.19,15.82,7.2l16.93,47.24,3-.4c7.18-.89,9.12.8,9.5,7.94l0,2.4c.22,5.52-1,7-6.62,7.62Zm-32.94-18.23-7-29.12L110,288.89Z" transform="translate(-82.51 -207.71)"/><path class="cls-3" d="M217.92,319.24c-21.68,0-35-21-35-47.24,0-23.74,13.88-43.35,35.66-43.35,22,0,35.21,20.42,35.21,45.64C253.81,295.74,243.83,319.24,217.92,319.24Z" transform="translate(-82.51 -207.71)"/><path class="cls-2" d="M347.56,318.48c.66,9.85-1.67,12.35-11.58,11.87l-4.26-.25c-9.91-.48-12.24-3-11.37-13l.65-8L292.1,303c-5-1-7.15-2.52-10.18-6.85s-3.08-6.24-.17-10.53l27.22-41c5.55-8.5,9.19-10.52,19.35-10.75l7.25-.24c9.92-.28,12.4,2.19,12.4,12.18L347.73,296l2.92.64c7.05,1.62,8.3,3.87,6.21,10.71l-.78,2.26c-1.69,5.27-3.38,6.24-8.83,4.9Zm-24.72-28.4,3.35-29.77-24.61,24.76Z" transform="translate(-82.51 -207.71)"/><ellipse class="cls-4" cx="136.63" cy="65.94" rx="29.07" ry="38.67"/><path class="cls-5" d="M224.49,255a3.65,3.65,0,0,0-1.75-2.51,7.08,7.08,0,0,0-3-.93,3.55,3.55,0,0,0-1.26,0,3.16,3.16,0,0,0-1.18.64,6.15,6.15,0,0,0-2.16,3.4,12.33,12.33,0,0,0,2.87,2.22,4.11,4.11,0,0,0,3.52.21,5.08,5.08,0,0,0,1.37-1A6.78,6.78,0,0,0,224.49,255Z" transform="translate(-82.51 -207.71)"/><path class="cls-6" d="M215.56,255.47c1.08-.35,2.2.25,3.31.47,1.82.36,3.68-.3,5.42-1" transform="translate(-82.51 -207.71)"/><path class="cls-7" d="M200.43,252.16a8.8,8.8,0,0,1,1.12-3.79,5.3,5.3,0,0,1,2.35-2,7.72,7.72,0,0,1,3-.52,5.11,5.11,0,0,1,3.6,1.69,20.52,20.52,0,0,1,2.36,4.1" transform="translate(-82.51 -207.71)"/><path class="cls-7" d="M200.43,252.2a7.62,7.62,0,0,0,4,3.5,5.55,5.55,0,0,0,4.45-.5,12.76,12.76,0,0,0,3.92-3.37" transform="translate(-82.51 -207.71)"/><path class="cls-8" d="M217.55,314.83" transform="translate(-82.51 -207.71)"/><rect class="cls-9" x="130.85" y="95.68" width="4.99" height="15.49"/><path class="cls-10" d="M215,317.43c-1.1,1-2.2,1.91-3.23,2.9" transform="translate(-82.51 -207.71)"/><path class="cls-10" d="M216,317.09c-.15,1.19-.3,2.39-.36,3.58" transform="translate(-82.51 -207.71)"/><path class="cls-10" d="M217.11,317.28c.8,1.08,1.6,2.15,2.47,3.21" transform="translate(-82.51 -207.71)"/><path class="cls-8" d="M227.82,315" transform="translate(-82.51 -207.71)"/><rect class="cls-9" x="141.12" y="95.86" width="4.99" height="15.49"/><path class="cls-10" d="M225.24,317.61c-1.1,1-2.2,1.92-3.23,2.91" transform="translate(-82.51 -207.71)"/><path class="cls-10" d="M226.31,317.27c-.15,1.2-.3,2.39-.37,3.59" transform="translate(-82.51 -207.71)"/><path class="cls-10" d="M227.39,317.46c.79,1.08,1.59,2.16,2.47,3.21" transform="translate(-82.51 -207.71)"/>
-        <circle id="left-eyeboll" class="cls-11" cx="124.12" cy="43.19" r="0.99"/><path class="cls-12" d="M236.62,251.27a8.8,8.8,0,0,0-1.12-3.79,5.3,5.3,0,0,0-2.35-2,7.72,7.72,0,0,0-3-.52,5.11,5.11,0,0,0-3.6,1.69,20.52,20.52,0,0,0-2.36,4.1" transform="translate(-82.51 -207.71)"/>
-        <path class="cls-12" d="M236.62,251.31a7.62,7.62,0,0,1-4,3.5,5.55,5.55,0,0,1-4.45-.5,12.76,12.76,0,0,1-3.92-3.37" transform="translate(-82.51 -207.71)"/><circle id="right-eyeboll" class="cls-11" cx="147.92" cy="42.3" r="0.99"/><polygon class="cls-13" points="135.49 84.5 139.02 68.76 131.97 68.76 135.49 84.5"/><path class="cls-14" d="M213.67,265.6a3.7,3.7,0,0,1,3.45-2.68c1.64,0,4,1.33,4.17,3.39s-2.6,1.83-4.24,1.83S212.8,270,213.67,265.6Z" transform="translate(-82.51 -207.71)"/><path class="cls-14" d="M214.11,274a3.92,3.92,0,0,1,3.89-2.38c1.74.14,4,2,4,4.09,0,2.22-3.26,1-4.87.79a3.72,3.72,0,0,0-1.48.17C214.72,276.93,213.2,277,214.11,274Z" transform="translate(-82.51 -207.71)"/><path class="cls-15" d="M213.67,270a4,4,0,0,1,3.45-2.69c1.64,0,4.75,1,4.41,3.81-.24,1.94-2.5,1.84-4.14,1.84S212,275,213.67,270Z" transform="translate(-82.51 -207.71)"/><g id="blush-l"><image width="310" height="311" transform="translate(91.01 11.41) scale(0.24)" xlink:href="data:image/png;base64,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"/></g><g id="blush-r"><image width="310" height="310" transform="translate(107.57 11.17) scale(0.24)" xlink:href="data:image/png;base64,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"/></g><path id="left-wing" class="cls-1" d="M191.38,261.76c.08,4.59,3.45,8.84,7.37,11.22s8.61,3.18,13.2,3.26a14.58,14.58,0,0,1,4.07.38,8.2,8.2,0,0,1,5.16,5.95,17.48,17.48,0,0,1-.27,8.16c-1.82,8-6.33,15.68-13.4,19.85a12,12,0,0,1-7.17,1.95c-3.49-.36-6.33-3-8.4-5.82-5.17-7.1-7.06-16-8.06-24.78a29.37,29.37,0,0,1-.21-6.42,32.13,32.13,0,0,1,1.61-6.44,29.17,29.17,0,0,1,2-5.11,4.75,4.75,0,0,1,2.25-2.3C190.57,261.28,191.6,261.66,191.38,261.76Z" transform="translate(-82.51 -207.71)"/></svg>
-      <p>You didn't break the internet, but we can't find what you are looking for.</p>
-        <button id=btn>Go Home</button>
-  `;
-  }
-  let tl = gsap.timeline({ repeat: -1, yoyo: true });
-  document.getElementById("btn").addEventListener("click", () => {
-    window.location.href = "https://sleepy-bastion-99766.herokuapp.com";
-  });
-  tl.fromTo(
-    "#left-eyeboll",
-    { x: 3 },
-    { x: -3, duration: "0.5", ease: Power0.easeNone }
-  ).fromTo(
-    "#right-eyeboll",
-    { x: 3 },
-    { x: -3, duration: "0.5", ease: Power0.easeNone },
-    0
+let last = 0;
+let vis = false;
+this.window.addEventListener("scroll", function () {
+  var scrolltop = $(this).scrollTop();
+  let scroll = Math.round(
+    ((scrolltop + this.innerHeight) / this.document.body.scrollHeight) * 100
   );
-}
-function realDate() {
-  fetch("https://sleepy-bastion-99766.herokuapp.com/homepage/data", {
+  console.log(vis);
+  if (scroll >= 80 && !vis) {
+    vis = true;
+    var scrollTo = -1;
+    fetch(`http://127.0.0.1:3000/homepage/posts?posts=${allPost}`, {
+      method: "GET",
+
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then(async (json) => await posts(json.data, userId));
+    console.log("Sd");
+  } else if (scroll < 80) {
+    vis = false;
+  }
+});
+
+realDate();
+
+async function realDate() {
+  fetch("http://127.0.0.1:3000/homepage/data", {
     method: "GET",
 
     headers: {
@@ -86,20 +92,63 @@ function realDate() {
 }
 async function data(json) {
   if (json.code === "not has Interests") {
-    window.location.href =
-      "https://sleepy-bastion-99766.herokuapp.com/interests";
+    //.log("DS");
+    window.location.href = "http://127.0.0.1:3000/interests";
   }
-  await hackathons(json.data.hackathons);
+  await hackathons(json.data.hackthons, json.data.numberOfHackathons);
+  await nav(json.data.User);
   await posts(json.data.posts, json.data.User.userId);
+  await friends(json.data.Friends);
   Tracks(json.data.tracks);
 }
+//.log("F:");
+function nav(data) {
+  document.getElementById("currentUserImage").src = data.image;
+  document.getElementById("currentUserImage2").src = data.image;
+  document.getElementById("userInfo").children[0].innerHTML =
+    data.firstName + " " + data.lastName;
+  document.getElementById("userInfo").children[1].innerHTML = data.bio;
+  let x = document.querySelector(".userTab");
+  document.getElementById("currentUserImage").addEventListener("click", () => {
+    if (x.className.includes("hide")) x.className = "userTab";
+    else x.className = "userTab hide";
+  });
+  document.getElementById("logout").addEventListener("click", () => {
+    deleteCookies();
+    window.location.href = "http://127.0.0.1:3000/";
+  });
+}
+async function deleteCookies() {
+  //.log("D");
+  await fetch("http://127.0.0.1:3000/logout", {
+    method: "GET",
+
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then(async (json) => json);
+}
+// if (!x.className.includes("hide")) {
+let x = document.querySelector(".profileNav");
+
+window.addEventListener("click", function (e) {
+  if (
+    !x.contains(e.target) &&
+    !document.querySelector(".userTab").className.includes("hide")
+  ) {
+    document.querySelector(".userTab").className = "userTab hide";
+    //click inside of element
+  }
+});
 
 function Tracks(tracks) {
   const par = document.querySelector(".drops");
   tracks.forEach((e) => {
     let a = document.createElement("a");
     a.innerHTML = `${e.name}`;
-    a.href = `https://sleepy-bastion-99766.herokuapp.com/Tracks/${e.trackId}`;
+    a.href = `http://127.0.0.1:3000/Tracks/${e.trackId}`;
     let hr = document.createElement("hr");
     hr.className = "kill";
     par.appendChild(a);
@@ -107,56 +156,109 @@ function Tracks(tracks) {
   });
 }
 
-async function hackathons(allHackathons) {
+async function hackathons(hack, users) {
+  console.log(hack);
   // for (let hack of allHackathons) {
   //   let hac = document.createElement("div");
   //   hac.className = "hac";
-  //   let haca = document.querySelector(".allHackathons");
+  let haca = document.querySelector(".allHackathons");
   //   haca.appendChild(hac);
-  //   let countDownDate = new Date(hack.date).getTime();
-  //   let counter = setInterval(() => {
-  //     // Get Date Now
-  //     let dateNow = new Date().getTime();
-  //     // Find The Date Difference Between Now And Countdown Date
-  //     let dateDiff = countDownDate - dateNow;
-  //     // Get Time Units
-  //     let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
-  //     let hours = Math.floor(
-  //       (dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //     );
-  //     let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
-  //     let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
-  //     let str = " Days";
-  //     if (days >= 2) {
-  //       hac.innerHTML = `
-  //         <h5>${hack.name} Round #${hack.round}</h5>
-  //         <p><span class="days">${days} days</span><span class="day"></span></p>
-  //         `;
-  //     } else {
-  //       hac.innerHTML = `
-  //         <h5>${hack.name} Round #${hack.round}</h5>
-  //                 <p>
-  //                 <span class="hours">${
-  //                   hours < 10 ? "0" + hours + ":" : hours + ":"
-  //                 }</span>
-  //                 <span class="minutes">${
-  //                   minutes < 10 ? "0" + minutes + ":" : minutes + ":"
-  //                 }</span>
-  //                 <span class="seconds">${
-  //                   seconds < 10 ? "0" + seconds + ":" : seconds
-  //                 }</span>
-  //                 </p> `;
-  //     }
-  //     if (dateDiff < 0) {
-  //       clearInterval(counter);
-  //     }
-  //   }, 1000);
+  let countDownDate = new Date(hack[0].startDate).getTime();
+  let counter = setInterval(() => {
+    let now = new Date();
+    now.setHours(now.getHours());
+    let dateDiff = countDownDate - now;
+    // Get Time Units
+    let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+    let hours = Math.floor(
+      (dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+    haca.innerHTML = `
+         
+
+               <h5 style="color: #dcdcdc">Upcomming Hackathons</h5>
+              <div class="dates-container">
+                <div class="date">
+                  <span>${days}</span>
+                  <span>Days</span>
+                </div>
+                <div class="date">
+                  <span>${hours}</span>
+                  <span>Hours</span>
+                </div>
+                <div class="date">
+                  <span>${minutes}</span>
+                  <span>Minutes</span>
+                </div>
+                <div class="date">
+                  <span>${seconds}</span>
+                  <span>Seconds</span>
+                </div>
+              </div>
+              <div class="boxHack">
+                <img src=${hack[0].image} width="100%" />
+
+                <div class="contt">
+                  <h4>Search about myster</h4>
+                  <h4
+                    style="color: #dcdcdc; font-weight: 600; font-size: small;"
+                  >
+                    ${hack[0].category.name}
+                  </h4>
+
+                  <p>
+                    <i
+                      class="fas fa-user-alt"
+                      style="
+                        color: #2196f3;
+                        font-size: large;
+                        z-index: 100;
+                        margin-right: 5%;
+                      "
+                    ></i>
+                    ${users} users
+                  </p>
+                  <p>
+                    <i
+                      class="fas fa-dollar-sign"
+                      style="
+                        color: #2196f3;
+                        border-radius: 50%;
+                        margin-right: 9%;
+                      "
+                    ></i>
+                   ${hack[0].free ? "Free" : hack[0].price}
+                  </p>
+                  <p class="balls">
+                    <i
+                      class="fa fa-circle cir"
+                      style="
+                        color: ${hack[0].online ? "green" : "red"}   ;
+                        border-radius: 50%;
+                        font-size: small;
+                        margin-right: 5.5%;
+                      "
+                    ></i>
+                    ${hack[0].online ? "Online" : "Offline"}
+                  </p>
+                </div>
+              </div>
+              <a href="/hackathons" class="seeAll"> See All </a>            `;
+
+    if (dateDiff < 0) {
+      clearInterval(counter);
+    }
+  }, 1000);
   // }
 }
 let triggr = [];
 
 async function posts(allPosts, UserId) {
-  console.log("oper");
+  userId = UserId;
+  //.log("oper");
+  allPost += allPosts.length;
   allPosts.forEach((x) => {
     addPost(x, UserId);
 
@@ -167,14 +269,14 @@ async function posts(allPosts, UserId) {
   });
 }
 
-function addPost(post, UserId) {
+function addPost(postt, UserId) {
+  console.log(postt.post.content);
+  const post = postt.post;
   post.userPost
     ? alreadyClicked.set(post.id, true)
     : alreadyClicked.set(post.id, false);
-  let numberOfComments = post.postComments.length;
-  post.postComments.forEach((x) => {
-    numberOfComments += x.postReplies.length;
-  });
+  let numberOfComments = postt.numberOfComments;
+  numberOfCommentsNow.set(post.id, { now: 0, all: postt.numberOfCommentsOnly });
   numberOfComments === 0 || post.upVote + post.downVote === 0
     ? (bool = false)
     : (bool = true);
@@ -196,11 +298,10 @@ function addPost(post, UserId) {
   </div>
 </div>
 
-  <p>
+  <p style="white-space: pre-wrap; margin-top:0;display: inline-block;">
   ${post.content}
 </p>
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/772852137?h=9d6a9e3f3b" width="480px" height="252" frameborder="0" allowfullscreen class="image"></iframe> 
-<div class="reactions">
+<iframe src="https://player.vimeo.com/video/772852137?h=9d6a9e3f3b&title=0&byline=0&portrait=0" width="640" height="352" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="image"></iframe><div class="reactions">
   <div class="emojis">
 
     <div class="userLikes">
@@ -296,12 +397,35 @@ function addPost(post, UserId) {
 
   
   `;
+  let showMore = document.createElement("a");
+  showMore.innerHTML = `
+  showMore
+  `;
+  showMore.className = "showMore hide";
+  showMore.setAttribute("id", `showMore.${post.id}`);
+  showMore.addEventListener("click", async () => {
+    await fetch(
+      `http://127.0.0.1:3000/homepage/comments/${post.id}?Comments=${
+        numberOfCommentsNow.get(post.id).now
+      }`,
+      {
+        method: "GET",
 
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then(async (json) => toAddComments(json.data, UserId, post.id));
+  });
   const emo = document.createElement("div");
   emo.className = "em";
   emo.setAttribute("id", `em.${post.id}`);
 
   parent.appendChild(post2);
+  post2.appendChild(showMore);
+  // parent.appendChild(showMore);
   const vote = document.getElementById("vote." + post.id);
   vote.addEventListener("click", () => {
     if (alreadyClicked.get(post.id)) {
@@ -317,9 +441,25 @@ function addPost(post, UserId) {
   triggerEmo.set(post.id, false);
 
   const box = document.getElementById("box." + post.id);
-  box.addEventListener("click", () => {
+  box.addEventListener("click", async () => {
     document.getElementById("commentShow." + post.id).style.display = "flex";
     document.getElementById("post." + post.id).style.display = "block";
+    document.getElementById(`showMore.${post.id}`).className = "showMore";
+    await fetch(
+      `http://127.0.0.1:3000/homepage/comments/${post.id}?Comments=${
+        numberOfCommentsNow.get(post.id).now
+      }`,
+      {
+        method: "GET",
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then(async (json) => toAddComments(json.data, UserId, post.id));
+    //  addComment(x, UserId, false, null, post.id);
   });
   document
     .getElementById("file-input." + post.id)
@@ -338,7 +478,7 @@ function addPost(post, UserId) {
           fileReader.readAsDataURL(files.get(post.id));
           fileReader.addEventListener("load", function () {
             document.getElementById("imr." + post.id).style.display = "block";
-            console.log(document.getElementById(`imr.${post.id}`));
+            //.log(document.getElementById(`imr.${post.id}`));
 
             document.getElementById(
               "imr." + post.id
@@ -364,7 +504,7 @@ function addPost(post, UserId) {
     document.querySelector(".copy").innerHTML = `
     <i class="fa-solid fa-square-check" style="color:#2196f3; margin-left:-20%;"></i>
   <p>Link copied to clipboard.</p>
-    <a href="https://sleepy-bastion-99766.herokuapp.com/${post.id}">View</a>
+    <a href="http://127.0.0.1:3000/${post.id}">View</a>
         <img
           class="in2"
           src="/images/close.png"
@@ -374,7 +514,7 @@ function addPost(post, UserId) {
     `;
     document.querySelector(".copy").className = "copy";
     navigator.clipboard.writeText(
-      `https://sleepy-bastion-99766.herokuapp.com/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
+      `http://127.0.0.1:3000/6b51e5d4-4c0b-11ed-a729-0045e21c18f1`
     );
 
     document.querySelector(".in2").addEventListener("click", () => {
@@ -398,25 +538,22 @@ function addPost(post, UserId) {
           files.set(post.id, null);
         }
 
-        await fetch(
-          "https://sleepy-bastion-99766.herokuapp.com/homepage/comment/addComment",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              comment: x,
-              postId: post.id,
-              image: files.get(post.id) ? files.get(post.id).name : null,
-            }),
+        await fetch("http://127.0.0.1:3000/homepage/comment/addComment", {
+          method: "POST",
+          body: JSON.stringify({
+            comment: x,
+            postId: post.id,
+            image: files.get(post.id) ? files.get(post.id).name : null,
+          }),
 
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then((response) => response.json())
           .then(async (json) => {
             await sendData(
-              `https://sleepy-bastion-99766.herokuapp.com/upload/addComment/${json.data.data.id}`,
+              `http://127.0.0.1:3000/upload/addComment/${json.data.data.id}`,
               document.getElementById(`file-input.` + post.id).files[0],
               UserId,
               "comment"
@@ -435,16 +572,54 @@ function addPost(post, UserId) {
   //og("enter1");
 
   //og(document.querySelector(".fg-emoji-container"));
-  post.postComments.forEach((x) => {
-    addComment(x, UserId, false, null, post.id);
-  });
+  // post.postComments.forEach((x) => {
+  //   addComment(x, UserId, false, null, post.id);
+  // });
 }
+window.scrollY = -1;
 
-function addComment(comment, UserId, neww, Image, postId) {
-  console.log("kl", comment);
+function toAddComments(all, UserId, postId) {
+  numberOfCommentsNow.set(postId, {
+    now: numberOfCommentsNow.get(postId).now + all.length,
+    all: numberOfCommentsNow.get(postId).all,
+  });
+  all.forEach((x) => {
+    numberOfReplies.set(x.comment.id, {
+      now: x.replay ? 1 : 0,
+      all: x.numberOfReplies,
+    });
+    addComment(x, UserId, false, null, postId);
+  });
+  console.log(
+    numberOfCommentsNow.get(postId).now,
+    numberOfCommentsNow.get(postId).all
+  );
+  if (
+    numberOfCommentsNow.get(postId).now === numberOfCommentsNow.get(postId).all
+  ) {
+    document.getElementById(`showMore.${postId}`).className = "hide";
+  }
+}
+function toAddReplay(all, UserId, commentId) {
+  numberOfReplies.set(commentId, {
+    now: numberOfReplies.get(commentId).now + all.length,
+    all: numberOfReplies.get(commentId).all,
+  });
+  all.forEach((x) => {
+    addReplay(x, UserId, false, null, commentId);
+  });
+  if (
+    numberOfReplies.get(commentId).now >= numberOfReplies.get(commentId).all
+  ) {
+    document.getElementById(`showMore2.${commentId}`).className = "hide";
+  }
+}
+function addComment(Comment, UserId, neww, Image, postId) {
+  //.log("kl", comment);
   //og("hello", comment.upvote + comment.downvote);
   //og(comment.updatedAt);
-
+  let comment = Comment.comment;
+  console.log(Comment);
   comment.userPost
     ? alreadyClicked.set(comment.id, true)
     : alreadyClicked.set(comment.id, false);
@@ -476,9 +651,9 @@ function addComment(comment, UserId, neww, Image, postId) {
     date = seconds + "s";
   }
   if (typeof date === "undefined") date = "1s";
-  console.log(date);
+  //.log(date);
   //og("times", days, hours, minutes, seconds);
-  console.log(comment);
+  //.log(comment);
   comment2.className = "comment";
   comment2.setAttribute("id", `comment.${comment.id}`);
   comment2.innerHTML = `
@@ -607,8 +782,18 @@ id =btn.${comment.id}
   const emo = document.createElement("div");
   emo.className = "em";
   emo.setAttribute("id", `em.${comment.id}`);
-  console.log(neww);
+  //.log(neww);
+  console.log("sfdsfs", comment);
+
   if (neww) {
+    let showMore = document.createElement("a");
+    showMore.innerHTML = `
+    show more replies
+    `;
+    showMore.className = "showMore2";
+    showMore.setAttribute("id", `showMore2.${comment.id}`);
+    parent.insertBefore(showMore, parent.firstChild);
+
     parent.insertBefore(esc, parent.firstChild);
     parent.insertBefore(imr, parent.firstChild);
     parent.insertBefore(emo, parent.firstChild);
@@ -624,15 +809,45 @@ id =btn.${comment.id}
 
     parent.appendChild(imr);
     parent.appendChild(esc);
-  }
 
+    let showMore = document.createElement("a");
+    showMore.innerHTML = `
+      show more replies
+      `;
+    showMore.className = "showMore2";
+    showMore.setAttribute("id", `showMore2.${comment.id}`);
+    parent.appendChild(showMore);
+  }
+  if (
+    numberOfReplies.get(comment.id).now >= numberOfReplies.get(comment.id).all
+  ) {
+    document.getElementById(`showMore2.${comment.id}`).style.display = "none";
+  }
+  document
+    .getElementById(`showMore2.${comment.id}`)
+    .addEventListener("click", async () => {
+      await fetch(
+        `http://127.0.0.1:3000/homepage/replay/${comment.id}?replays=${
+          numberOfReplies.get(comment.id).now
+        }`,
+        {
+          method: "GET",
+
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then(async (json) => await toAddReplay(json.data, UserId, comment.id));
+    });
   //og(parent);
   triggr.push({
     selector: `.btn${comment.id}`,
     insertInto: `input.${comment.id}`, // '.selector' can be used without array
   });
 
-  console.log(triggr);
+  //.log(triggr);
 
   const vote = document.getElementById("emo." + comment.id);
   vote.addEventListener("click", () => {
@@ -661,7 +876,7 @@ id =btn.${comment.id}
       .getElementById("input." + comment.id)
       .addEventListener("keyup", async (e) => {
         if (e.keyCode === 13) {
-          console.log("ops1");
+          //.log("ops1");
           e.preventDefault();
           let x = document.getElementById("input." + comment.id).value;
           document.getElementById("input." + comment.id).value = "";
@@ -671,27 +886,22 @@ id =btn.${comment.id}
           ) {
             files.set(comment.id, null);
           }
-          await fetch(
-            "https://sleepy-bastion-99766.herokuapp.com/homepage/replay/addReplay",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                replay: x,
-                commentId: comment.id,
-                image: files.get(comment.id)
-                  ? files.get(comment.id).name
-                  : null,
-              }),
+          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
+            method: "POST",
+            body: JSON.stringify({
+              replay: x,
+              commentId: comment.id,
+              image: files.get(comment.id) ? files.get(comment.id).name : null,
+            }),
 
-              headers: {
-                "Content-type": "application/json; charset=UTF-8",
-              },
-            }
-          )
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `https://sleepy-bastion-99766.herokuapp.com/upload/addReplay/${json.data.data.id}`,
+                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + comment.id).files[0],
                 UserId,
                 "replay",
@@ -719,7 +929,7 @@ id =btn.${comment.id}
         fileReader.readAsDataURL(files.get(comment.id));
         fileReader.addEventListener("load", function () {
           document.getElementById("imr." + comment.id).style.display = "block";
-          console.log(document.getElementById(`imr.${comment.id}`));
+          //.log(document.getElementById(`imr.${comment.id}`));
 
           document.getElementById(
             "imr." + comment.id
@@ -773,15 +983,13 @@ id =btn.${comment.id}
           });
       });
   }
-  if (comment.postReplies) {
-    comment.postReplies.forEach((x) => {
-      addReplay(x, UserId, false, null, comment.postId);
-    });
+  if (Comment.numberOfReplies > 0) {
+    addReplay(Comment.replay, UserId, false, null, comment.postId);
   }
 }
 
 function addReplay(replay, UserId, neww, Image, postId) {
-  console.log("op", postId);
+  //.log("op", postId);
   replay.userPost
     ? alreadyClicked.set(replay.id, true)
     : alreadyClicked.set(replay.id, false);
@@ -933,6 +1141,7 @@ id=btn.${replay.id}
 <span>
 </div>
 `;
+
   let esc = document.createElement("p");
   esc.innerHTML = `press ESC to cancel`;
   esc.className = "hide";
@@ -943,6 +1152,7 @@ id=btn.${replay.id}
   const emo = document.createElement("div");
   emo.className = "em";
   emo.setAttribute("id", `em.${replay.id}`);
+
   if (neww) {
     document.getElementById("esc." + replay.commentId).after(esc);
     document.getElementById("esc." + replay.commentId).after(imr);
@@ -960,6 +1170,7 @@ id=btn.${replay.id}
     parent.appendChild(imr);
     parent.appendChild(esc);
   }
+
   // if (!neww) {
   //   triggr.push({
   //     selector: `.btn${replay.id}`,
@@ -990,12 +1201,12 @@ id=btn.${replay.id}
 
   const box = document.getElementById("box." + replay.id);
   box.addEventListener("click", () => {
-    console.log("kp", document.getElementById("input." + replay.id).value);
+    //.log("kp", document.getElementById("input." + replay.id).value);
 
     document.getElementById("input." + replay.id).value = `${
       replay.user.firstName + " " + replay.user.lastName + " "
     }`;
-    console.log("klklklklklk", postId);
+    //.log("klklklklklk", postId);
 
     let beel = false;
     if (document.querySelector(".commentEdit")) {
@@ -1009,7 +1220,7 @@ id=btn.${replay.id}
       .getElementById("input." + replay.id)
       .addEventListener("keyup", async (e) => {
         if (e.keyCode === 13) {
-          console.log("ops1");
+          //.log("ops1");
           e.preventDefault();
           let x = document.getElementById("input." + replay.id).value;
           document.getElementById("commentShow." + replay.id).style.display =
@@ -1017,35 +1228,32 @@ id=btn.${replay.id}
           document.getElementById("input." + replay.id).value = "";
           beel = false;
 
-          await fetch(
-            "https://sleepy-bastion-99766.herokuapp.com/homepage/replay/addReplay",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                replay: x,
-                commentId: replay.commentId,
-              }),
+          await fetch("http://127.0.0.1:3000/homepage/replay/addReplay", {
+            method: "POST",
+            body: JSON.stringify({
+              replay: x,
+              commentId: replay.commentId,
+            }),
 
-              headers: {
-                "Content-type": "application/json; charset=UTF-8",
-              },
-            }
-          )
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
             .then((response) => response.json())
             .then(async (json) => {
               await sendData(
-                `https://sleepy-bastion-99766.herokuapp.com/upload/addReplay/${json.data.data.id}`,
+                `http://127.0.0.1:3000/upload/addReplay/${json.data.data.id}`,
                 document.getElementById(`file-input.` + replay.id).files[0],
                 UserId,
                 "replay",
                 postId
               );
-              console.log(
-                "jk",
-                document.getElementById(`comments.${postId}`),
-                postId
-              ),
-                incComments(`comments.${postId}`, 1);
+              //.log(
+              //   "jk",
+              //   document.getElementById(`comments.${postId}`),
+              //   postId
+              // ),
+              incComments(`comments.${postId}`, 1);
               document.getElementById(`imr.${replay.id}`).innerHTML = ``;
               document.getElementById(`imr.${replay.id}`).style.display =
                 "none";
@@ -1068,7 +1276,7 @@ id=btn.${replay.id}
         fileReader.readAsDataURL(files.get(replay.id));
         fileReader.addEventListener("load", function () {
           document.getElementById("imr." + replay.id).style.display = "block";
-          console.log(document.getElementById(`imr.${replay.id}`));
+          //.log(document.getElementById(`imr.${replay.id}`));
           document.getElementById(
             "imr." + replay.id
           ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${replay.id} src=${this.result} />
@@ -1107,7 +1315,7 @@ function addVote(id) {
     alreadyClicked.set(id, true);
     after += 1;
   }
-  console.log("vote", alreadyClicked.get(id), after);
+  //.log("vote", alreadyClicked.get(id), after);
 
   if (after === 0) {
     if (document.getElementById("votes1." + id)) {
@@ -1131,7 +1339,7 @@ function addVote(id) {
 /**/ /*/*/
 let bool = false;
 document.getElementById("not12").addEventListener("click", () => {
-  window.location.href = "https://sleepy-bastion-99766.herokuapp.com/chat";
+  window.location.href = "http://127.0.0.1:3000/chat";
 });
 
 document.getElementById("drop").addEventListener("click", () => {
@@ -1204,7 +1412,7 @@ function incComments(id, x) {
 function open(id) {
   const sr = document.getElementById(`imgUploaded.${id}`).src;
   document.querySelector(`.imgUploaded`).addEventListener("click", () => {
-    console.log("okey");
+    //.log("okey");
     document.querySelector(".overlay").className = "overlay";
     document.getElementById("over").className = "confirmDelete full";
     document.body.style.overflow = "hidden";
@@ -8667,7 +8875,7 @@ function emojis(id) {
   </div>
 `;
   document.getElementById("em." + id).innerHTML = picker;
-  console.log(document.getElementById("closeEmo." + id));
+  //.log(document.getElementById("closeEmo." + id));
 
   document
     .getElementById(`fg-emoji-picker-close-button`)
@@ -8691,18 +8899,18 @@ function emojis(id) {
 
   window.addEventListener("mouseup", function (event) {
     var pol = document.querySelector(".emor");
-    console.log(event.target.className.includes("shh"));
+    //.log(event.target.className.includes("shh"));
     if (!event.target.className.includes("shh")) {
-      console.log(document.getElementById("em." + id).firstChild);
+      //.log(document.getElementById("em." + id).firstChild);
       document.getElementById("em." + id).children[0].remove();
-      console.log(document.getElementById("em." + id));
+      //.log(document.getElementById("em." + id));
 
       // pol.remove();
     }
   });
 }
 async function sendData(url, data, UserId, type, postId) {
-  console.log("op2", postId);
+  //.log("op2", postId);
   const form_data = new FormData();
   form_data.append("video", data);
   await fetch(url, {
@@ -8719,7 +8927,7 @@ async function sendData(url, data, UserId, type, postId) {
   // ...
 }
 async function editData(url, type, data) {
-  console.log("dara", data);
+  //.log("dara", data);
   const form_data = new FormData();
   form_data.append("video", data);
   await fetch(url, {
@@ -8737,7 +8945,7 @@ async function editData(url, type, data) {
 }
 function editWithPhoto(id, src) {
   document.getElementById("imr." + id).style.display = "block";
-  console.log(document.getElementById(`imr.${id}`));
+  //.log(document.getElementById(`imr.${id}`));
 
   document.getElementById(
     "imr." + id
@@ -8755,58 +8963,52 @@ function editWithPhoto(id, src) {
 }
 
 async function edit(id, type, x, data) {
-  console.log("kkkkkkk", x);
+  //.log("kkkkkkk", x);
   if (type === "replay") {
-    await fetch(
-      `https://sleepy-bastion-99766.herokuapp.com/homepage/${type}/${id}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          replay: x,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
+    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        replay: x,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
           ? editData(
-              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addReplay/${id}`,
+              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
               type,
               data
             )
           : editData(
-              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addComment/${id}`,
+              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
               type,
               data
             );
         hide(id);
       });
   } else {
-    await fetch(
-      `https://sleepy-bastion-99766.herokuapp.com/homepage/${type}/${id}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          comment: x,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
+    await fetch(`http://127.0.0.1:3000/homepage/${type}/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        comment: x,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => response.json())
       .then(async (json) => {
         type === "replay"
           ? editData(
-              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addReplay/${id}`,
+              `http://127.0.0.1:3000/homepage/upload/addReplay/${id}`,
               type,
               data
             )
           : editData(
-              `https://sleepy-bastion-99766.herokuapp.com/homepage/upload/addComment/${id}`,
+              `http://127.0.0.1:3000/homepage/upload/addComment/${id}`,
               type,
               data
             );
@@ -8866,11 +9068,11 @@ ${
 }
 
 async function editReplayData(id, replay) {
-  console.log("kkjklklk", id, replay.image);
+  //.log("kkjklklk", id, replay.image);
 
   //og("pare", parent.parentNode);
   const replay2 = document.getElementById(`box2.${id}`).parentNode;
-  console.log(replay2);
+  //.log(replay2);
   replay2.innerHTML = `
 <img
 src=${replay.user.image}
@@ -8925,14 +9127,14 @@ async function hide(id) {
 }
 async function editClick(id) {
   document.getElementById(`edit.${id}`).addEventListener("click", () => {
-    console.log(document.getElementById(`input.${id}`));
+    //.log(document.getElementById(`input.${id}`));
     document.getElementById("input." + id).value = document.getElementById(
       `p2.${id}`
     ).innerHTML;
-    console.log(
-      "look",
-      document.getElementById(`p2.${id}`).nextElementSibling.className
-    );
+    //.log(
+    //   "look",
+    //   document.getElementById(`p2.${id}`).nextElementSibling.className
+    // );
     if (
       document.getElementById(`p2.${id}`).nextElementSibling.className !== ""
     ) {
@@ -8965,10 +9167,10 @@ async function editClick(id) {
         document.getElementById(`p2.${id}`).innerHTML = document.getElementById(
           `input.${id}`
         ).value;
-        console.log(
-          "llllllllllll",
-          document.getElementById(`input.${id}`).value
-        );
+        // consle.log(
+        //   "llllllllllll",
+        //   document.getElementById(`input.${id}`).value
+        // );
 
         edit(
           id,
@@ -9054,7 +9256,7 @@ async function deleteClick(replay) {
         let id = document
           .getElementById(`comment.${replay.commentId}`)
           .parentNode.id.split(".")[1];
-        console.log("id", id);
+        //.log("id", id);
         decComments(`comments.${id}`, 1);
 
         document.querySelector(".overlay").className = "overlay hide";
@@ -9063,7 +9265,7 @@ async function deleteClick(replay) {
 
         document.getElementById(`box2.${replay.id}`).parentNode.remove();
         // document.getElementById(`box2.${replay.id}`).innerHTML = ``;
-        console.log("parent", document.getElementById(`box2.${replay.id}`));
+        //.log("parent", document.getElementById(`box2.${replay.id}`));
 
         document.getElementById(`feed.${replay.id}`).innerHTML = ``;
         document.getElementById(`feed.${replay.id}`).remove();
@@ -9071,15 +9273,12 @@ async function deleteClick(replay) {
         document.getElementById(`commentShow.${replay.id}`).innerHTML = ``;
         document.getElementById(`commentShow.${replay.id}`).remove();
         document.body.style.overflow = "auto";
-        fetch(
-          `https://sleepy-bastion-99766.herokuapp.com/homepage/${replay}/${replay.id}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
+        fetch(`http://127.0.0.1:3000/homepage/${replay}/${replay.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then((response) => response.json())
           .then(async (json) => {});
       });
@@ -9093,7 +9292,7 @@ async function deleteClick(replay) {
 }
 async function editClickComment(id) {
   document.getElementById(`edit.${id}`).addEventListener("click", () => {
-    console.log(document.getElementById(`input.${id}`));
+    //.log(document.getElementById(`input.${id}`));
     document.getElementById("input." + id).value = document.getElementById(
       `p2.${id}`
     ).innerHTML;
@@ -9121,10 +9320,10 @@ async function editClickComment(id) {
       "commentBox commentEdit";
     document.getElementById(`esc.${id}`).className = "esc";
     document.getElementById("input." + id).focus();
-    console.log("yes");
+    //.log("yes");
     document.getElementById("input." + id).addEventListener("keyup", (e) => {
       if (e.keyCode === 13 && beel) {
-        console.log("ops");
+        //.log("ops");
 
         e.preventDefault();
         document.getElementById(`date.${id}`).innerHTML = "1s";
@@ -9218,7 +9417,7 @@ async function deleteClickComment(comment) {
 
         document.getElementById(`box2.${comment.id}`).parentNode.remove();
         // document.getElementById(`box2.${comment.id}`).innerHTML = ``;
-        console.log("parent", document.getElementById(`box2.${comment.id}`));
+        //.log("parent", document.getElementById(`box2.${comment.id}`));
 
         document.getElementById(`feed.${comment.id}`).innerHTML = ``;
         document.getElementById(`feed.${comment.id}`).remove();
@@ -9229,7 +9428,7 @@ async function deleteClickComment(comment) {
         comment.postReplies.forEach((e) => {
           if (document.getElementById(`box2.${e.id}`)) {
             document.getElementById(`box2.${e.id}`).parentNode.remove();
-            console.log("parent", document.getElementById(`box2.${e.id}`));
+            //.log("parent", document.getElementById(`box2.${e.id}`));
 
             document.getElementById(`feed.${e.id}`).innerHTML = ``;
             document.getElementById(`feed.${e.id}`).remove();
@@ -9256,4 +9455,62 @@ async function hideWhenClick(id) {
   document.getElementById(`commentShow.${id}`).style.display = "none";
   document.getElementById(`commentShow.${id}`).className = "commentBox";
   document.getElementById(`esc.${id}`).className = "hide";
+}
+async function friends(data) {
+  let users = "";
+  //.log(data);
+  for (let i = 0; i < data.length; i++) {
+    let user = `
+    <div class="user" id=${data[i].userId}>
+    <img
+      src=${data[i].user.image}
+      width="40px"
+      height="40px;"
+      style="border-radius: 50%"
+    />
+    <div class="info2" style="margin-top: -2.5%">
+      <h5 style="color: #2196f3">${
+        data[i].user.firstName + " " + data[i].user.lastName
+      }</h5>
+      <p style="margin-top: -20px; color: #111111; font-size: small">
+       ${data[i].user.bio}
+      </p>
+    </div>
+    <i
+      id=addFriend.${data[i].userId}
+      class="fas fa-user-plus"
+      style="margin-left: 10%; cursor: pointer"
+    ></i>
+  </div>
+
+    `;
+    users += user;
+  }
+  users += '<a href="/Network" class="seeAll">See More</a>';
+  //.log(users);
+  document.querySelector(".allUsers").innerHTML = users;
+
+  for (let i = 0; i < data.length; i++) {
+    let x = document.getElementById("addFriend." + data[i].userId);
+    x.addEventListener("click", async () => {
+      if (x.id !== "no") {
+        await fetch(
+          `http://127.0.0.1:3000/homepage/addFriend/${x.parentNode.id}`,
+          {
+            method: "POST",
+
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+        x.style.color = "white";
+
+        x.setAttribute("id", "no");
+        x.parentNode.setAttribute("id", "no");
+      }
+    });
+  }
 }

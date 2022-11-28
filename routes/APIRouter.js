@@ -20,6 +20,7 @@ import room from "./room.js";
 import hackathons from "./hackathon.js";
 import welcome from "./welcome.js";
 import check from "./check.js";
+import logout from "./logout.js";
 
 //*** Swagger ***/
 import swaggerUi from "swagger-ui-express";
@@ -47,9 +48,10 @@ router.use("/homepage", jwt.authenticateWithJWT, homepage);
 router.use("/Tracks", jwt.authenticateWithJWT, Tracks);
 router.use("/room", jwt.authenticateWithJWT, room);
 router.use("/courses", jwt.authenticateWithJWT, courses);
-router.use("/interests", interests);
+router.use("/interests", jwt.authenticateWithJWT, interests);
 router.use("/experience", experience);
 router.use("/chat", chat);
 router.use("/hackathons", hackathons);
+router.use("/logout", logout);
 
 export default router;
