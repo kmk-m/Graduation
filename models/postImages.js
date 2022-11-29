@@ -21,23 +21,16 @@ function init(connection) {
     {
       createdAt: false,
       updatedAt: false,
-      timeStamp: true,
     }
   );
 }
 function associate(models) {
-  const { postImages, post } = models;
-  post.hasMany(postImages, {
+  const { postImages, posts } = models;
+  posts.hasMany(postImages, {
     foreignKey: "postId",
   });
-  postImages.belongsTo(post, {
+  postImages.belongsTo(posts, {
     foreignKey: "postId",
-  });
-  postImages.hasMany(post, {
-    foreignKey: "id",
-  });
-  post.belongsTo(postImages, {
-    foreignKey: "id",
   });
 }
 export { init, associate };

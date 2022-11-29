@@ -97,7 +97,7 @@ async function data(json) {
   }
   await hackathons(json.data.hackthons, json.data.numberOfHackathons);
   await nav(json.data.User);
-  await posts(json.data.posts, json.data.User.userId);
+  await posts(json.data.allPost, json.data.User.userId);
   await friends(json.data.Friends);
   Tracks(json.data.tracks);
 }

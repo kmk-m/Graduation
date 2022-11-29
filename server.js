@@ -30,7 +30,7 @@ try {
   await SetupModels(connection);
   await connection.authenticate();
   await connection.sync();
-  console.log("Connection has been established successfully.");
+  console.log("Connection has een established successfully.");
 } catch (error) {
   console.error("Unable to connect to the database:", error);
 }

@@ -15,6 +15,7 @@ import { Sequelize } from "sequelize";
 const connection = new Sequelize({
   dialect: "mysql",
   host: "127.0.0.1",
+  port: "8080",
   database: "lms",
   username: "root",
   password: "root",

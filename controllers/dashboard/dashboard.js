@@ -7,7 +7,7 @@ async function dahsboard(req, res, next) {
   try {
     const {
       user,
-      post,
+      posts,
       Hackathons,
       Tracks,
       postComments,
@@ -75,7 +75,7 @@ async function dahsboard(req, res, next) {
     });
     // liverbool and manchestercity ?
 
-    const Posts = await post.findAll({
+    const Posts = await posts.findAll({
       // order: [[{ model: postComments }, "updatedAt", "ASC"]],
       limit: 2,
       offset: 0,
@@ -148,7 +148,7 @@ async function dahsboard(req, res, next) {
       //   },
       // ],
     });
-    let posts = [];
+    let allPost = [];
     for (let post of Posts) {
       const numberOfComments = await postComments.count({
         where: {
@@ -163,7 +163,7 @@ async function dahsboard(req, res, next) {
           postId: post.dataValues.id,
         },
       });
-      posts.push({
+      allPost.push({
         post,
         numberOfComments,
         numberOfCommentsOnly,
@@ -199,11 +199,11 @@ async function dahsboard(req, res, next) {
     const tracks = await Tracks.findAll({
       attributes: ["name", "trackId"],
     });
-
+    console.log(allPost);
     return Responses.success(res, "data", {
       User,
       hackthons,
-      posts,
+      allPost,
       // numberOfComments,
       tracks,
       Friends,

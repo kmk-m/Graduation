@@ -29,17 +29,16 @@ function init(connection) {
       },
     },
     {
-      timeStamp: true,
       createdAt: false,
     }
   );
 }
 function associate(models) {
-  const { postComments, user, post } = models;
-  post.hasMany(postComments, {
+  const { postComments, user, posts } = models;
+  posts.hasMany(postComments, {
     foreignKey: "postId",
   });
-  postComments.belongsTo(post, {
+  postComments.belongsTo(posts, {
     foreignKey: "postId",
   });
   user.hasMany(postComments, {

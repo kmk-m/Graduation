@@ -29,7 +29,6 @@ function init(connection) {
       },
     },
     {
-      timeStamp: true,
       createdAt: false,
     }
   );

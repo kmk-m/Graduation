@@ -3,7 +3,7 @@ import { UUIDV4 } from "sequelize";
 
 function init(connection) {
   connection.define(
-    "post",
+    "posts",
     {
       id: {
         type: dataType.UUID,
@@ -34,16 +34,15 @@ function init(connection) {
     {
       createdAt: true,
       updatedAt: false,
-      timeStamp: true,
     }
   );
 }
 function associate(models) {
-  const { user, post } = models;
-  user.hasMany(post, {
+  const { user, posts } = models;
+  user.hasMany(posts, {
     foreignKey: "userId",
   });
-  post.belongsTo(user, {
+  posts.belongsTo(user, {
     foreignKey: "userId",
   });
 }

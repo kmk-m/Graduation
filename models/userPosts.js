@@ -30,18 +30,17 @@ function init(connection) {
       },
     },
     {
-      timeStamp: true,
       createdAt: false,
       updatedAt: false,
     }
   );
 }
 function associate(models) {
-  const { userPosts, user, post, postComments, postReplies } = models;
-  post.hasOne(userPosts, {
+  const { userPosts, user, posts, postComments, postReplies } = models;
+  posts.hasOne(userPosts, {
     foreignKey: "postId",
   });
-  userPosts.belongsTo(post, {
+  userPosts.belongsTo(posts, {
     foreignKey: "postId",
   });
   postReplies.hasOne(userPosts, {
