@@ -15,18 +15,18 @@ import getPost from "../controllers/dashboard/getPost.js";
 import addFriend from "../controllers/dashboard/addFriend.js";
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log("jlkjkljkljk", file);
+    //("jlkjkljkljk", file);
 
     cb(null, __dirname + "../../../videos");
   },
   filename: (req, file, cb) => {
-    console.log("jlkjkljkljk", file);
+    //("jlkjkljkljk", file);
 
     cb(null, new Date().toISOString() + "-" + file.originalname);
   },
 });
 const filefilter = (req, file, cb) => {
-  console.log("jlkjkljkljk", file);
+  //("jlkjkljkljk", file);
   if (file.mimetype !== "video/mp4") {
     cb(null, false);
   } else {
@@ -39,7 +39,7 @@ router.use(
 router.get("/", (req, res) => {
   // PythonShell.run("./search.py", null, function (err) {
   //   if (err) throw err;
-  //   console.log("finished");
+  //   //("finished");
   // // });
   // let dataTosend;
   // const python = spawn("python3", ["./search.py"]);
@@ -50,7 +50,7 @@ router.get("/", (req, res) => {
   //   console.error(`stderr: ${data}`);
   // });
   // python.on("exit", (code) => {
-  //   console.log(`child process ${code}, ${dataTosend}`);
+  //   //(`child process ${code}, ${dataTosend}`);
   // });
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard page"
@@ -100,7 +100,7 @@ router.get("/data", dashboard, (req, res) => {
 // router.get("/:postId", (req, res) => {
 //   // PythonShell.run("./search.py", null, function (err) {
 //   //   if (err) throw err;
-//   //   console.log("finished");
+//   //   //("finished");
 //   // // });
 //   // let dataTosend;
 //   // const python = spawn("python3", ["./search.py"]);
@@ -111,7 +111,7 @@ router.get("/data", dashboard, (req, res) => {
 //   //   console.error(`stderr: ${data}`);
 //   // });
 //   // python.on("exit", (code) => {
-//   //   console.log(`child process ${code}, ${dataTosend}`);
+//   //   //(`child process ${code}, ${dataTosend}`);
 //   // });
 //   // #swagger.tags = ['HomePage']
 //   // #swagger.description = "to get dashboard page"
@@ -125,14 +125,14 @@ router.get("/data", dashboard, (req, res) => {
 //                 "message": "You cannot access this page before login",
 //             }
 //     } */
-//   console.log(3);
+//   //(3);
 
 //   res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
 // });
 router.get("/post/:postId", getPost.getPost, (req, res) => {
   // PythonShell.run("./search.py", null, function (err) {
   //   if (err) throw err;
-  //   console.log("finished");
+  //   //("finished");
   // // });
   // let dataTosend;
   // const python = spawn("python3", ["./search.py"]);
@@ -143,7 +143,7 @@ router.get("/post/:postId", getPost.getPost, (req, res) => {
   //   console.error(`stderr: ${data}`);
   // });
   // python.on("exit", (code) => {
-  //   console.log(`child process ${code}, ${dataTosend}`);
+  //   //(`child process ${code}, ${dataTosend}`);
   // });
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard page"
@@ -169,11 +169,10 @@ router.get("/comments/:postId", comment.getComments, (req, res) => {
     } */
 });
 router.get("/posts", getPost.getPosts, (req, res) => {
-  console.log(2);
-
+  //(2);
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get posts"
-  /*  #swagger.parameters['posts'] = {
+  /*  #swagger.parameters['postnum'] = {
             in: 'query',
             description: 'numberOfPostsNow...',
           

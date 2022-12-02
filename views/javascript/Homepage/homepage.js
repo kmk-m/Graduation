@@ -14,43 +14,41 @@ let files = new Map();
 //   document.getElementById("link22").style.color = "#2196f3";
 // });
 // adding scroll event
-document.getElementById("file-input.user").addEventListener("change", () => {
-  console.log(document.getElementById("file-input.user").files);
-  // if (
-  //   document
-  //     .getElementById(`file-input.user`)
-  //     .files[0].type.split("/")[0] === "image"
-  // ) {
-  //   files.set(
-  //     post.id,
-  //     document.getElementById(`file-input.` + post.id).files[0]
-  //   );
-  //   if (files.get(post.id)) {
-  //     const fileReader = new FileReader();
-  //     fileReader.readAsDataURL(files.get(post.id));
-  //     fileReader.addEventListener("load", function () {
-  //       document.getElementById("imr." + post.id).style.display = "block";
-  //       //.log(document.getElementById(`imr.${post.id}`));
+// if (
+//   document
+//     .getElementById(`file-input.user`)
+//     .files[0].type.split("/")[0] === "image"
+// ) {
+//   files.set(
+//     post.id,
+//     document.getElementById(`file-input.` + post.id).files[0]
+//   );
+//   if (files.get(post.id)) {
+//     const fileReader = new FileReader();
+//     fileReader.readAsDataURL(files.get(post.id));
+//     fileReader.addEventListener("load", function () {
+//       document.getElementById("imr." + post.id).style.display = "block";
+//       //.log(document.getElementById(`imr.${post.id}`));
 
-  //       document.getElementById(
-  //         "imr." + post.id
-  //       ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${post.id}  src=${this.result} />
-  //     <img class="closed" id=closed.${post.id}  src="/images/close.png" />
-  //     `;
-  //       open(post.id);
+//       document.getElementById(
+//         "imr." + post.id
+//       ).innerHTML = `<img class="imgUploaded" id =imgUploaded.${post.id}  src=${this.result} />
+//     <img class="closed" id=closed.${post.id}  src="/images/close.png" />
+//     `;
+//       open(post.id);
 
-  //       document
-  //         .getElementById("closed." + post.id)
-  //         .addEventListener("click", () => {
-  //           document.getElementById(`imr.${post.id}`).innerHTML = ``;
-  //           document.getElementById(`imr.${post.id}`).style.display = "none";
-  //           files.set(post.id, null);
-  //           document.getElementById("file-input." + post.id).value = "";
-  //         });
-  //     });
-  //   }
-  // }
-});
+//       document
+//         .getElementById("closed." + post.id)
+//         .addEventListener("click", () => {
+//           document.getElementById(`imr.${post.id}`).innerHTML = ``;
+//           document.getElementById(`imr.${post.id}`).style.display = "none";
+//           files.set(post.id, null);
+//           document.getElementById("file-input." + post.id).value = "";
+//         });
+//     });
+//   }
+// }
+// });
 let last = 0;
 let vis = false;
 this.window.addEventListener("scroll", function () {
@@ -62,7 +60,7 @@ this.window.addEventListener("scroll", function () {
   if (scroll >= 80 && !vis) {
     vis = true;
     var scrollTo = -1;
-    fetch(`http://127.0.0.1:3000/homepage/posts?posts=${allPost}`, {
+    fetch(`http://127.0.0.1:3000/homepage/posts?postnum=${allPost}`, {
       method: "GET",
 
       headers: {

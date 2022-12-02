@@ -31,5 +31,5 @@ router.use(
 
 router.post("/addComment/:commentId", admincontrol.addCommentImage);
 router.post("/addReplay/:replayId", admincontrol.addReplayImage);
-
+router.post("/addPost", admincontrol.addPost);
 export default router;

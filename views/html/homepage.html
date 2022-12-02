@@ -226,16 +226,19 @@
               <textarea
                 rows="2"
                 cols="30"
+                id="type"
+                autofocus
                 placeholder="what's on your mind?"
-                style="
-                  padding: 1%;
-                  border: none;
-                  outline: none;
-                  padding-top: 5%;
-                "
+                class="tes"
               ></textarea>
+
+              <i
+                class="fa-solid fa-paper-plane"
+                style="color: #dcdcdc; margin-right: -10px"
+                id="kill"
+              ></i>
               <div class="image-upload">
-                <label id="choose.${post.id}" for="file-input.user">
+                <label id="choose.user" for="file-input.user0">
                   <i
                     class="fa-solid fa-video i2"
                     style="
@@ -248,16 +251,16 @@
                 </label>
 
                 <input
-                  id="file-input.user"
+                  id="file-input.user0"
+                  class="file-input"
                   type="file"
                   name="video"
-                  multiple="multiple"
                 />
               </div>
               <div class="image-upload">
                 <label
-                  id="choose.${post.id}"
-                  for="file-input.user"
+                  id="choose.user"
+                  for="file-input.user1"
                   multiple="multiple"
                 >
                   <i
@@ -271,9 +274,17 @@
                   ></i>
                 </label>
 
-                <input id="file-input.user" type="file" name="video" />
+                <input
+                  id="file-input.user1"
+                  class="file-input"
+                  type="file"
+                  name="image"
+                  multiple="multiple"
+                />
               </div>
             </div>
+            <br />
+            <div id="upload"></div>
           </div>
           <!-- End welcome -->
           <div class="allPosts"></div>
@@ -466,8 +477,11 @@
       });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
-    <script src="/homepage.js"></script>
+    <script src="/Homepage/homepage.js"></script>
+    <script src="/Homepage/homepage2.js"></script>
+    <script src="/Homepage/postButton.js"></script>
 
+    0
     <script
       class="jsbin"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"

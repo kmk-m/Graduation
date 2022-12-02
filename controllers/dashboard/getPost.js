@@ -1,10 +1,10 @@
 import Responses from "../../util/response.js";
 async function getPost(req, res, next) {
   console.log(":yes");
-  const { post } = req.models;
+  const { posts } = req.models;
   const { postId } = req.params;
 
-  const valid = await post.findOne({
+  const valid = await posts.findOne({
     where: {
       id: postId,
     },
@@ -18,12 +18,12 @@ async function getPost(req, res, next) {
   }
 }
 async function getPosts(req, res, next) {
-  const { posts } = req.query;
-  const { post, postComments, postReplies } = req.models;
+  const { postnum } = req.query;
+  const { posts, postComments, postReplies } = req.models;
 
-  const Posts = await post.findAll({
+  const Posts = await posts.findAll({
     limit: 2,
-    offset: parseInt(posts),
+    offset: parseInt(postnum),
   });
   let allPosts = [];
   for (let post of Posts) {

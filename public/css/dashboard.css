@@ -1375,3 +1375,28 @@ emoji*/
 .i2:hover {
   background-color: #f7f8fa;
 }
+.upload {
+  display: flex;
+  flex-direction: columns;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #dbeaf7;
+  padding: 1%;
+}
+.iconPost:hover {
+  background-color: #2196f3;
+}
+.tes {
+  box-sizing: border-box;
+  display: block;
+  width: 300px;
+  min-height: 40px;
+  max-height: 350px;
+  padding: 10px;
+  margin-top: 4%;
+  overflow: hidden;
+  outline: none;
+  resize: none;
+  border: none;
+}

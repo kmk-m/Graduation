@@ -830,7 +830,7 @@
         "description": "to get posts",
         "parameters": [
           {
-            "name": "posts",
+            "name": "postnum",
             "in": "query",
             "description": "numberOfPostsNow...",
             "type": "string"
