@@ -7,6 +7,7 @@ fetch(`http://127.0.0.1:3000/exam/e9ea2a08-52dc-11ed-ac01-0045e21c18f1/data`, {
   .then((response) => response.json())
   .then((json) => data(json));
 let questions = [];
+let en;
 function data(json) {
   let name = json.data.Quiz.name;
   const para = document.createElement("div");
@@ -21,24 +22,29 @@ function data(json) {
   questions = json.data.Questions;
   question(json.data.Questions[0]);
   numberTime(json.data.Quiz.numberOfQuestions);
-  //let en=json.data.Quiz.numberOfQuestions;
+  en = json.data.Quiz.numberOfQuestions;
 }
-let st=1;
-function pre(){
-  if ( st>1 ) { st-=1;}
-   question(json.data.Questions[st]);
-   console.log("jbkj");
-}
-let en=json.data.Quiz.numberOfQuestions;
-function next() {
-  if ( st<en) { st+=1; }
-   question(json.data.Questions[st]);
-  console.log("jbk526j");
+let st = 1;
+function pre() {
+  if (st > 1) {
+    st -= 1;
+  }
+  question(questions[st - 1]);
 
+  // question(json.data.Questions[st]);
+  //log("jbkj");
+}
+
+function next() {
+  if (st < en) {
+    st += 1;
+  }
+  question(questions[st - 1]);
+  //log("jbk526j");
 }
 
 function question(question) {
-  console.log(question);
+  //log(question);
   document.querySelector(".quiz-area").innerHTML = `
   <div class="question">
   <h2>
@@ -142,22 +148,7 @@ function time(timequiz) {
   }, 1000);
 }
 /* quiz navigation block  */
-let check;
-let allBoxes = document.querySelectorAll(".noquest");
-
- // allBoxes.forEach((e) => {
-//   e.onclick = function () {
-//     console.log(check);
-//     if (typeof check !== "undefined") {
-//       document.getElementById(check).style.border = " 1px solid white";
-//       // e.style.border =" 1px solid #FCB500";
-//     }
-//     e.style.border = " 1px solid #FCB500";
-//     check = e.id;
-//     console.log(document.getElementById(`h.${e.id}`));
-//     scrollTo(document.getElementById(`toScroll.4`));
-//   };
-// });
+/*
 let allAns = document.querySelectorAll(".ans");
 allAns.forEach((e) => {
   e.onclick = function () {
@@ -165,25 +156,40 @@ allAns.forEach((e) => {
     document.getElementById(id).style.backgroundColor = "#2196F3";
   };
 });
+*/
 function numberTime(numcounter) {
-  for (let i = 1; i <= numcounter; i += 1) {
-    let numb = document.createElement("div");
-    numb.setAttribute("id", i);
+  //log(questions);
+  let numb;
+  let all = [];
+  console.log(numcounter);
+  for (let i = 0; i < numcounter; i += 1) {
+    numb = document.createElement("div");
+    console.log(questions[i]);
+    numb.setAttribute("id", questions[i].id);
     numb.className = "noquest";
     let sp = document.createElement("span");
-    sp.setAttribute("id", i);
+    sp.setAttribute("id", questions[i].id);
     let number = document.querySelector(".all");
-    sp.innerHTML = ` ${i} `;
+    sp.innerHTML = ` ${i + 1} `;
     numb.appendChild(sp);
     number.appendChild(numb);
-    numb.addEventListener("click", () => {
-      
-      numb.style = "border: 1px solid #2196F3";
-      question(questions[i]);
+    all.push(numb);
+
+  }
+  for (let i of all) {
+    document.getElementById(i.id).addEventListener("click", () => {
+      document.getElementById(i.id).style = "border:1px solid #2196F3";
+      question(questions[i.children[0].innerHTML - 1]);
+      for (let j of all) {
+        if (j.id != i.id) {
+          document.getElementById(j.id).style = "border:none";
+        }
+      }
     });
+    
   }
 }
-/*
+
 function changeColorans() {
   var element = document.getElementById("1");
   element.style.background = "#FCB500";
@@ -194,4 +200,5 @@ function changeColorans2() {
   element.style.background = "#FCB500";
   element.style.color = "#ffff";
 }
-*/
+/* api question */
+function questiontyp(type) {}
