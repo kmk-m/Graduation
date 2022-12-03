@@ -25,7 +25,7 @@ for (let i = 0; i < 2; i += 1) {
 
         document.getElementById("upload").innerHTML = `
          <div
-         style="width: 90%; display: flex; flex-direction: row-reverse;margin-left:10%"
+         style="width: 90%; display: flex; flex-direction: row-reverse;margin-left:10%" id="up"
        >
          <i
            class="fa-sharp fa-solid fa-xmark"

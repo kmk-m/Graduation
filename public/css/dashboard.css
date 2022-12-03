@@ -513,6 +513,7 @@ textarea {
   border-radius: 21px;
   padding: 5%;
   margin: 5% 5%;
+  position: relative;
   background-color: white;
   box-shadow: 0 0 10px #ddd;
 }
@@ -1399,4 +1400,39 @@ emoji*/
   outline: none;
   resize: none;
   border: none;
+}
+.uploading {
+  width: 5%;
+  margin-right: -4%;
+}
+.dots {
+  position: absolute;
+  right: 10%;
+  color: #282936;
+  cursor: pointer;
+  padding: 2%;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+.dots:hover {
+  background-color: #dcdcdc;
+}
+.userTab2 {
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  width: 40%;
+  padding: 5%;
+  color: gray;
+  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 0 0 5px gray;
+}
+.userTab2 li {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.userTab2 li:hover {
+  color: var(--main-color);
 }

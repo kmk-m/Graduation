@@ -1,29 +1,48 @@
 import Responses from "../../util/response.js";
 async function getPost(req, res, next) {
   console.log(":yes");
-  const { posts } = req.models;
+  const { posts, user, postImages } = req.models;
   const { postId } = req.params;
 
   const valid = await posts.findOne({
     where: {
       id: postId,
     },
-    attributes: ["id"],
+    include: [
+      {
+        model: user,
+      },
+      {
+        model: postImages,
+      },
+    ],
   });
-  console.log(":hello", valid);
+  let data = {
+    post: valid,
+    userId: req.userId,
+  };
   if (!valid) {
     return Responses.notFound(res, "post Not found");
   } else {
-    return Responses.success(res, "get Post Successfully", valid);
+    return Responses.success(res, "get Post Successfully", data);
   }
 }
 async function getPosts(req, res, next) {
   const { postnum } = req.query;
-  const { posts, postComments, postReplies } = req.models;
+  const { posts, postComments, postReplies, user, postImages } = req.models;
 
   const Posts = await posts.findAll({
     limit: 2,
     offset: parseInt(postnum),
+    include: [
+      {
+        model: user,
+      },
+      {
+        model: postImages,
+      },
+    ],
+    order: [["createdAt", "DESC"]],
   });
   let allPosts = [];
   for (let post of Posts) {

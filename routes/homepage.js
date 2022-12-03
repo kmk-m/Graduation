@@ -6,7 +6,7 @@ import dashboard from "../controllers/dashboard/dashboard.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import multer from "multer";
-
+import addPost from "../controllers/dashboard/addPost.js";
 import comment from "../controllers/dashboard/comment.js";
 import replay from "../controllers/dashboard/replay.js";
 
@@ -66,7 +66,7 @@ router.get("/", (req, res) => {
     } */
   res.sendFile(path.join(__dirname + "/../views/html/homepage.html"));
 });
-
+router.post("/post", addPost);
 router.get("/data", dashboard, (req, res) => {
   // #swagger.tags = ['HomePage']
   // #swagger.description = "to get dashboard data"
@@ -130,6 +130,7 @@ router.get("/data", dashboard, (req, res) => {
 //   res.sendFile(path.join(__dirname + "/../views/html/dashboard.html"));
 // });
 router.get("/post/:postId", getPost.getPost, (req, res) => {
+  console.log("kl");
   // PythonShell.run("./search.py", null, function (err) {
   //   if (err) throw err;
   //   //("finished");

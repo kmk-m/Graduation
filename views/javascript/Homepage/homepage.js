@@ -267,8 +267,7 @@ async function posts(allPosts, UserId) {
   });
 }
 
-function addPost(postt, UserId) {
-  console.log(postt.post.content);
+function addPost(postt, UserId, key) {
   const post = postt.post;
   post.userPost
     ? alreadyClicked.set(post.id, true)
@@ -280,20 +279,49 @@ function addPost(postt, UserId) {
     : (bool = true);
   const parent = document.querySelector(".allPosts");
   const post2 = document.createElement("div");
+  const d = new Date(post.createdAt);
+  let date = d.toString().split("GMT")[0];
   post2.className = "post";
   post2.innerHTML = `
   <div class="user">
   <img
-    src="/images/logo.png"
+    src=${post.user.image}
     width="40px"
     height="40px;"
   />
   <div class="info2" style="margin-top: -2.5%">
-    <h5 style="color: #2196f3">Learning Jobs</h5>
+    <h5 style="color: #2196f3">${
+      post.user.firstName + " " + post.user.lastName
+    }</h5>
     <p style="margin-top: -20px; color: #DCDCDC; font-size: small">
-      17 April at 18:07 PM
+      ${date}
     </p>
   </div>
+  <i class="fas fa-ellipsis-h dots" id=dots.${post.id}>
+  </i>
+  <div  class="userTab2 hide" id=dotsBox.${post.id}>
+              <ul>
+                <li style="padding: 5%">
+                <i class="fa-solid fa-pen"></i>  
+                <a style= "margin-left:8%">
+                  
+                  edit post</a>
+                </li>
+                <hr>
+                <li style="padding: 5%">
+                <i class="fa-sharp fa-solid fa-trash"></i>
+                                  <a style= "margin-left:8%">delete post</a>
+                </li>
+                <hr>
+
+                <li style="padding: 5%" >
+                <i class="fa-solid fa-link"></i>
+                  <a style="margin-left:8%">copy link</a>
+                </li>
+                <hr>
+
+              </ul>
+            </div>
 </div>
 
   <p style="white-space: pre-wrap; margin-top:0;display: inline-block;">
@@ -395,6 +423,7 @@ function addPost(postt, UserId) {
 
   
   `;
+
   let showMore = document.createElement("a");
   showMore.innerHTML = `
   showMore
@@ -420,9 +449,13 @@ function addPost(postt, UserId) {
   const emo = document.createElement("div");
   emo.className = "em";
   emo.setAttribute("id", `em.${post.id}`);
+  if (key) {
+    parent.insertBefore(post2, parent.children[0]);
+  } else {
+    parent.appendChild(post2);
 
-  parent.appendChild(post2);
-  post2.appendChild(showMore);
+    post2.appendChild(showMore);
+  }
   // parent.appendChild(showMore);
   const vote = document.getElementById("vote." + post.id);
   vote.addEventListener("click", () => {
@@ -498,6 +531,11 @@ function addPost(postt, UserId) {
         }
       }
     });
+  document.getElementById(`dots.${post.id}`).addEventListener("click", () => {
+    let dic = document.getElementById(`dotsBox.${post.id}`);
+    console.log(dic);
+    dic.classList.toggle("hide");
+  });
   document.getElementById(`share.${post.id}`).addEventListener("click", () => {
     document.querySelector(".copy").innerHTML = `
     <i class="fa-solid fa-square-check" style="color:#2196f3; margin-left:-20%;"></i>

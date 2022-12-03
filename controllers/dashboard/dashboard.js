@@ -17,6 +17,7 @@ async function dahsboard(req, res, next) {
       userInterests,
       categories,
       userFriends,
+      postImages,
     } = req.models;
 
     const singUp = await userInterests.findOne({
@@ -79,74 +80,16 @@ async function dahsboard(req, res, next) {
       // order: [[{ model: postComments }, "updatedAt", "ASC"]],
       limit: 2,
       offset: 0,
+      order: [["createdAt", "DESC"]],
 
-      // include: [
-      //   {
-      //     model: postComments,
-
-      //     attributes: [
-      //       "id",
-      //       "postId",
-      //       "comment",
-      //       "updatedAt",
-      //       "upvote",
-      //       "image",
-      //     ],
-      //     // subQuery: false,
-      //     // separate: true,
-      //     // subQuery: true,
-      //     // limit: 2,
-      //     order: [["updatedAt", "ASC"]],
-      // include: [
-      //   {
-      //     model: postReplies,
-      //     // offset: 0,
-      //     attributes: [
-      //       "id",
-      //       "commentId",
-      //       "reply",
-      //       "updatedAt",
-      //       "upvote",
-      //       "image",
-      //     ],
-      //     separate: false,
-      //     // subQuery: true,
-
-      //     limit: 2,
-      //     // order: [["updatedAt", "ASC"]],
-
-      //     // include: [
-      //     //   {
-      //     //     model: userPosts,
-      //     //     attributes: ["upVote"],
-      //     //   },
-      //     //   {
-      //     //     model: user,
-      //     //     attributes: [
-      //     //       "userId",
-      //     //       "firstName",
-      //     //       "lastName",
-      //     //       "bio",
-      //     //       "image",
-      //     //     ],
-      //     //   },
-      //     // ],
-      //   },
-      //   {
-      //     model: user,
-      //     attributes: ["userId", "firstName", "lastName", "bio", "image"],
-      //   },
-      //   {
-      //     model: userPosts,
-      //     attributes: ["upVote"],
-      //   },
-      // ],
-      //   },
-      //   {
-      //     model: userPosts,
-      //     attributes: ["upVote"],
-      //   },
-      // ],
+      include: [
+        {
+          model: user,
+        },
+        {
+          model: postImages,
+        },
+      ],
     });
     let allPost = [];
     for (let post of Posts) {

@@ -17,19 +17,26 @@ const fileStorage = multer.diskStorage({
     cb(null, new Date().toISOString() + "-" + req.userId + "-" + orginFile);
   },
 });
-const filefilter = (req, file, cb) => {
-  if (file.mimetype !== "image/png" && file.mimetype !== "image/jpg") {
-    cb(null, false);
-  } else {
-    cb(null, true);
-  }
-};
-router.use(
-  multer({ storage: fileStorage, fileFilter: filefilter }).single("video")
-);
+// const filefilter = (req, file, cb) => {
+//   if (file.mimetype !== "image/png" && file.mimetype !== "image/jpg") {
+//     cb(null, false);
+//   } else {
+//     cb(null, true);
+//   }
+// };
+const upload = multer({ storage: fileStorage });
+
 //********** */
 
-router.post("/addComment/:commentId", admincontrol.addCommentImage);
-router.post("/addReplay/:replayId", admincontrol.addReplayImage);
-router.post("/addPost", admincontrol.addPost);
+router.post(
+  "/addComment/:commentId",
+  upload.single("video"),
+  admincontrol.addCommentImage
+);
+router.post(
+  "/addReplay/:replayId",
+  upload.single("video"),
+  admincontrol.addReplayImage
+);
+router.post("/addPost/:postId", upload.single("video"), admincontrol.addPost);
 export default router;
