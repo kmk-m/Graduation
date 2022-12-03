@@ -1,0 +1,347 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Cairo", sans-serif;
+
+}
+
+.page {
+    width: 100%;
+    height: 100%
+}
+
+.grade {
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    background-color: #F7F8FA;
+    position: absolute;
+    top: 0;
+}
+
+.gra {
+    color: #DCDCDC;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.topic {
+    color: #DCDCDC;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    margin-left: 27%;
+    margin-top: -3%;
+}
+
+.line {
+    border: 1px solid #D8D8D8;
+    width: 90%;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.box1 {
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+    margin-left: 7%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 4px 40px 0px #0000000D;
+}
+
+.quiz1 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.percent1 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.date1 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.status1 {
+    color: #00CB08;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 15%;
+    margin-top: 4%;
+}
+
+.smallgrade1 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: -63%;
+    margin-top: 10%;
+}
+
+.smalldate1 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 13%;
+    margin-top: 10%;
+}
+
+.smallstatus1 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 22%;
+    margin-top: 10%;
+}
+
+.box2 {
+    width: 30%;
+    height: 80%;
+    padding: 10px;
+    margin-left: 5%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 4px 40px 0px #0000000D;
+}
+
+.quiz2 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.percent2 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.date2 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.status2 {
+    color: #FF0000;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 15%;
+    margin-top: 4%;
+}
+
+.smallgrade2 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: -59%;
+    margin-top: 10%;
+}
+
+.smalldate2 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 12%;
+    margin-top: 10%;
+}
+
+.smallstatus2 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.box3 {
+    width: 30%;
+    height: 80%;
+    padding: 10px;
+    margin-left: -69%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 4px 40px 0px #0000000D;
+}
+
+.quiz3 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.percent3 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.date3 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.status3 {
+    color: #00CB08;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 15%;
+    margin-top: 4%;
+}
+
+.smallgrade3 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: -62%;
+    margin-top: 10%;
+}
+
+.smalldate3 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 12%;
+    margin-top: 10%;
+}
+
+.smallstatus3 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.box4 {
+    width: 30%;
+    height: 80%;
+    padding: 10px;
+    margin-left: 5%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 4px 40px 0px #0000000D;
+}
+
+.quiz4 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.percent4 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.date4 {
+    color: #FCB500;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.status4 {
+    color: #FF0000;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 15%;
+    margin-top: 4%;
+}
+
+.smallgrade4 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: -59%;
+    margin-top: 10%;
+}
+
+.smalldate4 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 12%;
+    margin-top: 10%;
+}
+
+.smallstatus4 {
+    color: #BCBCBC;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20%;
+    margin-top: 10%;
+}
